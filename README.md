@@ -4,6 +4,8 @@ Site: https://business.constructor.university/guillemots/ · Rankings: https://c
 
 Every page of the site is a file in `pages/`. Change the file, merge to `main`, and GitHub publishes it to the site within about a minute. Don't use the WordPress editor: the next publish overwrites it.
 
+How that works: GitHub Actions is GitHub's built-in way to run a script automatically when something happens in the repo. Ours (`wp-publish`) starts whenever `pages/` changes on `main`. It logs in to WordPress and copies the files into the matching pages. So the WordPress site is a copy of this repo, and the repo is the original.
+
 ## Edit without Git
 
 1. Open a file in `pages/` on GitHub and click the pencil icon.
@@ -19,7 +21,7 @@ cd dmfseo
 git commit -am "Short description" && git push
 ```
 
-Then check the **Actions** tab: `wp-publish` green means the site is updated.
+Then open the **Actions** tab on GitHub: a green `wp-publish` run means the site is updated. A red one means publishing failed, so open it to see why.
 
 ## Edit with Claude Code on the web
 
