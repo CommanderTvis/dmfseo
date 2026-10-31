@@ -25,11 +25,16 @@ def main(data_dir):
     creds = service_account.Credentials.from_service_account_info(
         json.loads(cred), scopes=["https://www.googleapis.com/auth/webmasters.readonly"])
     end = date.today()
-    resp = AuthorizedSession(creds).post(
+    sess = AuthorizedSession(creds)
+    resp = sess.post(
         f"https://www.googleapis.com/webmasters/v3/sites/{quote(site, safe='')}/searchAnalytics/query",
         json={"startDate": str(end - timedelta(days=28)), "endDate": str(end),
               "dimensions": ["date", "query", "page"], "rowLimit": 5000})
-    resp.raise_for_status()
+    if not resp.ok:
+        print(f"Search Console {resp.status_code}: {resp.text[:300]}", file=sys.stderr)
+        sites = sess.get("https://www.googleapis.com/webmasters/v3/sites")
+        print(f"service account {creds.service_account_email} can see: {sites.text[:500]}", file=sys.stderr)
+        sys.exit(1)
     path = os.path.join(data_dir, "gsc.csv")
     rows = {}
     if os.path.exists(path):

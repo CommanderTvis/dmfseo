@@ -22,6 +22,7 @@ jobs:
         env:
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
       - name: Search Console
+        continue-on-error: true
         run: uv run scripts/gsc.py site/data
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
