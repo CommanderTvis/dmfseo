@@ -43,6 +43,8 @@ def main(mode, dry):
                 "content": open(path).read()}
         have = {"title": page["title"]["raw"], "slug": page["slug"], "status": page["status"],
                 "content": page["content"]["raw"]}
+        if "template" in m:
+            want["template"], have["template"] = m["template"], page.get("template", "")
         diff = [k for k in want if want[k] != have[k]]
         if not diff:
             print(f"ok      {m['id']} {m['slug']}")
