@@ -28,3 +28,7 @@ Outcome: A push to `main` goes live in about a minute.
 Action: Daily rank check and dashboard (https://commandertvis.github.io/dmfseo/).
 Reason: Evidence for results.
 Outcome: Baseline on Google: "grohnpetrel" #2 in US, #6 in DE and GB; quoted "grohnpetrel" #2 everywhere; other queries not in top 10. Puffins #1. Not in DuckDuckGo results.
+
+Action: Meta descriptions and social sharing tags on every page, from our own small piece of PHP code, published from GitHub like the pages and run by the free Code Snippets plugin. No off-the-shelf SEO plugin.
+Reason: The site had no meta descriptions or social sharing tags. The description is what Google may show under our link.
+Outcome: Pending.

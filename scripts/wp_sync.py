@@ -3,9 +3,11 @@
 # ///
 """Sync WordPress pages with pages/. Usage: wp_sync.py pull|push [--dry-run]
 
-pages/site.json holds the front page and navigation menus (by ID).
-pages/manifest.json maps each page ID to a file, title, slug and status. Pages are
-always addressed by ID and only ever updated, never created, so a run cannot
+pages/site.json holds the front page and navigation menus (by ID), the wordpress.org
+plugins to keep active, and our own PHP snippets (run by the Code Snippets plugin).
+pages/manifest.json maps each page ID to a file, title, slug and status, plus the
+optional "description" and "seo_title" that snippets/seo-head.php puts in the page head.
+Pages are always addressed by ID and only ever updated, never created, so a run cannot
 produce duplicates. Needs WP_USER and WP_APP_PASSWORD; WP_URL is optional.
 """
 import base64, json, os, sys, urllib.error, urllib.request
@@ -16,9 +18,9 @@ AUTH = "Basic " + base64.b64encode(
     f"{os.environ['WP_USER']}:{os.environ['WP_APP_PASSWORD']}".encode()).decode()
 
 
-def api(method, path, body=None):
+def api(method, path, body=None, ns="wp/v2"):
     req = urllib.request.Request(
-        f"{BASE}/wp-json/wp/v2/{path}", method=method,
+        f"{BASE}/wp-json/{ns}/{path}", method=method,
         data=json.dumps(body).encode() if body is not None else None,
         headers={"Authorization": AUTH, "Content-Type": "application/json",
                  "User-Agent": "dmfseo-sync"})
@@ -32,6 +34,8 @@ def api(method, path, body=None):
 def main(mode, dry):
     manifest = json.load(open(os.path.join(PAGES, "manifest.json")))
     failed = False
+    if mode == "push":
+        code(dry)
     for m in manifest:
         page = api("GET", f"pages/{m['id']}?context=edit")
         path = os.path.join(PAGES, m["file"])
@@ -45,6 +49,9 @@ def main(mode, dry):
                 "content": page["content"]["raw"]}
         if "template" in m:
             want["template"], have["template"] = m["template"], page.get("template", "")
+        want["meta"] = {"grohnpetrel_description": m.get("description", ""),
+                        "grohnpetrel_title": m.get("seo_title", "")}
+        have["meta"] = {k: (page.get("meta") or {}).get(k, "") for k in want["meta"]}
         diff = [k for k in want if want[k] != have[k]]
         if not diff:
             print(f"ok      {m['id']} {m['slug']}")
@@ -59,6 +66,52 @@ def main(mode, dry):
             failed = True
     site(mode, dry)
     sys.exit(1 if failed else 0)
+
+
+def code(dry):
+    """wordpress.org plugins and our PHP snippets (pages/site.json), set up before the pages."""
+    cfg = json.load(open(os.path.join(PAGES, "site.json")))
+    have = {p["plugin"]: p["status"] for p in api("GET", "plugins")}
+    ready = True
+    for p in cfg.get("plugins", []):
+        if have.get(p) == "active":
+            print(f"ok      plugin {p}")
+            continue
+        verb = "activate" if p in have else "install"
+        print(f"{'would ' + verb if dry else verb} plugin {p}")
+        if dry:
+            ready = False
+        elif p in have:
+            api("POST", f"plugins/{p}", {"status": "active"})
+        else:
+            api("POST", "plugins", {"slug": p.split("/")[0], "status": "active"})
+    ns = "code-snippets/v1"
+    for s in cfg.get("snippets", []):
+        src = open(os.path.join(PAGES, s["file"])).read().strip().removeprefix("<?php").strip()
+        if not ready:
+            print(f"would create snippet {s['name']!r}")
+            continue
+        found = [x for x in api("GET", "snippets?per_page=100", ns=ns)
+                 if x["name"] == s["name"] and not x.get("trashed")]
+        if not found:
+            print(f"{'would create' if dry else 'create'} snippet {s['name']!r}")
+            if dry:
+                continue
+            snip = api("POST", "snippets", {"name": s["name"], "code": src, "scope": "global",
+                                            "desc": "Published from GitHub (dmfseo repo, " + s["file"]
+                                                    + "). Edit there, not here."}, ns=ns)
+        else:
+            snip = found[0]
+            if snip["code"].strip().removeprefix("<?php").strip() == src:
+                print(f"ok      snippet {s['name']!r}")
+            else:
+                print(f"{'would update' if dry else 'update'} snippet {s['name']!r}")
+                if not dry:
+                    snip = api("POST", f"snippets/{snip['id']}", {"code": src}, ns=ns)
+        if not snip["active"]:
+            print(f"{'would activate' if dry else 'activate'} snippet {s['name']!r}")
+            if not dry:
+                api("POST", f"snippets/{snip['id']}/activate", ns=ns)
 
 
 def site(mode, dry):

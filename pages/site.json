@@ -1,5 +1,12 @@
 {
   "front_page_id": 78,
+  "plugins": ["code-snippets/code-snippets"],
+  "snippets": [
+    {
+      "name": "Grohnpetrel SEO head",
+      "file": "../snippets/seo-head.php"
+    }
+  ],
   "navigation": [
     {
       "id": 4,
