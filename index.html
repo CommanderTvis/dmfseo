@@ -73,7 +73,7 @@ const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[
   const byDay={};gsc.forEach(r=>{(byDay[r.date]??=[0,0]);byDay[r.date][0]+= +r.clicks;byDay[r.date][1]+= +r.impressions});
   const gd=Object.keys(byDay).sort();
   new Chart(document.getElementById('gsc'),{type:'bar',data:{labels:gd,datasets:[{label:'impressions',data:gd.map(d=>byDay[d][1]),backgroundColor:'#bbb'},{label:'clicks',data:gd.map(d=>byDay[d][0]),backgroundColor:'#222'}]},options:{maintainAspectRatio:false}});
-  if(!gsc.length)document.getElementById('gscnote').textContent='No Search Console data yet (GSC_SERVICE_ACCOUNT_JSON secret not set, or the property has no data yet).';
+  if(!gsc.length)document.getElementById('gscnote').textContent='No Search Console data yet. It arrives 2-3 days after the site is first indexed, once the connection works.';
 
   const t=document.getElementById('latest'), ctl=document.getElementById('controls');
   const dates2=[...new Set(res.map(r=>r.date))].sort().reverse();
