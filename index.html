@@ -25,7 +25,7 @@
   <ul id="cards"></ul>
 
   <hr>
-  <h2>Our Google rank over time</h2>
+  <h2>Our rank over time (Google, Brave)</h2>
   <div class="chart"><canvas id="rank"></canvas></div>
   <p class="note">Rank 1 is the top. Gaps mean we were not in the top 10 for that check. One line per country and query.</p>
 
@@ -51,7 +51,7 @@ const COLORS=['#222','#d9822b','#4c9f70','#8e5ba8','#c0392b','#3d7ab8','#a89a2c'
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 (async()=>{
   const res=await load('data/results.csv'), gsc=await load('data/gsc.csv');
-  const g=res.filter(r=>r.engine=='google');
+  const g=res.filter(r=>r.engine=='google'||r.engine=='brave');
   const cards=document.getElementById('cards');
   const card=(v,l)=>cards.insertAdjacentHTML('beforeend',`<li><b>${v}</b> ${l}</li>`);
   if(!res.length){cards.innerHTML='<li>No data yet.</li>';return}
@@ -65,9 +65,9 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
   const c28=gsc.reduce((a,r)=>[a[0]+ +r.clicks,a[1]+ +r.impressions],[0,0]);
   card(gsc.length?c28[0]:'–','GSC clicks (28 days)'); card(gsc.length?c28[1]:'–','GSC impressions (28 days)');
 
-  const dates=[...new Set(g.map(r=>r.date))].sort(), keys=[...new Set(g.map(r=>r.country+' · '+r.query))];
+  const dates=[...new Set(g.map(r=>r.date))].sort(), keys=[...new Set(g.map(r=>r.engine+' · '+r.country+' · '+r.query))];
   new Chart(document.getElementById('rank'),{type:'line',data:{labels:dates,datasets:keys.map((k,i)=>({label:k,borderColor:COLORS[i%9],backgroundColor:COLORS[i%9],tension:.2,spanGaps:false,
-    data:dates.map(d=>{const x=g.filter(r=>r.date==d&&r.country+' · '+r.query==k).pop();return x&&x.our_rank?+x.our_rank:null})}))},
+    data:dates.map(d=>{const x=g.filter(r=>r.date==d&&r.engine+' · '+r.country+' · '+r.query==k).pop();return x&&x.our_rank?+x.our_rank:null})}))},
     options:{maintainAspectRatio:false,scales:{y:{reverse:true,min:1,max:10,title:{display:true,text:'rank'}}}}});
 
   const byDay={};gsc.forEach(r=>{(byDay[r.date]??=[0,0]);byDay[r.date][0]+= +r.clicks;byDay[r.date][1]+= +r.impressions});
