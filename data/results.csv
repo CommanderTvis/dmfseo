@@ -1,0 +1,17 @@
+date,time_utc,engine,country,query,our_rank,our_url,top_url,rival_ranks,n_results
+2026-10-31,18:40,google,de,grohnpetrel,6,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:2,9
+2026-10-31,18:40,google,de,what is grohnpetrel,,,https://business.constructor.university/puffins/,puffins:1;puffins:3,10
+2026-10-31,18:40,google,de,grohnpetrel seabird,,,https://business.constructor.university/puffins/,puffins:1,9
+2026-10-31,18:40,google,us,grohnpetrel,2,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:7,10
+2026-10-31,18:40,google,us,what is grohnpetrel,,,https://business.constructor.university/puffins/,puffins:1,10
+2026-10-31,18:40,google,us,grohnpetrel seabird,,,https://www.facebook.com/groups/389757312916643/posts/1271802748045424/,,9
+2026-10-31,18:40,google,gb,grohnpetrel,6,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:2,10
+2026-10-31,18:40,google,gb,what is grohnpetrel,,,https://business.constructor.university/puffins/,puffins:1;puffins:3,9
+2026-10-31,18:40,google,gb,grohnpetrel seabird,,,https://www.wildlifetrusts.org/wildlife-explorer/birds/seabirds/storm-petrel,puffins:7,10
+2026-10-31,18:40,duckduckgo,de,grohnpetrel,,,https://en.wikipedia.org/wiki/Giant_petrel,,7
+2026-10-31,18:40,duckduckgo,de,what is grohnpetrel,,,https://en.wikipedia.org/wiki/Giant_petrel,,10
+2026-10-31,18:40,duckduckgo,de,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Giant_petrel,,7
+2026-10-31,18:40,duckduckgo,us,grohnpetrel,,,https://en.wikipedia.org/wiki/Giant_petrel,,7
+2026-10-31,18:40,duckduckgo,us,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Procellariiformes,,7
+2026-10-31,18:40,duckduckgo,gb,grohnpetrel,,,https://en.wikipedia.org/wiki/Giant_petrel,,7
+2026-10-31,18:40,duckduckgo,gb,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Procellariiformes,,7
