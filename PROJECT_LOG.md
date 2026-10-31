@@ -10,8 +10,8 @@ Outcome: Pages existed only as drafts. The site also had a technical problem at 
 
 ## 2026-10-30 to 2026-10-31
 
-Action: Replaced the AI drafts with new hand-written pages, pasted manually into WordPress (What is Grohnpetrel?, Mission, Seabird Conservation: Threats and Challenges, Take Action, Programmes, Knowledge Centre, FAQ, front page).
-Reason: The first drafts were generic. We wanted content built around the topic and our own wording.
+Action: Pasted the AI-written draft text manually into WordPress pages (What is Grohnpetrel?, Mission, Seabird Conservation: Threats and Challenges, Take Action, Programmes, Knowledge Centre, FAQ, front page).
+Reason: Get the draft text into the site's pages for review and editing.
 Outcome: Still drafts, not public. The SEO / AEO / GEO Lab page is still empty.
 
 ## 2026-10-31
