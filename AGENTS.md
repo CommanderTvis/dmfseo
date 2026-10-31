@@ -15,4 +15,4 @@ The site is a fictional coastal-conservation / seabird-education project. It is 
 ## Rules
 
 - Writing to the site or sending anything to external services only when the user asks.
-- Log every SEO or content change (action, date, reason, outcome) for the Teams project log.
+- Maintain `PROJECT_LOG.md`: add an entry (action, date, reason, outcome) for every SEO or content change, and fill in outcomes when they become known. Entries are copied to the Teams project log.
