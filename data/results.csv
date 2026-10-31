@@ -15,3 +15,20 @@ date,time_utc,engine,country,query,our_rank,our_url,top_url,rival_ranks,n_result
 2026-10-31,18:40,duckduckgo,us,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Procellariiformes,,7
 2026-10-31,18:40,duckduckgo,gb,grohnpetrel,,,https://en.wikipedia.org/wiki/Giant_petrel,,7
 2026-10-31,18:40,duckduckgo,gb,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Procellariiformes,,7
+2026-10-31,18:56,google,de,grohnpetrel,5,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:2,9
+2026-10-31,18:56,google,de,"""grohnpetrel""",2,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:3,3
+2026-10-31,18:56,google,de,what is grohnpetrel,,,https://business.constructor.university/puffins/,puffins:1;puffins:3,10
+2026-10-31,18:56,google,de,grohnpetrel seabird,,,https://business.constructor.university/puffins/,puffins:1,10
+2026-10-31,18:56,google,us,grohnpetrel,2,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:5,9
+2026-10-31,18:56,google,us,"""grohnpetrel""",2,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:3,3
+2026-10-31,18:56,google,us,what is grohnpetrel,,,https://business.constructor.university/puffins/,puffins:1;puffins:9,9
+2026-10-31,18:56,google,us,grohnpetrel seabird,,,https://business.constructor.university/puffins/,puffins:1,9
+2026-10-31,18:56,google,gb,grohnpetrel,2,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:6,10
+2026-10-31,18:56,google,gb,"""grohnpetrel""",2,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:3,3
+2026-10-31,18:56,google,gb,what is grohnpetrel,,,https://business.constructor.university/puffins/,puffins:1;puffins:2,10
+2026-10-31,18:56,google,gb,grohnpetrel seabird,,,https://www.instagram.com/p/DNSw4DauzQC/?hl=en,puffins:10,10
+2026-10-31,18:56,duckduckgo,de,grohnpetrel,,,https://en.wikipedia.org/wiki/Giant_petrel,,10
+2026-10-31,18:56,duckduckgo,de,"""grohnpetrel""",,,https://www.globypet.com/about.html,,7
+2026-10-31,18:56,duckduckgo,de,what is grohnpetrel,,,https://en.wikipedia.org/wiki/Giant_petrel,,7
+2026-10-31,18:56,duckduckgo,us,"""grohnpetrel""",,,https://www.globypet.com/about.html,,7
+2026-10-31,18:56,duckduckgo,gb,"""grohnpetrel""",,,https://www.globypet.com/about.html,,7
