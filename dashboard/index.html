@@ -48,7 +48,7 @@ function parseCSV(t){const rows=[];let r=[],f='',q=false;for(let i=0;i<t.length;
   const h=rows.shift()||[];return rows.filter(x=>x.length==h.length).map(x=>Object.fromEntries(h.map((k,i)=>[k,x[i]])))}
 async function load(u){try{const r=await fetch(u,{cache:'no-store'});return r.ok?parseCSV(await r.text()):[]}catch(e){return[]}}
 const COLORS=['#222','#d9822b','#4c9f70','#8e5ba8','#c0392b','#3d7ab8','#a89a2c','#777','#e0679b'];
-const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 (async()=>{
   const res=await load('data/results.csv'), gsc=await load('data/gsc.csv');
   const g=res.filter(r=>r.engine=='google');
