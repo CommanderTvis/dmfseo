@@ -25,13 +25,14 @@ After a push, check the **Actions** tab: `wp-publish` green means the site is up
 
 ### With an AI agent
 
-Any agent that can edit files in the cloned repo works (Claude Code, Codex, Cursor, …). Tell it what you want and point it at `pages/`. It reads `AGENTS.md` for the project background. Example requests:
+Easiest: Claude Code on the web, https://claude.ai/code. Sign in, connect GitHub, pick this repo, and describe the change. Nothing to install, and it works on a branch it creates for you. Any other agent that edits files in a clone of the repo also works. The agent reads `AGENTS.md` for the project background. Example requests:
+Example requests:
 
 - "Rewrite the intro of pages/grohnpetrel-faq.html so the first sentence answers 'What is Grohnpetrel?'"
 - "Check every internal link in pages/ against the slugs in pages/manifest.json."
 - "Add FAQPage structured data to the FAQ page."
 
-Review its diff before pushing, because anything pushed to `main` goes live. It writes plausible text that can be wrong, so check facts. To get a teammate's review first, work on a branch and open a pull request, then merge it.
+Review its diff before merging, because anything that reaches `main` goes live. It writes plausible text that can be wrong, so check facts. Changes land on a branch first: open a pull request, get a teammate to look, then merge.
 
 ## Rules
 
