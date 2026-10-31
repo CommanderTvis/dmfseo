@@ -1,3 +1,0 @@
-# Grohnpetrel SEO / AEO / GEO Lab (modified 2026-10-31 00:20)
-
-(Empty.)

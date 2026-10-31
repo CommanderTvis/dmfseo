@@ -8,7 +8,7 @@ Marking (from the slides): 80% presentation (results and analysis 30, strategy 2
 
 ## Day 1 (31 Oct): get discovered
 
-1. Fix the blocking defects in the drafts (see `portal-drafts/`): front page has no H1, three dead buttons, stray asterisks, "Accidental Fishing" is not a heading, empty trailing heading.
+1. Fix the blocking defects in the drafts (see `pages/`): front page has no H1, three dead buttons, stray asterisks, "Accidental Fishing" is not a heading, empty trailing heading.
 2. Fill the SEO / AEO / GEO Lab page with a minimum viable version, or leave it out of the menu for now.
 3. Set slugs so the existing internal links resolve.
 4. Publish all pages. Check Settings → Reading: "Discourage search engines" must be off. Menu must link every page.

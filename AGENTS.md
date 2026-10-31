@@ -8,7 +8,9 @@ The site is a fictional coastal-conservation / seabird-education project. It is 
 
 - `DMFSEO 07 SEO 2026.pdf`: lecture slides with the assignment, marking criteria, and project-log rules.
 - `PLAN.md`: schedule and experiments.
-- `portal-drafts/`: text of the current site pages, one Markdown file per page, named `<WordPress ID>-<slug>.md`. Extracted from the WordPress admin on 31 Oct 2026, a snapshot. The live site is the source of truth.
+- `pages/`: the site's pages as WordPress block HTML, one file per page, plus `manifest.json` (page ID, title, slug, status). This is the source of truth: edit here, never in the WordPress editor.
+- `scripts/wp_sync.py` and `.github/workflows/wp-publish.yml`: push `pages/` to WordPress by page ID (update only, never creates pages). A push to `main` that touches `pages/` publishes live. `wp-pull.yml` copies the live HTML back into `pages/` if someone edited the site directly.
+- `scripts/collect.py`, `scripts/gsc.py`, `.github/workflows/daily-check.yml`, `dashboard/`: daily rank tracker. Results and the dashboard live on the `gh-pages` branch (https://commandertvis.github.io/dmfseo/).
 
 ## Rules
 
