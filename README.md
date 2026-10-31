@@ -23,15 +23,22 @@ git commit -am "Short description of the change" && git push
 
 After a push, check the **Actions** tab: `wp-publish` green means the site is updated. Red means open the log and fix it.
 
-### With an AI agent
+### With an AI agent (step by step)
 
-Easiest: Claude Code on the web, https://claude.ai/code. Sign in, connect GitHub, pick this repo, and describe the change. Nothing to install, and it works on a branch it creates for you. Any other agent that edits files in a clone of the repo also works. The agent reads `AGENTS.md` for the project background. Example requests:
+Claude Code on the web needs no installation. Any other agent that edits files in a clone of the repo also works.
 
-- "Rewrite the intro of pages/grohnpetrel-faq.html so the first sentence answers 'What is Grohnpetrel?'"
-- "Check every internal link in pages/ against the slugs in pages/manifest.json."
-- "Add FAQPage structured data to the FAQ page."
+1. Get a GitHub account. Skip this if you have one. Otherwise sign up for free at https://github.com/signup.
+2. Get access to this repo. Send the maintainer your GitHub username and ask to be added as a collaborator. Accept the invitation in the email GitHub sends you (or at https://github.com/CommanderTvis/dmfseo).
+3. Sign in at https://claude.ai (create an account if you don't have one). Claude Code is only available on some plans, so if https://claude.ai/code doesn't open for you, ask which plan the team uses.
+4. Open https://claude.ai/code and connect GitHub when asked. You are sent to GitHub to install the Claude app. Choose "Only select repositories" and tick `dmfseo`, so it can't see your other repos. Then return to Claude.
+5. Select the `CommanderTvis/dmfseo` repo and describe the change in plain language. The agent reads `AGENTS.md` for the project background. Example requests:
+   - "Rewrite the intro of pages/grohnpetrel-faq.html so the first sentence answers 'What is Grohnpetrel?'"
+   - "Check every internal link in pages/ against the slugs in pages/manifest.json."
+   - "Add FAQPage structured data to the FAQ page."
+6. Read the changes it shows you. It can write plausible text that is wrong, so check the facts and ask it to fix anything off.
+7. Have it open a pull request. Ask a teammate to look at it, then merge it. Merging to `main` publishes to the live site, and the `wp-publish` run in the **Actions** tab should turn green.
 
-Review its diff before merging, because anything that reaches `main` goes live. It writes plausible text that can be wrong, so check facts. Changes land on a branch first: open a pull request, get a teammate to look, then merge.
+The menus and button names change from time to time. If a step doesn't match what you see, follow the on-screen prompts or ask the team.
 
 ## Rules
 
