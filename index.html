@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grohnpetrel SEO Tracker</title>
+<style>
+  :root { --bg:#fff; --fg:#1b2a2f; --muted:#5d6f75; --card:#eef4f4; --line:#d3e0e0; --accent:#124e5a; --warn:#b4531a; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#10191c; --fg:#e4eded; --muted:#93a8ad; --card:#1a272b; --line:#2b3e43; --accent:#5fb8c8; --warn:#e8934f; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.5 system-ui,sans-serif; }
+  main { max-width:960px; margin:0 auto; padding:24px 16px 48px; }
+  h1 { font-size:1.5rem; margin:0 0 4px; } h2 { font-size:1.1rem; margin:32px 0 8px; }
+  p.sub { color:var(--muted); margin:0 0 20px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:12px; }
+  .card { background:var(--card); border-radius:10px; padding:12px 14px; }
+  .card b { display:block; font-size:1.6rem; color:var(--accent); } .card span { color:var(--muted); font-size:.85rem; }
+  .chart { position:relative; height:280px; background:var(--card); border-radius:10px; padding:10px; }
+  table { width:100%; border-collapse:collapse; font-size:.85rem; }
+  th,td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); vertical-align:top; word-break:break-word; }
+  .scroll { overflow-x:auto; } .none { color:var(--warn); } .note { color:var(--muted); font-size:.85rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Grohnpetrel SEO Tracker</h1>
+  <p class="sub">Team Guillemots · business.constructor.university/guillemots · updated daily from GitHub Actions</p>
+
+  <div class="cards" id="cards"></div>
+
+  <h2>Our Google rank over time</h2>
+  <div class="chart"><canvas id="rank"></canvas></div>
+  <p class="note">Rank 1 is the top. Gaps mean we were not in the top 10 for that check. One line per country and query.</p>
+
+  <h2>Search Console: clicks and impressions</h2>
+  <div class="chart"><canvas id="gsc"></canvas></div>
+  <p class="note" id="gscnote"></p>
+
+  <h2>Latest check</h2>
+  <div class="scroll"><table id="latest"></table></div>
+  <p class="note">Rivals: other teams' pages in the same top 10 (team:position). Results come from datacenter IPs and are not personalised.</p>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+function parseCSV(t){const rows=[];let r=[],f='',q=false;for(let i=0;i<t.length;i++){const c=t[i];
+  if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
+  else if(c=='"')q=true;else if(c==','){r.push(f);f=''}
+  else if(c=='\n'){r.push(f);rows.push(r);r=[];f=''}else if(c!='\r')f+=c}
+  if(f||r.length){r.push(f);rows.push(r)}
+  const h=rows.shift()||[];return rows.filter(x=>x.length==h.length).map(x=>Object.fromEntries(h.map((k,i)=>[k,x[i]])))}
+async function load(u){try{const r=await fetch(u,{cache:'no-store'});return r.ok?parseCSV(await r.text()):[]}catch(e){return[]}}
+const COLORS=['#124e5a','#d9822b','#4c9f70','#8e5ba8','#c0392b','#3d7ab8','#a89a2c','#777','#e0679b'];
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+(async()=>{
+  const res=await load('data/results.csv'), gsc=await load('data/gsc.csv');
+  const g=res.filter(r=>r.engine=='google');
+  const cards=document.getElementById('cards');
+  const card=(v,l)=>cards.insertAdjacentHTML('beforeend',`<div class="card"><b>${v}</b><span>${l}</span></div>`);
+  if(!res.length){cards.innerHTML='<p>No data yet. The first run will fill this in.</p>';return}
+  const last=res[res.length-1].date, latest=res.filter(r=>r.date==last);
+  const lg=latest.filter(r=>r.engine=='google'&&r.query=='grohnpetrel');
+  const ranks=lg.map(r=>+r.our_rank).filter(Boolean);
+  card(ranks.length?Math.min(...ranks):'not in top 10','best Google rank, "grohnpetrel" ('+last+')');
+  card(lg.filter(r=>r.our_rank).length+'/'+lg.length,'countries where we rank');
+  const rv=new Set(lg.flatMap(r=>r.rival_ranks?r.rival_ranks.split(';').map(x=>x.split(':')[0]):[]));
+  card(rv.size,'rival team sites in the top 10');
+  const c28=gsc.reduce((a,r)=>[a[0]+ +r.clicks,a[1]+ +r.impressions],[0,0]);
+  card(gsc.length?c28[0]:'–','GSC clicks (28 days)'); card(gsc.length?c28[1]:'–','GSC impressions (28 days)');
+
+  const dates=[...new Set(g.map(r=>r.date))].sort(), keys=[...new Set(g.map(r=>r.country+' · '+r.query))];
+  new Chart(document.getElementById('rank'),{type:'line',data:{labels:dates,datasets:keys.map((k,i)=>({label:k,borderColor:COLORS[i%9],backgroundColor:COLORS[i%9],tension:.2,spanGaps:false,
+    data:dates.map(d=>{const x=g.filter(r=>r.date==d&&r.country+' · '+r.query==k).pop();return x&&x.our_rank?+x.our_rank:null})}))},
+    options:{maintainAspectRatio:false,scales:{y:{reverse:true,min:1,max:10,title:{display:true,text:'rank'}}}}});
+
+  const byDay={};gsc.forEach(r=>{(byDay[r.date]??=[0,0]);byDay[r.date][0]+= +r.clicks;byDay[r.date][1]+= +r.impressions});
+  const gd=Object.keys(byDay).sort();
+  new Chart(document.getElementById('gsc'),{type:'bar',data:{labels:gd,datasets:[{label:'impressions',data:gd.map(d=>byDay[d][1]),backgroundColor:'#9fc5cc'},{label:'clicks',data:gd.map(d=>byDay[d][0]),backgroundColor:'#124e5a'}]},options:{maintainAspectRatio:false}});
+  if(!gsc.length)document.getElementById('gscnote').textContent='No Search Console data yet (GSC_SERVICE_ACCOUNT_JSON secret not set, or the property has no data yet).';
+
+  const t=document.getElementById('latest');
+  t.innerHTML='<tr><th>Engine</th><th>Country</th><th>Query</th><th>Our rank</th><th>Rivals</th><th>Top result</th></tr>'+
+    latest.map(r=>`<tr><td>${esc(r.engine)}</td><td>${esc(r.country)}</td><td>${esc(r.query)}</td><td class="${r.our_rank?'':'none'}">${r.our_rank||'not in top 10'}</td><td>${esc(r.rival_ranks)}</td><td>${esc(r.top_url)}</td></tr>`).join('');
+})();
+</script>
+</body>
+</html>
