@@ -1,71 +1,42 @@
 # Grohnpetrel: Guillemots SEO project
 
-Course project for DMFSEO (Constructor University, Fall 2026). We compete with other teams to rank for the invented search term "Grohnpetrel", then present results and a merchandise marketing plan. The marks and deadlines are in the lecture slides and in `PLAN.md`.
+We want https://business.constructor.university/guillemots/ to rank first for "Grohnpetrel" against the other teams, and to be cited by AI assistants. Course context: DMFSEO, Constructor University. Plan: [`PLAN.md`](PLAN.md). Live ranking: https://commandertvis.github.io/dmfseo/
 
-- Live site: https://business.constructor.university/guillemots/
-- Ranking dashboard: https://commandertvis.github.io/dmfseo/ (updated daily)
-- Schedule and experiments: [`PLAN.md`](PLAN.md)
+## How to contribute
 
-## How this repo works
+Every page of the site is a file in `pages/`. Change the file, push to `main`, and GitHub publishes it to the site within about a minute. The WordPress editor is not used: anything edited there gets overwritten by the next publish.
 
-This repo, not the WordPress editor, is the source of truth for the site's pages. You change a page here, and GitHub publishes it.
+### Without Git (easiest)
+
+1. Open a file in `pages/` on GitHub and click the pencil icon.
+2. Edit the text. Leave the `<!-- wp:… -->` comments in place.
+3. Commit directly to `main`.
+
+### With Git
 
 ```
-pages/*.html   the pages, as WordPress block HTML
-pages/manifest.json   page ID, title, slug, status (publish/draft) for each page
-        │  push to main
-        ▼
-GitHub Action "wp-publish"  →  updates the matching WordPress page by ID
+git clone git@github.com:CommanderTvis/dmfseo.git
+cd dmfseo
+# edit pages/*.html
+git commit -am "Short description of the change" && git push
 ```
 
-- Pages are matched by their WordPress ID, so a run only updates existing pages. It never creates new ones, so you can't get duplicates.
-- Don't edit pages in the WordPress editor. A later publish would overwrite your edit. If someone already did, run the `wp-pull` workflow first: it copies the live HTML back into `pages/`.
-- To add a new page, make an empty draft in WordPress, then add it to `manifest.json` with its ID. Ask in the team chat if unsure.
-- A page with `"status": "draft"` is not published.
+After a push, check the **Actions** tab: `wp-publish` green means the site is updated. Red means open the log and fix it.
 
-## Changing a page
+### With an AI agent
 
-The normal Git flow works. You need a GitHub account with access to this repo.
+Any agent that can edit files in the cloned repo works (Claude Code, Codex, Cursor, …). Tell it what you want and point it at `pages/`. It reads `AGENTS.md` for the project background. Example requests:
 
-1. Pull the latest: `git pull`.
-2. Edit the HTML file in `pages/`. Keep the `<!-- wp:… -->` comments around each block. They are what lets the WordPress editor show proper blocks.
-3. Commit and push to `main`. The push publishes to the live site within about a minute.
-4. Check the run in the **Actions** tab of the GitHub repo (`wp-publish`). Green means done. Red means open the log.
+- "Rewrite the intro of pages/grohnpetrel-faq.html so the first sentence answers 'What is Grohnpetrel?'"
+- "Check every internal link in pages/ against the slugs in pages/manifest.json."
+- "Add FAQPage structured data to the FAQ page."
 
-To see what would change without publishing: Actions → `wp-publish` → Run workflow → leave "dry run" ticked.
+Review its diff before pushing, because anything pushed to `main` goes live. It writes plausible text that can be wrong, so check facts. To get a teammate's review first, work on a branch and open a pull request, then merge it.
 
-Every change should also go into the Teams project log: what, when, why, outcome. The log is 20% of the mark.
+## Rules
 
-## The daily rank check
-
-The Action `daily-check` runs every day at 06:00 UTC. It searches Google (Germany, US, UK) and DuckDuckGo for "grohnpetrel" and two variants, records where we rank and where other teams rank, and pulls Search Console numbers. Results are stored on the `gh-pages` branch and shown on the dashboard. You can start it by hand from the Actions tab. DuckDuckGo results are unreliable, and Bing is not covered.
-
-## Secrets (maintainers only)
-
-Stored under repo Settings → Secrets and variables → Actions. Never put keys in files or chat.
-
-| Secret | For |
-|---|---|
-| `SERPER_API_KEY` | Google search results (serper.dev) |
-| `WP_USER`, `WP_APP_PASSWORD` | publishing to WordPress (an Application Password, not the login password) |
-| `GSC_SERVICE_ACCOUNT_JSON` | Search Console data (optional; skipped if missing) |
-
-## Using Claude Code in this repo
-
-Claude Code is an AI assistant that runs in your terminal and works directly on your files. Unlike a chat window, it can read this repo, edit files, and run commands such as `git` and `gh`.
-
-1. Install it: `npm install -g @anthropic-ai/claude-code`, or follow the current instructions at https://claude.com/claude-code.
-2. Clone the repo, open a terminal in it, and run `claude`. Sign in the first time.
-3. Describe what you want in plain language, for example:
-   - "Rewrite the intro of pages/grohnpetrel-faq.html to answer 'what is Grohnpetrel' in one sentence"
-   - "Check all internal links in pages/ against the slugs in manifest.json"
-   - "Add FAQPage structured data to the FAQ page"
-4. It shows its edits and asks permission before running commands. Read what it proposes. Reject anything you don't understand.
-
-The file `AGENTS.md` is the briefing the assistant reads about this project. Keep it short and up to date.
-
-Good habits:
-- Ask it to make changes on a branch and open a pull request if you want a teammate to review before publishing, since anything merged to `main` goes live.
-- Check the result in the browser. The assistant can write plausible but wrong text, so verify facts and claims on the pages.
-- It doesn't remember earlier sessions unless the information is written in the repo, so put decisions in `PLAN.md` or `AGENTS.md`.
-- Don't paste passwords or API keys into it.
+- Keep the disclaimer that Grohnpetrel is a fictional academic project, not an NGO, and takes no donations.
+- Write each change into the Teams project log: what, when, why, and the outcome later. The log is 20% of the mark, and entries written afterwards score low.
+- Change one thing at a time where you can, so we can tell what moved the ranking.
+- A new page needs an empty draft created in WordPress and an entry in `pages/manifest.json` with its ID. Ask in the team chat.
+- Don't add keys or passwords to any file.
