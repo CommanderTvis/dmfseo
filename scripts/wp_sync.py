@@ -3,6 +3,7 @@
 # ///
 """Sync WordPress pages with pages/. Usage: wp_sync.py pull|push [--dry-run]
 
+pages/site.json holds the front page and navigation menus (by ID).
 pages/manifest.json maps each page ID to a file, title, slug and status. Pages are
 always addressed by ID and only ever updated, never created, so a run cannot
 produce duplicates. Needs WP_USER and WP_APP_PASSWORD; WP_URL is optional.
@@ -54,7 +55,33 @@ def main(mode, dry):
             print(f"  WARNING: WordPress gave slug {res['slug']!r}, wanted {m['slug']!r} (taken by another page?)",
                   file=sys.stderr)
             failed = True
+    site(mode, dry)
     sys.exit(1 if failed else 0)
+
+
+def site(mode, dry):
+    """Front page setting and navigation menus (pages/site.json)."""
+    cfg = json.load(open(os.path.join(PAGES, "site.json")))
+    for n in cfg["navigation"]:
+        path = os.path.join(PAGES, n["file"])
+        have = api("GET", f"navigation/{n['id']}?context=edit")["content"]["raw"]
+        if mode == "pull":
+            open(path, "w").write(have)
+            print(f"pulled navigation {n['id']} -> {n['file']}")
+        elif open(path).read() == have:
+            print(f"ok      navigation {n['id']}")
+        else:
+            print(f"{'would update' if dry else 'update'} navigation {n['id']}")
+            if not dry:
+                api("POST", f"navigation/{n['id']}", {"content": open(path).read()})
+    if mode == "push":
+        s = api("GET", "settings")
+        if s["show_on_front"] == "page" and s["page_on_front"] == cfg["front_page_id"]:
+            print("ok      front page")
+        else:
+            print(f"{'would set' if dry else 'set'} front page to {cfg['front_page_id']}")
+            if not dry:
+                api("POST", "settings", {"show_on_front": "page", "page_on_front": cfg["front_page_id"]})
 
 
 if __name__ == "__main__":

@@ -1,0 +1,13 @@
+{
+  "front_page_id": 78,
+  "navigation": [
+    {
+      "id": 4,
+      "file": "navigation-main.html"
+    },
+    {
+      "id": 38,
+      "file": "navigation-footer-learn.html"
+    }
+  ]
+}
