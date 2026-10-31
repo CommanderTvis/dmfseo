@@ -1,0 +1,22 @@
+name: wp-pull
+# One-off/manual: copy the current page HTML from WordPress into pages/ and commit it.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv run scripts/wp_sync.py pull
+        env:
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pages
+          git diff --cached --quiet || git commit -m "Pull page HTML from WordPress"
+          git push

@@ -1,0 +1,25 @@
+name: wp-publish
+on:
+  push:
+    branches: [main]
+    paths: ["pages/**", "scripts/wp_sync.py"]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Only show what would change"
+        type: boolean
+        default: true
+permissions:
+  contents: read
+concurrency:
+  group: wp-publish
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv run scripts/wp_sync.py push ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '--dry-run' || '' }}
+        env:
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
