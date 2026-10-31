@@ -1,0 +1,35 @@
+name: daily-check
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: daily-check
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: site
+      - uses: astral-sh/setup-uv@v5
+      - name: Search ranks
+        run: uv run scripts/collect.py site/data
+        env:
+          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+      - name: Search Console
+        run: uv run scripts/gsc.py site/data
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      - name: Publish
+        run: |
+          cp dashboard/index.html site/index.html
+          cd site
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "data $(date -u +%F)" && git push
