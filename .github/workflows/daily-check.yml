@@ -21,6 +21,7 @@ jobs:
         run: uv run scripts/collect.py site/data
         env:
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+          BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
       - name: Search Console
         continue-on-error: true
         run: uv run scripts/gsc.py site/data

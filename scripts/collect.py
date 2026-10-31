@@ -4,13 +4,13 @@
 # ///
 """Daily rank check. Usage: collect.py <data_dir>
 
-Google via Serper.dev (needs SERPER_API_KEY), DuckDuckGo via the unofficial ddgs
+Google via Serper.dev (SERPER_API_KEY), Brave via its API (BRAVE_API_KEY), DuckDuckGo via the unofficial ddgs
 library (best effort). Appends one row per engine/country/query to results.csv and
 stores the raw top-10 as JSON.
 """
 import csv, json, os, sys, time, urllib.request
 from datetime import datetime, timezone
-from urllib.parse import urlparse
+from urllib.parse import urlencode, urlparse
 
 OUR = "business.constructor.university/guillemots"
 HOST = "business.constructor.university"
@@ -28,6 +28,16 @@ def google(q, gl):
         headers={"X-API-KEY": os.environ["SERPER_API_KEY"], "Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=30) as r:
         return [x["link"] for x in json.load(r).get("organic", [])]
+
+
+def brave(q, country):
+    time.sleep(1.2)  # free tier: 1 request per second
+    url = "https://api.search.brave.com/res/v1/web/search?" + urlencode(
+        {"q": q, "country": country.upper(), "search_lang": "en", "count": 10})
+    req = urllib.request.Request(url, headers={
+        "X-Subscription-Token": os.environ["BRAVE_API_KEY"], "Accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return [x["url"] for x in json.load(r).get("web", {}).get("results", [])]
 
 
 def ddg(q, region):
@@ -68,6 +78,10 @@ def main(data_dir):
         jobs += [("google", c, q, lambda q=q, c=c: google(q, c)) for c in GOOGLE_COUNTRIES for q in QUERIES]
     else:
         print("SERPER_API_KEY not set, skipping Google")
+    if os.environ.get("BRAVE_API_KEY"):
+        jobs += [("brave", c, q, lambda q=q, c=c: brave(q, c)) for c in GOOGLE_COUNTRIES for q in QUERIES]
+    else:
+        print("BRAVE_API_KEY not set, skipping Brave")
     jobs += [("duckduckgo", c, q, lambda q=q, c=c: ddg(q, DDG_REGIONS[c]))
              for c in GOOGLE_COUNTRIES if c in DDG_REGIONS for q in QUERIES]
     with open(path, "a", newline="") as f:
