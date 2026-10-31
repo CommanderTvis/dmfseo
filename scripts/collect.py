@@ -14,7 +14,7 @@ from urllib.parse import urlparse
 
 OUR = "business.constructor.university/guillemots"
 HOST = "business.constructor.university"
-QUERIES = os.environ.get("QUERIES", "grohnpetrel|what is grohnpetrel|grohnpetrel seabird").split("|")
+QUERIES = os.environ.get("QUERIES", 'grohnpetrel|"grohnpetrel"|what is grohnpetrel|grohnpetrel seabird').split("|")
 GOOGLE_COUNTRIES = os.environ.get("COUNTRIES", "de,us,gb").split(",")
 DDG_REGIONS = {"de": "de-de", "us": "us-en", "gb": "uk-en"}
 FIELDS = ["date", "time_utc", "engine", "country", "query", "our_rank", "our_url",
@@ -81,7 +81,7 @@ def main(data_dir):
                             engine=engine, country=country, query=q, our_rank=rank or "",
                             our_url=our_url or "", top_url=urls[0] if urls else "",
                             rival_ranks=rivals, n_results=len(urls)))
-            name = f"{engine}-{country}-{q.replace(' ', '_')}-{now.strftime('%H%M')}.json"
+            name = f"{engine}-{country}-{''.join(ch if ch.isalnum() else '_' for ch in q)}-{now.strftime('%H%M')}.json"
             json.dump(urls, open(os.path.join(raw_dir, name), "w"), indent=1)
             print(f"{engine} {country} {q!r}: ours={rank} rivals={rivals}")
     if os.environ.get("SERPER_API_KEY") and google_ok == 0:
