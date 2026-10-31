@@ -8,7 +8,7 @@ Google via Serper.dev (needs SERPER_API_KEY), DuckDuckGo via the unofficial ddgs
 library (best effort). Appends one row per engine/country/query to results.csv and
 stores the raw top-10 as JSON.
 """
-import csv, json, os, sys, urllib.request
+import csv, json, os, sys, time, urllib.request
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
@@ -32,7 +32,13 @@ def google(q, gl):
 
 def ddg(q, region):
     from ddgs import DDGS
-    return [x["href"] for x in DDGS().text(q, region=region, max_results=10)]
+    for attempt in range(3):
+        try:
+            return [x["href"] for x in DDGS().text(q, region=region, max_results=10, backend="duckduckgo")]
+        except Exception:
+            if attempt == 2:
+                raise
+            time.sleep(4)
 
 
 def analyse(urls):
