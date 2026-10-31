@@ -33,7 +33,8 @@
   <div class="chart"><canvas id="gsc"></canvas></div>
   <p class="note" id="gscnote"></p>
 
-  <h2>Latest check</h2>
+  <h2>Checks</h2>
+  <p id="controls" class="note"></p>
   <div class="scroll"><table id="latest"></table></div>
   <p class="note">Rivals: other teams' pages in the same top 10 (team:position). Results come from datacenter IPs and are not personalised.</p>
 </main>
@@ -74,9 +75,32 @@ const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[
   new Chart(document.getElementById('gsc'),{type:'bar',data:{labels:gd,datasets:[{label:'impressions',data:gd.map(d=>byDay[d][1]),backgroundColor:'#bbb'},{label:'clicks',data:gd.map(d=>byDay[d][0]),backgroundColor:'#222'}]},options:{maintainAspectRatio:false}});
   if(!gsc.length)document.getElementById('gscnote').textContent='No Search Console data yet (GSC_SERVICE_ACCOUNT_JSON secret not set, or the property has no data yet).';
 
-  const t=document.getElementById('latest');
-  t.innerHTML='<tr><th>Engine</th><th>Country</th><th>Query</th><th>Our rank</th><th>Rivals</th><th>Top result</th></tr>'+
-    latest.map(r=>`<tr><td>${esc(r.engine)}</td><td>${esc(r.country)}</td><td>${esc(r.query)}</td><td class="${r.our_rank?'':'none'}">${r.our_rank||'not in top 10'}</td><td>${esc(r.rival_ranks)}</td><td>${esc(r.top_url)}</td></tr>`).join('');
+  const t=document.getElementById('latest'), ctl=document.getElementById('controls');
+  const dates2=[...new Set(res.map(r=>r.date))].sort().reverse();
+  const st={date:dates2[0],engine:'',country:'',query:'',group:'',sort:'',dir:1};
+  const opts=(k,vals,extra)=>`<select data-k="${k}">${extra||''}${vals.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join('')}</select>`;
+  const uniq=k=>[...new Set(res.map(r=>r[k]))].sort();
+  ctl.innerHTML='Date '+opts('date',dates2,'<option value="">all</option>')+' Engine '+opts('engine',uniq('engine'),'<option value="">all</option>')+
+    ' Country '+opts('country',uniq('country'),'<option value="">all</option>')+' Query '+opts('query',uniq('query'),'<option value="">all</option>')+
+    ' Group by <select data-k="group"><option value="">none</option><option>engine</option><option>country</option><option>query</option><option>date</option></select>';
+  ctl.querySelector('[data-k=date]').value=st.date;
+  ctl.onchange=e=>{st[e.target.dataset.k]=e.target.value;draw()};
+  const COLS=[['date','Date'],['engine','Engine'],['country','Country'],['query','Query'],['our_rank','Our rank'],['rival_ranks','Rivals'],['top_url','Top result']];
+  const rk=r=>r.our_rank?+r.our_rank:99;
+  const short=u=>u.replace(/^https?:\/\/(www\.)?/,'').slice(0,60);
+  function draw(){
+    let rows=res.filter(r=>(!st.date||r.date==st.date)&&(!st.engine||r.engine==st.engine)&&(!st.country||r.country==st.country)&&(!st.query||r.query==st.query));
+    const key=st.sort, gk=st.group;
+    rows.sort((x,y)=>(gk?String(x[gk]).localeCompare(y[gk]):0)||(key?(key=='our_rank'?rk(x)-rk(y):String(x[key]).localeCompare(y[key]))*st.dir:0));
+    let h='<tr>'+COLS.map(([k,l])=>`<th style="cursor:pointer" data-s="${k}">${l}${st.sort==k?(st.dir>0?' ▲':' ▼'):''}</th>`).join('')+'</tr>', prev=null;
+    for(const r of rows){
+      if(gk&&r[gk]!==prev){prev=r[gk];const n=rows.filter(x=>x[gk]===prev), rs=n.map(rk).filter(v=>v<99);
+        h+=`<tr><td colspan="7"><b>${esc(gk)}: ${esc(prev)}</b> <span class="note">· ${n.length} checks · ranked in ${rs.length}${rs.length?' · best '+Math.min(...rs):''}</span></td></tr>`}
+      h+=`<tr><td>${esc(r.date)}</td><td>${esc(r.engine)}</td><td>${esc(r.country)}</td><td>${esc(r.query)}</td><td class="${r.our_rank?'':'none'}">${r.our_rank||'not in top 10'}</td><td>${esc(r.rival_ranks.split(';').join(', '))}</td><td><a href="${esc(r.top_url)}">${esc(short(r.top_url))}</a></td></tr>`}
+    t.innerHTML=h||'<tr><td>No rows</td></tr>';
+  }
+  t.onclick=e=>{const k=e.target.dataset&&e.target.dataset.s;if(!k)return;st.dir=st.sort==k?-st.dir:1;st.sort=k;draw()};
+  draw();
 })();
 </script>
 </body>
