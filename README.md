@@ -26,7 +26,6 @@ After a push, check the **Actions** tab: `wp-publish` green means the site is up
 ### With an AI agent
 
 Easiest: Claude Code on the web, https://claude.ai/code. Sign in, connect GitHub, pick this repo, and describe the change. Nothing to install, and it works on a branch it creates for you. Any other agent that edits files in a clone of the repo also works. The agent reads `AGENTS.md` for the project background. Example requests:
-Example requests:
 
 - "Rewrite the intro of pages/grohnpetrel-faq.html so the first sentence answers 'What is Grohnpetrel?'"
 - "Check every internal link in pages/ against the slugs in pages/manifest.json."
