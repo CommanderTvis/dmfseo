@@ -8,12 +8,6 @@ Action: Created the first draft pages for the site (Home, About, FAQ, Knowledge 
 Reason: Get a first content structure in place for the "Grohnpetrel" topic.
 Outcome: Pages existed only as drafts. The site also had a technical problem at the time: the server blocked Googlebot, so Google could not crawl it even if the pages had been public.
 
-## 2026-10-30 to 2026-10-31
-
-Action: Pasted the AI-written draft text manually into WordPress pages (What is Grohnpetrel?, Mission, Seabird Conservation: Threats and Challenges, Take Action, Programmes, Knowledge Centre, FAQ, front page).
-Reason: Get the draft text into the site's pages for review and editing.
-Outcome: Still drafts, not public. The SEO / AEO / GEO Lab page is still empty.
-
 ## 2026-10-31
 
 Action: Fixed the Googlebot block on the server.
