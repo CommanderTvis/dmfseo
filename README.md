@@ -31,7 +31,7 @@ Claude Code on the web needs no installation. Any other agent that edits files i
 2. Get access to this repo. Send the maintainer your GitHub username and ask to be added as a collaborator. Accept the invitation in the email GitHub sends you (or at https://github.com/CommanderTvis/dmfseo).
 3. Sign in at https://claude.ai (create an account if you don't have one). Claude Code is only available on some plans, so if https://claude.ai/code doesn't open for you, ask which plan the team uses.
 4. Open https://claude.ai/code and connect GitHub when asked. You are sent to GitHub to install the Claude app. Choose "Only select repositories" and tick `dmfseo`, so it can't see your other repos. Then return to Claude.
-5. Select the `CommanderTvis/dmfseo` repo and describe the change in plain language. The agent reads `AGENTS.md` for the project background. Example requests:
+5. Select the `CommanderTvis/dmfseo` repo and describe the change in plain language. Example requests:
    - "Rewrite the intro of pages/grohnpetrel-faq.html so the first sentence answers 'What is Grohnpetrel?'"
    - "Check every internal link in pages/ against the slugs in pages/manifest.json."
    - "Add FAQPage structured data to the FAQ page."
