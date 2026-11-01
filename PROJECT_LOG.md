@@ -73,11 +73,11 @@ Outcome (1 Nov): Google re-crawled the front page at 03:50 UTC, after the change
 
 ---
 
-**Action:** Submitted the sitemap (https://business.constructor.university/guillemots/wp-sitemap.xml) in Search Console.
+**Action:** Submitted the sitemap (https://business.constructor.university/guillemots/wp-sitemap.xml) in Search Console, and made every publish from GitHub resubmit it automatically.
 
-**Reason:** Only the front page is indexed; the other 7 pages are unknown to Google, and no sitemap had been submitted.
+**Reason:** Only the front page is indexed; the other 7 pages are unknown to Google, and no sitemap had been submitted. WordPress updates the sitemap itself, but Google only re-reads it on its own schedule; resubmitting tells it there is new content.
 
-**Outcome:** Accepted, no errors; Google has not processed it yet.
+**Outcome:** Accepted, no errors; Google has not processed it yet. The automatic resubmit works (tested by hand). Google treats it as a hint, so pages may still take days to be indexed.
 
 ---
 
@@ -86,11 +86,3 @@ Action: Moved the default WordPress "Sample Page" (`/sample-page/`) to the trash
 Reason: Placeholder text, published and listed in the sitemap; it would only add a thin page to Google's view of the site.
 
 Outcome: Done. The URL returns 404 and the sitemap no longer lists it.
-
----
-
-Action: Every publish from GitHub now resubmits the sitemap to Search Console automatically.
-
-Reason: WordPress updates the sitemap itself, but Google only re-reads it on its own schedule. Resubmitting tells it there is new content.
-
-Outcome: Works (tested by hand). Google treats it as a hint, so pages may still take days to be indexed.
