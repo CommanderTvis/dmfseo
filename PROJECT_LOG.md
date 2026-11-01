@@ -85,4 +85,4 @@ Action: Moved the default WordPress "Sample Page" (`/sample-page/`) to the trash
 
 Reason: Placeholder text, published and listed in the sitemap; it would only add a thin page to Google's view of the site.
 
-Outcome: Pending.
+Outcome: Done. The URL returns 404 and the sitemap no longer lists it.
