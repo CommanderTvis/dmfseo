@@ -78,11 +78,3 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 **Reason:** Only the front page is indexed; the other 7 pages are unknown to Google, and no sitemap had been submitted. WordPress updates the sitemap itself, but Google only re-reads it on its own schedule; resubmitting tells it there is new content.
 
 **Outcome:** Accepted, no errors; Google has not processed it yet. The automatic resubmit works (tested by hand). Google treats it as a hint, so pages may still take days to be indexed.
-
----
-
-**Action:** Moved the default WordPress "Sample Page" (`/sample-page/`) to the trash.
-
-**Reason:** Placeholder text, published and listed in the sitemap; it would only add a thin page to Google's view of the site.
-
-**Outcome:** Done. The URL returns 404 and the sitemap no longer lists it.
