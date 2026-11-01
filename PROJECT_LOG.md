@@ -50,7 +50,7 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 
 **Reason:** The site had no meta descriptions or social sharing tags. The description is what Google may show under our link.
 
-Outcome (1 Nov): Google re-crawled the front page at 03:50 UTC, after the change, so it has the new description. Whether Google shows it in results is not measured yet. The other 7 pages are still unknown to Google (Search Console URL Inspection), so their descriptions have no effect so far. Ranks went up the same day, but a meta description is not a ranking factor, so the rise is not attributed to this change.
+**Outcome (1 Nov):** Google re-crawled the front page at 03:50 UTC, after the change, so it has the new description. Whether Google shows it in results is not measured yet. The other 7 pages are still unknown to Google (Search Console URL Inspection), so their descriptions have no effect so far. Ranks went up the same day, but a meta description is not a ranking factor, so the rise is not attributed to this change.
 
 ---
 
@@ -81,8 +81,8 @@ Outcome (1 Nov): Google re-crawled the front page at 03:50 UTC, after the change
 
 ---
 
-Action: Moved the default WordPress "Sample Page" (`/sample-page/`) to the trash.
+**Action:** Moved the default WordPress "Sample Page" (`/sample-page/`) to the trash.
 
-Reason: Placeholder text, published and listed in the sitemap; it would only add a thin page to Google's view of the site.
+**Reason:** Placeholder text, published and listed in the sitemap; it would only add a thin page to Google's view of the site.
 
-Outcome: Done. The URL returns 404 and the sitemap no longer lists it.
+**Outcome:** Done. The URL returns 404 and the sitemap no longer lists it.
