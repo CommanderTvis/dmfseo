@@ -42,7 +42,7 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 
 **Reason:** Evidence for results.
 
-**Outcome:** Baseline on Google: "grohnpetrel" #2 in US, #6 in DE and GB; quoted "grohnpetrel" #2 everywhere; other queries not in top 10. Puffins #1. Not in DuckDuckGo results.
+**Outcome:** Baseline on Google: "grohnpetrel" #2 in 🇺🇸, #6 in 🇩🇪 and 🇬🇧; quoted "grohnpetrel" #2 everywhere; other queries not in top 10. Puffins #1. Not in DuckDuckGo results.
 
 ---
 
@@ -62,12 +62,12 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 
 **Outcome:**
 
-- Google, "grohnpetrel": #1 in GB, #2 in DE, #3 in US.
+- Google, "grohnpetrel": #1 in 🇬🇧, #2 in 🇩🇪, #3 in 🇺🇸.
 - Google, quoted "grohnpetrel": #2 everywhere.
 - Google, "grohnpetrel seabird": #1 everywhere.
-- Google, "what is grohnpetrel": #1 in DE, #3 in US, #4 in GB (neither was in the top 10 in the baseline).
+- Google, "what is grohnpetrel": #1 in 🇩🇪, #3 in 🇺🇸, #4 in 🇬🇧 (neither was in the top 10 in the baseline).
 - Only our front page ranks, no other page.
-- Puffins still #1 for "grohnpetrel" in US and DE and for quoted "grohnpetrel".
+- Puffins still #1 for "grohnpetrel" in 🇺🇸 and 🇩🇪 and for quoted "grohnpetrel".
 - Brave and DuckDuckGo: not in results.
 - Search Console: no data yet.
 
