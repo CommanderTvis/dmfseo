@@ -13,9 +13,13 @@
   ul#cards { padding-left:1.2em; } ul#cards b { font-weight:700; }
   h3 { font-size:1rem; margin:20px 0 4px; }
   .chart { position:relative; height:260px; }
-  .legend { font-size:.85rem; color:#555; } .legend div { margin:2px 0; }
-  .legend span.item { display:inline-flex; align-items:center; gap:6px; margin-right:14px; white-space:nowrap; }
-  .legend .sw { display:inline-block; width:14px; height:14px; border-radius:3px; }
+  .legend { font-size:.85rem; color:#555; display:flex; flex-wrap:wrap; align-items:center; gap:4px; margin:4px 0 8px; }
+  .legend span { display:inline-block; min-width:26px; text-align:center; border-radius:3px; padding:1px 4px; }
+  .gridwrap { overflow-x:auto; }
+  table.rank { width:auto; font-variant-numeric:tabular-nums; }
+  table.rank th, table.rank td { padding:4px 6px; border-bottom:1px solid #eee; white-space:nowrap; vertical-align:middle; }
+  table.rank td.r { text-align:center; min-width:34px; border:2px solid #fff; border-radius:4px; }
+  table.rank tr.q td { border-top:1px solid #ccc; }
   table { width:100%; border-collapse:collapse; font-size:.85rem; }
   th,td { text-align:left; padding:6px 8px; border-bottom:1px solid #ccc; vertical-align:top; }
   .scroll { overflow-x:auto; width:min(1200px,calc(100vw - 40px)); position:relative; left:50%; transform:translateX(-50%); }
@@ -33,12 +37,10 @@
   <h2>Our rank over time</h2>
   <div id="legend" class="legend"></div>
   <h3>Google</h3>
-  <div class="chart"><canvas id="rank-google"></canvas></div>
-  <p class="note" id="note-google"></p>
+  <div class="gridwrap"><table class="rank" id="rank-google"></table></div>
   <h3>Brave</h3>
-  <div class="chart"><canvas id="rank-brave"></canvas></div>
-  <p class="note" id="note-brave"></p>
-  <p class="note">Rank 1 is the top. Gaps mean we were not in the top 10 for that check.</p>
+  <div class="gridwrap"><table class="rank" id="rank-brave"></table></div>
+  <p class="note">Our position in each day's last check; darker is better. "–" means not in the top 10. Change compares the last two days.</p>
 
   <h2>Search Console: clicks and impressions</h2>
   <div class="chart"><canvas id="gsc"></canvas></div>
@@ -58,7 +60,6 @@ function parseCSV(t){const rows=[];let r=[],f='',q=false;for(let i=0;i<t.length;
   if(f||r.length){r.push(f);rows.push(r)}
   const h=rows.shift()||[];return rows.filter(x=>x.length==h.length).map(x=>Object.fromEntries(h.map((k,i)=>[k,x[i]])))}
 async function load(u){try{const r=await fetch(u,{cache:'no-store'});return r.ok?parseCSV(await r.text()):[]}catch(e){return[]}}
-const QCOLORS=['#2a78d6','#eb6834','#1baf7a','#eda100','#e87ba4','#008300'];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 (async()=>{
   const res=await load('data/results.csv'), gsc=await load('data/gsc.csv');
@@ -77,29 +78,28 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
   const c28=gsc.reduce((a,r)=>[a[0]+ +r.clicks,a[1]+ +r.impressions],[0,0]);
   card(gsc.length?c28[0]:'–','GSC clicks (28 days)'); card(gsc.length?c28[1]:'–','GSC impressions (28 days)');
 
-  // Colour = query (fixed order), line style and marker = country, one chart per engine.
+  // Rank grid: one row per query and country, one column per day, darker = better rank.
   const dates=[...new Set(g.map(r=>r.date))].sort();
   const queries=[...new Set(['grohnpetrel','"grohnpetrel"','what is grohnpetrel','grohnpetrel seabird',...g.map(r=>r.query)])].filter(q=>g.some(r=>r.query==q));
   const countries=[...new Set(['de','us','gb',...g.map(r=>r.country)])].filter(c=>g.some(r=>r.country==c));
-  const DASH=[[],[7,4],[2,3],[10,3,2,3]], MARK=['circle','triangle','rect','rectRot'];
-  const qc=q=>QCOLORS[queries.indexOf(q)%QCOLORS.length], cd=c=>DASH[countries.indexOf(c)%4], cm=c=>MARK[countries.indexOf(c)%4];
-  const dashSvg=c=>`<svg width="30" height="10"><line x1="1" y1="5" x2="29" y2="5" stroke="#555" stroke-width="2" stroke-dasharray="${cd(c).join(' ')}"/></svg>`;
-  document.getElementById('legend').innerHTML=
-    '<div>Colour = query: '+queries.map(q=>`<span class="item"><span class="sw" style="background:${qc(q)}"></span>${esc(q)}</span>`).join('')+'</div>'+
-    '<div>Line = country: '+countries.map(c=>`<span class="item">${dashSvg(c)}${esc(c.toUpperCase())}</span>`).join('')+'</div>';
+  const RAMP=[['#184f95','#fff'],['#256abf','#fff'],['#3987e5','#fff'],['#6da7ec','#222'],['#6da7ec','#222'],['#9ec5f4','#222'],['#9ec5f4','#222'],['#cde2fb','#222'],['#cde2fb','#222'],['#cde2fb','#222']];
+  const cell=v=>v?`<td class="r" style="background:${RAMP[v-1][0]};color:${RAMP[v-1][1]}">${v}</td>`:'<td class="r note">–</td>';
+  document.getElementById('legend').innerHTML='Rank: '+[1,2,3,4,6,8].map(v=>`<span style="background:${RAMP[v-1][0]};color:${RAMP[v-1][1]}">${v==4?'4–5':v==6?'6–7':v==8?'8–10':v}</span>`).join('')+'<span class="note">–</span> not in top 10';
+  const change=(a,b)=>{if(b==null&&a==null)return'';if(a==null)return'new';if(b==null)return'dropped out';const d=a-b;return d>0?'↑'+d:d<0?'↓'+(-d):'='};
   for(const eng of ['google','brave']){
-    const rows=g.filter(r=>r.engine==eng), sets=[];
-    for(const c of countries)for(const q of queries){
-      const data=dates.map(d=>{const x=rows.filter(r=>r.date==d&&r.country==c&&r.query==q).pop();return x&&x.our_rank?+x.our_rank:null});
-      if(rows.some(r=>r.country==c&&r.query==q))sets.push({label:c.toUpperCase()+' · '+q,data,borderColor:qc(q),backgroundColor:qc(q),borderDash:cd(c),
-        pointStyle:cm(c),pointRadius:5,pointHoverRadius:7,borderWidth:2,tension:.2,spanGaps:false});
+    const rows=g.filter(r=>r.engine==eng), t=document.getElementById('rank-'+eng);
+    if(!rows.length){t.innerHTML='<tr><td class="note">No checks yet.</td></tr>';continue}
+    if(!rows.some(r=>r.our_rank)){t.innerHTML=`<tr><td class="note">Not in the top 10 for any check since ${esc(dates[0])}.</td></tr>`;continue}
+    let h='<tr><th>Query</th><th>Country</th>'+dates.map(d=>`<th>${esc(d.slice(5))}</th>`).join('')+(dates.length>1?'<th>Change</th>':'')+'</tr>';
+    for(const q of queries){
+      const cs=countries.filter(c=>rows.some(r=>r.country==c&&r.query==q));
+      cs.forEach((c,i)=>{
+        const v=dates.map(d=>{const x=rows.filter(r=>r.date==d&&r.country==c&&r.query==q).pop();return x&&x.our_rank?+x.our_rank:null});
+        h+=`<tr${i?'':' class="q"'}>`+(i?'':`<td rowspan="${cs.length}">${esc(q)}</td>`)+`<td>${esc(c.toUpperCase())}</td>`+v.map(cell).join('')+
+          (dates.length>1?`<td>${change(v[v.length-2],v[v.length-1])}</td>`:'')+'</tr>';
+      });
     }
-    new Chart(document.getElementById('rank-'+eng),{type:'line',data:{labels:dates,datasets:sets},
-      options:{maintainAspectRatio:false,interaction:{mode:'nearest',intersect:false},
-        plugins:{legend:{display:false},tooltip:{callbacks:{label:t=>`${t.dataset.label}: #${t.parsed.y}`}}},
-        scales:{y:{reverse:true,min:1,max:10,ticks:{stepSize:1},title:{display:true,text:'rank'}},x:{grid:{display:false}}}}});
-    const ranked=sets.filter(s=>s.data.some(v=>v!==null)).length;
-    document.getElementById('note-'+eng).textContent=rows.length?`In the top 10 at least once for ${ranked} of ${sets.length} country/query pairs.`:'No checks yet.';
+    t.innerHTML=h;
   }
 
   const byDay={};gsc.forEach(r=>{(byDay[r.date]??=[0,0]);byDay[r.date][0]+= +r.clicks;byDay[r.date][1]+= +r.impressions});
