@@ -15,5 +15,6 @@
    "description": "The Grohnpetrel Knowledge Centre: guides on seabirds, coastal ecosystems and the threats they face, for students and anyone curious about nature."},
   {"id": 88, "file": "grohnpetrel-faq.html", "title": "Grohnpetrel FAQ", "slug": "grohnpetrel-faq", "status": "publish",
    "description": "Grohnpetrel FAQ: what Grohnpetrel is, whether it is a real bird, where the name comes from, who created it, and why it takes no donations."},
-  {"id": 90, "file": "grohnpetrel-seo-aeo-geo-lab.html", "title": "Grohnpetrel SEO / AEO / GEO Lab", "slug": "grohnpetrel-seo-aeo-geo-lab", "status": "draft"}
+  {"id": 90, "file": "grohnpetrel-seo-aeo-geo-lab.html", "title": "Grohnpetrel SEO / AEO / GEO Lab", "slug": "grohnpetrel-seo-aeo-geo-lab", "status": "draft"},
+  {"id": 2, "title": "Sample Page", "status": "trash"}
 ]

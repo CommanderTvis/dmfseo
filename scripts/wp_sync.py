@@ -8,7 +8,8 @@ plugins to keep active, and our own PHP snippets (run by the Code Snippets plugi
 pages/manifest.json maps each page ID to a file, title, slug and status, plus the
 optional "description" and "seo_title" that snippets/seo-head.php puts in the page head.
 Pages are always addressed by ID and only ever updated, never created, so a run cannot
-produce duplicates. Needs WP_USER and WP_APP_PASSWORD; WP_URL is optional.
+produce duplicates. An entry with status "trash" (no file needed) moves that page to the
+WordPress trash. Needs WP_USER and WP_APP_PASSWORD; WP_URL is optional.
 """
 import base64, json, os, sys, urllib.error, urllib.request
 
@@ -38,6 +39,15 @@ def main(mode, dry):
         code(dry)
     for m in manifest:
         page = api("GET", f"pages/{m['id']}?context=edit")
+        if m["status"] == "trash":  # moved to the WordPress trash (recoverable there), never deleted
+            if mode == "push":
+                if page["status"] == "trash":
+                    print(f"ok      {m['id']} trashed")
+                else:
+                    print(f"{'would trash' if dry else 'trash'} {m['id']} {page['slug']}")
+                    if not dry:
+                        api("DELETE", f"pages/{m['id']}")
+            continue
         path = os.path.join(PAGES, m["file"])
         if mode == "pull":
             open(path, "w").write(page["content"]["raw"])
