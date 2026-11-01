@@ -25,3 +25,9 @@ jobs:
         env:
           WP_USER: ${{ secrets.WP_USER }}
           WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+      - name: Tell Google the sitemap changed
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
+        continue-on-error: true
+        run: uv run scripts/gsc_sitemap.py
+        env:
+          GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}

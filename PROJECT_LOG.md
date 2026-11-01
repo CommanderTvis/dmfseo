@@ -86,3 +86,11 @@ Action: Moved the default WordPress "Sample Page" (`/sample-page/`) to the trash
 Reason: Placeholder text, published and listed in the sitemap; it would only add a thin page to Google's view of the site.
 
 Outcome: Done. The URL returns 404 and the sitemap no longer lists it.
+
+---
+
+Action: Every publish from GitHub now resubmits the sitemap to Search Console automatically.
+
+Reason: WordPress updates the sitemap itself, but Google only re-reads it on its own schedule. Resubmitting tells it there is new content.
+
+Outcome: Works (tested by hand). Google treats it as a hint, so pages may still take days to be indexed.
