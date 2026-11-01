@@ -1,7 +1,7 @@
 # /// script
 # requires-python = ">=3.11"
 # ///
-"""Sync WordPress pages with pages/. Usage: wp_sync.py pull|push [--dry-run]
+"""Publish pages/ to WordPress. Usage: wp_sync.py push [--dry-run]
 
 pages/site.json holds the front page and navigation menus (by ID), the wordpress.org
 plugins to keep active, and our own PHP snippets (run by the Code Snippets plugin).
@@ -32,27 +32,21 @@ def api(method, path, body=None, ns="wp/v2"):
         sys.exit(f"{method} {path}: HTTP {e.code} {e.read()[:300]!r}")
 
 
-def main(mode, dry):
+def main(dry):
     manifest = json.load(open(os.path.join(PAGES, "manifest.json")))
     failed = False
-    if mode == "push":
-        code(dry)
+    code(dry)
     for m in manifest:
         page = api("GET", f"pages/{m['id']}?context=edit")
         if m["status"] == "trash":  # moved to the WordPress trash (recoverable there), never deleted
-            if mode == "push":
-                if page["status"] == "trash":
-                    print(f"ok      {m['id']} trashed")
-                else:
-                    print(f"{'would trash' if dry else 'trash'} {m['id']} {page['slug']}")
-                    if not dry:
-                        api("DELETE", f"pages/{m['id']}")
+            if page["status"] == "trash":
+                print(f"ok      {m['id']} trashed")
+            else:
+                print(f"{'would trash' if dry else 'trash'} {m['id']} {page['slug']}")
+                if not dry:
+                    api("DELETE", f"pages/{m['id']}")
             continue
         path = os.path.join(PAGES, m["file"])
-        if mode == "pull":
-            open(path, "w").write(page["content"]["raw"])
-            print(f"pulled {m['id']} -> {m['file']} ({len(page['content']['raw'])} chars)")
-            continue
         want = {"title": m["title"], "slug": m["slug"], "status": m["status"],
                 "content": open(path).read()}
         have = {"title": page["title"]["raw"], "slug": page["slug"], "status": page["status"],
@@ -74,7 +68,7 @@ def main(mode, dry):
             print(f"  WARNING: WordPress gave slug {res['slug']!r}, wanted {m['slug']!r} (taken by another page?)",
                   file=sys.stderr)
             failed = True
-    site(mode, dry)
+    site(dry)
     sys.exit(1 if failed else 0)
 
 
@@ -124,32 +118,28 @@ def code(dry):
                 api("POST", f"snippets/{snip['id']}/activate", ns=ns)
 
 
-def site(mode, dry):
+def site(dry):
     """Front page setting and navigation menus (pages/site.json)."""
     cfg = json.load(open(os.path.join(PAGES, "site.json")))
     for n in cfg["navigation"]:
         path = os.path.join(PAGES, n["file"])
         have = api("GET", f"navigation/{n['id']}?context=edit")["content"]["raw"]
-        if mode == "pull":
-            open(path, "w").write(have)
-            print(f"pulled navigation {n['id']} -> {n['file']}")
-        elif open(path).read() == have:
+        if open(path).read() == have:
             print(f"ok      navigation {n['id']}")
         else:
             print(f"{'would update' if dry else 'update'} navigation {n['id']}")
             if not dry:
                 api("POST", f"navigation/{n['id']}", {"content": open(path).read()})
-    if mode == "push":
-        s = api("GET", "settings")
-        if s["show_on_front"] == "page" and s["page_on_front"] == cfg["front_page_id"]:
-            print("ok      front page")
-        else:
-            print(f"{'would set' if dry else 'set'} front page to {cfg['front_page_id']}")
-            if not dry:
-                api("POST", "settings", {"show_on_front": "page", "page_on_front": cfg["front_page_id"]})
+    s = api("GET", "settings")
+    if s["show_on_front"] == "page" and s["page_on_front"] == cfg["front_page_id"]:
+        print("ok      front page")
+    else:
+        print(f"{'would set' if dry else 'set'} front page to {cfg['front_page_id']}")
+        if not dry:
+            api("POST", "settings", {"show_on_front": "page", "page_on_front": cfg["front_page_id"]})
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2 or sys.argv[1] not in ("pull", "push"):
+    if len(sys.argv) < 2 or sys.argv[1] != "push":
         sys.exit(__doc__)
-    main(sys.argv[1], "--dry-run" in sys.argv)
+    main("--dry-run" in sys.argv)
