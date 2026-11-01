@@ -6,6 +6,10 @@ Every page of the site is a file in `pages/`. Change the file, merge to `main`, 
 
 How that works: GitHub Actions is GitHub's built-in way to run a script automatically when something happens in the repo. Ours (`wp-publish`) starts whenever `pages/` changes on `main`. It logs in to WordPress and copies the files into the matching pages. So the WordPress site is a copy of this repo, and the repo is the original.
 
+## Before you start
+
+Get a GitHub account (https://github.com/signup) and ask the maintainer to add you to this repo. Accept the invitation email. All three ways of editing below need this.
+
 ## Edit without Git
 
 1. Open a file in `pages/` on GitHub and click the pencil icon.
@@ -25,11 +29,10 @@ Then open the **Actions** tab on GitHub: a green `wp-publish` run means the site
 
 ## Edit with Claude Code on the web
 
-1. Get a GitHub account (https://github.com/signup) and ask the maintainer to add you to this repo. Accept the invitation email.
-2. Open https://claude.ai/code and connect GitHub when asked. Install the Claude app on GitHub for the `dmfseo` repo only ("Only select repositories").
-3. Select `CommanderTvis/dmfseo` and describe the change, for example "Rewrite the intro of pages/grohnpetrel-faq.html so the first sentence answers 'What is Grohnpetrel?'".
-4. Read the changes. Check the facts.
-5. Have it open a pull request, ask a teammate to look, then merge. Merging publishes.
+1. Open https://claude.ai/code and connect GitHub when asked. Install the Claude app on GitHub for the `dmfseo` repo only ("Only select repositories").
+2. Select `CommanderTvis/dmfseo` and describe the change, for example "Rewrite the intro of pages/grohnpetrel-faq.html so the first sentence answers 'What is Grohnpetrel?'".
+3. Read the changes. Check the facts.
+4. Have it open a pull request, ask a teammate to look, then merge. Merging publishes.
 
 ## Rules
 
