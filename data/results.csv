@@ -125,3 +125,28 @@ date,time_utc,engine,country,query,our_rank,our_url,top_url,rival_ranks,n_result
 2026-11-01,12:25,brave,gb,what is grohnpetrel,,,https://www.merriam-webster.com/dictionary/petrel,,10
 2026-11-01,12:25,brave,gb,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Gould's_petrel,,10
 2026-11-01,12:25,duckduckgo,de,grohnpetrel,,,https://en.wikipedia.org/wiki/Giant_petrel,,10
+2026-11-01,15:53,google,de,grohnpetrel,2,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:3,10
+2026-11-01,15:53,google,de,"""grohnpetrel""",2,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:3;puffins:4,4
+2026-11-01,15:53,google,de,what is grohnpetrel,1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,puffins:2;puffins:6,10
+2026-11-01,15:53,google,de,grohnpetrel seabird,1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,puffins:7,10
+2026-11-01,15:53,google,us,grohnpetrel,1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,puffins:2;puffins:3;puffins:9,10
+2026-11-01,15:53,google,us,"""grohnpetrel""",1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,puffins:2;puffins:3;puffins:4,4
+2026-11-01,15:53,google,us,what is grohnpetrel,2,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1,10
+2026-11-01,15:53,google,us,grohnpetrel seabird,,,https://www.facebook.com/groups/389757312916643/posts/1271802748045424/,,9
+2026-11-01,15:53,google,gb,grohnpetrel,1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,puffins:2;puffins:3,9
+2026-11-01,15:53,google,gb,"""grohnpetrel""",1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,puffins:2;puffins:3;puffins:4,4
+2026-11-01,15:53,google,gb,what is grohnpetrel,1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,puffins:2;puffins:9,10
+2026-11-01,15:53,google,gb,grohnpetrel seabird,,,https://www.facebook.com/martinharris57/photos/species-%F0%9D%98%8A%F0%9D%98%A9%F0%9D%98%B3%F0%9D%98%B0%F0%9D%98%AA%F0%9D%98%A4%F0%9D%98%B0%F0%9D%98%A4%F0%9D%98%A6%F0%9D%98%B1%F0%9D%98%A9%F0%9D%98%A2%F0%9D%98%AD%F0%9D%98%B6%F0%9D%98%B4-%F0%9D%98%B1%F0%9D%98%A9%F0%9D%98%AA%F0%9D%98%AD%F0%9D%98%A2%F0%9D%98%A5%F0%9D%98%A6%F0%9D%98%AD%F0%9D%98%B1%F0%9D%98%A9%F0%9D%98%AA%F0%9D%98%A2english-name-%F0%9D%90%81%F0%9D%90%A8%F0%9D%90%A7%F0%9D%90%9A%F0%9D%90%A9%F0%9D%90%9A%F0%9D%90%AB%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%AC-%F0%9D%90%86%F0%9D%90%AE%F0%9D%90%A5%F0%9D%90%A5breeding-adultji/10243717114126548/,,9
+2026-11-01,15:53,brave,de,grohnpetrel,,,https://birdsoftheworld.org/bow/species/grwpet2/cur/introduction,,10
+2026-11-01,15:53,brave,de,"""grohnpetrel""",,,,,0
+2026-11-01,15:53,brave,de,what is grohnpetrel,,,https://en.wikipedia.org/wiki/European_storm_petrel,,10
+2026-11-01,15:53,brave,de,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Giant_petrel,,10
+2026-11-01,15:53,brave,us,grohnpetrel,,,https://birdscolombia.com/2023/03/15/pardela-gorgiblanca-white-chinned-petrel-procellaria-aequinoctialis/,,10
+2026-11-01,15:53,brave,us,"""grohnpetrel""",,,,,0
+2026-11-01,15:53,brave,us,what is grohnpetrel,,,https://dictionary.cambridge.org/us/dictionary/english/petrel,,10
+2026-11-01,15:53,brave,us,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Gould's_petrel,,10
+2026-11-01,15:53,brave,gb,grohnpetrel,,,https://birdscolombia.com/2023/03/15/pardela-gorgiblanca-white-chinned-petrel-procellaria-aequinoctialis/,,10
+2026-11-01,15:53,brave,gb,"""grohnpetrel""",,,,,0
+2026-11-01,15:53,brave,gb,what is grohnpetrel,,,https://www.merriam-webster.com/dictionary/petrel,,10
+2026-11-01,15:53,brave,gb,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Gould's_petrel,,10
+2026-11-01,15:53,duckduckgo,de,grohnpetrel,,,https://en.wikipedia.org/wiki/Giant_petrel,,10
