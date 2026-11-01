@@ -1,4 +1,4 @@
-# Grohnpetrel: Guillemots SEO project
+# Guillemots DMFSEO project
 
 Site: https://business.constructor.university/guillemots/ · Rankings: https://commandertvis.github.io/dmfseo/ · Plan: [`PLAN.md`](PLAN.md)
 
@@ -30,7 +30,7 @@ Then open the **Actions** tab on GitHub: a green `wp-publish` run means the site
 ## Edit with Claude Code on the web
 
 1. Open https://claude.ai/code and connect GitHub when asked. Install the Claude app on GitHub for the `dmfseo` repo only ("Only select repositories").
-2. Select `CommanderTvis/dmfseo` and describe the change, for example "Rewrite the intro of pages/grohnpetrel-faq.html so the first sentence answers 'What is Grohnpetrel?'".
+2. Select `CommanderTvis/dmfseo` and describe the change, for example "Rewrite the intro of pages/...faq so the first sentence answers 'Who are we?'".
 3. Read the changes. Check the facts.
 4. Have it open a pull request, ask a teammate to look, then merge. Merging publishes.
 
