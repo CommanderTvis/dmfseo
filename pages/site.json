@@ -5,6 +5,10 @@
     {
       "name": "Grohnpetrel SEO head",
       "file": "../snippets/seo-head.php"
+    },
+    {
+      "name": "Grohnpetrel admin notice",
+      "file": "../snippets/admin-notice.php"
     }
   ],
   "navigation": [
