@@ -2,7 +2,8 @@
 # requires-python = ">=3.11"
 # dependencies = ["google-auth", "requests"]
 # ///
-"""Pull Search Console performance (last 28 days) into gsc.csv. Usage: gsc.py <data_dir>
+"""Pull Search Console performance (last 28 days) into gsc.csv and the sitemap status into
+sitemap.json. Usage: gsc.py <data_dir>
 
 Needs GSC_SERVICE_ACCOUNT_JSON; GSC_SITE_URL defaults to the URL-prefix property.
 Skips quietly when the credentials are missing.
@@ -26,6 +27,14 @@ def main(data_dir):
         json.loads(cred), scopes=["https://www.googleapis.com/auth/webmasters.readonly"])
     end = date.today()
     sess = AuthorizedSession(creds)
+    sm = site + "wp-sitemap.xml"
+    r = sess.get(f"https://www.googleapis.com/webmasters/v3/sites/{quote(site, safe='')}"
+                 f"/sitemaps/{quote(sm, safe='')}")
+    if r.ok:
+        json.dump(r.json(), open(os.path.join(data_dir, "sitemap.json"), "w"), indent=1)
+        print("sitemap.json written")
+    else:
+        print(f"sitemap status {r.status_code}: {r.text[:200]}", file=sys.stderr)
     resp = sess.post(
         f"https://www.googleapis.com/webmasters/v3/sites/{quote(site, safe='')}/searchAnalytics/query",
         json={"startDate": str(end - timedelta(days=28)), "endDate": str(end),

@@ -46,6 +46,9 @@
   <div class="chart"><canvas id="gsc"></canvas></div>
   <p class="note" id="gscnote"></p>
 
+  <h2>Sitemap</h2>
+  <div id="sitemap" class="note">No sitemap data yet.</div>
+
   <h2>Checks</h2>
   <p id="controls" class="note"></p>
   <div class="scroll"><table id="latest"></table></div>
@@ -61,7 +64,16 @@ function parseCSV(t){const rows=[];let r=[],f='',q=false;for(let i=0;i<t.length;
   const h=rows.shift()||[];return rows.filter(x=>x.length==h.length).map(x=>Object.fromEntries(h.map((k,i)=>[k,x[i]])))}
 async function load(u){try{const r=await fetch(u,{cache:'no-store'});return r.ok?parseCSV(await r.text()):[]}catch(e){return[]}}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+async function sitemap(){
+  let s;try{const r=await fetch('data/sitemap.json',{cache:'no-store'});if(!r.ok)return;s=await r.json()}catch(e){return}
+  const n=(s.contents||[]).reduce((a,c)=>a+ +c.submitted,0), t=x=>x?esc(x.replace('T',' ').slice(0,16))+' UTC':'–';
+  document.getElementById('sitemap').innerHTML=`<table><tr><th>Sitemap</th><td><a href="${esc(s.path)}">${esc(s.path)}</a></td></tr>`+
+    `<tr><th>Last submitted</th><td>${t(s.lastSubmitted)}</td></tr><tr><th>Last read by Google</th><td>${t(s.lastDownloaded)}</td></tr>`+
+    `<tr><th>Status</th><td>${s.isPending?'pending, not processed yet':s.lastDownloaded?'processed':'unknown'}</td></tr>`+
+    `<tr><th>URLs submitted</th><td>${n||'–'}</td></tr><tr><th>Errors / warnings</th><td>${esc(s.errors||0)} / ${esc(s.warnings||0)}</td></tr></table>`;
+}
 (async()=>{
+  sitemap();
   const res=await load('data/results.csv'), gsc=await load('data/gsc.csv');
   const g=res.filter(r=>r.engine=='google'||r.engine=='brave');
   const cards=document.getElementById('cards');

@@ -18,7 +18,13 @@ jobs:
           path: site
       - uses: astral-sh/setup-uv@v5
       - name: Search ranks
-        run: uv run scripts/collect.py site/data
+        # Manual runs reuse today's results instead of spending search API quota again.
+        run: |
+          if [ "${{ github.event_name }}" = workflow_dispatch ] && grep -q "^$(date -u +%F)," site/data/results.csv; then
+            echo "today's ranks already collected, skipping"
+          else
+            uv run scripts/collect.py site/data
+          fi
         env:
           SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
           BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
