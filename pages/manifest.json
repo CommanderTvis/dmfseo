@@ -16,5 +16,13 @@
   {"id": 88, "file": "grohnpetrel-faq.html", "title": "Grohnpetrel FAQ", "slug": "grohnpetrel-faq", "status": "publish",
    "description": "Grohnpetrel FAQ: what Grohnpetrel is, whether it is a real bird, where the name comes from, who created it, and why it takes no donations."},
   {"id": 90, "file": "grohnpetrel-seo-aeo-geo-lab.html", "title": "Grohnpetrel SEO / AEO / GEO Lab", "slug": "grohnpetrel-seo-aeo-geo-lab", "status": "draft"},
+  {"id": 108, "file": "about.html", "title": "About Grohnpetrel and the Guillemots Team", "slug": "about", "status": "publish",
+   "description": "Who made Grohnpetrel: the Guillemots, four students at Constructor University in Bremen. Team, roles, why we chose the concept and how we used AI."},
+  {"id": 109, "file": "contact.html", "title": "Contact the Grohnpetrel Team", "slug": "contact", "status": "publish",
+   "description": "How to contact the Guillemots student team behind Grohnpetrel, a fictional coastal-conservation project at Constructor University, Bremen."},
+  {"id": 110, "file": "imprint.html", "title": "Imprint", "slug": "imprint", "status": "draft",
+   "description": "Legal notice for the Grohnpetrel website, a non-commercial student project at Constructor University, Bremen."},
+  {"id": 3, "file": "privacy-policy.html", "title": "Privacy Policy", "slug": "privacy-policy", "status": "publish",
+   "description": "How the Grohnpetrel student website handles personal data: hosting, cookies and consent, Google Analytics, Search Console and your rights."},
   {"id": 2, "title": "Sample Page", "status": "trash"}
 ]

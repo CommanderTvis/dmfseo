@@ -78,3 +78,29 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 **Reason:** Only the front page is indexed; the other 7 pages are unknown to Google, and no sitemap had been submitted. WordPress updates the sitemap itself, but Google only re-reads it on its own schedule; resubmitting tells it there is new content.
 
 **Outcome:** Accepted, no errors; Google has not processed it yet. The automatic resubmit works (tested by hand). Google treats it as a hint, so pages may still take days to be indexed.
+
+---
+
+**Action:** Activated the Complianz plugin: cookie consent banner (Accept / Deny / View preferences), cookie blocker and a Cookie Policy page (https://business.constructor.university/guillemots/cookie-policy-eu/).
+
+**Reason:** The site is in Germany and we plan to add Google Analytics, which needs consent first under the GDPR. The site had no cookie or privacy information.
+
+**Outcome:** Banner and Cookie Policy live. While checking, we found that our earlier note that Analytics loaded without consent was wrong: Analytics was never connected in Site Kit. Next: connect GA4 and test that it loads only after "Accept".
+
+---
+
+## 2026-11-02
+
+**Action:** Added About (team, roles, team photo, use of AI), Contact, Imprint (draft until the responsible person is confirmed) and Privacy Policy pages, and put them in the footer.
+
+**Reason:** The home page linked to "Get to know the Guillemots team" but no About page existed, and a site in Germany needs contact and privacy information. Clear authorship should also help search engines and AI assistants trust and describe the site correctly. The Fulmars' site (competitor) has all of these pages.
+
+**Outcome:** Pending.
+
+---
+
+**Action:** Fixed the footer "Transparency" menu, whose FAQ, Knowledge Centre and Lab links still pointed to the old trashed pages, and moved the menu into the repo (`pages/navigation-footer-transparency.html`).
+
+**Reason:** Those links did not appear on the live site.
+
+**Outcome:** FAQ, Knowledge Centre and Cookie Policy show in the footer; the other links appear once their pages are published.

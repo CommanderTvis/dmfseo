@@ -1,6 +1,8 @@
 {
   "front_page_id": 78,
-  "plugins": ["code-snippets/code-snippets"],
+  "plugins": [
+    "code-snippets/code-snippets"
+  ],
   "snippets": [
     {
       "name": "Grohnpetrel SEO head",
@@ -19,6 +21,10 @@
     {
       "id": 38,
       "file": "navigation-footer-learn.html"
+    },
+    {
+      "id": 39,
+      "file": "navigation-footer-transparency.html"
     }
   ]
 }
