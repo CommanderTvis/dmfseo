@@ -144,3 +144,19 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 **Reason:** The page was an empty draft. It is our main evidence page and links our actions to measured results.
 
 **Outcome:** Pending.
+
+---
+
+**Action:** Added German versions of "What is Grohnpetrel?" and the FAQ, linked to the English pages with hreflang tags and marked as German (`lang="de-DE"`), with their own FAQPage structured data.
+
+**Reason:** We rank in Germany, and a competing team (Fulmars) offers a German version of its site. German pages can match German searches such as "Was ist Grohnpetrel".
+
+**Outcome:** Pending.
+
+---
+
+**Action:** Added a "Merchandise: Plans, Not Sales" page that explains our planned items (stickers, poster, tote bag), their learning links and our rules (no sales before registration, every printed fact sourced on the site).
+
+**Reason:** The course includes a merchandise marketing plan; this page shows its public side without selling anything. The competitor has a merch page too.
+
+**Outcome:** Pending.

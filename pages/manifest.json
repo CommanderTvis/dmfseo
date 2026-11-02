@@ -1,7 +1,7 @@
 [
   {"id": 78, "file": "grohnpetrel.html", "title": "Grohnpetrel", "slug": "grohnpetrel", "seo_title": "Grohnpetrel: Coastal Conservation and Seabird Education, Bremen", "status": "publish", "template": "",
    "description": "Grohnpetrel is a fictional coastal conservation and seabird education project by Constructor University students in Bremen. Learn why seabirds need help."},
-  {"id": 80, "file": "what-is-grohnpetrel.html", "title": "What is Grohnpetrel?", "slug": "what-is-grohnpetrel-2", "seo_title": "What Is Grohnpetrel? Meaning, Name Origin and Who Created It", "status": "publish",
+  {"id": 80, "file": "what-is-grohnpetrel.html", "title": "What is Grohnpetrel?", "slug": "what-is-grohnpetrel-2", "alternate": "was-ist-grohnpetrel", "seo_title": "What Is Grohnpetrel? Meaning, Name Origin and Who Created It", "status": "publish",
    "description": "What is Grohnpetrel? A fictional coastal conservation and seabird education initiative from Bremen-Grohn, named after the petrel seabird."},
   {"id": 81, "file": "the-grohnpetrel-mission.html", "title": "The Grohnpetrel Mission", "slug": "the-grohnpetrel-mission", "seo_title": "Grohnpetrel Mission: Coastal and Seabird Education for Young People", "status": "publish",
    "description": "The Grohnpetrel mission: make coastal and seabird conservation education accessible to young people through guides, awareness and community action."},
@@ -13,7 +13,7 @@
    "description": "Three proposed Grohnpetrel education programmes, Coastal Classroom, Citizen Observation and Responsible Coast, and how we would measure success."},
   {"id": 87, "file": "grohnpetrel-knowledge-centre.html", "title": "Grohnpetrel Knowledge Centre", "slug": "grohnpetrel-knowledge-centre", "seo_title": "Grohnpetrel Knowledge Centre: Seabird and Coastal Guides", "status": "publish",
    "description": "The Grohnpetrel Knowledge Centre: guides on seabirds, coastal ecosystems and the threats they face, for students and anyone curious about nature."},
-  {"id": 88, "file": "grohnpetrel-faq.html", "title": "Grohnpetrel FAQ", "slug": "grohnpetrel-faq", "seo_title": "Grohnpetrel FAQ: What It Is, the Name, Who Made It", "status": "publish",
+  {"id": 88, "file": "grohnpetrel-faq.html", "title": "Grohnpetrel FAQ", "slug": "grohnpetrel-faq", "alternate": "grohnpetrel-faq-de", "seo_title": "Grohnpetrel FAQ: What It Is, the Name, Who Made It", "status": "publish",
    "description": "Grohnpetrel FAQ: what Grohnpetrel is, whether it is a real bird, where the name comes from, who created it, and why it takes no donations."},
   {"id": 90, "file": "grohnpetrel-seo-aeo-geo-lab.html", "title": "Grohnpetrel SEO / AEO / GEO Lab", "slug": "grohnpetrel-seo-aeo-geo-lab", "seo_title": "Grohnpetrel SEO / GEO Lab: How an Invented Term Gets Found", "status": "publish",
    "description": "How we measure whether the invented term Grohnpetrel becomes findable in Google and AI assistants: method, dated baseline, rankings and changes."},
@@ -47,5 +47,11 @@
    "description": "Why a site about the invented word Grohnpetrel needs real, sourced content, and how we built and fact-checked our North Sea seabird guide."},
   {"file": "journal.html", "title": "Grohnpetrel Journal", "slug": "journal", "status": "publish", "seo_title": "Grohnpetrel Journal: Project News and SEO Lessons",
    "description": "News and lessons from the Grohnpetrel student project: what we built, what we measured and what we learned about search engines and AI."},
+  {"file": "was-ist-grohnpetrel.html", "title": "Was ist Grohnpetrel?", "slug": "was-ist-grohnpetrel", "status": "publish", "lang": "de", "alternate": "what-is-grohnpetrel-2", "seo_title": "Was ist Grohnpetrel? Bedeutung, Name und Herkunft",
+   "description": "Was ist Grohnpetrel? Ein fiktives Projekt für Küstenschutz und Seevogel-Bildung von Studierenden der Constructor University Bremen. Name und Herkunft."},
+  {"file": "grohnpetrel-faq-de.html", "title": "Grohnpetrel: Häufige Fragen", "slug": "grohnpetrel-faq-de", "status": "publish", "lang": "de", "alternate": "grohnpetrel-faq", "seo_title": "Grohnpetrel FAQ auf Deutsch: Häufige Fragen und Antworten",
+   "description": "Häufige Fragen zu Grohnpetrel: Was es ist, ob es ein echter Vogel ist, woher der Name kommt, wer es entwickelt hat und warum es keine Spenden annimmt."},
+  {"file": "merch.html", "title": "Grohnpetrel Merchandise: Plans, Not Sales", "slug": "merch", "status": "publish", "seo_title": "Grohnpetrel Merchandise: Our Plan for Stickers, Poster and Tote Bag",
+   "description": "Grohnpetrel sells nothing yet. Our plan for future mission-led merchandise: three items, each with a learning link, and our rules on honesty."},
   {"id": 2, "title": "Sample Page", "status": "trash"}
 ]
