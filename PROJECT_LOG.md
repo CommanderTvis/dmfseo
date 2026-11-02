@@ -112,3 +112,11 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 **Reason:** No page had structured data, while a competing team (Fulmars) has it on every page. Structured data helps search engines and AI assistants identify what Grohnpetrel is and who made it.
 
 **Outcome:** Pending (check with Google's Rich Results Test after publishing).
+
+---
+
+**Action:** Rewrote every page title (the text Google shows as the blue link) to start with the keyword and say what the page answers, e.g. "Grohnpetrel FAQ: What It Is, the Name, Who Made It". Linked the home page's "About us" button (it had no link) to the new About page and added About to the main menu.
+
+**Reason:** Titles were just the page name plus "– Grohnpetrel". The competitor (Fulmars) uses descriptive, keyword-first titles.
+
+**Outcome:** Pending.
