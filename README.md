@@ -37,4 +37,4 @@ Then open the **Actions** tab on GitHub: a green `wp-publish` run means the site
 ## Rules
 
 - Keep the disclaimer that Grohnpetrel is a fictional academic project, not an NGO, with no donations.
-- A new page needs an empty draft created in WordPress and an entry in `pages/manifest.json` with its ID.
+- A new page needs a file in `pages/` and an entry in `pages/manifest.json` (no ID needed). The next publish creates it.

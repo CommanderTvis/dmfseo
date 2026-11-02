@@ -5,10 +5,11 @@
 
 pages/site.json holds the front page and navigation menus (by ID), the wordpress.org
 plugins to keep active, and our own PHP snippets (run by the Code Snippets plugin).
-pages/manifest.json maps each page ID to a file, title, slug and status, plus the
+pages/manifest.json maps each page to a file, title, slug and status, plus the
 optional "description" and "seo_title" that snippets/seo-head.php puts in the page head.
-Pages are always addressed by ID and only ever updated, never created, so a run cannot
-produce duplicates. An entry with status "trash" (no file needed) moves that page to the
+A page is addressed by its "id", or by slug when the entry has no id; a page that does not
+exist yet is created once, then found by slug on every later run, so a run cannot produce
+duplicates. An entry with status "trash" (no file needed) moves that page to the
 WordPress trash. Needs WP_USER and WP_APP_PASSWORD; WP_URL is optional.
 """
 import base64, json, os, sys, urllib.error, urllib.request
@@ -32,12 +33,33 @@ def api(method, path, body=None, ns="wp/v2"):
         sys.exit(f"{method} {path}: HTTP {e.code} {e.read()[:300]!r}")
 
 
+def find(m):
+    """The page for a manifest entry: by "id" when given, otherwise by slug (any status)."""
+    if "id" in m:
+        return api("GET", f"pages/{m['id']}?context=edit")
+    found = api("GET", f"pages?slug={m['slug']}&status=publish,draft,pending,private&context=edit")
+    return found[0] if found else None
+
+
 def main(dry):
     manifest = json.load(open(os.path.join(PAGES, "manifest.json")))
     failed = False
     code(dry)
     for m in manifest:
-        page = api("GET", f"pages/{m['id']}?context=edit")
+        page = find(m)
+        if page is None:  # no WordPress page with this ID or slug yet: create it once
+            want = {"title": m["title"], "slug": m["slug"], "status": m["status"],
+                    "content": open(os.path.join(PAGES, m["file"])).read(),
+                    "meta": {"grohnpetrel_description": m.get("description", ""),
+                             "grohnpetrel_title": m.get("seo_title", "")}}
+            print(f"{'would create' if dry else 'create'} {m['slug']} ({m['status']})")
+            if not dry:
+                res = api("POST", "pages", want)
+                if res["slug"] != m["slug"]:
+                    print(f"  WARNING: WordPress gave slug {res['slug']!r}, wanted {m['slug']!r}", file=sys.stderr)
+                    failed = True
+            continue
+        m = {**m, "id": page["id"]}
         if m["status"] == "trash":  # moved to the WordPress trash (recoverable there), never deleted
             if page["status"] == "trash":
                 print(f"ok      {m['id']} trashed")
