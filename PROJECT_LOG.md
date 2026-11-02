@@ -104,3 +104,11 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 **Reason:** Those links did not appear on the live site.
 
 **Outcome:** FAQ, Knowledge Centre and Cookie Policy show in the footer; the other links appear once their pages are published.
+
+---
+
+**Action:** Added structured data (JSON-LD) to every page: the project (schema.org Project, with a description that says it is a fictional student project), WebSite, the page type (About, Contact, FAQ, collection pages), breadcrumbs, a DefinedTerm on "What is Grohnpetrel?" and an FAQPage built from the visible FAQ questions. The sync can now also publish Journal posts and translated pages with hreflang.
+
+**Reason:** No page had structured data, while a competing team (Fulmars) has it on every page. Structured data helps search engines and AI assistants identify what Grohnpetrel is and who made it.
+
+**Outcome:** Pending (check with Google's Rich Results Test after publishing).

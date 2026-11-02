@@ -6,7 +6,10 @@
 pages/site.json holds the front page and navigation menus (by ID), the wordpress.org
 plugins to keep active, and our own PHP snippets (run by the Code Snippets plugin).
 pages/manifest.json maps each page to a file, title, slug and status, plus the
-optional "description" and "seo_title" that snippets/seo-head.php puts in the page head.
+optional "description" and "seo_title" that snippets/seo-head.php puts in the page head,
+and "lang" / "alternate" (slug of the same page in the other language) for hreflang.
+An entry with "type": "post" is a blog post (Journal) instead of a page; posts may also
+list "categories" (WordPress category IDs) and a "date".
 A page is addressed by its "id", or by slug when the entry has no id; a page that does not
 exist yet is created once, then found by slug on every later run, so a run cannot produce
 duplicates. An entry with status "trash" (no file needed) moves that page to the
@@ -33,11 +36,23 @@ def api(method, path, body=None, ns="wp/v2"):
         sys.exit(f"{method} {path}: HTTP {e.code} {e.read()[:300]!r}")
 
 
+def kind(m):
+    """REST collection for a manifest entry: "posts" for Journal posts, otherwise "pages"."""
+    return "posts" if m.get("type") == "post" else "pages"
+
+
+def meta(m):
+    return {"grohnpetrel_description": m.get("description", ""),
+            "grohnpetrel_title": m.get("seo_title", ""),
+            "grohnpetrel_lang": m.get("lang", ""),
+            "grohnpetrel_alternate": m.get("alternate", "")}
+
+
 def find(m):
-    """The page for a manifest entry: by "id" when given, otherwise by slug (any status)."""
+    """The page or post for a manifest entry: by "id" when given, otherwise by slug (any status)."""
     if "id" in m:
-        return api("GET", f"pages/{m['id']}?context=edit")
-    found = api("GET", f"pages?slug={m['slug']}&status=publish,draft,pending,private&context=edit")
+        return api("GET", f"{kind(m)}/{m['id']}?context=edit")
+    found = api("GET", f"{kind(m)}?slug={m['slug']}&status=publish,draft,pending,private&context=edit")
     return found[0] if found else None
 
 
@@ -49,12 +64,13 @@ def main(dry):
         page = find(m)
         if page is None:  # no WordPress page with this ID or slug yet: create it once
             want = {"title": m["title"], "slug": m["slug"], "status": m["status"],
-                    "content": open(os.path.join(PAGES, m["file"])).read(),
-                    "meta": {"grohnpetrel_description": m.get("description", ""),
-                             "grohnpetrel_title": m.get("seo_title", "")}}
-            print(f"{'would create' if dry else 'create'} {m['slug']} ({m['status']})")
+                    "content": open(os.path.join(PAGES, m["file"])).read(), "meta": meta(m)}
+            for k in ("template", "parent", "categories", "date", "excerpt"):
+                if k in m:
+                    want[k] = m[k]
+            print(f"{'would create' if dry else 'create'} {kind(m)[:-1]} {m['slug']} ({m['status']})")
             if not dry:
-                res = api("POST", "pages", want)
+                res = api("POST", kind(m), want)
                 if res["slug"] != m["slug"]:
                     print(f"  WARNING: WordPress gave slug {res['slug']!r}, wanted {m['slug']!r}", file=sys.stderr)
                     failed = True
@@ -66,7 +82,7 @@ def main(dry):
             else:
                 print(f"{'would trash' if dry else 'trash'} {m['id']} {page['slug']}")
                 if not dry:
-                    api("DELETE", f"pages/{m['id']}")
+                    api("DELETE", f"{kind(m)}/{m['id']}")
             continue
         path = os.path.join(PAGES, m["file"])
         want = {"title": m["title"], "slug": m["slug"], "status": m["status"],
@@ -75,8 +91,11 @@ def main(dry):
                 "content": page["content"]["raw"]}
         if "template" in m:
             want["template"], have["template"] = m["template"], page.get("template", "")
-        want["meta"] = {"grohnpetrel_description": m.get("description", ""),
-                        "grohnpetrel_title": m.get("seo_title", "")}
+        if "parent" in m:
+            want["parent"], have["parent"] = m["parent"], page.get("parent", 0)
+        if "categories" in m:
+            want["categories"], have["categories"] = sorted(m["categories"]), sorted(page.get("categories", []))
+        want["meta"] = meta(m)
         have["meta"] = {k: (page.get("meta") or {}).get(k, "") for k in want["meta"]}
         diff = [k for k in want if want[k] != have[k]]
         if not diff:
@@ -85,7 +104,7 @@ def main(dry):
         print(f"{'would update' if dry else 'update'} {m['id']} {m['slug']}: {', '.join(diff)}")
         if dry:
             continue
-        res = api("POST", f"pages/{m['id']}", {k: want[k] for k in diff})
+        res = api("POST", f"{kind(m)}/{m['id']}", {k: want[k] for k in diff})
         if res["slug"] != m["slug"] and m["status"] == "publish":
             print(f"  WARNING: WordPress gave slug {res['slug']!r}, wanted {m['slug']!r} (taken by another page?)",
                   file=sys.stderr)
