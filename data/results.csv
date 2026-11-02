@@ -150,3 +150,28 @@ date,time_utc,engine,country,query,our_rank,our_url,top_url,rival_ranks,n_result
 2026-11-01,15:53,brave,gb,what is grohnpetrel,,,https://www.merriam-webster.com/dictionary/petrel,,10
 2026-11-01,15:53,brave,gb,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Gould's_petrel,,10
 2026-11-01,15:53,duckduckgo,de,grohnpetrel,,,https://en.wikipedia.org/wiki/Giant_petrel,,10
+2026-11-02,14:21,google,de,grohnpetrel,2,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:3,9
+2026-11-02,14:21,google,de,"""grohnpetrel""",2,https://business.constructor.university/guillemots/,https://business.constructor.university/puffins/,puffins:1;puffins:3;puffins:4,9
+2026-11-02,14:21,google,de,what is grohnpetrel,1,https://business.constructor.university/guillemots/grohnpetrel-faq/,https://business.constructor.university/guillemots/grohnpetrel-faq/,puffins:2,10
+2026-11-02,14:21,google,de,grohnpetrel seabird,1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,,10
+2026-11-02,14:21,google,us,grohnpetrel,1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,puffins:2;puffins:3;puffins:8,10
+2026-11-02,14:21,google,us,"""grohnpetrel""",1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,puffins:2;puffins:3;puffins:4,6
+2026-11-02,14:21,google,us,what is grohnpetrel,2,https://business.constructor.university/guillemots/grohnpetrel-faq/,https://business.constructor.university/puffins/,puffins:1,10
+2026-11-02,14:21,google,us,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Giant_petrel,,7
+2026-11-02,14:21,google,gb,grohnpetrel,1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,puffins:2;puffins:3,9
+2026-11-02,14:21,google,gb,"""grohnpetrel""",1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,puffins:2;puffins:3;puffins:4,7
+2026-11-02,14:21,google,gb,what is grohnpetrel,1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,puffins:2,9
+2026-11-02,14:21,google,gb,grohnpetrel seabird,1,https://business.constructor.university/guillemots/grohnpetrel-faq/,https://business.constructor.university/guillemots/grohnpetrel-faq/,,10
+2026-11-02,14:21,brave,de,grohnpetrel,,,https://birdscolombia.com/2023/03/15/pardela-gorgiblanca-white-chinned-petrel-procellaria-aequinoctialis/,,10
+2026-11-02,14:21,brave,de,"""grohnpetrel""",,,https://github.com/CommanderTvis/dmfseo,,1
+2026-11-02,14:21,brave,de,what is grohnpetrel,,,https://en.wikipedia.org/wiki/European_storm_petrel,,10
+2026-11-02,14:21,brave,de,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Giant_petrel,,10
+2026-11-02,14:21,brave,us,grohnpetrel,,,https://birdscolombia.com/2023/03/15/pardela-gorgiblanca-white-chinned-petrel-procellaria-aequinoctialis/,,10
+2026-11-02,14:21,brave,us,"""grohnpetrel""",,,https://github.com/CommanderTvis/dmfseo,,1
+2026-11-02,14:21,brave,us,what is grohnpetrel,,,https://dictionary.cambridge.org/us/dictionary/english/petrel,,10
+2026-11-02,14:21,brave,us,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Gould's_petrel,,10
+2026-11-02,14:21,brave,gb,grohnpetrel,,,https://birdscolombia.com/2023/03/15/pardela-gorgiblanca-white-chinned-petrel-procellaria-aequinoctialis/,,10
+2026-11-02,14:21,brave,gb,"""grohnpetrel""",,,https://github.com/CommanderTvis/dmfseo,,1
+2026-11-02,14:21,brave,gb,what is grohnpetrel,,,https://www.collinsdictionary.com/dictionary/english/petrel,,10
+2026-11-02,14:21,brave,gb,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Gould's_petrel,,10
+2026-11-02,14:21,duckduckgo,de,grohnpetrel,,,https://en.wikipedia.org/wiki/Giant_petrel,,10
