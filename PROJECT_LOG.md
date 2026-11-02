@@ -120,3 +120,11 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 **Reason:** Titles were just the page name plus "– Grohnpetrel". The competitor (Fulmars) uses descriptive, keyword-first titles.
 
 **Outcome:** Pending.
+
+---
+
+**Action:** Published "Seabirds of the North Sea", a guide with an overview page and six species pages (northern gannet, Atlantic puffin, black-legged kittiwake, common tern, Eurasian oystercatcher, European storm petrel), each with key facts, threats and source links. Linked it from the Knowledge Centre and the footer.
+
+**Reason:** Our site had 8 pages; a competing team (Fulmars) has 10 product pages plus articles. Sourced, useful pages on real seabirds give search engines and AI assistants more reasons to see our site as a reliable source on the topic, and give visitors something worth reading.
+
+**Outcome:** Pending.
