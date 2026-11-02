@@ -1,0 +1,53 @@
+<!-- wp:paragraph -->
+<p><strong>In brief:</strong> For the first days of our project, every page on our university web server told search engines not to index it, through a hidden HTTP header. We only found it by checking the server responses, not the pages. Once the header was gone, Google started ranking our site within days.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What we found</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>On 28 October 2026 we checked the HTTP response headers of our website. Every URL we tested on business.constructor.university, including other course teams’ sites and our image files, returned <code>X-Robots-Tag: noindex, nofollow</code>. This header is not visible on the page itself, and it overrides anything a site owner sets in WordPress. According to <a href="https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag">Google’s documentation</a>, it tells search engines not to show a page in their results.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Why it mattered</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>As long as the header was there, no amount of content or optimisation could make our pages appear in Google. Because it is set on the server, outside WordPress, we could not remove it ourselves and reported it to the course team.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What happened next</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>By 31 October Google was ranking our pages, and on 1 November our own check confirmed the header was gone. Our daily rank check on 31 October found our site at #2 for “grohnpetrel” on Google in the United States and #6 in Germany and the UK. On 1 November we were #1 in the UK, #2 in Germany and #3 in the US. The results come from a non-personalised daily check, so individual searches can differ; the full history is on our <a href="https://commandertvis.github.io/dmfseo/">rank dashboard</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">What we learned</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Check the technical basics first: response headers, robots rules and indexing status in Google Search Console, before judging content.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>A page that looks fine in the browser can still be invisible to search engines.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Problems outside your control should be documented with dates, so later changes in rankings can be explained.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Our dated evidence is in the <a href="https://business.constructor.university/guillemots/grohnpetrel-seo-aeo-geo-lab/">SEO / GEO Lab</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"small"} -->
+<p class="has-small-font-size"><em>By the Guillemots team · 2 November 2026</em></p>
+<!-- /wp:paragraph -->

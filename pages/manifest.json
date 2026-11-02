@@ -15,7 +15,8 @@
    "description": "The Grohnpetrel Knowledge Centre: guides on seabirds, coastal ecosystems and the threats they face, for students and anyone curious about nature."},
   {"id": 88, "file": "grohnpetrel-faq.html", "title": "Grohnpetrel FAQ", "slug": "grohnpetrel-faq", "seo_title": "Grohnpetrel FAQ: What It Is, the Name, Who Made It", "status": "publish",
    "description": "Grohnpetrel FAQ: what Grohnpetrel is, whether it is a real bird, where the name comes from, who created it, and why it takes no donations."},
-  {"id": 90, "file": "grohnpetrel-seo-aeo-geo-lab.html", "title": "Grohnpetrel SEO / AEO / GEO Lab", "slug": "grohnpetrel-seo-aeo-geo-lab", "seo_title": "Grohnpetrel SEO / GEO Lab: How an Invented Term Gets Found", "status": "draft"},
+  {"id": 90, "file": "grohnpetrel-seo-aeo-geo-lab.html", "title": "Grohnpetrel SEO / AEO / GEO Lab", "slug": "grohnpetrel-seo-aeo-geo-lab", "seo_title": "Grohnpetrel SEO / GEO Lab: How an Invented Term Gets Found", "status": "publish",
+   "description": "How we measure whether the invented term Grohnpetrel becomes findable in Google and AI assistants: method, dated baseline, rankings and changes."},
   {"id": 108, "file": "about.html", "title": "About Grohnpetrel and the Guillemots Team", "slug": "about", "seo_title": "About Grohnpetrel: The Guillemots Team at Constructor University", "status": "publish",
    "description": "Who made Grohnpetrel: the Guillemots, four students at Constructor University in Bremen. Team, roles, why we chose the concept and how we used AI."},
   {"id": 109, "file": "contact.html", "title": "Contact the Grohnpetrel Team", "slug": "contact", "seo_title": "Contact the Grohnpetrel Team", "status": "publish",
@@ -38,5 +39,13 @@
    "description": "Eurasian oystercatcher facts: size, mussel and worm diet, beach nests and its Near Threatened status. Sourced guide to coastal birds."},
   {"file": "european-storm-petrel.html", "title": "European Storm Petrel", "slug": "european-storm-petrel", "status": "publish", "seo_title": "European Storm Petrel (Hydrobates pelagicus): Facts and Name Origin",
    "description": "European storm petrel facts: one of Europe's smallest seabirds, night-time colonies, long life, threats and where the word petrel comes from."},
+  {"id": 29, "type": "post", "file": "post-how-we-defined-grohnpetrel.html", "title": "From Invented Keyword to Coastal Initiative: How We Defined Grohnpetrel", "slug": "how-we-defined-grohnpetrel", "status": "publish", "seo_title": "How We Defined Grohnpetrel: From Invented Keyword to Coastal Initiative",
+   "description": "How the Guillemots team turned the invented keyword Grohnpetrel into a proposed coastal conservation initiative, and what search engines said first."},
+  {"type": "post", "file": "post-noindex-lesson.html", "title": "What a Hidden Noindex Header Taught Us About SEO", "slug": "noindex-header-seo-lesson", "status": "publish", "date": "2026-11-02T18:00:00", "seo_title": "What a Hidden Noindex Header Taught Us About SEO | Grohnpetrel",
+   "description": "Every page on our university server carried an X-Robots-Tag noindex header. How we found it, why it blocked Google, and what changed once it was gone."},
+  {"type": "post", "file": "post-why-a-seabird-guide.html", "title": "Why We Built a Seabird Guide for an Invented Keyword", "slug": "why-we-built-a-seabird-guide", "status": "publish", "date": "2026-11-02T19:00:00", "seo_title": "Why We Built a Seabird Guide for an Invented Keyword | Grohnpetrel",
+   "description": "Why a site about the invented word Grohnpetrel needs real, sourced content, and how we built and fact-checked our North Sea seabird guide."},
+  {"file": "journal.html", "title": "Grohnpetrel Journal", "slug": "journal", "status": "publish", "seo_title": "Grohnpetrel Journal: Project News and SEO Lessons",
+   "description": "News and lessons from the Grohnpetrel student project: what we built, what we measured and what we learned about search engines and AI."},
   {"id": 2, "title": "Sample Page", "status": "trash"}
 ]

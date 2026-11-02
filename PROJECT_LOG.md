@@ -128,3 +128,19 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 **Reason:** Our site had 8 pages; a competing team (Fulmars) has 10 product pages plus articles. Sourced, useful pages on real seabirds give search engines and AI assistants more reasons to see our site as a reliable source on the topic, and give visitors something worth reading.
 
 **Outcome:** Pending.
+
+---
+
+**Action:** Started the Journal: fixed and published "How We Defined Grohnpetrel" (its links pointed to old page addresses), added two articles ("What a Hidden Noindex Header Taught Us About SEO", "Why We Built a Seabird Guide for an Invented Keyword") and a Journal page in the main menu. The sync script now publishes posts too.
+
+**Reason:** Dated articles show ongoing activity and real experience, which helps credibility with search engines and AI assistants. The competitor (Fulmars) has four articles.
+
+**Outcome:** Pending.
+
+---
+
+**Action:** Published the SEO / GEO Lab page with the research question, method, the dated 28 October baseline, the noindex finding (now resolved), the first Google rankings and a dated list of our changes.
+
+**Reason:** The page was an empty draft. It is our main evidence page and links our actions to measured results.
+
+**Outcome:** Pending.
