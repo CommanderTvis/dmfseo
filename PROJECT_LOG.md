@@ -112,6 +112,6 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Action:** Added Bremen wording to the front page (first sentence says the project is from Bremen, Germany; Grohn named as the Bremen district on the Weser near the North Sea and Wadden Sea) and to "What is Grohnpetrel?", rewrote both meta descriptions around Bremen-Grohn, and added a visible link from each to the German page.
 
-**Reason:** The professor's check (Google.de, desktop, location Bremen, 2 Nov) had Puffins at #1 and us at #2, the same as our tracker. Puffins' pages lean heavily on Bremen and Grohn.
+**Reason:** On Google.de (desktop, location Bremen, 2 Nov) Puffins was #1 and we were #2, the same as our tracker. Puffins' pages lean heavily on Bremen and Grohn.
 
 **Outcome:** Pending. Compare the 🇩🇪 ranks in the tracker after Google re-crawls.
