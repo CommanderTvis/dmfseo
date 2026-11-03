@@ -1,17 +1,112 @@
 {
   "title": "Grohnpetrel: an SEO and GEO case study for an invented keyword (Team Guillemots, Constructor University, 2026)",
-  "description": "<p>Source of the website <a href=\"https://business.constructor.university/guillemots/\">Grohnpetrel</a> and the scripts that publish it and track its search rankings.</p><p>Grohnpetrel is a fictional coastal-conservation and seabird-education project from Bremen-Grohn, Germany. Team Guillemots, a team of four students at Constructor University in Bremen, created it in autumn 2026 for the course Digital Marketing Fundamentals and Search Engine Optimisation, to rank for the invented search term \"Grohnpetrel\" in Google and be cited by AI assistants. It is not a registered organisation and does not accept donations.</p><p>Contents: the site's pages in English and German (WordPress block HTML), the PHP snippets for meta tags, hreflang and structured data, the GitHub Actions that publish the pages to WordPress, and the project log of every SEO and content change.</p>",
+  "description": "<p>Source of the website <a href=\"https://business.constructor.university/guillemots/\">Grohnpetrel</a> and the scripts that publish it and track its search rankings.</p><p>Grohnpetrel is a fictional coastal-conservation and seabird-education project from Bremen-Grohn, Germany. Team Guillemots, a team of four students at Constructor University in Bremen, created it in autumn 2026 for the course Digital Marketing Fundamentals and Search Engine Optimisation, to rank for the invented search term \"Grohnpetrel\" in Google and be cited by AI assistants. It is not a registered organisation and does not accept donations.</p><p>Key pages (English):</p><ul><li><a href=\"https://business.constructor.university/guillemots/\">Front page</a></li><li><a href=\"https://business.constructor.university/guillemots/what-is-grohnpetrel-2/\">What is Grohnpetrel?</a></li><li><a href=\"https://business.constructor.university/guillemots/grohnpetrel-faq/\">FAQ</a></li><li><a href=\"https://business.constructor.university/guillemots/seabirds-of-the-north-sea/\">Seabirds of the North Sea</a></li><li><a href=\"https://business.constructor.university/guillemots/grohnpetrel-seo-aeo-geo-lab/\">SEO / AEO / GEO Lab</a></li><li><a href=\"https://business.constructor.university/guillemots/about/\">About the team</a></li><li><a href=\"https://business.constructor.university/guillemots/journal/\">Journal</a></li><li><a href=\"https://business.constructor.university/guillemots/how-we-defined-grohnpetrel/\">How We Defined Grohnpetrel</a></li><li><a href=\"https://business.constructor.university/guillemots/noindex-header-seo-lesson/\">What a Hidden Noindex Header Taught Us About SEO</a></li><li><a href=\"https://business.constructor.university/guillemots/why-we-built-a-seabird-guide/\">Why We Built a Seabird Guide for an Invented Keyword</a></li></ul><p>Deutsch:</p><ul><li><a href=\"https://business.constructor.university/guillemots/de/\">Startseite</a></li><li><a href=\"https://business.constructor.university/guillemots/de/was-ist-grohnpetrel/\">Was ist Grohnpetrel?</a></li><li><a href=\"https://business.constructor.university/guillemots/de/haeufige-fragen/\">Häufige Fragen</a></li><li><a href=\"https://business.constructor.university/guillemots/de/seevoegel-der-nordsee/\">Seevögel der Nordsee</a></li><li><a href=\"https://business.constructor.university/guillemots/de/seo-geo-labor/\">SEO- / GEO-Labor</a></li><li><a href=\"https://business.constructor.university/guillemots/de/projekt-journal/\">Journal</a></li></ul><p>Contents: the site's pages in English and German (WordPress block HTML), the PHP snippets for meta tags, hreflang and structured data, the GitHub Actions that publish the pages to WordPress, and the project log of every SEO and content change.</p>",
   "upload_type": "software",
   "creators": [
-    {"name": "Team Guillemots", "affiliation": "Constructor University"}
+    {
+      "name": "Team Guillemots",
+      "affiliation": "Constructor University"
+    }
   ],
   "access_right": "open",
   "license": "other-closed",
-  "keywords": ["Grohnpetrel", "search engine optimisation", "generative engine optimisation", "SEO case study", "seabird education", "coastal conservation", "WordPress", "Bremen"],
+  "keywords": [
+    "Grohnpetrel",
+    "search engine optimisation",
+    "generative engine optimisation",
+    "SEO case study",
+    "seabird education",
+    "coastal conservation",
+    "WordPress",
+    "Bremen"
+  ],
   "language": "eng",
   "related_identifiers": [
-    {"identifier": "https://business.constructor.university/guillemots/", "relation": "isSupplementTo", "resource_type": "other"},
-    {"identifier": "https://github.com/CommanderTvis/dmfseo", "relation": "isSupplementTo", "resource_type": "software"}
+    {
+      "identifier": "https://business.constructor.university/guillemots/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/what-is-grohnpetrel-2/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/grohnpetrel-faq/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/seabirds-of-the-north-sea/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/grohnpetrel-seo-aeo-geo-lab/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/about/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/journal/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/how-we-defined-grohnpetrel/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/noindex-header-seo-lesson/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/why-we-built-a-seabird-guide/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/de/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/de/was-ist-grohnpetrel/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/de/haeufige-fragen/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/de/seevoegel-der-nordsee/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/de/seo-geo-labor/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://business.constructor.university/guillemots/de/projekt-journal/",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://github.com/CommanderTvis/dmfseo",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
   ],
   "notes": "All rights reserved. Fictional student project for a university course."
 }
