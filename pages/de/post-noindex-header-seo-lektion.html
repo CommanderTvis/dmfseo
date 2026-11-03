@@ -1,0 +1,53 @@
+<!-- wp:paragraph -->
+<p><strong>Kurz gesagt:</strong> In den ersten Tagen unseres Projekts wies jede Seite auf unserem Universitätsserver Suchmaschinen über einen versteckten HTTP-Header an, sie nicht zu indexieren. Wir haben das nur entdeckt, weil wir die Serverantworten geprüft haben, nicht die Seiten. Sobald der Header weg war, begann Google innerhalb weniger Tage, unsere Website zu ranken.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Was wir gefunden haben</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Am 28. Oktober 2026 haben wir die HTTP-Antwort-Header unserer Website geprüft. Jede getestete URL auf business.constructor.university, auch die Websites anderer Kursteams und unsere Bilddateien, lieferte <code>X-Robots-Tag: noindex, nofollow</code>. Dieser Header ist auf der Seite selbst nicht sichtbar und hat Vorrang vor allem, was Website-Betreiber in WordPress einstellen. Laut <a href="https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag">Googles Dokumentation</a> weist er Suchmaschinen an, eine Seite nicht in ihren Ergebnissen anzuzeigen.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Warum das wichtig war</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Solange der Header gesetzt war, konnten weder Inhalte noch Optimierung unsere Seiten in Google erscheinen lassen. Da er auf dem Server gesetzt wird, außerhalb von WordPress, konnten wir ihn nicht selbst entfernen und haben ihn dem Kursteam gemeldet.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Wie es weiterging</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Bis zum 31. Oktober rankte Google unsere Seiten, und am 1. November bestätigte unsere eigene Prüfung, dass der Header verschwunden war. Unser täglicher Ranking-Check am 31. Oktober sah unsere Website bei Google für „grohnpetrel“ in den USA auf Platz 2 und in Deutschland und Großbritannien auf Platz 6. Am 1. November waren wir in Großbritannien auf Platz 1, in Deutschland auf Platz 2 und in den USA auf Platz 3. Die Ergebnisse stammen aus einem nicht personalisierten täglichen Check, einzelne Suchen können also abweichen; den vollständigen Verlauf zeigt unser <a href="https://commandertvis.github.io/dmfseo/">Ranking-Dashboard</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Was wir gelernt haben</h2>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Erst die technischen Grundlagen prüfen: Antwort-Header, Robots-Regeln und Indexierungsstatus in der Google Search Console, bevor man Inhalte beurteilt.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Eine Seite, die im Browser einwandfrei aussieht, kann für Suchmaschinen trotzdem unsichtbar sein.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Probleme außerhalb der eigenen Kontrolle sollten mit Datum dokumentiert werden, damit sich spätere Ranking-Veränderungen erklären lassen.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>Unsere datierten Belege stehen im <a href="https://business.constructor.university/guillemots/de/seo-geo-labor/">SEO- / GEO-Labor</a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"fontSize":"small"} -->
+<p class="has-small-font-size"><em>Vom Guillemots-Team · 2. November 2026</em></p>
+<!-- /wp:paragraph -->

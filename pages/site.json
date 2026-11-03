@@ -30,6 +30,21 @@
     {
       "id": 39,
       "file": "navigation-footer-transparency.html"
+    },
+    {
+      "slug": "navigation-de-main",
+      "title": "Hauptmenü (Deutsch)",
+      "file": "navigation-de-main.html"
+    },
+    {
+      "slug": "navigation-de-lernen",
+      "title": "Footer: Lernen (Deutsch)",
+      "file": "navigation-de-lernen.html"
+    },
+    {
+      "slug": "navigation-de-transparenz",
+      "title": "Footer: Transparenz (Deutsch)",
+      "file": "navigation-de-transparenz.html"
     }
   ]
 }

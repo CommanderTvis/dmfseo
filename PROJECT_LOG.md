@@ -115,3 +115,11 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** On Google.de (desktop, location Bremen, 2 Nov) Puffins was #1 and we were #2, the same as our tracker. Puffins' pages lean heavily on Bremen and Grohn.
 
 **Outcome:** Pending. Compare the 🇩🇪 ranks in the tracker after Google re-crawls.
+
+---
+
+**Action:** Full German version of the site under /de/ (https://business.constructor.university/guillemots/de/): a German front page and German versions of every page and Journal post (23 new, the two existing German pages moved under /de/ with redirects from their old addresses), German menus, a language link at the top of every translated page, and hreflang links (en, de, x-default) on every pair. No translation plugin: the pages are published from GitHub like the English ones. Added a "Source code on GitHub" link to the footer and to the structured data (`sameAs`).
+
+**Reason:** We rank in Germany, but only two pages were in German and the front page had no German version. Fulmars has a German version of every page; search engines prefer a separate, linked page per language. Fulmars links its Instagram as an outside profile of the brand; our public GitHub repository plays that role for us and shows how the site is built.
+
+**Outcome:** Pending. Check that the German pages are indexed (Search Console) and compare the 🇩🇪 ranks in the tracker.
