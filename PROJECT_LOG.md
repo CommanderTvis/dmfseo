@@ -78,91 +78,31 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 ## 2026-11-02
 
-**Action:** Added About (team, roles, photo, use of AI), Contact, Imprint (draft until the responsible person is named) and Privacy Policy pages; linked them in the footer.
+**Action:** Added About (team, roles, photo, use of AI), Contact, Imprint (draft until the responsible person is named) and Privacy Policy pages; linked them in the footer and fixed the footer "Transparency" menu, whose links pointed to trashed pages.
 
 **Who:** Diego Aguilar.
 
 **Reason:** The home page linked to a missing About page, and a site in Germany needs contact and privacy information. Clear authorship also helps search engines and AI assistants describe us. The competitor (Fulmars) has these pages.
 
-**Outcome:** Pending.
+**Outcome:** Pending. FAQ, Knowledge Centre and Cookie Policy show in the footer; the rest appear once published.
 
 ---
 
-**Action:** Fixed the footer "Transparency" menu (old links to trashed pages) and moved it into the repo.
+**Action:** Technical SEO on every page: structured data (JSON-LD for the project, website, page type, breadcrumbs, a definition on "What is Grohnpetrel?" and an FAQ built from the visible questions); keyword-first titles, e.g. "Grohnpetrel FAQ: What It Is, the Name, Who Made It"; German versions of "What is Grohnpetrel?" and the FAQ with hreflang links and `lang="de-DE"`; the home page's "About us" button now links to About, which is also in the main menu. The sync can now publish posts and translated pages.
 
 **Who:** Diego Aguilar.
 
-**Reason:** Those links did not show on the live site.
+**Reason:** No page had structured data and titles were only the page name plus "– Grohnpetrel"; Fulmars has structured data, descriptive titles and a German version. This helps search engines and AI assistants identify what Grohnpetrel is and who made it, and lets German pages match searches like "Was ist Grohnpetrel".
 
-**Outcome:** FAQ, Knowledge Centre and Cookie Policy show; the rest appear once published.
+**Outcome:** Pending (check structured data with Google's Rich Results Test).
 
 ---
 
-**Action:** Added structured data (JSON-LD) to every page: project, website, page type, breadcrumbs, a definition on "What is Grohnpetrel?" and an FAQ built from the visible questions. The sync can also publish Journal posts and translated pages.
+**Action:** Published new content: "Seabirds of the North Sea" (an overview and six sourced species pages), a Journal ("How We Defined Grohnpetrel", "What a Hidden Noindex Header Taught Us About SEO", "Why We Built a Seabird Guide for an Invented Keyword"), the SEO / GEO Lab page (method, dated 28 October baseline, rankings, list of changes) and a "Merchandise: Plans, Not Sales" page.
 
 **Who:** Diego Aguilar.
 
-**Reason:** No page had structured data; Fulmars has it everywhere. It helps search engines and AI assistants identify what Grohnpetrel is and who made it.
-
-**Outcome:** Pending (check with Google's Rich Results Test).
-
----
-
-**Action:** Rewrote every page title to start with the keyword and say what the page answers, e.g. "Grohnpetrel FAQ: What It Is, the Name, Who Made It". Linked the home page's "About us" button to the About page and added About to the main menu.
-
-**Who:** Diego Aguilar.
-
-**Reason:** Titles were just the page name plus "– Grohnpetrel"; Fulmars uses descriptive, keyword-first titles.
-
-**Outcome:** Pending.
-
----
-
-**Action:** Published "Seabirds of the North Sea": an overview and six sourced species pages (gannet, puffin, kittiwake, common tern, oystercatcher, storm petrel). Linked from the Knowledge Centre and footer.
-
-**Who:** Diego Aguilar.
-
-**Reason:** We had 8 pages; Fulmars has 10 product pages plus articles. Sourced pages on real seabirds make us a more reliable source for search engines, AI assistants and visitors.
-
-**Outcome:** Pending.
-
----
-
-**Action:** Started the Journal: published "How We Defined Grohnpetrel" (links fixed), added two articles ("What a Hidden Noindex Header Taught Us About SEO", "Why We Built a Seabird Guide for an Invented Keyword") and a Journal page in the main menu. The sync now publishes posts.
-
-**Who:** Diego Aguilar.
-
-**Reason:** Dated articles show ongoing activity and real experience. Fulmars has four articles.
-
-**Outcome:** Pending.
-
----
-
-**Action:** Published the SEO / GEO Lab page: research question, method, dated 28 October baseline, the noindex finding (resolved), first Google rankings and a dated list of changes.
-
-**Who:** Diego Aguilar.
-
-**Reason:** It was an empty draft, and it is our main evidence page.
-
-**Outcome:** Pending.
-
----
-
-**Action:** Added German versions of "What is Grohnpetrel?" and the FAQ, with hreflang links, `lang="de-DE"` and their own FAQ structured data.
-
-**Who:** Diego Aguilar.
-
-**Reason:** We rank in Germany, and Fulmars offers a German version. German pages can match searches like "Was ist Grohnpetrel".
-
-**Outcome:** Pending.
-
----
-
-**Action:** Added a "Merchandise: Plans, Not Sales" page: planned items (stickers, poster, tote bag), their learning links and our rules (no sales before registration, every printed fact sourced).
-
-**Who:** Diego Aguilar.
-
-**Reason:** The course includes a merchandise marketing plan; this shows its public side without selling anything. The competitor has a merch page too.
+**Reason:** We had 8 pages; Fulmars has 10 product pages plus four articles and a merch page. Sourced pages and dated articles show real, ongoing work and give search engines, AI assistants and visitors more to rely on. The Lab page was an empty draft and is our main evidence page; the merch page shows the public side of the course's marketing plan.
 
 **Outcome:** Pending.
 
