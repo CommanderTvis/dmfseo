@@ -56,23 +56,6 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 
 ## 2026-11-01
 
-**Action:** Daily rank check (https://commandertvis.github.io/dmfseo/).
-
-**Reason:** Track results against yesterday's baseline.
-
-**Outcome:**
-
-- Google, "grohnpetrel": #1 in 🇬🇧, #2 in 🇩🇪, #3 in 🇺🇸.
-- Google, quoted "grohnpetrel": #2 everywhere.
-- Google, "grohnpetrel seabird": #1 everywhere.
-- Google, "what is grohnpetrel": #1 in 🇩🇪, #3 in 🇺🇸, #4 in 🇬🇧 (neither was in the top 10 in the baseline).
-- Only our front page ranks, no other page.
-- Puffins still #1 for "grohnpetrel" in 🇺🇸 and 🇩🇪 and for quoted "grohnpetrel".
-- Brave and DuckDuckGo: not in results.
-- Search Console: no data yet.
-
----
-
 **Action:** Submitted the sitemap (https://business.constructor.university/guillemots/wp-sitemap.xml) in Search Console, and made every publish from GitHub resubmit it automatically.
 
 **Reason:** Only the front page is indexed; the other 7 pages are unknown to Google, and no sitemap had been submitted. WordPress updates the sitemap itself, but Google only re-reads it on its own schedule; resubmitting tells it there is new content.
@@ -81,11 +64,11 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 
 ---
 
-**Action:** Activated the Complianz plugin: cookie consent banner (Accept / Deny / View preferences), cookie blocker and a Cookie Policy page (https://business.constructor.university/guillemots/cookie-policy-eu/).
+**Action:** Activated Complianz in WordPress: cookie banner (Accept / Deny / View preferences), cookie blocker, Cookie Policy page (https://business.constructor.university/guillemots/cookie-policy-eu/). GDPR rules; Do Not Track / Global Privacy Control count as "deny".
 
-**Reason:** The site is in Germany and we plan to add Google Analytics, which needs consent first under the GDPR. The site had no cookie or privacy information.
+**Reason:** The site is in Germany, we plan to add Google Analytics (needs prior consent), and we had no Privacy or Cookie Policy.
 
-**Outcome:** Banner and Cookie Policy live. While checking, we found that our earlier note that Analytics loaded without consent was wrong: Analytics was never connected in Site Kit. Next: connect GA4 and test that it loads only after "Accept".
+**Outcome:** Banner and policy are live. Analytics is not connected yet. Done in WordPress, outside the repo. Next: connect GA4 in Site Kit and test that it loads only after "Accept".
 
 ---
 
