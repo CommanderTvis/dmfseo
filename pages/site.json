@@ -1,10 +1,17 @@
 {
   "front_page_id": 78,
-  "plugins": ["code-snippets/code-snippets"],
+  "plugins": [
+    "code-snippets/code-snippets",
+    "complianz-gdpr/complianz-gpdr"
+  ],
   "snippets": [
     {
       "name": "Grohnpetrel SEO head",
       "file": "../snippets/seo-head.php"
+    },
+    {
+      "name": "Grohnpetrel schema",
+      "file": "../snippets/schema.php"
     },
     {
       "name": "Grohnpetrel admin notice",
@@ -19,6 +26,10 @@
     {
       "id": 38,
       "file": "navigation-footer-learn.html"
+    },
+    {
+      "id": 39,
+      "file": "navigation-footer-transparency.html"
     }
   ]
 }

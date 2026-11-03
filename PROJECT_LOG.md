@@ -78,3 +78,85 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 **Reason:** Only the front page is indexed; the other 7 pages are unknown to Google, and no sitemap had been submitted. WordPress updates the sitemap itself, but Google only re-reads it on its own schedule; resubmitting tells it there is new content.
 
 **Outcome:** Accepted, no errors; Google has not processed it yet. The automatic resubmit works (tested by hand). Google treats it as a hint, so pages may still take days to be indexed.
+
+---
+
+**Action:** Activated the Complianz plugin: cookie consent banner (Accept / Deny / View preferences), cookie blocker and a Cookie Policy page (https://business.constructor.university/guillemots/cookie-policy-eu/).
+
+**Reason:** The site is in Germany and we plan to add Google Analytics, which needs consent first under the GDPR. The site had no cookie or privacy information.
+
+**Outcome:** Banner and Cookie Policy live. While checking, we found that our earlier note that Analytics loaded without consent was wrong: Analytics was never connected in Site Kit. Next: connect GA4 and test that it loads only after "Accept".
+
+---
+
+## 2026-11-02
+
+**Action:** Added About (team, roles, team photo, use of AI), Contact, Imprint (draft until the responsible person is confirmed) and Privacy Policy pages, and put them in the footer.
+
+**Reason:** The home page linked to "Get to know the Guillemots team" but no About page existed, and a site in Germany needs contact and privacy information. Clear authorship should also help search engines and AI assistants trust and describe the site correctly. The Fulmars' site (competitor) has all of these pages.
+
+**Outcome:** Pending.
+
+---
+
+**Action:** Fixed the footer "Transparency" menu, whose FAQ, Knowledge Centre and Lab links still pointed to the old trashed pages, and moved the menu into the repo (`pages/navigation-footer-transparency.html`).
+
+**Reason:** Those links did not appear on the live site.
+
+**Outcome:** FAQ, Knowledge Centre and Cookie Policy show in the footer; the other links appear once their pages are published.
+
+---
+
+**Action:** Added structured data (JSON-LD) to every page: the project (schema.org Project, with a description that says it is a fictional student project), WebSite, the page type (About, Contact, FAQ, collection pages), breadcrumbs, a DefinedTerm on "What is Grohnpetrel?" and an FAQPage built from the visible FAQ questions. The sync can now also publish Journal posts and translated pages with hreflang.
+
+**Reason:** No page had structured data, while a competing team (Fulmars) has it on every page. Structured data helps search engines and AI assistants identify what Grohnpetrel is and who made it.
+
+**Outcome:** Pending (check with Google's Rich Results Test after publishing).
+
+---
+
+**Action:** Rewrote every page title (the text Google shows as the blue link) to start with the keyword and say what the page answers, e.g. "Grohnpetrel FAQ: What It Is, the Name, Who Made It". Linked the home page's "About us" button (it had no link) to the new About page and added About to the main menu.
+
+**Reason:** Titles were just the page name plus "– Grohnpetrel". The competitor (Fulmars) uses descriptive, keyword-first titles.
+
+**Outcome:** Pending.
+
+---
+
+**Action:** Published "Seabirds of the North Sea", a guide with an overview page and six species pages (northern gannet, Atlantic puffin, black-legged kittiwake, common tern, Eurasian oystercatcher, European storm petrel), each with key facts, threats and source links. Linked it from the Knowledge Centre and the footer.
+
+**Reason:** Our site had 8 pages; a competing team (Fulmars) has 10 product pages plus articles. Sourced, useful pages on real seabirds give search engines and AI assistants more reasons to see our site as a reliable source on the topic, and give visitors something worth reading.
+
+**Outcome:** Pending.
+
+---
+
+**Action:** Started the Journal: fixed and published "How We Defined Grohnpetrel" (its links pointed to old page addresses), added two articles ("What a Hidden Noindex Header Taught Us About SEO", "Why We Built a Seabird Guide for an Invented Keyword") and a Journal page in the main menu. The sync script now publishes posts too.
+
+**Reason:** Dated articles show ongoing activity and real experience, which helps credibility with search engines and AI assistants. The competitor (Fulmars) has four articles.
+
+**Outcome:** Pending.
+
+---
+
+**Action:** Published the SEO / GEO Lab page with the research question, method, the dated 28 October baseline, the noindex finding (now resolved), the first Google rankings and a dated list of our changes.
+
+**Reason:** The page was an empty draft. It is our main evidence page and links our actions to measured results.
+
+**Outcome:** Pending.
+
+---
+
+**Action:** Added German versions of "What is Grohnpetrel?" and the FAQ, linked to the English pages with hreflang tags and marked as German (`lang="de-DE"`), with their own FAQPage structured data.
+
+**Reason:** We rank in Germany, and a competing team (Fulmars) offers a German version of its site. German pages can match German searches such as "Was ist Grohnpetrel".
+
+**Outcome:** Pending.
+
+---
+
+**Action:** Added a "Merchandise: Plans, Not Sales" page that explains our planned items (stickers, poster, tote bag), their learning links and our rules (no sales before registration, every printed fact sourced on the site).
+
+**Reason:** The course includes a merchandise marketing plan; this page shows its public side without selling anything. The competitor has a merch page too.
+
+**Outcome:** Pending.
