@@ -72,8 +72,13 @@ async function sitemap(){
     `<tr><th>Status</th><td>${s.isPending?'pending, not processed yet':s.lastDownloaded?'processed':'unknown'}</td></tr>`+
     `<tr><th>URLs submitted</th><td>${n||'–'}</td></tr><tr><th>Errors / warnings</th><td>${esc(s.errors||0)} / ${esc(s.warnings||0)}</td></tr></table>`;
 }
+async function sitemapUrls(){
+  let s;try{const r=await fetch('data/sitemap_urls.json',{cache:'no-store'});if(!r.ok)return;s=await r.json()}catch(e){return}
+  const rows=s.urls.map(u=>`<tr><td><a href="${esc(u.loc)}">${esc(u.loc.replace(/^https:\/\/[^/]+/,''))}</a></td><td>${esc(u.sitemap.replace(/^wp-sitemap-|-1\.xml$/g,''))}</td><td>${esc(u.lastmod.replace('T',' ').slice(0,16))}</td></tr>`).join('');
+  document.getElementById('sitemap').insertAdjacentHTML('beforeend',`<h3>Live sitemap content (${s.urls.length} URLs)</h3><div class="scroll"><table><tr><th>URL</th><th>Type</th><th>Last modified</th></tr>${rows}</table></div>`);
+}
 (async()=>{
-  sitemap();
+  sitemap().then(sitemapUrls);
   const res=await load('data/results.csv'), gsc=await load('data/gsc.csv');
   const g=res.filter(r=>r.engine=='google'||r.engine=='brave');
   const cards=document.getElementById('cards');
