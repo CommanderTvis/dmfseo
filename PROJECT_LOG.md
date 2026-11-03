@@ -160,3 +160,13 @@ Format: action, reason, outcome. Newest last. Copy entries to the Teams log.
 **Reason:** The course includes a merchandise marketing plan; this page shows its public side without selling anything. The competitor has a merch page too.
 
 **Outcome:** Pending.
+
+---
+
+## 2026-11-03
+
+**Action:** Added Bremen wording to the front page (first sentence says the project is from Bremen, Germany; Grohn named as the Bremen district on the Weser near the North Sea and Wadden Sea) and to "What is Grohnpetrel?", rewrote both meta descriptions around Bremen-Grohn, and added a visible link from each to the German page.
+
+**Reason:** The professor's check (Google.de, desktop, location Bremen, 2 Nov) had Puffins at #1 and us at #2, the same as our tracker. Puffins' pages lean heavily on Bremen and Grohn.
+
+**Outcome:** Pending. Compare the 🇩🇪 ranks in the tracker after Google re-crawls.
