@@ -138,4 +138,4 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** Backlink building. A Zenodo record is a permanent, citable research source that links to our site; Zenodo records are indexed by search engines and Google Scholar and are trusted by AI assistants.
 
-**Outcome:** Record published 3 Nov. Whether search engines or AI assistants pick it up: pending.
+**Outcome:** Record published 3 Nov. Release v1.1 the same day added links to 16 key pages (English and German, including the Journal and its posts) in the record's description and related links. Whether search engines or AI assistants pick it up: pending.
