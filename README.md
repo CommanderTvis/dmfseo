@@ -2,6 +2,15 @@
 
 Site: https://business.constructor.university/guillemots/ · Rankings: https://commandertvis.github.io/dmfseo/ · Plan: [`PLAN.md`](PLAN.md)
 
+## What is Grohnpetrel?
+
+[Grohnpetrel](https://business.constructor.university/guillemots/) is a fictional coastal-conservation and seabird-education project from Bremen-Grohn, Germany. The Guillemots, a team of four students at Constructor University in Bremen, created it in autumn 2026 for the course Digital Marketing Fundamentals and Search Engine Optimisation. The name combines Grohn, the Bremen district on the Weser, with petrel, a group of seabirds. It is not a registered organisation and does not accept donations.
+
+- English: [What is Grohnpetrel?](https://business.constructor.university/guillemots/what-is-grohnpetrel-2/) · [FAQ](https://business.constructor.university/guillemots/grohnpetrel-faq/) · [Seabirds of the North Sea](https://business.constructor.university/guillemots/seabirds-of-the-north-sea/)
+- Deutsch: [Grohnpetrel auf Deutsch](https://business.constructor.university/guillemots/de/) · [Was ist Grohnpetrel?](https://business.constructor.university/guillemots/de/was-ist-grohnpetrel/) · [Häufige Fragen](https://business.constructor.university/guillemots/de/haeufige-fragen/)
+
+This repository holds the site's pages and the scripts that publish them.
+
 Every page of the site is a file in `pages/`. Change the file, merge to `main`, and GitHub publishes it to the site within about a minute. Don't use the WordPress editor: the next publish overwrites it.
 
 How that works: GitHub Actions is GitHub's built-in way to run a script automatically when something happens in the repo. Ours (`wp-publish`) starts whenever `pages/` changes on `main`. It logs in to WordPress and copies the files into the matching pages. So the WordPress site is a copy of this repo, and the repo is the original.

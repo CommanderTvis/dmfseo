@@ -123,3 +123,11 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** We rank in Germany, but only two pages were in German and the front page had no German version. Search engines prefer a separate, linked page per language. A public profile outside the site helps search engines recognise the project as an entity; our public GitHub repository plays that role and shows how the site is built.
 
 **Outcome:** Pending. Check that the German pages are indexed (Search Console) and compare the 🇩🇪 ranks in the tracker.
+
+---
+
+**Action:** Added a "What is Grohnpetrel?" section to the top of our public GitHub repository's README (https://github.com/CommanderTvis/dmfseo): a short definition with the disclaimer, and links to the front page, "What is Grohnpetrel?", the FAQ and the seabird guide in English and German.
+
+**Reason:** Backlink building. GitHub links are `nofollow`, so they pass little ranking credit, but GitHub is crawled often by search engines and AI search tools. A second, consistent description of Grohnpetrel that points to our site can help pages get found and help AI assistants cite us. Our site already links to the repository, so the two confirm each other.
+
+**Outcome:** Pending.
