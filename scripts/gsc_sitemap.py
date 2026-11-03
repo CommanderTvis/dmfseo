@@ -12,7 +12,7 @@ import json, os, sys
 from urllib.parse import quote
 
 
-def main():
+def main() -> None:
     cred = os.environ.get("GSC_SERVICE_ACCOUNT_JSON")
     if not cred:
         print("GSC_SERVICE_ACCOUNT_JSON not set, skipping sitemap submit")

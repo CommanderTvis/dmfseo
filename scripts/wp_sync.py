@@ -20,6 +20,9 @@ duplicates. An entry with status "trash" (no file needed) moves that page to the
 WordPress trash. Needs WP_USER and WP_APP_PASSWORD; WP_URL is optional.
 """
 import base64, json, os, sys, urllib.error, urllib.request
+from typing import Any
+
+Entry = dict[str, Any]  # one manifest.json entry
 
 BASE = os.environ.get("WP_URL", "https://business.constructor.university/guillemots").rstrip("/")
 PAGES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "pages")
@@ -27,7 +30,7 @@ AUTH = "Basic " + base64.b64encode(
     f"{os.environ['WP_USER']}:{os.environ['WP_APP_PASSWORD']}".encode()).decode()
 
 
-def api(method, path, body=None, ns="wp/v2"):
+def api(method: str, path: str, body: dict[str, Any] | None = None, ns: str = "wp/v2") -> Any:
     req = urllib.request.Request(
         f"{BASE}/wp-json/{ns}/{path}", method=method,
         data=json.dumps(body).encode() if body is not None else None,
@@ -40,19 +43,19 @@ def api(method, path, body=None, ns="wp/v2"):
         sys.exit(f"{method} {path}: HTTP {e.code} {e.read()[:300]!r}")
 
 
-def kind(m):
+def kind(m: Entry) -> str:
     """REST collection for a manifest entry: "posts" for Journal posts, otherwise "pages"."""
     return "posts" if m.get("type") == "post" else "pages"
 
 
-def meta(m):
+def meta(m: Entry) -> dict[str, str]:
     return {"grohnpetrel_description": m.get("description", ""),
             "grohnpetrel_title": m.get("seo_title", ""),
             "grohnpetrel_lang": m.get("lang", ""),
             "grohnpetrel_alternate": m.get("alternate", "")}
 
 
-def parent_id(m):
+def parent_id(m: Entry) -> int | None:
     """WordPress ID of the parent page: "parent" (ID) or "parent_slug" (path of a published page), else 0."""
     if "parent_slug" in m:
         found = api("GET", f"pages?slug={m['parent_slug'].rsplit('/', 1)[-1]}&parent=0"
@@ -61,7 +64,7 @@ def parent_id(m):
     return m.get("parent", 0)
 
 
-def find(m):
+def find(m: Entry) -> dict[str, Any] | None:
     """The page or post for a manifest entry: by "id" when given, otherwise by slug (any status).
     Pages are looked up under their parent, so the same slug can exist at several levels."""
     if "id" in m:
@@ -76,7 +79,7 @@ def find(m):
     return found[0] if found else None
 
 
-def main(dry):
+def main(dry: bool) -> None:
     manifest = json.load(open(os.path.join(PAGES, "manifest.json")))
     failed = False
     code(dry)
@@ -135,7 +138,7 @@ def main(dry):
     sys.exit(1 if failed else 0)
 
 
-def code(dry):
+def code(dry: bool) -> None:
     """wordpress.org plugins and our PHP snippets (pages/site.json), set up before the pages."""
     cfg = json.load(open(os.path.join(PAGES, "site.json")))
     have = {p["plugin"]: p["status"] for p in api("GET", "plugins")}
@@ -181,7 +184,7 @@ def code(dry):
                 api("POST", f"snippets/{snip['id']}/activate", ns=ns)
 
 
-def site(dry):
+def site(dry: bool) -> None:
     """Front page setting and navigation menus (pages/site.json)."""
     cfg = json.load(open(os.path.join(PAGES, "site.json")))
     for n in cfg["navigation"]:

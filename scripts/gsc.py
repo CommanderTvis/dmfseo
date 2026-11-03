@@ -10,12 +10,13 @@ Skips quietly when the credentials are missing.
 """
 import csv, json, os, sys
 from datetime import date, timedelta
+from typing import Any
 from urllib.parse import quote
 
 FIELDS = ["date", "query", "page", "clicks", "impressions", "ctr", "position"]
 
 
-def main(data_dir):
+def main(data_dir: str) -> None:
     cred = os.environ.get("GSC_SERVICE_ACCOUNT_JSON")
     if not cred:
         print("GSC_SERVICE_ACCOUNT_JSON not set, skipping Search Console")
@@ -45,7 +46,7 @@ def main(data_dir):
         print(f"service account {creds.service_account_email} can see: {sites.text[:500]}", file=sys.stderr)
         sys.exit(1)
     path = os.path.join(data_dir, "gsc.csv")
-    rows = {}
+    rows: dict[tuple[str, str, str], dict[str, Any]] = {}
     if os.path.exists(path):
         for r in csv.DictReader(open(path)):
             rows[(r["date"], r["query"], r["page"])] = r
