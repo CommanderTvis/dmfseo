@@ -131,3 +131,11 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Backlink building. GitHub links are `nofollow`, so they pass little ranking credit, but GitHub is crawled often by search engines and AI search tools. A second, consistent description of Grohnpetrel that points to our site can help pages get found and help AI assistants cite us. Our site already links to the repository, so the two confirm each other.
 
 **Outcome:** Pending.
+
+---
+
+**Action:** Connected the GitHub repository to Zenodo and published release v1.0, which Zenodo archived as a citable record with a DOI: https://doi.org/10.5281/zenodo.23926767 (site pages in English and German, scripts, project log; creator "Team Guillemots", Constructor University; all rights reserved). Linked the DOI from the README.
+
+**Reason:** Backlink building. A Zenodo record is a permanent, citable research source that links to our site; Zenodo records are indexed by search engines and Google Scholar and are trusted by AI assistants.
+
+**Outcome:** Record published 3 Nov. Whether search engines or AI assistants pick it up: pending.

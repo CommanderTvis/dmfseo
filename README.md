@@ -9,7 +9,7 @@ Site: https://business.constructor.university/guillemots/ · Rankings: https://c
 - English: [What is Grohnpetrel?](https://business.constructor.university/guillemots/what-is-grohnpetrel-2/) · [FAQ](https://business.constructor.university/guillemots/grohnpetrel-faq/) · [Seabirds of the North Sea](https://business.constructor.university/guillemots/seabirds-of-the-north-sea/)
 - Deutsch: [Grohnpetrel auf Deutsch](https://business.constructor.university/guillemots/de/) · [Was ist Grohnpetrel?](https://business.constructor.university/guillemots/de/was-ist-grohnpetrel/) · [Häufige Fragen](https://business.constructor.university/guillemots/de/haeufige-fragen/)
 
-This repository holds the site's pages and the scripts that publish them.
+This repository holds the site's pages and the scripts that publish them. Archived on Zenodo: [doi:10.5281/zenodo.23926767](https://doi.org/10.5281/zenodo.23926767) (every GitHub release adds a new version).
 
 Every page of the site is a file in `pages/`. Change the file, merge to `main`, and GitHub publishes it to the site within about a minute. Don't use the WordPress editor: the next publish overwrites it.
 
