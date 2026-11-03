@@ -62,6 +62,7 @@ add_action( 'wp_head', function () {
 		'@id'                      => $project,
 		'name'                     => 'Grohnpetrel',
 		'url'                      => $home,
+		'sameAs'                   => array( 'https://github.com/CommanderTvis/dmfseo' ),
 		'description'              => 'Grohnpetrel is a proposed coastal-conservation and seabird-education initiative.',
 		'disambiguatingDescription' => 'A fictional academic proposal created in autumn 2026 by the Guillemots, a team of four students at Constructor University in Bremen, Germany, for the course Digital Marketing Fundamentals and Search Engine Optimisation. It is not a registered organisation, not a bird species, and it does not accept donations.',
 		'foundingDate'             => '2026',
@@ -74,6 +75,12 @@ add_action( 'wp_head', function () {
 			array( '@type' => 'Person', 'name' => 'Iaroslav Postovalov' ),
 		),
 	);
+	if ( 'de' === $lang ) {
+		$org['description']               = 'Grohnpetrel ist eine geplante Initiative für Küstenschutz und Bildung über Seevögel.';
+		$org['disambiguatingDescription'] = 'Ein fiktiver Studienentwurf aus dem Herbst 2026, erstellt von den Guillemots, einem Team aus vier Studierenden der Constructor University in Bremen, im Kurs Digital Marketing Fundamentals and Search Engine Optimisation. Es ist keine eingetragene Organisation, keine Vogelart und nimmt keine Spenden an.';
+		$org['foundingLocation']['name']  = 'Bremen-Grohn, Deutschland';
+		$org['knowsAbout']                = array( 'Seevogelschutz', 'Küstenökosysteme', 'Nordsee', 'Wattenmeer' );
+	}
 	if ( $logo ) {
 		$org['logo'] = array( '@type' => 'ImageObject', 'url' => $logo[0], 'width' => $logo[1], 'height' => $logo[2] );
 	}
@@ -85,17 +92,22 @@ add_action( 'wp_head', function () {
 		'url'        => $home,
 		'name'       => get_bloginfo( 'name' ),
 		'publisher'  => array( '@id' => $project ),
-		'inLanguage' => 'en',
+		'inLanguage' => $lang,
 	);
 
 	$types = array(
 		'about'                        => 'AboutPage',
 		'contact'                      => 'ContactPage',
+		'ueber-uns'                    => 'AboutPage',
+		'kontakt'                      => 'ContactPage',
 		'grohnpetrel-faq'              => 'FAQPage',
-		'grohnpetrel-faq-de'           => 'FAQPage',
+		'haeufige-fragen'              => 'FAQPage',
 		'grohnpetrel-knowledge-centre' => 'CollectionPage',
+		'wissenszentrum'               => 'CollectionPage',
 		'seabirds-of-the-north-sea'    => 'CollectionPage',
+		'seevoegel-der-nordsee'        => 'CollectionPage',
 		'journal'                      => 'CollectionPage',
+		'projekt-journal'              => 'CollectionPage',
 	);
 	$page = array(
 		'@type'        => isset( $types[ $slug ] ) ? $types[ $slug ] : 'WebPage',
@@ -121,16 +133,18 @@ add_action( 'wp_head', function () {
 	}
 	$graph[] = $page;
 
-	$crumbs = array( array( '@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => $home ) );
+	// German pages start their breadcrumbs at the German front page (/de/), the parent of all of them.
+	$de_home = 'de' === $lang ? get_page_by_path( 'de' ) : null;
+	$crumbs  = array( array( '@type' => 'ListItem', 'position' => 1, 'name' => $de_home ? 'Startseite' : 'Home', 'item' => $de_home ? get_permalink( $de_home ) : $home ) );
 	if ( 'post' === $post->post_type ) {
-		$journal = get_page_by_path( 'journal' );
+		$journal = get_page_by_path( $de_home ? 'de/projekt-journal' : 'journal' );
 		if ( $journal ) {
 			$crumbs[] = array( '@type' => 'ListItem', 'position' => 2, 'name' => 'Journal', 'item' => get_permalink( $journal ) );
 		}
-	} elseif ( $post->post_parent ) {
+	} elseif ( $post->post_parent && ! ( $de_home && $de_home->ID === $post->post_parent ) ) {
 		$crumbs[] = array( '@type' => 'ListItem', 'position' => 2, 'name' => wp_strip_all_tags( get_the_title( $post->post_parent ) ), 'item' => get_permalink( $post->post_parent ) );
 	}
-	if ( ! is_front_page() ) {
+	if ( ! is_front_page() && ! ( $de_home && $de_home->ID === $id ) ) {
 		$crumbs[] = array( '@type' => 'ListItem', 'position' => count( $crumbs ) + 1, 'name' => $title, 'item' => $url );
 	}
 	$graph[] = array( '@type' => 'BreadcrumbList', '@id' => $url . '#breadcrumb', 'itemListElement' => $crumbs );
@@ -154,7 +168,7 @@ add_action( 'wp_head', function () {
 			'description'      => $desc,
 			'datePublished'    => get_post_time( 'c', true, $id ),
 			'dateModified'     => get_post_modified_time( 'c', true, $id ),
-			'author'           => array( '@type' => 'Organization', 'name' => 'Team Guillemots', 'url' => home_url( '/about/' ) ),
+			'author'           => array( '@type' => 'Organization', 'name' => 'Team Guillemots', 'url' => home_url( 'de' === $lang ? '/de/ueber-uns/' : '/about/' ) ),
 			'publisher'        => array( '@id' => $project ),
 			'mainEntityOfPage' => array( '@id' => $url . '#webpage' ),
 			'inLanguage'       => $lang,

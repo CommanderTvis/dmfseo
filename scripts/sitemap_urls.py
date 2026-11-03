@@ -7,20 +7,20 @@ SITE = os.environ.get("GSC_SITE_URL", "https://business.constructor.university/g
 NS = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 
 
-def fetch(url):
+def fetch(url: str) -> ET.Element:
     req = urllib.request.Request(url, headers={"User-Agent": "dmfseo-dashboard"})
     return ET.fromstring(urllib.request.urlopen(req, timeout=30).read())
 
 
-def main(data_dir):
+def main(data_dir: str) -> None:
     index = SITE + "wp-sitemap.xml"
-    urls = []
+    urls: list[dict[str, str]] = []
     for sm in fetch(index).findall("s:sitemap/s:loc", NS):
-        for u in fetch(sm.text.strip()).findall("s:url", NS):
-            lm = u.find("s:lastmod", NS)
-            urls.append({"loc": u.find("s:loc", NS).text.strip(),
-                         "lastmod": lm.text.strip() if lm is not None else "",
-                         "sitemap": sm.text.strip().rsplit("/", 1)[-1]})
+        sm_url = (sm.text or "").strip()
+        for u in fetch(sm_url).findall("s:url", NS):
+            urls.append({"loc": u.findtext("s:loc", "", NS).strip(),
+                         "lastmod": u.findtext("s:lastmod", "", NS).strip(),
+                         "sitemap": sm_url.rsplit("/", 1)[-1]})
     json.dump({"index": index, "urls": urls}, open(os.path.join(data_dir, "sitemap_urls.json"), "w"), indent=1)
     print(f"sitemap_urls.json: {len(urls)} URLs")
 

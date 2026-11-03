@@ -10,12 +10,19 @@ optional "description" and "seo_title" that snippets/seo-head.php puts in the pa
 and "lang" / "alternate" (slug of the same page in the other language) for hreflang.
 An entry with "type": "post" is a blog post (Journal) instead of a page; posts may also
 list "categories" (WordPress category IDs) and a "date".
+"parent_slug" (path of an already published page, e.g. "de") nests a page under it, which gives the
+German pages their /de/ URLs; slugs are then looked up under that parent, so "journal" and
+"de/projekt-journal" cannot be mixed up. A navigation entry in site.json without an "id" is created
+by "slug" and found by it afterwards.
 A page is addressed by its "id", or by slug when the entry has no id; a page that does not
 exist yet is created once, then found by slug on every later run, so a run cannot produce
 duplicates. An entry with status "trash" (no file needed) moves that page to the
 WordPress trash. Needs WP_USER and WP_APP_PASSWORD; WP_URL is optional.
 """
 import base64, json, os, sys, urllib.error, urllib.request
+from typing import Any
+
+Entry = dict[str, Any]  # one manifest.json entry
 
 BASE = os.environ.get("WP_URL", "https://business.constructor.university/guillemots").rstrip("/")
 PAGES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "pages")
@@ -23,7 +30,7 @@ AUTH = "Basic " + base64.b64encode(
     f"{os.environ['WP_USER']}:{os.environ['WP_APP_PASSWORD']}".encode()).decode()
 
 
-def api(method, path, body=None, ns="wp/v2"):
+def api(method: str, path: str, body: dict[str, Any] | None = None, ns: str = "wp/v2") -> Any:
     req = urllib.request.Request(
         f"{BASE}/wp-json/{ns}/{path}", method=method,
         data=json.dumps(body).encode() if body is not None else None,
@@ -36,27 +43,43 @@ def api(method, path, body=None, ns="wp/v2"):
         sys.exit(f"{method} {path}: HTTP {e.code} {e.read()[:300]!r}")
 
 
-def kind(m):
+def kind(m: Entry) -> str:
     """REST collection for a manifest entry: "posts" for Journal posts, otherwise "pages"."""
     return "posts" if m.get("type") == "post" else "pages"
 
 
-def meta(m):
+def meta(m: Entry) -> dict[str, str]:
     return {"grohnpetrel_description": m.get("description", ""),
             "grohnpetrel_title": m.get("seo_title", ""),
             "grohnpetrel_lang": m.get("lang", ""),
             "grohnpetrel_alternate": m.get("alternate", "")}
 
 
-def find(m):
-    """The page or post for a manifest entry: by "id" when given, otherwise by slug (any status)."""
+def parent_id(m: Entry) -> int | None:
+    """WordPress ID of the parent page: "parent" (ID) or "parent_slug" (path of a published page), else 0."""
+    if "parent_slug" in m:
+        found = api("GET", f"pages?slug={m['parent_slug'].rsplit('/', 1)[-1]}&parent=0"
+                           "&status=publish,draft,pending,private&context=edit")
+        return found[0]["id"] if found else None  # None: parent not created yet (dry run)
+    return m.get("parent", 0)
+
+
+def find(m: Entry) -> dict[str, Any] | None:
+    """The page or post for a manifest entry: by "id" when given, otherwise by slug (any status).
+    Pages are looked up under their parent, so the same slug can exist at several levels."""
     if "id" in m:
         return api("GET", f"{kind(m)}/{m['id']}?context=edit")
-    found = api("GET", f"{kind(m)}?slug={m['slug']}&status=publish,draft,pending,private&context=edit")
+    q = f"{kind(m)}?slug={m['slug']}&status=publish,draft,pending,private&context=edit"
+    if kind(m) == "pages":
+        pid = parent_id(m)
+        if pid is None:
+            return None
+        q += f"&parent={pid}"
+    found = api("GET", q)
     return found[0] if found else None
 
 
-def main(dry):
+def main(dry: bool) -> None:
     manifest = json.load(open(os.path.join(PAGES, "manifest.json")))
     failed = False
     code(dry)
@@ -68,6 +91,8 @@ def main(dry):
             for k in ("template", "parent", "categories", "date", "excerpt"):
                 if k in m:
                     want[k] = m[k]
+            if "parent_slug" in m and parent_id(m):
+                want["parent"] = parent_id(m)
             print(f"{'would create' if dry else 'create'} {kind(m)[:-1]} {m['slug']} ({m['status']})")
             if not dry:
                 res = api("POST", kind(m), want)
@@ -91,8 +116,8 @@ def main(dry):
                 "content": page["content"]["raw"]}
         if "template" in m:
             want["template"], have["template"] = m["template"], page.get("template", "")
-        if "parent" in m:
-            want["parent"], have["parent"] = m["parent"], page.get("parent", 0)
+        if "parent" in m or "parent_slug" in m:
+            want["parent"], have["parent"] = parent_id(m), page.get("parent", 0)
         if "categories" in m:
             want["categories"], have["categories"] = sorted(m["categories"]), sorted(page.get("categories", []))
         want["meta"] = meta(m)
@@ -113,7 +138,7 @@ def main(dry):
     sys.exit(1 if failed else 0)
 
 
-def code(dry):
+def code(dry: bool) -> None:
     """wordpress.org plugins and our PHP snippets (pages/site.json), set up before the pages."""
     cfg = json.load(open(os.path.join(PAGES, "site.json")))
     have = {p["plugin"]: p["status"] for p in api("GET", "plugins")}
@@ -159,11 +184,20 @@ def code(dry):
                 api("POST", f"snippets/{snip['id']}/activate", ns=ns)
 
 
-def site(dry):
+def site(dry: bool) -> None:
     """Front page setting and navigation menus (pages/site.json)."""
     cfg = json.load(open(os.path.join(PAGES, "site.json")))
     for n in cfg["navigation"]:
         path = os.path.join(PAGES, n["file"])
+        if "id" not in n:  # created once by slug, found by slug afterwards
+            found = api("GET", f"navigation?slug={n['slug']}&status=publish,draft&context=edit")
+            if not found:
+                print(f"{'would create' if dry else 'create'} navigation {n['slug']}")
+                if not dry:
+                    api("POST", "navigation", {"title": n["title"], "slug": n["slug"], "status": "publish",
+                                               "content": open(path).read()})
+                continue
+            n = {**n, "id": found[0]["id"]}
         have = api("GET", f"navigation/{n['id']}?context=edit")["content"]["raw"]
         if open(path).read() == have:
             print(f"ok      navigation {n['id']}")

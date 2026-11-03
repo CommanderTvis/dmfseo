@@ -44,7 +44,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** Evidence for results.
 
-**Outcome:** Baseline on Google: "grohnpetrel" #2 in 🇺🇸, #6 in 🇩🇪 and 🇬🇧; quoted "grohnpetrel" #2 everywhere; other queries not in top 10. Puffins #1. Not in DuckDuckGo results.
+**Outcome:** Baseline on Google: "grohnpetrel" #2 in 🇺🇸, #6 in 🇩🇪 and 🇬🇧; quoted "grohnpetrel" #2 everywhere; other queries not in top 10. Another team's site #1. Not in DuckDuckGo results.
 
 ---
 
@@ -82,7 +82,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Who:** Diego Aguilar.
 
-**Reason:** The home page linked to a missing About page, and a site in Germany needs contact and privacy information. Clear authorship also helps search engines and AI assistants describe us. The competitor (Fulmars) has these pages.
+**Reason:** The home page linked to a missing About page, and a site in Germany needs contact and privacy information. Clear authorship also helps search engines and AI assistants describe us.
 
 **Outcome:** Pending. FAQ, Knowledge Centre and Cookie Policy show in the footer; the rest appear once published.
 
@@ -92,7 +92,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Who:** Diego Aguilar.
 
-**Reason:** No page had structured data and titles were only the page name plus "– Grohnpetrel"; Fulmars has structured data, descriptive titles and a German version. This helps search engines and AI assistants identify what Grohnpetrel is and who made it, and lets German pages match searches like "Was ist Grohnpetrel".
+**Reason:** No page had structured data and titles were only the page name plus "– Grohnpetrel". This helps search engines and AI assistants identify what Grohnpetrel is and who made it, and lets German pages match searches like "Was ist Grohnpetrel".
 
 **Outcome:** Pending (check structured data with Google's Rich Results Test).
 
@@ -102,7 +102,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Who:** Diego Aguilar.
 
-**Reason:** We had 8 pages; Fulmars has 10 product pages plus four articles and a merch page. Sourced pages and dated articles show real, ongoing work and give search engines, AI assistants and visitors more to rely on. The Lab page was an empty draft and is our main evidence page; the merch page shows the public side of the course's marketing plan.
+**Reason:** We had 8 pages. Sourced pages and dated articles show real, ongoing work and give search engines, AI assistants and visitors more to rely on. The Lab page was an empty draft and is our main evidence page; the merch page shows the public side of the course's marketing plan.
 
 **Outcome:** Pending.
 
@@ -112,6 +112,14 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Action:** Added Bremen wording to the front page (first sentence says the project is from Bremen, Germany; Grohn named as the Bremen district on the Weser near the North Sea and Wadden Sea) and to "What is Grohnpetrel?", rewrote both meta descriptions around Bremen-Grohn, and added a visible link from each to the German page.
 
-**Reason:** On Google.de (desktop, location Bremen, 2 Nov) Puffins was #1 and we were #2, the same as our tracker. Puffins' pages lean heavily on Bremen and Grohn.
+**Reason:** On Google.de (desktop, location Bremen, 2 Nov) another team's site was #1 and we were #2, the same as our tracker. The #1 site leans heavily on Bremen and Grohn.
 
 **Outcome:** Pending. Compare the 🇩🇪 ranks in the tracker after Google re-crawls.
+
+---
+
+**Action:** Full German version of the site under /de/ (https://business.constructor.university/guillemots/de/): a German front page and German versions of every page and Journal post (23 new, the two existing German pages moved under /de/ with redirects from their old addresses), German menus, a language link at the top of every translated page, and hreflang links (en, de, x-default) on every pair. No translation plugin: the pages are published from GitHub like the English ones. Added a "Source code on GitHub" link to the footer and to the structured data (`sameAs`).
+
+**Reason:** We rank in Germany, but only two pages were in German and the front page had no German version. Search engines prefer a separate, linked page per language. A public profile outside the site helps search engines recognise the project as an entity; our public GitHub repository plays that role and shows how the site is built.
+
+**Outcome:** Pending. Check that the German pages are indexed (Search Console) and compare the 🇩🇪 ranks in the tracker.

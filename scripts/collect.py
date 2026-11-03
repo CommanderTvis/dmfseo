@@ -9,6 +9,7 @@ library (best effort). Appends one row per engine/country/query to results.csv a
 stores the raw top-10 as JSON.
 """
 import csv, json, os, sys, time, urllib.request
+from collections.abc import Callable
 from datetime import datetime, timezone
 from urllib.parse import urlencode, urlparse
 
@@ -21,7 +22,7 @@ FIELDS = ["date", "time_utc", "engine", "country", "query", "our_rank", "our_url
           "top_url", "rival_ranks", "n_results"]
 
 
-def google(q, gl):
+def google(q: str, gl: str) -> list[str]:
     req = urllib.request.Request(
         "https://google.serper.dev/search",
         data=json.dumps({"q": q, "gl": gl, "hl": "en", "num": 10}).encode(),
@@ -30,7 +31,7 @@ def google(q, gl):
         return [x["link"] for x in json.load(r).get("organic", [])]
 
 
-def brave(q, country):
+def brave(q: str, country: str) -> list[str]:
     time.sleep(1.2)  # free tier: 1 request per second
     url = "https://api.search.brave.com/res/v1/web/search?" + urlencode(
         {"q": q, "country": country.upper(), "search_lang": "en", "count": 10})
@@ -40,7 +41,7 @@ def brave(q, country):
         return [x["url"] for x in json.load(r).get("web", {}).get("results", [])]
 
 
-def ddg(q, region):
+def ddg(q: str, region: str) -> list[str]:
     from ddgs import DDGS
     for attempt in range(3):
         try:
@@ -49,11 +50,13 @@ def ddg(q, region):
             if attempt == 2:
                 raise
             time.sleep(4)
+    raise AssertionError("unreachable: the last attempt returns or raises")
 
 
-def analyse(urls):
-    our_rank = our_url = None
-    rivals = []
+def analyse(urls: list[str]) -> tuple[int | None, str | None, str]:
+    our_rank: int | None = None
+    our_url: str | None = None
+    rivals: list[str] = []
     for i, u in enumerate(urls, 1):
         p = urlparse(u)
         path = (p.netloc + p.path).rstrip("/")
@@ -66,14 +69,14 @@ def analyse(urls):
     return our_rank, our_url, ";".join(rivals)
 
 
-def main(data_dir):
+def main(data_dir: str) -> None:
     now = datetime.now(timezone.utc)
     raw_dir = os.path.join(data_dir, "raw", now.strftime("%Y-%m-%d"))
     os.makedirs(raw_dir, exist_ok=True)
     path = os.path.join(data_dir, "results.csv")
     new = not os.path.exists(path)
     google_ok = 0
-    jobs = []
+    jobs: list[tuple[str, str, str, Callable[[], list[str]]]] = []
     if os.environ.get("SERPER_API_KEY"):
         jobs += [("google", c, q, lambda q=q, c=c: google(q, c)) for c in GOOGLE_COUNTRIES for q in QUERIES]
     else:
