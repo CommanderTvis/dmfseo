@@ -1,0 +1,17 @@
+{
+  "title": "Grohnpetrel: an SEO and GEO case study for an invented keyword (Team Guillemots, Constructor University, 2026)",
+  "description": "<p>Source of the website <a href=\"https://business.constructor.university/guillemots/\">Grohnpetrel</a> and the scripts that publish it and track its search rankings.</p><p>Grohnpetrel is a fictional coastal-conservation and seabird-education project from Bremen-Grohn, Germany. Team Guillemots, a team of four students at Constructor University in Bremen, created it in autumn 2026 for the course Digital Marketing Fundamentals and Search Engine Optimisation, to rank for the invented search term \"Grohnpetrel\" in Google and be cited by AI assistants. It is not a registered organisation and does not accept donations.</p><p>Contents: the site's pages in English and German (WordPress block HTML), the PHP snippets for meta tags, hreflang and structured data, the GitHub Actions that publish the pages to WordPress, and the project log of every SEO and content change.</p>",
+  "upload_type": "software",
+  "creators": [
+    {"name": "Team Guillemots", "affiliation": "Constructor University"}
+  ],
+  "access_right": "open",
+  "license": "other-closed",
+  "keywords": ["Grohnpetrel", "search engine optimisation", "generative engine optimisation", "SEO case study", "seabird education", "coastal conservation", "WordPress", "Bremen"],
+  "language": "eng",
+  "related_identifiers": [
+    {"identifier": "https://business.constructor.university/guillemots/", "relation": "isSupplementTo", "resource_type": "other"},
+    {"identifier": "https://github.com/CommanderTvis/dmfseo", "relation": "isSupplementTo", "resource_type": "software"}
+  ],
+  "notes": "All rights reserved. Fictional student project for a university course."
+}
