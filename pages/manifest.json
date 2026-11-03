@@ -53,5 +53,6 @@
    "description": "Häufige Fragen zu Grohnpetrel: Was es ist, ob es ein echter Vogel ist, woher der Name kommt, wer es entwickelt hat und warum es keine Spenden annimmt."},
   {"file": "merch.html", "title": "Grohnpetrel Merchandise: Plans, Not Sales", "slug": "merch", "status": "publish", "seo_title": "Grohnpetrel Merchandise: Our Plan for Stickers, Poster and Tote Bag",
    "description": "Grohnpetrel sells nothing yet. Our plan for future mission-led merchandise: three items, each with a learning link, and our rules on honesty."},
-  {"id": 2, "title": "Sample Page", "status": "trash"}
+  {"id": 2, "title": "Sample Page", "status": "trash"},
+  {"id": 1, "type": "post", "slug": "hello-world", "title": "Hello world!", "status": "trash"}
 ]
