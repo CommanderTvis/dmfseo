@@ -70,14 +70,21 @@ add_action( 'wp_head', function () {
 		array( 'property', 'og:title', wp_get_document_title() ),
 		array( 'property', 'og:description', $desc ),
 		array( 'property', 'og:url', wp_get_canonical_url( $id ) ),
-		array( 'name', 'twitter:card', 'summary' ),
+		array( 'name', 'twitter:card', 'summary_large_image' ),
 	);
-	$logo = wp_get_attachment_image_src( (int) get_theme_mod( 'custom_logo' ), 'full' );
-	if ( $logo ) {
-		$tags[] = array( 'property', 'og:image', $logo[0] );
-		$tags[] = array( 'property', 'og:image:width', $logo[1] );
-		$tags[] = array( 'property', 'og:image:height', $logo[2] );
-		$tags[] = array( 'property', 'og:image:alt', get_bloginfo( 'name' ) . ' logo' );
+	// Share image: the page's featured image, else the Grohnpetrel mascot (media 11), else the logo.
+	$img_id = has_post_thumbnail( $id ) ? (int) get_post_thumbnail_id( $id ) : 11;
+	$img    = wp_get_attachment_image_src( $img_id, 'full' );
+	$alt    = $img ? (string) get_post_meta( $img_id, '_wp_attachment_image_alt', true ) : '';
+	if ( ! $img ) {
+		$img = wp_get_attachment_image_src( (int) get_theme_mod( 'custom_logo' ), 'full' );
+		$alt = get_bloginfo( 'name' ) . ' logo';
+	}
+	if ( $img ) {
+		$tags[] = array( 'property', 'og:image', $img[0] );
+		$tags[] = array( 'property', 'og:image:width', $img[1] );
+		$tags[] = array( 'property', 'og:image:height', $img[2] );
+		$tags[] = array( 'property', 'og:image:alt', '' !== $alt ? $alt : 'Grohnpetrel mascot' );
 	}
 	foreach ( $tags as $tag ) {
 		if ( '' !== (string) $tag[2] ) {
