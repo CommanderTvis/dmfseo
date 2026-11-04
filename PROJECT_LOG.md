@@ -139,3 +139,15 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Backlink building. A Zenodo record is a permanent, citable research source that links to our site; Zenodo records are indexed by search engines and Google Scholar and are trusted by AI assistants.
 
 **Outcome:** Record published 3 Nov. Release v1.1 the same day added links to 16 key pages (English and German, including the Journal and its posts) in the record's description and related links. Whether search engines or AI assistants pick it up: pending.
+
+---
+
+## 2026-11-04
+
+**Action:** Strengthened the three pages that compete for "grohnpetrel" itself, in English and German: "What is Grohnpetrel?" grew from about 220 to about 580 words (answer-first summary, an "at a glance" table, what Grohnpetrel is not, a one-sentence description to quote, links to every section); the FAQ grew from 8 to 14 questions (what the word means, whether it is official, why other sites use the name, where it is based, which real seabirds we cover, how to cite us); the front page got a "Grohnpetrel at a glance" box and alt text for its hero image. The definition page and FAQ now show the Grohnpetrel mascot with descriptive alt text and a caption; shared links now use the page's featured image or the mascot as a large preview (og:image with size and alt). A new Journal post in both languages ("What Happened to Our Rankings After a Big Update") reports the 2 to 3 Nov tracker change and what we did about it.
+
+**Who:** Diego Aguilar.
+
+**Reason:** On 3 Nov our tracker showed us out of Google's top 10 for "grohnpetrel" in all three countries, while one rival site held positions 1 to 4 with its front page, FAQ (about 660 words) and product overview. Our definition page had about 220 words and our FAQ 8 short answers. The new FAQ answers also tell search engines and AI assistants that several course sites use the same word, so they can tell our concept apart.
+
+**Outcome:** Pending. Compare the tracker after Google re-crawls the three pages, and check Google Images for the mascot.
