@@ -69,7 +69,7 @@ def find(m: Entry) -> dict[str, Any] | None:
     Pages are looked up under their parent, so the same slug can exist at several levels."""
     if "id" in m:
         return api("GET", f"{kind(m)}/{m['id']}?context=edit")
-    q = f"{kind(m)}?slug={m['slug']}&status=publish,draft,pending,private&context=edit"
+    q = f"{kind(m)}?slug={m['slug']}&status=publish,future,draft,pending,private&context=edit"
     if kind(m) == "pages":
         pid = parent_id(m)
         if pid is None:
@@ -120,6 +120,8 @@ def main(dry: bool) -> None:
             want["parent"], have["parent"] = parent_id(m), page.get("parent", 0)
         if "categories" in m:
             want["categories"], have["categories"] = sorted(m["categories"]), sorted(page.get("categories", []))
+        if "date" in m:  # also moves a scheduled ("future") post to an earlier date so it publishes
+            want["date"], have["date"] = m["date"], page.get("date", "")
         want["meta"] = meta(m)
         have["meta"] = {k: (page.get("meta") or {}).get(k, "") for k in want["meta"]}
         diff = [k for k in want if want[k] != have[k]]

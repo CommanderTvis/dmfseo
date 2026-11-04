@@ -151,3 +151,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** On 3 Nov our tracker showed us out of Google's top 10 for "grohnpetrel" in all three countries, while one rival site held positions 1 to 4 with its front page, FAQ (about 660 words) and product overview. Our definition page had about 220 words and our FAQ 8 short answers. The new FAQ answers also tell search engines and AI assistants that several course sites use the same word, so they can tell our concept apart.
 
 **Outcome:** Pending. Compare the tracker after Google re-crawls the three pages, and check Google Images for the mascot.
+
+## 2026-11-04 (afternoon)
+
+**Action:** Second update of the day, in English and German. The front page grew from about 550 to about 950 words: a table of the six seabird species with links, the mascot, three short answers (is it a real organisation, a real bird, who made it), the team photo and the latest Journal posts. All 14 seabird page titles now end in "| Grohnpetrel". The structured data now gives the project, every page and every Journal post a main image (the featured image, else the mascot). The two new Journal posts were moved from 18:00 to 12:00 so they publish now; they had been scheduled for the evening by mistake.
+
+**Who:** Diego Aguilar.
+
+**Reason:** On 3 Nov the rival site held the top positions for "grohnpetrel" with a front page of about 770 words and 14 images, brand-first titles on every page and many pages that each say "Grohnpetrel" clearly. Our front page had about 550 words and our seabird pages did not carry the name in their titles.
+
+**Outcome:** Pending. Check the tracker over the next days, especially whether the front page returns to the top 10 for "grohnpetrel".
