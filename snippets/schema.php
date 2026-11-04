@@ -54,6 +54,9 @@ add_action( 'wp_head', function () {
 	$project = $home . '#project';
 	$website = $home . '#website';
 	$logo    = wp_get_attachment_image_src( (int) get_theme_mod( 'custom_logo' ), 'full' );
+	// Main image: the page's featured image, else the Grohnpetrel mascot (media 11).
+	$img_src = wp_get_attachment_image_src( has_post_thumbnail( $id ) ? (int) get_post_thumbnail_id( $id ) : 11, 'full' );
+	$image   = $img_src ? array( '@type' => 'ImageObject', 'url' => $img_src[0], 'width' => $img_src[1], 'height' => $img_src[2] ) : null;
 
 	$graph = array();
 
@@ -83,6 +86,9 @@ add_action( 'wp_head', function () {
 	}
 	if ( $logo ) {
 		$org['logo'] = array( '@type' => 'ImageObject', 'url' => $logo[0], 'width' => $logo[1], 'height' => $logo[2] );
+	}
+	if ( $image ) {
+		$org['image'] = $image;
 	}
 	$graph[] = $org;
 
@@ -122,6 +128,9 @@ add_action( 'wp_head', function () {
 	);
 	if ( '' !== $desc ) {
 		$page['description'] = $desc;
+	}
+	if ( $image ) {
+		$page['primaryImageOfPage'] = $image;
 	}
 	if ( 'FAQPage' === $page['@type'] ) {
 		$faq = grohnpetrel_schema_faq( $post->post_content );
@@ -173,6 +182,9 @@ add_action( 'wp_head', function () {
 			'mainEntityOfPage' => array( '@id' => $url . '#webpage' ),
 			'inLanguage'       => $lang,
 		);
+		if ( $image ) {
+			$graph[ count( $graph ) - 1 ]['image'] = $image;
+		}
 	}
 
 	echo '<script type="application/ld+json">' . wp_json_encode( array( '@context' => 'https://schema.org', '@graph' => $graph ), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
