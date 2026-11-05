@@ -11,9 +11,10 @@ permissions:
   contents: read
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    # Ubuntu 24.04 ships PHP 8.3, the version the site's server (Ubuntu 24.04, Apache 2.4.58) runs.
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: php -l
         run: |
           php --version
