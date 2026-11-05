@@ -1,0 +1,20 @@
+name: php-lint
+# Syntax check of our PHP snippets on every pull request and push to main. A snippet with a
+# syntax error must never reach the site: the Code Snippets plugin runs it on every page.
+on:
+  push:
+    branches: [main]
+    paths: ["snippets/**", ".github/workflows/php-lint.yml"]
+  pull_request:
+    paths: ["snippets/**", ".github/workflows/php-lint.yml"]
+permissions:
+  contents: read
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: php -l
+        run: |
+          php --version
+          for f in snippets/*.php; do php -l "$f" || exit 1; done
