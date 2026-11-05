@@ -166,14 +166,8 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 ## 2026-11-05
 
-**Action:** Technical SEO brought to the level of Yoast SEO (the most common WordPress SEO plugin, free version, default settings), built into our own code instead of installing the plugin, so every setting stays in GitHub:
-- robots meta "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" on indexable pages, "noindex, follow" on search results, date archives and 404 pages;
-- titles in Yoast's pattern ("Page - Grohnpetrel", "Name Archives - Grohnpetrel");
-- canonical links on archives too, and rel prev/next on paginated archives;
-- `article:published_time` and `article:modified_time`, the image type, the author of posts, and "Est. reading time" / "Geschätzte Lesezeit" labels for share previews;
-- attachment pages redirect to the file, and `?replytocom` links to the comment;
-- structured data reorganised into Yoast's graph: the project as the site's organisation with its logo, the website with a search action, each page with its main image, read action and a breadcrumb that ends at the current page, articles with word count, and collection pages for archives and search results. Our own additions stay: the definition of Grohnpetrel, the FAQ from the visible questions, German breadcrumbs.
+**Action:** Matched the technical SEO of Yoast SEO (free, default settings) in our own code instead of installing the plugin: Yoast's robots rules (search results, date archives and 404 pages not indexed), title patterns, canonical links on archives, publication and update times and reading time in share previews, and structured data in Yoast's format, keeping our definition, FAQ and German breadcrumbs.
 
-**Reason:** Search engines read these signals the same way on every WordPress site; matching the widely used defaults removes gaps (no robots directives, no canonical on archives, no publication times) without adding a plugin we could not keep in GitHub.
+**Reason:** Search engines read these signals the same way on every WordPress site; matching the common defaults closes the gaps without a plugin we could not manage from GitHub.
 
-**Outcome:** Pending. Check with Google's Rich Results Test and Search Console (Page indexing, Enhancements).
+**Outcome:** Pending. Check with Google's Rich Results Test and Search Console.
