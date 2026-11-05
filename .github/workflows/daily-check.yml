@@ -9,14 +9,14 @@ concurrency:
   group: daily-check
 jobs:
   collect:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
         with:
           ref: gh-pages
           path: site
-      - uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@v10.3.3  # exact release: setup-uv has no floating major tags since v8
       - name: Search ranks
         # Manual runs reuse today's results instead of spending search API quota again.
         run: |

@@ -15,12 +15,12 @@ concurrency:
   group: wp-publish
 jobs:
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Check PHP syntax (a broken snippet can take the site down)
         run: for f in snippets/*.php; do php -l "$f" || exit 1; done
-      - uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@v10.3.3  # exact release: setup-uv has no floating major tags since v8
       - run: uv run scripts/wp_sync.py push ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '--dry-run' || '' }}
         env:
           WP_USER: ${{ secrets.WP_USER }}
