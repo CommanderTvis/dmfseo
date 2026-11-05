@@ -109,8 +109,10 @@ if ( ! function_exists( 'grohnpetrel_reading_minutes' ) ) {
 }
 
 // Titles as Yoast writes them: "Page - Site", "Name Archives - Site", "You searched for x - Site".
+// The separator is the entity for "-": WordPress's typography filter would turn a plain " - "
+// in the title into an en dash, which Yoast's titles do not have.
 add_filter( 'document_title_separator', function () {
-	return '-';
+	return '&#45;';
 } );
 
 add_filter( 'document_title_parts', function ( $parts ) {
