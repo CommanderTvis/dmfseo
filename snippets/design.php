@@ -67,7 +67,9 @@ figcaption,.wp-element-caption{color:var(--gp-muted);font-size:.875rem}
 .gp-hero h1,.gp-hero p,.gp-banner h2,.gp-banner p{color:#fff!important}
 .gp-hero h1{font-size:clamp(2.2rem,5vw,3.8rem);max-width:18ch;text-shadow:0 1px 12px rgba(0,0,0,.25)}
 .gp-hero .gp-kicker{color:#F2EBDD!important}
-.gp-hero .wp-block-cover__inner-container,.gp-banner .wp-block-cover__inner-container{max-width:var(--wp--style--global--wide-size)!important;width:100%}
+.gp-hero .wp-block-cover__inner-container,.gp-banner .wp-block-cover__inner-container{max-width:var(--wp--style--global--wide-size)!important;width:100%;margin-left:auto!important;margin-right:auto!important;padding:0 clamp(1rem,4vw,2rem);box-sizing:border-box}
+.gp-hero .wp-block-cover__inner-container>*,.gp-banner .wp-block-cover__inner-container>*{margin-left:0!important;margin-right:0!important}
+.gp-hero .wp-block-cover__background,.gp-banner .wp-block-cover__background{background:linear-gradient(90deg,rgba(16,63,70,.94) 0%,rgba(16,63,70,.78) 45%,rgba(16,63,70,.25) 100%)!important;opacity:1!important}
 .gp-hero .gp-lead{max-width:44rem;font-size:clamp(1.05rem,1.6vw,1.25rem)}
 .gp-hero .wp-block-button__link,.gp-banner .wp-block-button__link{background-color:var(--gp-gold)!important;border-color:var(--gp-gold);color:#1B2B2F!important}
 .gp-hero .wp-block-button__link:hover,.gp-banner .wp-block-button__link:hover{background-color:#D9B466!important;border-color:#D9B466}
@@ -83,7 +85,7 @@ figcaption,.wp-element-caption{color:var(--gp-muted);font-size:.875rem}
 .gp-card .wp-block-buttons{margin-top:auto!important;padding-top:.9rem}
 .gp-card h3{margin-bottom:0}
 .gp-card .gp-num{font-family:var(--gp-serif);color:var(--gp-gold);font-size:1.6rem!important;line-height:1;margin:0!important}
-.gp-grid{gap:1.5rem!important}
+.gp-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:1.5rem!important}
 .gp-media .wp-block-media-text__media img{border-radius:14px}
 .gp-media.wp-block-media-text{gap:0}
 .gp-media .wp-block-media-text__content{padding:0 0 0 clamp(1rem,4vw,3rem)}
@@ -91,7 +93,11 @@ figcaption,.wp-element-caption{color:var(--gp-muted);font-size:.875rem}
 .gp-list{list-style:none;padding-left:0!important}
 .gp-list li{background:#fff;border:1px solid var(--gp-line);border-left:4px solid var(--gp-gold);border-radius:10px;padding:.75rem 1rem;margin-bottom:.6rem}
 
+@media (max-width:600px){.wp-block-table td,.wp-block-table th{padding:.45em .55em;font-size:.9rem}}
+@media (max-width:1000px){.gp-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:781px){
+	.gp-grid{grid-template-columns:1fr!important}
+	.gp-hero .wp-block-cover__background,.gp-banner .wp-block-cover__background{background:rgba(16,63,70,.78)!important}
 	.gp-media .wp-block-media-text__content,.gp-media.has-media-on-the-right .wp-block-media-text__content{padding:1.25rem 0 0!important}
 	.gp-hero{min-height:560px!important}
 	.grohnpetrel-lang{padding:0 1rem}
