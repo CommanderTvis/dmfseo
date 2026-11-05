@@ -20,6 +20,10 @@
     {
       "name": "Grohnpetrel performance",
       "file": "../snippets/performance.php"
+    },
+    {
+      "name": "Grohnpetrel design",
+      "file": "../snippets/design.php"
     }
   ],
   "navigation": [
@@ -63,6 +67,30 @@
       "slug": "grohnpetrel-logo-webp",
       "title": "Grohnpetrel logo",
       "alt": "Grohnpetrel logo"
+    },
+    {
+      "file": "north-sea-gannet-in-flight-helgoland.webp",
+      "slug": "north-sea-gannet-in-flight-helgoland",
+      "title": "Northern gannet in flight, Lummenfelsen, Helgoland (Carsten Steger, CC BY-SA 4.0)",
+      "alt": "Northern gannet with white wings and black wingtips flying over the blue North Sea at Helgoland"
+    },
+    {
+      "file": "atlantic-puffin-with-sand-eels.webp",
+      "slug": "atlantic-puffin-with-sand-eels",
+      "title": "Atlantic puffin with lesser sand eels (Charles J. Sharp, CC BY-SA 4.0)",
+      "alt": "Atlantic puffin standing on a grassy cliff with sand eels in its beak"
+    },
+    {
+      "file": "wadden-sea-near-bensersiel.webp",
+      "slug": "wadden-sea-near-bensersiel",
+      "title": "Wadden Sea east of Bensersiel (Dietmar Rabich, CC BY-SA 4.0)",
+      "alt": "Calm Wadden Sea at low tide with wooden posts and a stone breakwater near Bensersiel on the German North Sea coast"
+    },
+    {
+      "file": "helgoland-lummenfelsen-lange-anna.webp",
+      "slug": "helgoland-lummenfelsen-lange-anna",
+      "title": "Helgoland, view from the Lummenfelsen to the Lange Anna (Jörg Braukmann, CC BY-SA 4.0)",
+      "alt": "Red sandstone cliffs and the Lange Anna sea stack on Helgoland above the North Sea"
     }
   ],
   "logo": "grohnpetrel-logo-webp"
