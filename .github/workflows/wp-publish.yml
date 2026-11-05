@@ -2,7 +2,7 @@ name: wp-publish
 on:
   push:
     branches: [main]
-    paths: ["pages/**", "snippets/**", "scripts/wp_sync.py"]
+    paths: ["pages/**", "media/**", "snippets/**", "scripts/wp_sync.py"]
   workflow_dispatch:
     inputs:
       dry_run:
