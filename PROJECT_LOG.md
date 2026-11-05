@@ -161,3 +161,19 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** On 3 Nov the rival site held the top positions for "grohnpetrel" with a front page of about 770 words and 14 images, brand-first titles on every page and many pages that each say "Grohnpetrel" clearly. Our front page had about 550 words and our seabird pages did not carry the name in their titles.
 
 **Outcome:** Pending. Check the tracker over the next days, especially whether the front page returns to the top 10 for "grohnpetrel".
+
+---
+
+## 2026-11-05
+
+**Action:** Technical SEO brought to the level of Yoast SEO (the most common WordPress SEO plugin, free version, default settings), built into our own code instead of installing the plugin, so every setting stays in GitHub:
+- robots meta "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" on indexable pages, "noindex, follow" on search results, date archives and 404 pages;
+- titles in Yoast's pattern ("Page - Grohnpetrel", "Name Archives - Grohnpetrel");
+- canonical links on archives too, and rel prev/next on paginated archives;
+- `article:published_time` and `article:modified_time`, the image type, the author of posts, and "Est. reading time" / "Geschätzte Lesezeit" labels for share previews;
+- attachment pages redirect to the file, and `?replytocom` links to the comment;
+- structured data reorganised into Yoast's graph: the project as the site's organisation with its logo, the website with a search action, each page with its main image, read action and a breadcrumb that ends at the current page, articles with word count, and collection pages for archives and search results. Our own additions stay: the definition of Grohnpetrel, the FAQ from the visible questions, German breadcrumbs.
+
+**Reason:** Search engines read these signals the same way on every WordPress site; matching the widely used defaults removes gaps (no robots directives, no canonical on archives, no publication times) without adding a plugin we could not keep in GitHub.
+
+**Outcome:** Pending. Check with Google's Rich Results Test and Search Console (Page indexing, Enhancements).

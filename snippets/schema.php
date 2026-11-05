@@ -5,11 +5,15 @@
  * Runs on the site through the Code Snippets plugin; scripts/wp_sync.py publishes this file.
  * Edit here, not in WordPress: the next publish overwrites the snippet.
  *
- * Output: one @graph with the project (schema.org Project, a subtype of Organization), the
- * WebSite, the current page (WebPage, AboutPage, ContactPage, FAQPage or CollectionPage), a
- * BreadcrumbList and, where it applies, a DefinedTerm (definition page) or an Article (posts).
- * The FAQPage questions are read from the FAQ page itself (each h2 heading and the paragraphs
- * under it), so the structured data always matches the visible text.
+ * Output: one @graph per view, shaped like Yoast SEO's (same node types, @id scheme and links
+ * between nodes): the project as the site's organisation (schema.org Project, a subtype of
+ * Organization, "#organization", with its logo "#/schema/logo/image/"), the WebSite with its
+ * SearchAction, the current page (WebPage, AboutPage, ContactPage, FAQPage or CollectionPage,
+ * "@id" = its URL) with its main image ("#primaryimage") and ReadAction, a BreadcrumbList, and
+ * an Article on posts. Archives get a CollectionPage, search results a SearchResultsPage, author
+ * archives a ProfilePage. Beyond Yoast: the DefinedTerm on the definition pages, and FAQ
+ * questions read from the FAQ page itself (each h2 heading and the paragraphs under it), so the
+ * structured data always matches the visible text.
  */
 
 if ( ! function_exists( 'grohnpetrel_schema_faq' ) ) {
@@ -39,67 +43,112 @@ if ( ! function_exists( 'grohnpetrel_schema_faq' ) ) {
 }
 
 add_action( 'wp_head', function () {
-	if ( ! is_singular() ) {
-		return;
-	}
 	$home    = home_url( '/' );
-	$post    = get_queried_object();
-	$id      = $post->ID;
-	$slug    = $post->post_name;
-	$url     = wp_get_canonical_url( $id );
-	$title   = wp_strip_all_tags( get_the_title( $id ) );
-	$desc    = (string) get_post_meta( $id, 'grohnpetrel_description', true );
-	$lang    = (string) get_post_meta( $id, 'grohnpetrel_lang', true );
-	$lang    = '' !== $lang ? $lang : 'en';
-	$project = $home . '#project';
+	$org_id  = $home . '#organization';
 	$website = $home . '#website';
-	$logo    = wp_get_attachment_image_src( (int) get_theme_mod( 'custom_logo' ), 'full' );
-	// Main image: the page's featured image, else the Grohnpetrel mascot (media 11).
-	$img_src = wp_get_attachment_image_src( has_post_thumbnail( $id ) ? (int) get_post_thumbnail_id( $id ) : 11, 'full' );
-	$image   = $img_src ? array( '@type' => 'ImageObject', 'url' => $img_src[0], 'width' => $img_src[1], 'height' => $img_src[2] ) : null;
-
-	$graph = array();
+	$logo_id = $home . '#/schema/logo/image/';
+	$lang    = is_singular() ? (string) get_post_meta( get_queried_object_id(), 'grohnpetrel_lang', true ) : '';
+	$lang    = '' !== $lang ? $lang : 'en';
+	$de      = 'de' === $lang;
+	$in_lang = $de ? 'de-DE' : str_replace( '_', '-', get_locale() );
+	$site    = get_bloginfo( 'name' );
 
 	$org = array(
-		'@type'                    => 'Project',
-		'@id'                      => $project,
-		'name'                     => 'Grohnpetrel',
-		'url'                      => $home,
-		'sameAs'                   => array( 'https://github.com/CommanderTvis/dmfseo' ),
-		'description'              => 'Grohnpetrel is a proposed coastal-conservation and seabird-education initiative.',
+		'@type'                     => 'Project',
+		'@id'                       => $org_id,
+		'name'                      => 'Grohnpetrel',
+		'url'                       => $home,
+		'sameAs'                    => array( 'https://github.com/CommanderTvis/dmfseo' ),
+		'description'               => 'Grohnpetrel is a proposed coastal-conservation and seabird-education initiative.',
 		'disambiguatingDescription' => 'A fictional academic proposal created in autumn 2026 by the Guillemots, a team of four students at Constructor University in Bremen, Germany, for the course Digital Marketing Fundamentals and Search Engine Optimisation. It is not a registered organisation, not a bird species, and it does not accept donations.',
-		'foundingDate'             => '2026',
-		'foundingLocation'         => array( '@type' => 'Place', 'name' => 'Bremen-Grohn, Germany' ),
-		'knowsAbout'               => array( 'Seabird conservation', 'Coastal ecosystems', 'North Sea', 'Wadden Sea' ),
-		'member'                   => array(
+		'foundingDate'              => '2026',
+		'foundingLocation'          => array( '@type' => 'Place', 'name' => 'Bremen-Grohn, Germany' ),
+		'knowsAbout'                => array( 'Seabird conservation', 'Coastal ecosystems', 'North Sea', 'Wadden Sea' ),
+		'member'                    => array(
 			array( '@type' => 'Person', 'name' => 'Ayoyemi Adeboyeyo' ),
 			array( '@type' => 'Person', 'name' => 'Diego Aguilar' ),
 			array( '@type' => 'Person', 'name' => 'Mario Iraheta' ),
 			array( '@type' => 'Person', 'name' => 'Iaroslav Postovalov' ),
 		),
 	);
-	if ( 'de' === $lang ) {
+	if ( $de ) {
 		$org['description']               = 'Grohnpetrel ist eine geplante Initiative für Küstenschutz und Bildung über Seevögel.';
 		$org['disambiguatingDescription'] = 'Ein fiktiver Studienentwurf aus dem Herbst 2026, erstellt von den Guillemots, einem Team aus vier Studierenden der Constructor University in Bremen, im Kurs Digital Marketing Fundamentals and Search Engine Optimisation. Es ist keine eingetragene Organisation, keine Vogelart und nimmt keine Spenden an.';
 		$org['foundingLocation']['name']  = 'Bremen-Grohn, Deutschland';
 		$org['knowsAbout']                = array( 'Seevogelschutz', 'Küstenökosysteme', 'Nordsee', 'Wattenmeer' );
 	}
+	// Logo: the site logo, else the Grohnpetrel mascot (media 11).
+	$logo = wp_get_attachment_image_src( (int) get_theme_mod( 'custom_logo' ), 'full' );
+	$logo = $logo ? $logo : wp_get_attachment_image_src( 11, 'full' );
 	if ( $logo ) {
-		$org['logo'] = array( '@type' => 'ImageObject', 'url' => $logo[0], 'width' => $logo[1], 'height' => $logo[2] );
+		$org['logo']  = array( '@type' => 'ImageObject', 'inLanguage' => $in_lang, '@id' => $logo_id, 'url' => $logo[0], 'contentUrl' => $logo[0], 'width' => $logo[1], 'height' => $logo[2], 'caption' => $site );
+		$org['image'] = array( '@id' => $logo_id );
 	}
-	if ( $image ) {
-		$org['image'] = $image;
-	}
+
+	$graph   = array();
+	$graph[] = array(
+		'@type'           => 'WebSite',
+		'@id'             => $website,
+		'url'             => $home,
+		'name'            => $site,
+		'description'     => get_bloginfo( 'description' ),
+		'publisher'       => array( '@id' => $org_id ),
+		'potentialAction' => array( array(
+			'@type'       => 'SearchAction',
+			'target'      => array( '@type' => 'EntryPoint', 'urlTemplate' => $home . '?s={search_term_string}' ),
+			'query-input' => array( '@type' => 'PropertyValueSpecification', 'valueRequired' => true, 'valueName' => 'search_term_string' ),
+		) ),
+		'inLanguage'      => $in_lang,
+	);
 	$graph[] = $org;
 
-	$graph[] = array(
-		'@type'      => 'WebSite',
-		'@id'        => $website,
-		'url'        => $home,
-		'name'       => get_bloginfo( 'name' ),
-		'publisher'  => array( '@id' => $project ),
-		'inLanguage' => $lang,
-	);
+	if ( is_404() ) {
+		echo '<script type="application/ld+json">' . wp_json_encode( array( '@context' => 'https://schema.org', '@graph' => $graph ), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
+		return;
+	}
+
+	if ( ! is_singular() ) {
+		// Archives and search results: a collection page and its breadcrumb (Home > this view).
+		$url = function_exists( 'grohnpetrel_current_url' ) ? grohnpetrel_current_url() : home_url( add_query_arg( array() ) );
+		if ( is_search() ) {
+			$type  = array( 'CollectionPage', 'SearchResultsPage' );
+			$crumb = sprintf( 'You searched for %s', get_search_query() );
+		} elseif ( is_author() ) {
+			$type  = 'ProfilePage';
+			$crumb = sprintf( 'Archives for %s', get_the_author_meta( 'display_name', get_queried_object_id() ) );
+		} elseif ( is_date() ) {
+			$type  = 'CollectionPage';
+			$crumb = sprintf( 'Archives for %s', wp_strip_all_tags( get_the_archive_title() ) );
+		} else {
+			$type  = 'CollectionPage';
+			$crumb = is_home() ? 'Journal' : single_term_title( '', false );
+		}
+		$graph[] = array(
+			'@type'      => $type,
+			'@id'        => $url,
+			'url'        => $url,
+			'name'       => wp_get_document_title(),
+			'isPartOf'   => array( '@id' => $website ),
+			'breadcrumb' => array( '@id' => $url . '#breadcrumb' ),
+			'inLanguage' => $in_lang,
+		);
+		$graph[] = array( '@type' => 'BreadcrumbList', '@id' => $url . '#breadcrumb', 'itemListElement' => array(
+			array( '@type' => 'ListItem', 'position' => 1, 'name' => 'Home', 'item' => $home ),
+			array( '@type' => 'ListItem', 'position' => 2, 'name' => $crumb ),
+		) );
+		echo '<script type="application/ld+json">' . wp_json_encode( array( '@context' => 'https://schema.org', '@graph' => $graph ), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
+		return;
+	}
+
+	$post   = get_queried_object();
+	$id     = $post->ID;
+	$slug   = $post->post_name;
+	$url    = wp_get_canonical_url( $id );
+	$title  = wp_strip_all_tags( get_the_title( $id ) );
+	$desc   = (string) get_post_meta( $id, 'grohnpetrel_description', true );
+	$img_id = has_post_thumbnail( $id ) ? (int) get_post_thumbnail_id( $id ) : 11;  // else the mascot
+	$img    = wp_get_attachment_image_src( $img_id, 'full' );
+	$img_ref = $url . '#primaryimage';
 
 	$types = array(
 		'about'                        => 'AboutPage',
@@ -116,22 +165,31 @@ add_action( 'wp_head', function () {
 		'projekt-journal'              => 'CollectionPage',
 	);
 	$page = array(
-		'@type'        => isset( $types[ $slug ] ) ? $types[ $slug ] : 'WebPage',
-		'@id'          => $url . '#webpage',
-		'url'          => $url,
-		'name'         => wp_get_document_title(),
-		'isPartOf'     => array( '@id' => $website ),
-		'about'        => array( '@id' => $project ),
-		'inLanguage'   => $lang,
-		'dateModified' => get_post_modified_time( 'c', true, $id ),
-		'breadcrumb'   => array( '@id' => $url . '#breadcrumb' ),
+		'@type'    => isset( $types[ $slug ] ) ? $types[ $slug ] : 'WebPage',
+		'@id'      => $url,
+		'url'      => $url,
+		'name'     => wp_get_document_title(),
+		'isPartOf' => array( '@id' => $website ),
+		'about'    => array( '@id' => $org_id ),
 	);
+	if ( $img ) {
+		$page['primaryImageOfPage'] = array( '@id' => $img_ref );
+		$page['image']              = array( '@id' => $img_ref );
+		$page['thumbnailUrl']       = $img[0];
+	}
+	$page['datePublished'] = get_post_time( 'c', true, $id );
+	$page['dateModified']  = get_post_modified_time( 'c', true, $id );
+	// Posts are written by the team (Yoast would name the WordPress user here).
+	$author = array( '@type' => 'Organization', 'name' => 'Team Guillemots', 'url' => home_url( $de ? '/de/ueber-uns/' : '/about/' ) );
+	if ( 'post' === $post->post_type ) {
+		$page['author'] = $author;
+	}
 	if ( '' !== $desc ) {
 		$page['description'] = $desc;
 	}
-	if ( $image ) {
-		$page['primaryImageOfPage'] = $image;
-	}
+	$page['breadcrumb']      = array( '@id' => $url . '#breadcrumb' );
+	$page['inLanguage']      = $in_lang;
+	$page['potentialAction'] = array( array( '@type' => 'ReadAction', 'target' => array( $url ) ) );
 	if ( 'FAQPage' === $page['@type'] ) {
 		$faq = grohnpetrel_schema_faq( $post->post_content );
 		if ( $faq ) {
@@ -140,21 +198,67 @@ add_action( 'wp_head', function () {
 			$page['@type'] = 'WebPage';
 		}
 	}
+
+	if ( 'post' === $post->post_type ) {
+		$words   = preg_split( '/\s+/u', trim( wp_strip_all_tags( $post->post_content ) ), -1, PREG_SPLIT_NO_EMPTY );
+		$article = array(
+			'@type'            => 'Article',
+			'@id'              => $url . '#article',
+			'isPartOf'         => array( '@id' => $url ),
+			'author'           => $author,
+			'headline'         => $title,
+			'datePublished'    => get_post_time( 'c', true, $id ),
+			'dateModified'     => get_post_modified_time( 'c', true, $id ),
+			'mainEntityOfPage' => array( '@id' => $url ),
+			'wordCount'        => is_array( $words ) ? count( $words ) : 0,
+			'commentCount'     => (int) get_comments_number( $id ),
+			'publisher'        => array( '@id' => $org_id ),
+		);
+		if ( $img ) {
+			$article['image']        = array( '@id' => $img_ref );
+			$article['thumbnailUrl'] = $img[0];
+		}
+		$sections = wp_list_pluck( get_the_category( $id ), 'name' );
+		if ( $sections ) {
+			$article['articleSection'] = array_values( $sections );
+		}
+		$article['inLanguage'] = $in_lang;
+		if ( comments_open( $id ) ) {
+			$article['potentialAction'] = array( array( '@type' => 'CommentAction', 'name' => 'Comment', 'target' => array( $url . '#respond' ) ) );
+		}
+		$graph[] = $article;
+	}
 	$graph[] = $page;
 
-	// German pages start their breadcrumbs at the German front page (/de/), the parent of all of them.
-	$de_home = 'de' === $lang ? get_page_by_path( 'de' ) : null;
-	$crumbs  = array( array( '@type' => 'ListItem', 'position' => 1, 'name' => $de_home ? 'Startseite' : 'Home', 'item' => $de_home ? get_permalink( $de_home ) : $home ) );
-	if ( 'post' === $post->post_type ) {
-		$journal = get_page_by_path( $de_home ? 'de/projekt-journal' : 'journal' );
-		if ( $journal ) {
-			$crumbs[] = array( '@type' => 'ListItem', 'position' => 2, 'name' => 'Journal', 'item' => get_permalink( $journal ) );
-		}
-	} elseif ( $post->post_parent && ! ( $de_home && $de_home->ID === $post->post_parent ) ) {
-		$crumbs[] = array( '@type' => 'ListItem', 'position' => 2, 'name' => wp_strip_all_tags( get_the_title( $post->post_parent ) ), 'item' => get_permalink( $post->post_parent ) );
+	if ( $img ) {
+		$graph[] = array(
+			'@type'      => 'ImageObject',
+			'inLanguage' => $in_lang,
+			'@id'        => $img_ref,
+			'url'        => $img[0],
+			'contentUrl' => $img[0],
+			'width'      => $img[1],
+			'height'     => $img[2],
+			'caption'    => (string) get_post_meta( $img_id, '_wp_attachment_image_alt', true ),
+		);
 	}
-	if ( ! is_front_page() && ! ( $de_home && $de_home->ID === $id ) ) {
-		$crumbs[] = array( '@type' => 'ListItem', 'position' => count( $crumbs ) + 1, 'name' => $title, 'item' => $url );
+
+	// Breadcrumb as Yoast builds it (the current page last, without a link); German pages start at
+	// the German front page (/de/), the parent of all of them.
+	$de_home = $de ? get_page_by_path( 'de' ) : null;
+	$is_home = is_front_page() || ( $de_home && $de_home->ID === $id );
+	$crumbs  = array( array( '@type' => 'ListItem', 'position' => 1, 'name' => $de_home ? 'Startseite' : 'Home' ) );
+	if ( ! $is_home ) {
+		$crumbs[0]['item'] = $de_home ? get_permalink( $de_home ) : $home;
+		if ( 'post' === $post->post_type ) {
+			$journal = get_page_by_path( $de_home ? 'de/projekt-journal' : 'journal' );
+			if ( $journal ) {
+				$crumbs[] = array( '@type' => 'ListItem', 'position' => 2, 'name' => 'Journal', 'item' => get_permalink( $journal ) );
+			}
+		} elseif ( $post->post_parent && ! ( $de_home && $de_home->ID === $post->post_parent ) ) {
+			$crumbs[] = array( '@type' => 'ListItem', 'position' => 2, 'name' => wp_strip_all_tags( get_the_title( $post->post_parent ) ), 'item' => get_permalink( $post->post_parent ) );
+		}
+		$crumbs[] = array( '@type' => 'ListItem', 'position' => count( $crumbs ) + 1, 'name' => $title );
 	}
 	$graph[] = array( '@type' => 'BreadcrumbList', '@id' => $url . '#breadcrumb', 'itemListElement' => $crumbs );
 
@@ -165,26 +269,8 @@ add_action( 'wp_head', function () {
 			'name'        => 'Grohnpetrel',
 			'description' => 'A proposed coastal-conservation and seabird-education initiative; a fictional academic concept by the Guillemots student team at Constructor University, Bremen. The name combines Grohn, a district of Bremen, with petrel, a group of seabirds.',
 			'url'         => $url,
-			'inLanguage'  => $lang,
+			'inLanguage'  => $in_lang,
 		);
-	}
-
-	if ( 'post' === $post->post_type ) {
-		$graph[] = array(
-			'@type'            => 'Article',
-			'@id'              => $url . '#article',
-			'headline'         => $title,
-			'description'      => $desc,
-			'datePublished'    => get_post_time( 'c', true, $id ),
-			'dateModified'     => get_post_modified_time( 'c', true, $id ),
-			'author'           => array( '@type' => 'Organization', 'name' => 'Team Guillemots', 'url' => home_url( 'de' === $lang ? '/de/ueber-uns/' : '/about/' ) ),
-			'publisher'        => array( '@id' => $project ),
-			'mainEntityOfPage' => array( '@id' => $url . '#webpage' ),
-			'inLanguage'       => $lang,
-		);
-		if ( $image ) {
-			$graph[ count( $graph ) - 1 ]['image'] = $image;
-		}
 	}
 
 	echo '<script type="application/ld+json">' . wp_json_encode( array( '@context' => 'https://schema.org', '@graph' => $graph ), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
