@@ -179,3 +179,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** PageSpeed Insights (5 Nov, mobile) measured 3.0 s until the main content showed.
 
 **Outcome:** Pending. Re-run PageSpeed Insights after publishing.
+
+---
+
+**Action:** Redesign and clean-up, in English and German. A new design snippet (snippets/design.php) gives the whole site one look: ocean-teal and ivory palette, serif headings, consistent buttons, tables and image corners, a wider 1180 px layout for sections, cards and full-width bands. The front page was rebuilt into ten sections: a photo hero with the H1 "Grohnpetrel: Coastal Conservation & Seabird Education" and two buttons, What is Grohnpetrel? (with a sentence that other, unrelated sites use the same word), Our Main Goals as three cards, Why Coastal Conservation Matters, the seabird guide, six Explore cards (Mission, Conservation, Programmes, Knowledge Centre, FAQ, About), three quick answers, the team, the Journal and a closing banner. Existing texts were kept. Four photos of North Sea seabirds and coasts from Wikimedia Commons (CC BY-SA 4.0) were added with the authors and licence named on the page. The main menu went from ten to eight entries (About, Conservation and Resources now have sub-menus) and its Home link no longer goes through a redirect. The Imprint (EN/DE) was published with Mario Iraheta as the responsible person; the footer had linked to it while it was still a draft (404). A broken link from the English rankings post to the German one was fixed.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Audit on 5 Nov: no X-Robots-Tag or noindex on our pages, sitemap fine, one H1 per page, no images without alt text; but 2 broken links (Imprint EN/DE), 2 links through redirects, a 645 px text column and a plain front page. On 5 Nov a new rival site took positions 1, 2 and 4 for "grohnpetrel" in Germany with long pages (about 1,000 to 1,700 words) whose addresses all contain the word; the other leading rival has a front page with 14 images.
+
+**Outcome:** Pending. Check the tracker from 7 Nov; check the front page on desktop and mobile after publishing.
