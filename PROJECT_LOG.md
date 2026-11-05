@@ -174,8 +174,8 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 ---
 
-**Action:** Made the pages load faster without access to the server's settings: the front-page photo as WebP (280 KB → 27 KB) and the logo as WebP (33 KB → 10 KB), both now kept in GitHub; the images further down the front page load only when scrolled to; the cookie banner's and WordPress's small stylesheets are part of the page instead of separate files; the main font loads first and text shows immediately; no emoji script; and a one-year browser cache for images in the uploads folder (checked automatically after it is switched on, and switched off again if the server does not allow it).
+**Action:** Made the pages load faster: front-page photo and logo as WebP (280 KB → 27 KB), lighter loading of styles and fonts, and browser caching for images.
 
-**Reason:** Google PageSpeed Insights (5 Nov, mobile): Largest Contentful Paint 3.0 s and Speed Index 4.3 s, with savings of 420 KiB from caching, 271 KiB from images and 450 ms from render-blocking files. Page speed is part of Google's page experience signals.
+**Reason:** PageSpeed Insights (5 Nov, mobile) measured 3.0 s until the main content showed.
 
 **Outcome:** Pending. Re-run PageSpeed Insights after publishing.
