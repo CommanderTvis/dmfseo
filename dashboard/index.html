@@ -75,7 +75,15 @@ async function sitemap(){
 async function sitemapUrls(){
   let s;try{const r=await fetch('data/sitemap_urls.json',{cache:'no-store'});if(!r.ok)return;s=await r.json()}catch(e){return}
   const rows=s.urls.map(u=>`<tr><td><a href="${esc(u.loc)}">${esc(u.loc.replace(/^https:\/\/[^/]+/,''))}</a></td><td>${esc(u.sitemap.replace(/^wp-sitemap-|-1\.xml$/g,''))}</td><td>${esc(u.lastmod.replace('T',' ').slice(0,16))}</td></tr>`).join('');
-  document.getElementById('sitemap').insertAdjacentHTML('beforeend',`<h3>Live sitemap content (${s.urls.length} URLs)</h3><div class="scroll"><table><tr><th>URL</th><th>Type</th><th>Last modified</th></tr>${rows}</table></div>`);
+  const box=document.getElementById('sitemap');
+  box.insertAdjacentHTML('beforeend',`<h3>Live sitemap content (${s.urls.length} URLs)</h3><div class="scroll"><table id="smurls"><tr><th>URL</th><th>Type</th><th>Last modified</th></tr>${rows}</table></div>`);
+  // Show the first 10 URLs; the rest behind a "Show all" button.
+  const extra=[...document.querySelectorAll('#smurls tr')].slice(11);
+  if(extra.length){
+    extra.forEach(r=>r.hidden=true);
+    box.insertAdjacentHTML('beforeend',`<p><button id="small" type="button">Show all ${s.urls.length}</button></p>`);
+    document.getElementById('small').onclick=e=>{const show=extra[0].hidden;extra.forEach(r=>r.hidden=!show);e.target.textContent=show?'Show fewer':`Show all ${s.urls.length}`};
+  }
 }
 (async()=>{
   sitemap().then(sitemapUrls);
