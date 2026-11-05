@@ -16,6 +16,10 @@
     {
       "name": "Grohnpetrel admin notice",
       "file": "../snippets/admin-notice.php"
+    },
+    {
+      "name": "Grohnpetrel performance",
+      "file": "../snippets/performance.php"
     }
   ],
   "navigation": [
@@ -46,5 +50,20 @@
       "title": "Footer: Transparenz (Deutsch)",
       "file": "navigation-de-transparenz.html"
     }
-  ]
+  ],
+  "media": [
+    {
+      "file": "seabirds-over-the-beach.webp",
+      "slug": "seabirds-over-the-beach",
+      "title": "Seabirds over the beach",
+      "alt": "Seabirds flying low over the sea along a sandy beach"
+    },
+    {
+      "file": "grohnpetrel-logo.webp",
+      "slug": "grohnpetrel-logo-webp",
+      "title": "Grohnpetrel logo",
+      "alt": "Grohnpetrel logo"
+    }
+  ],
+  "logo": "grohnpetrel-logo-webp"
 }

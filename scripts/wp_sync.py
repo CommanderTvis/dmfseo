@@ -14,18 +14,24 @@ list "categories" (WordPress category IDs) and a "date".
 German pages their /de/ URLs; slugs are then looked up under that parent, so "journal" and
 "de/projekt-journal" cannot be mixed up. A navigation entry in site.json without an "id" is created
 by "slug" and found by it afterwards.
+Images live in media/ and are listed in site.json "media" (file, slug, alt text): each is uploaded
+once and found by its slug afterwards, so the file in Git is the source of truth. To change an
+image, add it under a new file name and slug. Pages refer to them as {{media:slug}} (the file's
+URL) and {{media-id:slug}} (its WordPress ID); site.json "logo" names the site logo's slug.
 A page is addressed by its "id", or by slug when the entry has no id; a page that does not
 exist yet is created once, then found by slug on every later run, so a run cannot produce
 duplicates. An entry with status "trash" (no file needed) moves that page to the
 WordPress trash. Needs WP_USER and WP_APP_PASSWORD; WP_URL is optional.
 """
-import base64, json, os, sys, urllib.error, urllib.request
+import base64, json, mimetypes, os, re, sys, urllib.error, urllib.request
 from typing import Any
 
 Entry = dict[str, Any]  # one manifest.json entry
 
 BASE = os.environ.get("WP_URL", "https://business.constructor.university/guillemots").rstrip("/")
 PAGES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "pages")
+MEDIA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "media")
+PLACEHOLDER = re.compile(r"\{\{media(-id)?:([a-z0-9-]+)\}\}")
 AUTH = "Basic " + base64.b64encode(
     f"{os.environ['WP_USER']}:{os.environ['WP_APP_PASSWORD']}".encode()).decode()
 
@@ -41,6 +47,57 @@ def api(method: str, path: str, body: dict[str, Any] | None = None, ns: str = "w
             return json.load(r)
     except urllib.error.HTTPError as e:
         sys.exit(f"{method} {path}: HTTP {e.code} {e.read()[:300]!r}")
+
+
+def upload(path: str) -> Any:
+    """Upload a file to the WordPress media library; returns the new attachment."""
+    name = os.path.basename(path)
+    mime = mimetypes.guess_type(name)[0] or ("image/webp" if name.endswith(".webp") else "application/octet-stream")
+    req = urllib.request.Request(
+        f"{BASE}/wp-json/wp/v2/media", method="POST", data=open(path, "rb").read(),
+        headers={"Authorization": AUTH, "Content-Type": mime, "User-Agent": "dmfseo-sync",
+                 "Content-Disposition": f'attachment; filename="{name}"'})
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        sys.exit(f"upload {name}: HTTP {e.code} {e.read()[:300]!r}")
+
+
+def media(dry: bool) -> dict[str, Any]:
+    """The images in site.json "media", uploaded once from media/; returns slug -> attachment."""
+    cfg = json.load(open(os.path.join(PAGES, "site.json")))
+    out: dict[str, Any] = {}
+    for f in cfg.get("media", []):
+        found = api("GET", f"media?slug={f['slug']}&context=edit")
+        if not found:
+            print(f"{'would upload' if dry else 'upload'} media {f['file']}")
+            if dry:  # stand-in so the page diff can still be shown
+                out[f["slug"]] = {"id": 0, "source_url": f"(new media {f['slug']})"}
+                continue
+            att = upload(os.path.join(MEDIA, f["file"]))
+            att = api("POST", f"media/{att['id']}", {"slug": f["slug"], "title": f.get("title", f["slug"]),
+                                                     "alt_text": f["alt"]})
+        else:
+            att = found[0]
+            if att["alt_text"] == f["alt"]:
+                print(f"ok      media {att['id']} {f['slug']}")
+            else:
+                print(f"{'would update' if dry else 'update'} media {att['id']} {f['slug']}: alt_text")
+                if not dry:
+                    att = api("POST", f"media/{att['id']}", {"alt_text": f["alt"]})
+        out[f["slug"]] = att
+    return out
+
+
+def content(m: Entry, images: dict[str, Any]) -> str:
+    """A page file with its {{media:slug}} and {{media-id:slug}} placeholders filled in."""
+    def fill(x: re.Match[str]) -> str:
+        att = images.get(x.group(2))
+        if att is None:
+            sys.exit(f"{m['file']}: unknown media {x.group(2)!r} (add it to site.json \"media\")")
+        return str(att["id"]) if x.group(1) else str(att["source_url"])
+    return PLACEHOLDER.sub(fill, open(os.path.join(PAGES, m["file"])).read())
 
 
 def kind(m: Entry) -> str:
@@ -83,11 +140,12 @@ def main(dry: bool) -> None:
     manifest = json.load(open(os.path.join(PAGES, "manifest.json")))
     failed = False
     code(dry)
+    images = media(dry)
     for m in manifest:
         page = find(m)
         if page is None:  # no WordPress page with this ID or slug yet: create it once
             want = {"title": m["title"], "slug": m["slug"], "status": m["status"],
-                    "content": open(os.path.join(PAGES, m["file"])).read(), "meta": meta(m)}
+                    "content": content(m, images), "meta": meta(m)}
             for k in ("template", "parent", "categories", "date", "excerpt"):
                 if k in m:
                     want[k] = m[k]
@@ -109,9 +167,8 @@ def main(dry: bool) -> None:
                 if not dry:
                     api("DELETE", f"{kind(m)}/{m['id']}")
             continue
-        path = os.path.join(PAGES, m["file"])
         want = {"title": m["title"], "slug": m["slug"], "status": m["status"],
-                "content": open(path).read()}
+                "content": content(m, images)}
         have = {"title": page["title"]["raw"], "slug": page["slug"], "status": page["status"],
                 "content": page["content"]["raw"]}
         if "template" in m:
@@ -136,7 +193,7 @@ def main(dry: bool) -> None:
             print(f"  WARNING: WordPress gave slug {res['slug']!r}, wanted {m['slug']!r} (taken by another page?)",
                   file=sys.stderr)
             failed = True
-    site(dry)
+    site(dry, images)
     sys.exit(1 if failed else 0)
 
 
@@ -186,7 +243,7 @@ def code(dry: bool) -> None:
                 api("POST", f"snippets/{snip['id']}/activate", ns=ns)
 
 
-def site(dry: bool) -> None:
+def site(dry: bool, images: dict[str, Any]) -> None:
     """Front page setting and navigation menus (pages/site.json)."""
     cfg = json.load(open(os.path.join(PAGES, "site.json")))
     for n in cfg["navigation"]:
@@ -214,6 +271,13 @@ def site(dry: bool) -> None:
         print(f"{'would set' if dry else 'set'} front page to {cfg['front_page_id']}")
         if not dry:
             api("POST", "settings", {"show_on_front": "page", "page_on_front": cfg["front_page_id"]})
+    logo = images.get(cfg.get("logo", ""), {}).get("id", 0)
+    if logo and s["site_logo"] != logo:
+        print(f"{'would set' if dry else 'set'} site logo to {logo}")
+        if not dry:
+            api("POST", "settings", {"site_logo": logo})
+    elif logo:
+        print("ok      site logo")
 
 
 if __name__ == "__main__":
