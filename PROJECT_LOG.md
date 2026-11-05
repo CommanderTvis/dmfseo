@@ -179,3 +179,11 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** PageSpeed Insights (5 Nov, mobile) measured 3.0 s until the main content showed.
 
 **Outcome:** Pending. Re-run PageSpeed Insights after publishing.
+
+---
+
+**Action:** Fixed internal links found in a check of all 53 pages against Google's Search Essentials: removed links to the unpublished Imprint (German footer, both privacy pages) and pointed the "Home" menu link and a German-version link straight at their pages instead of through redirects.
+
+**Reason:** Links to missing pages and through redirects waste crawling; everything else in the check met Google's requirements.
+
+**Outcome:** Pending.
