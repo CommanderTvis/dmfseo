@@ -17,3 +17,4 @@ The site is a fictional coastal-conservation / seabird-education project. It is 
 
 - Writing to the site or sending anything to external services only when the user asks.
 - Maintain `PROJECT_LOG.md`: add an entry (action, date, reason, outcome) for every SEO or content change, and fill in outcomes when they become known. Entries are copied to the Teams project log.
+- Keep the history linear: bring a branch up to date with `git rebase origin/main` (then `git push --force-with-lease`), never by merging `main` into it, and merge pull requests with "Rebase and merge" (`gh pr merge --rebase`), not merge commits.
