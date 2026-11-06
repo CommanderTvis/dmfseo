@@ -192,6 +192,8 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 ---
 
+## 2026-11-06
+
 **Action:** Cheap experiment: added an `llms.txt` (a short markdown guide to the site for language models) at `/guillemots/llms.txt`, linked from every page head. We do not control the domain root, so it cannot sit at `/llms.txt`.
 
 **Reason:** We are not cited in Google's AI Overview for "grohnpetrel"; no AI provider has confirmed it reads `llms.txt`, so we test it at near-zero cost.
