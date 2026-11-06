@@ -57,6 +57,16 @@
       "slug": "navigation-de-transparenz",
       "title": "Footer: Transparenz (Deutsch)",
       "file": "navigation-de-transparenz.html"
+    },
+    {
+      "slug": "navigation-es-main",
+      "title": "Menú principal (español)",
+      "file": "navigation-es-main.html"
+    },
+    {
+      "slug": "navigation-zh-main",
+      "title": "主菜单（中文）",
+      "file": "navigation-zh-main.html"
     }
   ],
   "media": [
