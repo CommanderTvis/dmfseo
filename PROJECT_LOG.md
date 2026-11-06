@@ -110,57 +110,39 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 ## 2026-11-03
 
-**Action:** Added Bremen wording to the front page (first sentence says the project is from Bremen, Germany; Grohn named as the Bremen district on the Weser near the North Sea and Wadden Sea) and to "What is Grohnpetrel?", rewrote both meta descriptions around Bremen-Grohn, and added a visible link from each to the German page.
+**Action:** Mentioned Bremen-Grohn on the front page, on "What is Grohnpetrel?" and in their meta descriptions.
 
-**Reason:** On Google.de (desktop, location Bremen, 2 Nov) another team's site was #1 and we were #2, the same as our tracker. The #1 site leans heavily on Bremen and Grohn.
+**Reason:** On Google.de we were #2 behind another team's site, which leans heavily on Bremen and Grohn.
 
-**Outcome:** Pending. Compare the 🇩🇪 ranks in the tracker after Google re-crawls.
-
----
-
-**Action:** Full German version of the site under /de/ (https://business.constructor.university/guillemots/de/): a German front page and German versions of every page and Journal post (23 new, the two existing German pages moved under /de/ with redirects from their old addresses), German menus, a language link at the top of every translated page, and hreflang links (en, de, x-default) on every pair. No translation plugin: the pages are published from GitHub like the English ones. Added a "Source code on GitHub" link to the footer and to the structured data (`sameAs`).
-
-**Reason:** We rank in Germany, but only two pages were in German and the front page had no German version. Search engines prefer a separate, linked page per language. A public profile outside the site helps search engines recognise the project as an entity; our public GitHub repository plays that role and shows how the site is built.
-
-**Outcome:** Pending. Check that the German pages are indexed (Search Console) and compare the 🇩🇪 ranks in the tracker.
+**Outcome:** No visible effect; the rise to #1 on 4 Nov followed the German version, published the same day.
 
 ---
 
-**Action:** Added a "What is Grohnpetrel?" section to the top of our public GitHub repository's README (https://github.com/CommanderTvis/dmfseo): a short definition with the disclaimer, and links to the front page, "What is Grohnpetrel?", the FAQ and the seabird guide in English and German.
+**Action:** Published a full German version of the site under /de/ (https://business.constructor.university/guillemots/de/), linked to the English pages, and added a link to our GitHub repository.
 
-**Reason:** Backlink building. GitHub links are `nofollow`, so they pass little ranking credit, but GitHub is crawled often by search engines and AI search tools. A second, consistent description of Grohnpetrel that points to our site can help pages get found and help AI assistants cite us. Our site already links to the repository, so the two confirm each other.
+**Reason:** We rank in Germany, but only two pages were in German; search engines prefer a separate, linked page per language.
 
-**Outcome:** Pending.
+**Outcome:** On 4 Nov "grohnpetrel" ranked #1 on Google in Germany (not in the top 10 the day before), and "what is grohnpetrel" #1 in Germany, the US and the UK.
 
 ---
 
-**Action:** Connected the GitHub repository to Zenodo and published release v1.0, which Zenodo archived as a citable record with a DOI: https://doi.org/10.5281/zenodo.23926767 (site pages in English and German, scripts, project log; creator "Team Guillemots", Constructor University; all rights reserved). Linked the DOI from the README.
+**Action:** Linked our key pages from our public GitHub repository (https://github.com/CommanderTvis/dmfseo) and archived it on Zenodo with a DOI (https://doi.org/10.5281/zenodo.23926767).
 
-**Reason:** Backlink building. A Zenodo record is a permanent, citable research source that links to our site; Zenodo records are indexed by search engines and Google Scholar and are trusted by AI assistants.
+**Reason:** Backlink building: GitHub and Zenodo are crawled often and trusted by search engines, Google Scholar and AI assistants, and they confirm our site as the source.
 
-**Outcome:** Record published 3 Nov. Release v1.1 the same day added links to 16 key pages (English and German, including the Journal and its posts) in the record's description and related links. Whether search engines or AI assistants pick it up: pending.
+**Outcome:** Published 3 Nov; pickup by search engines and AI assistants pending.
 
 ---
 
 ## 2026-11-04
 
-**Action:** Strengthened the three pages that compete for "grohnpetrel" itself, in English and German: "What is Grohnpetrel?" grew from about 220 to about 580 words (answer-first summary, an "at a glance" table, what Grohnpetrel is not, a one-sentence description to quote, links to every section); the FAQ grew from 8 to 14 questions (what the word means, whether it is official, why other sites use the name, where it is based, which real seabirds we cover, how to cite us); the front page got a "Grohnpetrel at a glance" box and alt text for its hero image. The definition page and FAQ now show the Grohnpetrel mascot with descriptive alt text and a caption; shared links now use the page's featured image or the mascot as a large preview (og:image with size and alt). A new Journal post in both languages ("What Happened to Our Rankings After a Big Update") reports the 2 to 3 Nov tracker change and what we did about it.
+**Action:** Strengthened the pages that compete for "grohnpetrel", in English and German: "What is Grohnpetrel?" (220 → 580 words), the FAQ (8 → 14 questions) and the front page (550 → 950 words, with the six seabird species, the mascot and short answers); "| Grohnpetrel" in all seabird page titles; main images for share previews and structured data; and a Journal post on the ranking drop.
 
 **Who:** Diego Aguilar.
 
-**Reason:** On 3 Nov our tracker showed us out of Google's top 10 for "grohnpetrel" in all three countries, while one rival site held positions 1 to 4 with its front page, FAQ (about 660 words) and product overview. Our definition page had about 220 words and our FAQ 8 short answers. The new FAQ answers also tell search engines and AI assistants that several course sites use the same word, so they can tell our concept apart.
+**Reason:** On 3 Nov we were out of Google's top 10 for "grohnpetrel", while another team's site held positions 1 to 4 with longer pages that name Grohnpetrel clearly.
 
-**Outcome:** Pending. Compare the tracker after Google re-crawls the three pages, and check Google Images for the mascot.
-
-## 2026-11-04 (afternoon)
-
-**Action:** Second update of the day, in English and German. The front page grew from about 550 to about 950 words: a table of the six seabird species with links, the mascot, three short answers (is it a real organisation, a real bird, who made it), the team photo and the latest Journal posts. All 14 seabird page titles now end in "| Grohnpetrel". The structured data now gives the project, every page and every Journal post a main image (the featured image, else the mascot). The two new Journal posts were moved from 18:00 to 12:00 so they publish now; they had been scheduled for the evening by mistake.
-
-**Who:** Diego Aguilar.
-
-**Reason:** On 3 Nov the rival site held the top positions for "grohnpetrel" with a front page of about 770 words and 14 images, brand-first titles on every page and many pages that each say "Grohnpetrel" clearly. Our front page had about 550 words and our seabird pages did not carry the name in their titles.
-
-**Outcome:** Pending. Check the tracker over the next days, especially whether the front page returns to the top 10 for "grohnpetrel".
+**Outcome:** No improvement: on 5 Nov we were still outside Google's top 10 for "grohnpetrel" in all three countries, and "what is grohnpetrel" dropped out too.
 
 ---
 
@@ -170,25 +152,25 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** Search engines read these signals the same way on every WordPress site; matching the common defaults closes the gaps without a plugin we could not manage from GitHub.
 
-**Outcome:** Pending. Check with Google's Rich Results Test and Search Console.
+**Outcome:** Pending.
 
 ---
 
-**Action:** Made the pages load faster: front-page photo and logo as WebP (280 KB → 27 KB), lighter loading of styles and fonts, and browser caching for images.
+**Action:** Sped up the pages: WebP images, lighter loading of styles and fonts.
 
-**Reason:** PageSpeed Insights (5 Nov, mobile) measured 3.0 s until the main content showed.
+**Reason:** PageSpeed Insights (5 Nov, mobile): 3.0 s until the main content showed.
 
-**Outcome:** Pending. Re-run PageSpeed Insights after publishing.
+**Outcome:** Pending.
 
 ---
 
-**Action:** Redesign and clean-up, in English and German. A new design snippet (snippets/design.php) gives the whole site one look: ocean-teal and ivory palette, serif headings, consistent buttons, tables and image corners, a wider 1180 px layout for sections, cards and full-width bands. The front page was rebuilt into ten sections: a photo hero with the H1 "Grohnpetrel: Coastal Conservation & Seabird Education" and two buttons, What is Grohnpetrel? (with a sentence that other, unrelated sites use the same word), Our Main Goals as three cards, Why Coastal Conservation Matters, the seabird guide, six Explore cards (Mission, Conservation, Programmes, Knowledge Centre, FAQ, About), three quick answers, the team, the Journal and a closing banner. Existing texts were kept. Four photos of North Sea seabirds and coasts from Wikimedia Commons (CC BY-SA 4.0) were added with the authors and licence named on the page. The main menu went from ten to eight entries (About, Conservation and Resources now have sub-menus) and its Home link no longer goes through a redirect. The Imprint (EN/DE) was published with Mario Iraheta as the responsible person; the footer had linked to it while it was still a draft (404). A broken link from the English rankings post to the German one was fixed.
+**Action:** Redesigned the site in English and German: one look for every page (ocean-teal and ivory colours, serif headings, wider layout), a front page rebuilt into ten sections with the existing texts, four North Sea photos from Wikimedia Commons (CC BY-SA 4.0, credited on the page), a shorter main menu, the Imprint published, and broken and redirecting links fixed.
 
 **Who:** Diego Aguilar.
 
-**Reason:** Audit on 5 Nov: no X-Robots-Tag or noindex on our pages, sitemap fine, one H1 per page, no images without alt text; but 2 broken links (Imprint EN/DE), 2 links through redirects, a 645 px text column and a plain front page. On 5 Nov a new rival site took positions 1, 2 and 4 for "grohnpetrel" in Germany with long pages (about 1,000 to 1,700 words) whose addresses all contain the word; the other leading rival has a front page with 14 images.
+**Reason:** Our 5 Nov audit found no indexing problems, but broken links to the unpublished Imprint, links through redirects, a narrow text column and a plain front page. Another team's site took positions 1, 2 and 4 for "grohnpetrel" in Germany that day with long pages.
 
-**Outcome:** Pending. Check the tracker from 7 Nov; check the front page on desktop and mobile after publishing.
+**Outcome:** Pending.
 
 ---
 
