@@ -33,7 +33,7 @@
   },
   {
    "loc": "https://business.constructor.university/guillemots/ranking-drop-after-big-update/",
-   "lastmod": "2026-11-04T14:26:50+01:00",
+   "lastmod": "2026-11-05T16:13:09+01:00",
    "sitemap": "wp-sitemap-posts-post-1.xml"
   },
   {
@@ -48,12 +48,12 @@
   },
   {
    "loc": "https://business.constructor.university/guillemots/",
-   "lastmod": "2026-11-05T14:40:56+01:00",
+   "lastmod": "2026-11-06T13:22:19+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
    "loc": "https://business.constructor.university/guillemots/what-is-grohnpetrel-2/",
-   "lastmod": "2026-11-04T14:12:37+01:00",
+   "lastmod": "2026-11-06T13:22:22+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -83,7 +83,7 @@
   },
   {
    "loc": "https://business.constructor.university/guillemots/grohnpetrel-faq/",
-   "lastmod": "2026-11-04T14:12:42+01:00",
+   "lastmod": "2026-11-06T13:22:27+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -104,6 +104,11 @@
   {
    "loc": "https://business.constructor.university/guillemots/contact/",
    "lastmod": "2026-11-03T15:52:52+01:00",
+   "sitemap": "wp-sitemap-posts-page-1.xml"
+  },
+  {
+   "loc": "https://business.constructor.university/guillemots/imprint/",
+   "lastmod": "2026-11-05T16:12:57+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -148,12 +153,12 @@
   },
   {
    "loc": "https://business.constructor.university/guillemots/de/was-ist-grohnpetrel/",
-   "lastmod": "2026-11-04T14:12:59+01:00",
+   "lastmod": "2026-11-06T13:22:44+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
    "loc": "https://business.constructor.university/guillemots/de/haeufige-fragen/",
-   "lastmod": "2026-11-04T14:13:01+01:00",
+   "lastmod": "2026-11-06T13:22:47+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -163,7 +168,7 @@
   },
   {
    "loc": "https://business.constructor.university/guillemots/de/",
-   "lastmod": "2026-11-05T14:41:20+01:00",
+   "lastmod": "2026-11-06T13:22:42+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -204,6 +209,11 @@
   {
    "loc": "https://business.constructor.university/guillemots/de/kontakt/",
    "lastmod": "2026-11-03T15:53:42+01:00",
+   "sitemap": "wp-sitemap-posts-page-1.xml"
+  },
+  {
+   "loc": "https://business.constructor.university/guillemots/de/impressum/",
+   "lastmod": "2026-11-05T16:13:40+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -254,6 +264,36 @@
   {
    "loc": "https://business.constructor.university/guillemots/de/merchandise-plan/",
    "lastmod": "2026-11-03T15:54:18+01:00",
+   "sitemap": "wp-sitemap-posts-page-1.xml"
+  },
+  {
+   "loc": "https://business.constructor.university/guillemots/es/",
+   "lastmod": "2026-11-06T13:23:39+01:00",
+   "sitemap": "wp-sitemap-posts-page-1.xml"
+  },
+  {
+   "loc": "https://business.constructor.university/guillemots/es/que-es-grohnpetrel/",
+   "lastmod": "2026-11-06T13:23:44+01:00",
+   "sitemap": "wp-sitemap-posts-page-1.xml"
+  },
+  {
+   "loc": "https://business.constructor.university/guillemots/es/preguntas-frecuentes-grohnpetrel/",
+   "lastmod": "2026-11-06T13:23:48+01:00",
+   "sitemap": "wp-sitemap-posts-page-1.xml"
+  },
+  {
+   "loc": "https://business.constructor.university/guillemots/zh/",
+   "lastmod": "2026-11-06T13:23:49+01:00",
+   "sitemap": "wp-sitemap-posts-page-1.xml"
+  },
+  {
+   "loc": "https://business.constructor.university/guillemots/zh/grohnpetrel-shi-shenme/",
+   "lastmod": "2026-11-06T13:23:54+01:00",
+   "sitemap": "wp-sitemap-posts-page-1.xml"
+  },
+  {
+   "loc": "https://business.constructor.university/guillemots/zh/grohnpetrel-changjian-wenti/",
+   "lastmod": "2026-11-06T13:23:58+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
