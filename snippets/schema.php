@@ -30,7 +30,7 @@ if ( ! function_exists( 'grohnpetrel_schema_faq' ) ) {
 			$question = trim( preg_replace( '/^\s*\d+\.\s*/', '', wp_strip_all_tags( substr( $part, 0, $end ) ) ) );
 			preg_match_all( '/<p[^>]*>(.*?)<\/p>/is', substr( $part, $end ), $paras );
 			$answer = trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( implode( ' ', $paras[1] ) ) ) );
-			if ( '' !== $question && '' !== $answer && '?' === substr( $question, -1 ) ) {
+			if ( '' !== $question && '' !== $answer && preg_match( '/[?？]$/u', $question ) ) {
 				$items[] = array(
 					'@type'          => 'Question',
 					'name'           => $question,
@@ -50,7 +50,8 @@ add_action( 'wp_head', function () {
 	$lang    = is_singular() ? (string) get_post_meta( get_queried_object_id(), 'grohnpetrel_lang', true ) : '';
 	$lang    = '' !== $lang ? $lang : 'en';
 	$de      = 'de' === $lang;
-	$in_lang = $de ? 'de-DE' : str_replace( '_', '-', get_locale() );
+	$codes   = array( 'de' => 'de-DE', 'es' => 'es-ES', 'zh' => 'zh-CN' );
+	$in_lang = isset( $codes[ $lang ] ) ? $codes[ $lang ] : str_replace( '_', '-', get_locale() );
 	$site    = get_bloginfo( 'name' );
 
 	$org = array(
@@ -76,6 +77,16 @@ add_action( 'wp_head', function () {
 		$org['disambiguatingDescription'] = 'Ein fiktiver Studienentwurf aus dem Herbst 2026, erstellt von den Guillemots, einem Team aus vier Studierenden der Constructor University in Bremen, im Kurs Digital Marketing Fundamentals and Search Engine Optimisation. Es ist keine eingetragene Organisation, keine Vogelart und nimmt keine Spenden an.';
 		$org['foundingLocation']['name']  = 'Bremen-Grohn, Deutschland';
 		$org['knowsAbout']                = array( 'Seevogelschutz', 'Küstenökosysteme', 'Nordsee', 'Wattenmeer' );
+	} elseif ( 'es' === $lang ) {
+		$org['description']               = 'Grohnpetrel es una iniciativa propuesta de conservación costera y educación sobre aves marinas.';
+		$org['disambiguatingDescription'] = 'Una propuesta académica ficticia creada en otoño de 2026 por los Guillemots, un equipo de cuatro estudiantes de la Constructor University de Bremen (Alemania), para la asignatura Digital Marketing Fundamentals and Search Engine Optimisation. No es una organización registrada, no es una especie de ave y no acepta donaciones.';
+		$org['foundingLocation']['name']  = 'Bremen-Grohn, Alemania';
+		$org['knowsAbout']                = array( 'Conservación de aves marinas', 'Ecosistemas costeros', 'Mar del Norte', 'Mar de Frisia' );
+	} elseif ( 'zh' === $lang ) {
+		$org['description']               = 'Grohnpetrel 是一个构想中的海岸保护与海鸟教育项目。';
+		$org['disambiguatingDescription'] = '这是一个虚构的学术项目，由德国不来梅康斯特大学（Constructor University）的四名学生组成的 Guillemots 团队于 2026 年秋季为“数字营销基础与搜索引擎优化”课程创建。它不是注册组织，不是一种鸟类，也不接受捐款。';
+		$org['foundingLocation']['name']  = '德国不来梅 Grohn 区';
+		$org['knowsAbout']                = array( '海鸟保护', '海岸生态系统', '北海', '瓦登海' );
 	}
 	// Logo: the site logo, else the Grohnpetrel mascot (media 11).
 	$logo = wp_get_attachment_image_src( (int) get_theme_mod( 'custom_logo' ), 'full' );
@@ -157,6 +168,8 @@ add_action( 'wp_head', function () {
 		'kontakt'                      => 'ContactPage',
 		'grohnpetrel-faq'              => 'FAQPage',
 		'haeufige-fragen'              => 'FAQPage',
+		'preguntas-frecuentes-grohnpetrel' => 'FAQPage',
+		'grohnpetrel-changjian-wenti'  => 'FAQPage',
 		'grohnpetrel-knowledge-centre' => 'CollectionPage',
 		'wissenszentrum'               => 'CollectionPage',
 		'seabirds-of-the-north-sea'    => 'CollectionPage',
@@ -243,15 +256,16 @@ add_action( 'wp_head', function () {
 		);
 	}
 
-	// Breadcrumb as Yoast builds it (the current page last, without a link); German pages start at
-	// the German front page (/de/), the parent of all of them.
-	$de_home = $de ? get_page_by_path( 'de' ) : null;
-	$is_home = is_front_page() || ( $de_home && $de_home->ID === $id );
-	$crumbs  = array( array( '@type' => 'ListItem', 'position' => 1, 'name' => $de_home ? 'Startseite' : 'Home' ) );
+	// Breadcrumb as Yoast builds it (the current page last, without a link); German, Spanish and
+	// Chinese pages start at their language's front page (/de/, /es/, /zh/), the parent of all of them.
+	$home_names = array( 'de' => 'Startseite', 'es' => 'Inicio', 'zh' => '首页' );
+	$de_home    = isset( $home_names[ $lang ] ) ? get_page_by_path( $lang ) : null;
+	$is_home    = is_front_page() || ( $de_home && $de_home->ID === $id );
+	$crumbs     = array( array( '@type' => 'ListItem', 'position' => 1, 'name' => $de_home ? $home_names[ $lang ] : 'Home' ) );
 	if ( ! $is_home ) {
 		$crumbs[0]['item'] = $de_home ? get_permalink( $de_home ) : $home;
 		if ( 'post' === $post->post_type ) {
-			$journal = get_page_by_path( $de_home ? 'de/projekt-journal' : 'journal' );
+			$journal = get_page_by_path( $de ? 'de/projekt-journal' : 'journal' );
 			if ( $journal ) {
 				$crumbs[] = array( '@type' => 'ListItem', 'position' => 2, 'name' => 'Journal', 'item' => get_permalink( $journal ) );
 			}
@@ -262,7 +276,7 @@ add_action( 'wp_head', function () {
 	}
 	$graph[] = array( '@type' => 'BreadcrumbList', '@id' => $url . '#breadcrumb', 'itemListElement' => $crumbs );
 
-	if ( in_array( $slug, array( 'what-is-grohnpetrel-2', 'was-ist-grohnpetrel' ), true ) ) {
+	if ( in_array( $slug, array( 'what-is-grohnpetrel-2', 'was-ist-grohnpetrel', 'que-es-grohnpetrel', 'grohnpetrel-shi-shenme' ), true ) ) {
 		$graph[] = array(
 			'@type'       => 'DefinedTerm',
 			'@id'         => $home . '#term',

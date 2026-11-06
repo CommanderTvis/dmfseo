@@ -93,6 +93,8 @@ figcaption,.wp-element-caption{color:var(--gp-muted);font-size:.875rem}
 .gp-list{list-style:none;padding-left:0!important}
 .gp-list li{background:#fff;border:1px solid var(--gp-line);border-left:4px solid var(--gp-gold);border-radius:10px;padding:.75rem 1rem;margin-bottom:.6rem}
 
+:lang(zh) body,:lang(zh) h1,:lang(zh) h2,:lang(zh) h3,:lang(zh) .wp-block-heading{font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;letter-spacing:0}
+:lang(zh) .gp-kicker{letter-spacing:.05em}
 @media (max-width:600px){.wp-block-table td,.wp-block-table th{padding:.45em .55em;font-size:.9rem}}
 @media (max-width:1000px){.gp-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:781px){

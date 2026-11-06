@@ -7,27 +7,47 @@
  *
  * Runs on the site through the Code Snippets plugin. scripts/wp_sync.py publishes this file
  * and writes the page fields below from pages/manifest.json ("description", "seo_title",
- * "lang" and "alternate", the slug of the same page in the other language).
+ * "lang" and "alternate", the slugs of the same page in the other languages, comma-separated,
+ * e.g. "de/was-ist-grohnpetrel,es/que-es-grohnpetrel"). Languages: en (default), de, es, zh.
  * Edit here, not in WordPress: the next publish overwrites the snippet.
  */
 
-if ( ! function_exists( 'grohnpetrel_language_pair' ) ) {
+if ( ! function_exists( 'grohnpetrel_translations' ) ) {
 	/**
-	 * The page's language, the other language and the published translation (path in the
-	 * "alternate" field, e.g. "de/was-ist-grohnpetrel"), or null when it has none.
+	 * The page and its published translations, keyed by language code (en, de, es, zh), read from
+	 * the "alternate" field (comma-separated paths, e.g. "de/was-ist-grohnpetrel,es/que-es-grohnpetrel").
+	 * An empty array when the page has no published translation.
 	 */
-	function grohnpetrel_language_pair( $id ) {
+	function grohnpetrel_translations( $id ) {
 		$alt = (string) get_post_meta( $id, 'grohnpetrel_alternate', true );
 		if ( '' === $alt ) {
-			return null;
-		}
-		$twin = get_page_by_path( $alt, OBJECT, array( 'page', 'post' ) );
-		if ( ! $twin || 'publish' !== $twin->post_status ) {
-			return null;
+			return array();
 		}
 		$lang = (string) get_post_meta( $id, 'grohnpetrel_lang', true );
-		$here = '' !== $lang ? $lang : 'en';
-		return array( 'here' => $here, 'there' => 'de' === $here ? 'en' : 'de', 'twin' => $twin );
+		$out  = array( '' !== $lang ? $lang : 'en' => get_post( $id ) );
+		foreach ( array_filter( array_map( 'trim', explode( ',', $alt ) ) ) as $path ) {
+			$twin = get_page_by_path( $path, OBJECT, array( 'page', 'post' ) );
+			if ( ! $twin || 'publish' !== $twin->post_status ) {
+				continue;
+			}
+			$code = (string) get_post_meta( $twin->ID, 'grohnpetrel_lang', true );
+			$code = '' !== $code ? $code : 'en';
+			if ( ! isset( $out[ $code ] ) ) {
+				$out[ $code ] = $twin;
+			}
+		}
+		return count( $out ) > 1 ? $out : array();
+	}
+
+	/** Locale-style codes and names for the site's languages. */
+	function grohnpetrel_language_info( $code ) {
+		$all = array(
+			'en' => array( 'html' => 'en-US', 'og' => 'en_US', 'name' => 'English' ),
+			'de' => array( 'html' => 'de-DE', 'og' => 'de_DE', 'name' => 'Deutsch' ),
+			'es' => array( 'html' => 'es-ES', 'og' => 'es_ES', 'name' => 'Español' ),
+			'zh' => array( 'html' => 'zh-CN', 'og' => 'zh_CN', 'name' => '中文' ),
+		);
+		return isset( $all[ $code ] ) ? $all[ $code ] : $all['en'];
 	}
 }
 
@@ -104,7 +124,12 @@ if ( ! function_exists( 'grohnpetrel_reading_minutes' ) ) {
 		$text  = trim( wp_strip_all_tags( strip_shortcodes( $post->post_content ) ) );
 		$parts = '' !== $text ? preg_split( '/\s+/u', $text, -1, PREG_SPLIT_NO_EMPTY ) : array();
 		$words = is_array( $parts ) ? count( $parts ) : 0;
-		return max( 1, (int) ceil( $words / ( 'de' === $lang ? 179 : 238 ) ) );
+		if ( 'zh' === $lang ) {  // Chinese has no spaces between words: count characters instead
+			$chars = mb_strlen( (string) preg_replace( '/\s+/u', '', $text ) );
+			return max( 1, (int) ceil( $chars / 300 ) );
+		}
+		$speed = array( 'de' => 179, 'es' => 218 );
+		return max( 1, (int) ceil( $words / ( isset( $speed[ $lang ] ) ? $speed[ $lang ] : 238 ) ) );
 	}
 }
 
@@ -159,10 +184,10 @@ add_action( 'wp_head', function () {
 		$desc = (string) get_post_meta( $id, 'grohnpetrel_description', true );
 		$lang = (string) get_post_meta( $id, 'grohnpetrel_lang', true );
 		$de   = 'de' === $lang;
-		$home = is_front_page() || ( 'de' === $post->post_name && ! $post->post_parent );  // English or German front page
+		$home = is_front_page() || ( in_array( $post->post_name, array( 'de', 'es', 'zh' ), true ) && ! $post->post_parent );  // a language's front page
 		$tag( 'name', 'description', $desc );
 		$out[] = sprintf( '<link rel="canonical" href="%s" />', esc_url( $canonical ) );
-		$tag( 'property', 'og:locale', $de ? 'de_DE' : get_locale() );
+		$tag( 'property', 'og:locale', '' !== $lang ? grohnpetrel_language_info( $lang )['og'] : get_locale() );
 		$tag( 'property', 'og:type', $home ? 'website' : 'article' );
 		$tag( 'property', 'og:title', $title );
 		$tag( 'property', 'og:description', $desc );
@@ -191,24 +216,36 @@ add_action( 'wp_head', function () {
 		$labels = array();
 		if ( 'post' === $post->post_type ) {
 			$tag( 'name', 'author', 'Team Guillemots' );
-			$labels[] = array( $de ? 'Verfasst von' : 'Written by', 'Team Guillemots' );
+			$by       = array( 'de' => 'Verfasst von', 'es' => 'Escrito por', 'zh' => '作者' );
+			$labels[] = array( isset( $by[ $lang ] ) ? $by[ $lang ] : 'Written by', 'Team Guillemots' );
 		}
 		$tag( 'name', 'twitter:card', 'summary_large_image' );
 		if ( ! $home ) {
 			$min      = grohnpetrel_reading_minutes( $post, $lang );
-			$labels[] = $de
-				? array( 'Geschätzte Lesezeit', 1 === $min ? '1 Minute' : $min . ' Minuten' )
-				: array( 'Est. reading time', 1 === $min ? '1 minute' : $min . ' minutes' );
+			if ( $de ) {
+				$labels[] = array( 'Geschätzte Lesezeit', 1 === $min ? '1 Minute' : $min . ' Minuten' );
+			} elseif ( 'es' === $lang ) {
+				$labels[] = array( 'Tiempo de lectura', 1 === $min ? '1 minuto' : $min . ' minutos' );
+			} elseif ( 'zh' === $lang ) {
+				$labels[] = array( '预计阅读时间', $min . ' 分钟' );
+			} else {
+				$labels[] = array( 'Est. reading time', 1 === $min ? '1 minute' : $min . ' minutes' );
+			}
 		}
 		foreach ( $labels as $i => $label ) {
 			$tag( 'name', 'twitter:label' . ( $i + 1 ), $label[0] );
 			$tag( 'name', 'twitter:data' . ( $i + 1 ), $label[1] );
 		}
-		// hreflang: a page and its translation point at each other; English is the x-default.
-		$pair = grohnpetrel_language_pair( $id );
-		if ( $pair ) {
-			$links = array( $pair['here'] => $canonical, $pair['there'] => get_permalink( $pair['twin'] ) );
-			$links['x-default'] = $links['en'];
+		// hreflang: a page and all its translations point at each other; English is the x-default.
+		$langs = grohnpetrel_translations( $id );
+		if ( $langs ) {
+			$links = array();
+			foreach ( $langs as $code => $p ) {
+				$links[ $code ] = (int) $p->ID === (int) $id ? $canonical : get_permalink( $p );
+			}
+			if ( isset( $links['en'] ) ) {
+				$links['x-default'] = $links['en'];
+			}
 			foreach ( $links as $code => $href ) {
 				$out[] = sprintf( '<link rel="alternate" hreflang="%s" href="%s" />', esc_attr( $code ), esc_url( $href ) );
 			}
@@ -266,39 +303,50 @@ add_action( 'template_redirect', function () {
 
 // Translated pages declare their own language in <html lang="...">.
 add_filter( 'language_attributes', function ( $output ) {
-	if ( is_singular() && 'de' === get_post_meta( get_queried_object_id(), 'grohnpetrel_lang', true ) ) {
-		$output = preg_replace( '/lang="[^"]*"/', 'lang="de-DE"', $output );
+	$lang = is_singular() ? (string) get_post_meta( get_queried_object_id(), 'grohnpetrel_lang', true ) : '';
+	if ( in_array( $lang, array( 'de', 'es', 'zh' ), true ) ) {
+		$output = preg_replace( '/lang="[^"]*"/', 'lang="' . grohnpetrel_language_info( $lang )['html'] . '"', $output );
 	}
 	return $output;
 } );
 
-// Language switcher: a plain link to the translation at the top of every translated page.
+// Language switcher: plain links to the page's translations at the top of every translated page,
+// each named in its own language.
 add_filter( 'the_content', function ( $content ) {
 	if ( ! is_singular() || ! in_the_loop() || ! is_main_query() ) {
 		return $content;
 	}
-	$pair = grohnpetrel_language_pair( get_the_ID() );
-	if ( ! $pair ) {
+	$id    = get_the_ID();
+	$langs = grohnpetrel_translations( $id );
+	if ( ! $langs ) {
 		return $content;
 	}
-	$de = 'de' === $pair['there'];
-	return sprintf(
-		'<p class="grohnpetrel-lang"><a href="%s" hreflang="%s" lang="%s">%s</a></p>',
-		esc_url( get_permalink( $pair['twin'] ) ), $pair['there'], $pair['there'], $de ? 'Deutsch' : 'English'
-	) . $content;
+	$links = array();
+	foreach ( array( 'en', 'de', 'es', 'zh' ) as $code ) {
+		if ( isset( $langs[ $code ] ) && (int) $langs[ $code ]->ID !== (int) $id ) {
+			$links[] = sprintf( '<a href="%s" hreflang="%s" lang="%s">%s</a>', esc_url( get_permalink( $langs[ $code ] ) ), $code, $code, esc_html( grohnpetrel_language_info( $code )['name'] ) );
+		}
+	}
+	return '<p class="grohnpetrel-lang">' . implode( ' · ', $links ) . '</p>' . $content;
 }, 5 );
 
-// German pages show the German menus: the navigation block's English menu (post ID) is swapped for
-// the German menu with the slug below (pages/navigation-de-*.html, created by wp_sync.py).
+// Translated pages show their language's menus: the navigation block's English menu (post ID) is
+// swapped for the menu with the slug below (pages/navigation-*.html, created by wp_sync.py).
+// Spanish and Chinese have their own main menu; their footers stay in English.
 add_filter( 'render_block_data', function ( $block ) {
-	static $menus = array( 4 => 'navigation-de-main', 38 => 'navigation-de-lernen', 39 => 'navigation-de-transparenz' );
+	static $menus = array(
+		'de' => array( 4 => 'navigation-de-main', 38 => 'navigation-de-lernen', 39 => 'navigation-de-transparenz' ),
+		'es' => array( 4 => 'navigation-es-main' ),
+		'zh' => array( 4 => 'navigation-zh-main' ),
+	);
 	if ( 'core/navigation' !== $block['blockName'] || empty( $block['attrs']['ref'] ) || ! is_singular() ) {
 		return $block;
 	}
-	if ( 'de' !== get_post_meta( get_queried_object_id(), 'grohnpetrel_lang', true ) || ! isset( $menus[ $block['attrs']['ref'] ] ) ) {
+	$lang = (string) get_post_meta( get_queried_object_id(), 'grohnpetrel_lang', true );
+	if ( ! isset( $menus[ $lang ][ $block['attrs']['ref'] ] ) ) {
 		return $block;
 	}
-	$nav = get_page_by_path( $menus[ $block['attrs']['ref'] ], OBJECT, 'wp_navigation' );
+	$nav = get_page_by_path( $menus[ $lang ][ $block['attrs']['ref'] ], OBJECT, 'wp_navigation' );
 	if ( $nav ) {
 		$block['attrs']['ref'] = $nav->ID;
 	}
