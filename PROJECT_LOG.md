@@ -189,3 +189,11 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Audit on 5 Nov: no X-Robots-Tag or noindex on our pages, sitemap fine, one H1 per page, no images without alt text; but 2 broken links (Imprint EN/DE), 2 links through redirects, a 645 px text column and a plain front page. On 5 Nov a new rival site took positions 1, 2 and 4 for "grohnpetrel" in Germany with long pages (about 1,000 to 1,700 words) whose addresses all contain the word; the other leading rival has a front page with 14 images.
 
 **Outcome:** Pending. Check the tracker from 7 Nov; check the front page on desktop and mobile after publishing.
+
+---
+
+**Action:** Cheap experiment: added an `llms.txt` (a short markdown guide to the site for language models) at `/guillemots/llms.txt`, linked from every page head. We do not control the domain root, so it cannot sit at `/llms.txt`.
+
+**Reason:** We are not cited in Google's AI Overview for "grohnpetrel"; no AI provider has confirmed it reads `llms.txt`, so we test it at near-zero cost.
+
+**Outcome:** Pending.

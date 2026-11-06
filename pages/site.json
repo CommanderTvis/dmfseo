@@ -24,6 +24,10 @@
     {
       "name": "Grohnpetrel design",
       "file": "../snippets/design.php"
+    },
+    {
+      "name": "Grohnpetrel llms.txt",
+      "file": "../snippets/llms.php"
     }
   ],
   "navigation": [
