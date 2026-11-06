@@ -126,7 +126,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 ---
 
-**Action:** Added a "What is Grohnpetrel?" section with links to our key pages to our public GitHub repository's README (https://github.com/CommanderTvis/dmfseo), and archived the repository on Zenodo with a DOI (https://doi.org/10.5281/zenodo.23926767), linking 16 key pages in English and German.
+**Action:** Linked our key pages from our public GitHub repository (https://github.com/CommanderTvis/dmfseo) and archived it on Zenodo with a DOI (https://doi.org/10.5281/zenodo.23926767).
 
 **Reason:** Backlink building: GitHub and Zenodo are crawled often and trusted by search engines, Google Scholar and AI assistants, and they confirm our site as the source.
 
