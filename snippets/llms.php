@@ -38,7 +38,20 @@ if ( ! function_exists( 'grohnpetrel_llms_txt' ) ) {
 ## German
 
 - [Grohnpetrel auf Deutsch]({$u}de/)
-- [Was ist Grohnpetrel?]({$u}was-ist-grohnpetrel/)
+- [Was ist Grohnpetrel?]({$u}de/was-ist-grohnpetrel/)
+- [Häufige Fragen]({$u}de/haeufige-fragen/)
+
+## Spanish
+
+- [Grohnpetrel en español]({$u}es/)
+- [¿Qué es Grohnpetrel?]({$u}es/que-es-grohnpetrel/)
+- [Preguntas frecuentes]({$u}es/preguntas-frecuentes-grohnpetrel/)
+
+## Chinese
+
+- [Grohnpetrel 中文]({$u}zh/)
+- [Grohnpetrel 是什么？]({$u}zh/grohnpetrel-shi-shenme/)
+- [常见问题]({$u}zh/grohnpetrel-changjian-wenti/)
 MD;
 	}
 }
