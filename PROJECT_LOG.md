@@ -126,19 +126,11 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 ---
 
-**Action:** Added a "What is Grohnpetrel?" section to the top of our public GitHub repository's README (https://github.com/CommanderTvis/dmfseo): a short definition with the disclaimer, and links to the front page, "What is Grohnpetrel?", the FAQ and the seabird guide in English and German.
+**Action:** Added a "What is Grohnpetrel?" section with links to our key pages to our public GitHub repository's README (https://github.com/CommanderTvis/dmfseo), and archived the repository on Zenodo with a DOI (https://doi.org/10.5281/zenodo.23926767), linking 16 key pages in English and German.
 
-**Reason:** Backlink building. GitHub links are `nofollow`, so they pass little ranking credit, but GitHub is crawled often by search engines and AI search tools. A second, consistent description of Grohnpetrel that points to our site can help pages get found and help AI assistants cite us. Our site already links to the repository, so the two confirm each other.
+**Reason:** Backlink building: GitHub and Zenodo are crawled often and trusted by search engines, Google Scholar and AI assistants, and they confirm our site as the source.
 
-**Outcome:** Pending.
-
----
-
-**Action:** Connected the GitHub repository to Zenodo and published release v1.0, which Zenodo archived as a citable record with a DOI: https://doi.org/10.5281/zenodo.23926767 (site pages in English and German, scripts, project log; creator "Team Guillemots", Constructor University; all rights reserved). Linked the DOI from the README.
-
-**Reason:** Backlink building. A Zenodo record is a permanent, citable research source that links to our site; Zenodo records are indexed by search engines and Google Scholar and are trusted by AI assistants.
-
-**Outcome:** Record published 3 Nov. Release v1.1 the same day added links to 16 key pages (English and German, including the Journal and its posts) in the record's description and related links. Whether search engines or AI assistants pick it up: pending.
+**Outcome:** Published 3 Nov; pickup by search engines and AI assistants pending.
 
 ---
 
