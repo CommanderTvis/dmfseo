@@ -48,3 +48,4 @@ Then open the **Actions** tab on GitHub: a green `wp-publish` run means the site
 
 - Keep the disclaimer that Grohnpetrel is a fictional academic project, not an NGO, with no donations.
 - A new page needs a file in `pages/` and an entry in `pages/manifest.json` (no ID needed). The next publish creates it.
+- `python3 scripts/check_pages.py` checks the manifest, translations, block markup, H1s and internal links without publishing anything. It also runs on every pull request (`site-checks`).
