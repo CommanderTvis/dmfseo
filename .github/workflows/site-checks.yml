@@ -1,0 +1,17 @@
+name: site-checks
+# Offline checks of pages/ (manifest, translations, block markup, H1s, internal links) on every
+# pull request and push to main. Separate from wp-publish so it never blocks or changes publishing.
+on:
+  push:
+    branches: [main]
+    paths: ["pages/**", "scripts/check_pages.py", ".github/workflows/site-checks.yml"]
+  pull_request:
+    paths: ["pages/**", "scripts/check_pages.py", ".github/workflows/site-checks.yml"]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - run: python3 scripts/check_pages.py
