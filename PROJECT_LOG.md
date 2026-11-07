@@ -191,3 +191,21 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** No rival site offers Spanish or Chinese, so these searches and AI answers in those languages have no competing Grohnpetrel page. Rival sites rank with many pages that each say "Grohnpetrel" clearly; six new pages in two more languages add that, with hreflang so search engines show each visitor the right language instead of treating them as duplicates. Note: Google is blocked in mainland China, so the Chinese pages mainly reach Google users in Hong Kong, Taiwan, Singapore and elsewhere, and AI assistants.
 
 **Outcome:** Pending. Check that Google indexes /es/ and /zh/ (site: search, Search Console) and whether "grohnpetrel" queries in Spanish or Chinese show our pages.
+
+---
+
+## 2026-11-07
+
+**Action:** Audited the results page and three rival team sites (titles, headings, structured data, sitemaps, social profiles) and compared our rank tracker with the course's snapshots. Findings: for "grohnpetrel", about half of Google's top 10 are now Instagram posts, reels and YouTube videos from other teams; Google's AI Overview describes Grohnpetrel as a student brand of drinks and clothing and does not mention us; on 4, 5 and 7 Nov our non-personalised check found no team website at all in the US and UK top 10. Quoted "grohnpetrel" stays #1 in the US and UK, and Brave ranks our Zenodo record in its top 4 on most days. Our canonicals, hreflang and titles passed; no change needed there.
+
+**Reason:** The course snapshots (Google.de, English, Bremen) put us #2 to #4 behind other teams from 2 to 7 Nov; we wanted evidence for why before changing anything.
+
+**Outcome:** The gap is mainly off-site (no social posts or videos), not on-page. Next test (team): one clearly labelled video and post on team-owned channels linking to the site; compare the same queries for 14 days.
+
+---
+
+**Action:** Set category, tag and author archive pages to "noindex, follow" and removed them from the sitemap (a deliberate change from Yoast's defaults); added our Zenodo DOI to the project's `sameAs` in structured data; front pages in all four languages now open with one sentence that says what Grohnpetrel is, that it is fictional, and who made it; updated the SEO / GEO Lab (EN, DE) with ranks up to 7 Nov, the 3 to 7 Nov changes and the 7 Nov observations; added `scripts/check_pages.py` and a `site-checks` workflow that test pages before publishing.
+
+**Reason:** Search Console showed /category/uncategorized/ getting impressions for "grohnpetrel" (2 Nov), competing with our real pages while only repeating the Journal. The AI Overview attributes Grohnpetrel to brands; a self-contained first sentence with our team's name is easier to quote. The Lab page had not been updated since 2 Nov.
+
+**Outcome:** Pending. Check that /category/uncategorized/ shows `noindex` and is gone from wp-sitemap.xml, and whether the AI Overview or the course snapshot changes in the next week.
