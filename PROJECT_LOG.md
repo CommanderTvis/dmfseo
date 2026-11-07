@@ -209,3 +209,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Search Console showed /category/uncategorized/ getting impressions for "grohnpetrel" (2 Nov), competing with our real pages while only repeating the Journal. The AI Overview attributes Grohnpetrel to brands; a self-contained first sentence with our team's name is easier to quote. The Lab page had not been updated since 2 Nov.
 
 **Outcome:** Pending. Check that /category/uncategorized/ shows `noindex` and is gone from wp-sitemap.xml, and whether the AI Overview or the course snapshot changes in the next week.
+
+---
+
+**Action:** Linked the team's new social media profiles (Instagram, YouTube, TikTok, Facebook, LinkedIn) from the site: a "Follow the project" row with icons on the front page in all four languages and on About and Contact (EN/DE), the profiles added to the project's `sameAs` in structured data, and a "Social media" section in llms.txt. On 7 Nov Instagram, TikTok and YouTube had no posts yet; Facebook could not be checked without logging in.
+
+**Who:** Diego Aguilar.
+
+**Reason:** The 7 Nov audit found that about half of Google's top 10 for "grohnpetrel" are other teams' Instagram and YouTube posts, and the gap is mainly off-site. Linking site and profiles both ways (site → profiles here, profiles → site in their bios) tells search engines and AI assistants that they belong to the same project, so future posts strengthen the site rather than compete with it.
+
+**Outcome:** Pending. Next: add the website link to every profile bio, then publish the first video and posts (team).
