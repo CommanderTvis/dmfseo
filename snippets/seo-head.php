@@ -154,14 +154,27 @@ add_filter( 'document_title_parts', function ( $parts ) {
 // Robots meta as Yoast sets it: indexable views get "index, follow, max-image-preview:large,
 // max-snippet:-1, max-video-preview:-1"; search results, date archives, 404 pages and authors
 // without posts get "noindex, follow".
+// One deviation from Yoast's defaults (7 Nov 2026): category, tag and author archives are
+// "noindex, follow" too. We have one category ("Uncategorized") and one author, so these pages
+// only repeat the Journal; Search Console showed /category/uncategorized/ getting impressions
+// for "grohnpetrel" on 2 Nov, competing with our real pages. Links on them are still followed.
 add_filter( 'wp_robots', function ( $robots ) {
-	$noindex = is_search() || is_404() || is_date()
-		|| ( is_author() && ! count_user_posts( (int) get_queried_object_id() ) );
+	$noindex = is_search() || is_404() || is_date() || is_category() || is_tag() || is_author();
 	if ( $noindex || ! empty( $robots['noindex'] ) ) {
 		return empty( $robots['nofollow'] ) ? array( 'noindex' => true, 'follow' => true ) : array( 'noindex' => true, 'nofollow' => true );
 	}
 	return array_merge( array( 'index' => true, 'follow' => true ), $robots,
 		array( 'max-image-preview' => 'large', 'max-snippet' => '-1', 'max-video-preview' => '-1' ) );
+} );
+
+// Keep the noindexed archives above out of the WordPress sitemap (wp-sitemap.xml): a sitemap
+// should list only pages we want indexed.
+add_filter( 'wp_sitemaps_add_provider', function ( $provider, $name ) {
+	return 'users' === $name ? false : $provider;
+}, 10, 2 );
+add_filter( 'wp_sitemaps_taxonomies', function ( $taxonomies ) {
+	unset( $taxonomies['category'], $taxonomies['post_tag'] );
+	return $taxonomies;
 } );
 
 // Our canonical link replaces WordPress's own, so archives get one too (as with Yoast).
