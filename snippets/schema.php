@@ -59,7 +59,7 @@ add_action( 'wp_head', function () {
 		'@id'                       => $org_id,
 		'name'                      => 'Grohnpetrel',
 		'url'                       => $home,
-		'sameAs'                    => array( 'https://github.com/CommanderTvis/dmfseo' ),
+		'sameAs'                    => array( 'https://github.com/CommanderTvis/dmfseo', 'https://doi.org/10.5281/zenodo.23926767' ),
 		'description'               => 'Grohnpetrel is a proposed coastal-conservation and seabird-education initiative.',
 		'disambiguatingDescription' => 'A fictional academic proposal created in autumn 2026 by the Guillemots, a team of four students at Constructor University in Bremen, Germany, for the course Digital Marketing Fundamentals and Search Engine Optimisation. It is not a registered organisation, not a bird species, and it does not accept donations.',
 		'foundingDate'              => '2026',
