@@ -35,6 +35,14 @@ if ( ! function_exists( 'grohnpetrel_llms_txt' ) ) {
 - [Merchandise: plans, not sales]({$u}merch/)
 - [Journal]({$u}journal/): what we tried and what happened
 
+## Social media (team-run)
+
+- [Instagram](https://www.instagram.com/grohnpetrel.guillemots2026/)
+- [YouTube](https://www.youtube.com/@grohnpetrelguillemots2026)
+- [TikTok](https://www.tiktok.com/@grohnpetrel.guill)
+- [Facebook](https://www.facebook.com/profile.php?id=61596490404549)
+- [LinkedIn](https://www.linkedin.com/in/grohnpetrel-guillemots-115ab9449/)
+
 ## German
 
 - [Grohnpetrel auf Deutsch]({$u}de/)
