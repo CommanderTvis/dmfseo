@@ -229,3 +229,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** The rank tracker showed our German definition page at #1 for "grohnpetrel" in Germany on 8 Nov, but rival sites hold several positions with long, specific pages, and our conservation content had no in-depth, sourced article yet. A useful article with verifiable numbers strengthens the site's topic and gives AI assistants citable facts next to our definition.
 
 **Outcome:** Pending. Check indexing of the two new posts and whether they appear for seabird and plastic searches.
+
+---
+
+**Action:** Second round of the day. A second sourced article in English and German, "Why the Wadden Sea Matters for Birds" / "Warum das Wattenmeer für Vögel wichtig ist" (UNESCO World Heritage facts; long-term waterbird trends from the trilateral 2025 report), linked from the oystercatcher pages, the Knowledge Centre, the front-page Journal lists and the footer. The licensed gannet and puffin photos now also illustrate the gannet and puffin pages (EN/DE). Structured data: articles and pages with a Sources section now list those sources as `citation`, and the seabird guide overview (EN/DE) declares its six species pages as an `ItemList`.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Rival sites added pages this week (a social media hub, "about" and collection pages) and rank with several long pages each; one rival marks up its product overview as an ItemList. Two well-sourced articles give the site more depth on its own topic, and machine-readable citations and lists make the facts easier for search engines and AI assistants to check and quote.
+
+**Outcome:** Pending. Validate with Google's Rich Results Test / Schema Markup Validator; check indexing of the four new posts.
