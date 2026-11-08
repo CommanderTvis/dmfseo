@@ -42,6 +42,23 @@ if ( ! function_exists( 'grohnpetrel_schema_faq' ) ) {
 	}
 }
 
+if ( ! function_exists( 'grohnpetrel_schema_sources' ) ) {
+	/**
+	 * External links listed under a "Sources" heading (h2 or h3; also "Sources and further reading", Quellen, Fuentes, 资料来源) in the content,
+	 * for the Article's "citation". Empty when the page has no such section.
+	 */
+	function grohnpetrel_schema_sources( $content ) {
+		if ( ! preg_match( '/<h([23])[^>]*>\s*(Sources|Quellen|Fuentes|资料来源)[^<]*<\/h\1>(.*?)(<h[23]|$)/isu', $content, $m ) ) {
+			return array();
+		}
+		preg_match_all( '/<a[^>]+href="(https?:\/\/[^"]+)"/i', $m[3], $links );
+		$home = home_url( '/' );
+		return array_values( array_unique( array_filter( $links[1], function ( $u ) use ( $home ) {
+			return 0 !== strpos( $u, $home );
+		} ) ) );
+	}
+}
+
 add_action( 'wp_head', function () {
 	$home    = home_url( '/' );
 	$org_id  = $home . '#organization';
@@ -239,7 +256,35 @@ add_action( 'wp_head', function () {
 		if ( comments_open( $id ) ) {
 			$article['potentialAction'] = array( array( '@type' => 'CommentAction', 'name' => 'Comment', 'target' => array( $url . '#respond' ) ) );
 		}
+		$sources = grohnpetrel_schema_sources( $post->post_content );
+		if ( $sources ) {
+			$article['citation'] = $sources;
+		}
 		$graph[] = $article;
+	}
+	// Pages with a Sources section (seabird guides, threats) cite them too; posts do so in the Article.
+	if ( 'post' !== $post->post_type ) {
+		$sources = grohnpetrel_schema_sources( $post->post_content );
+		if ( $sources ) {
+			$page['citation'] = $sources;
+		}
+	}
+	// The seabird guide overview lists its six species pages.
+	$guides = array(
+		'seabirds-of-the-north-sea' => array( 'northern-gannet', 'atlantic-puffin', 'black-legged-kittiwake', 'common-tern', 'eurasian-oystercatcher', 'european-storm-petrel' ),
+		'seevoegel-der-nordsee'     => array( 'de/basstoelpel', 'de/papageitaucher', 'de/dreizehenmoewe', 'de/flussseeschwalbe', 'de/austernfischer', 'de/sturmschwalbe' ),
+	);
+	if ( isset( $guides[ $slug ] ) ) {
+		$items = array();
+		foreach ( $guides[ $slug ] as $path ) {
+			$species = get_page_by_path( $path );
+			if ( $species && 'publish' === $species->post_status ) {
+				$items[] = array( '@type' => 'ListItem', 'position' => count( $items ) + 1, 'name' => wp_strip_all_tags( get_the_title( $species ) ), 'url' => get_permalink( $species ) );
+			}
+		}
+		if ( $items ) {
+			$page['mainEntity'] = array( '@type' => 'ItemList', 'numberOfItems' => count( $items ), 'itemListElement' => $items );
+		}
 	}
 	$graph[] = $page;
 
