@@ -48,7 +48,7 @@
   },
   {
    "loc": "https://business.constructor.university/guillemots/",
-   "lastmod": "2026-11-06T13:22:19+01:00",
+   "lastmod": "2026-11-07T20:28:38+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -88,7 +88,7 @@
   },
   {
    "loc": "https://business.constructor.university/guillemots/grohnpetrel-seo-aeo-geo-lab/",
-   "lastmod": "2026-11-03T15:52:50+01:00",
+   "lastmod": "2026-11-07T17:38:51+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -98,12 +98,12 @@
   },
   {
    "loc": "https://business.constructor.university/guillemots/about/",
-   "lastmod": "2026-11-03T15:52:51+01:00",
+   "lastmod": "2026-11-07T20:28:44+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
    "loc": "https://business.constructor.university/guillemots/contact/",
-   "lastmod": "2026-11-03T15:52:52+01:00",
+   "lastmod": "2026-11-07T20:28:46+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -168,7 +168,7 @@
   },
   {
    "loc": "https://business.constructor.university/guillemots/de/",
-   "lastmod": "2026-11-06T13:22:42+01:00",
+   "lastmod": "2026-11-07T20:29:04+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -198,17 +198,17 @@
   },
   {
    "loc": "https://business.constructor.university/guillemots/de/seo-geo-labor/",
-   "lastmod": "2026-11-03T15:53:36+01:00",
+   "lastmod": "2026-11-07T17:39:22+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
    "loc": "https://business.constructor.university/guillemots/de/ueber-uns/",
-   "lastmod": "2026-11-03T15:53:39+01:00",
+   "lastmod": "2026-11-07T20:29:22+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
    "loc": "https://business.constructor.university/guillemots/de/kontakt/",
-   "lastmod": "2026-11-03T15:53:42+01:00",
+   "lastmod": "2026-11-07T20:29:25+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -268,7 +268,7 @@
   },
   {
    "loc": "https://business.constructor.university/guillemots/es/",
-   "lastmod": "2026-11-06T13:23:39+01:00",
+   "lastmod": "2026-11-07T20:29:49+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -283,7 +283,7 @@
   },
   {
    "loc": "https://business.constructor.university/guillemots/zh/",
-   "lastmod": "2026-11-06T13:23:49+01:00",
+   "lastmod": "2026-11-07T20:29:54+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
   },
   {
@@ -295,16 +295,6 @@
    "loc": "https://business.constructor.university/guillemots/zh/grohnpetrel-changjian-wenti/",
    "lastmod": "2026-11-06T13:23:58+01:00",
    "sitemap": "wp-sitemap-posts-page-1.xml"
-  },
-  {
-   "loc": "https://business.constructor.university/guillemots/category/uncategorized/",
-   "lastmod": "",
-   "sitemap": "wp-sitemap-taxonomies-category-1.xml"
-  },
-  {
-   "loc": "https://business.constructor.university/guillemots/author/guillemots/",
-   "lastmod": "",
-   "sitemap": "wp-sitemap-users-1.xml"
   }
  ]
 }
