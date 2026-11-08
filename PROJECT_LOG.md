@@ -219,3 +219,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** The 7 Nov audit found that about half of Google's top 10 for "grohnpetrel" are other teams' Instagram and YouTube posts, and the gap is mainly off-site. Linking site and profiles both ways (site → profiles here, profiles → site in their bios) tells search engines and AI assistants that they belong to the same project, so future posts strengthen the site rather than compete with it.
 
 **Outcome:** Pending. Next: add the website link to every profile bio, then publish the first video and posts (team).
+
+## 2026-11-08
+
+**Action:** Published a sourced in-depth article in English and German, "How Plastic Pollution Affects North Sea Seabirds" / "Wie Plastikmüll den Seevögeln der Nordsee schadet" (about 1,000 words each), as Journal posts with Article structured data: the fulmar plastic indicator on the German North Sea coast (German Environment Agency, OSPAR), gannet nests built with fishing nets (O'Hanlon et al. 2019; Helgoland: Schrey & Vauk 1987, NABU), the global picture (Wilcox et al. 2015), a table of key numbers and practical advice. Linked it from the threats and take-action pages, the Knowledge Centre, the gannet pages and the Journal lists on both front pages.
+
+**Who:** Diego Aguilar.
+
+**Reason:** The rank tracker showed our German definition page at #1 for "grohnpetrel" in Germany on 8 Nov, but rival sites hold several positions with long, specific pages, and our conservation content had no in-depth, sourced article yet. A useful article with verifiable numbers strengthens the site's topic and gives AI assistants citable facts next to our definition.
+
+**Outcome:** Pending. Check indexing of the two new posts and whether they appear for seabird and plastic searches.
