@@ -239,3 +239,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Rival sites added pages this week (a social media hub, "about" and collection pages) and rank with several long pages each; one rival marks up its product overview as an ItemList. Two well-sourced articles give the site more depth on its own topic, and machine-readable citations and lists make the facts easier for search engines and AI assistants to check and quote.
 
 **Outcome:** Pending. Validate with Google's Rich Results Test / Schema Markup Validator; check indexing of the four new posts.
+
+## 2026-11-09
+
+**Action:** Two new page types in English and German. (1) "Grohnpetrel: Meanings of an Invented Word": explains that several student projects in the course use the word (drinks, beer and rain-gear brand concepts, and our conservation concept), how to tell them apart and which one this site is, without naming or linking other teams; linked from the definition pages, FAQ question 11 and the footer. (2) A "Seabird and Coast Glossary" with 21 short definitions (from petrel and bird cliff to Wadden Sea, ghost nets, microplastics and the fulmar plastic indicator), marked up as a DefinedTermSet; linked from the Knowledge Centre and the footer. llms.txt lists the new pages and the two 8 Nov articles.
+
+**Who:** Diego Aguilar.
+
+**Reason:** The course snapshot of 9 Nov has us at organic #1 (and #4), but Google's AI Overview describes Grohnpetrel as a Bremen drinks brand. An AI answer to "what is Grohnpetrel" has to deal with several meanings; a neutral page that lists them and states ours clearly is the kind of source such answers can cite. The glossary adds short, quotable definitions with machine-readable markup that no rival site has.
+
+**Outcome:** Pending. Check whether the AI Overview or other AI answers mention the conservation meaning or cite the new pages.
