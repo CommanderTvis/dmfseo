@@ -59,6 +59,27 @@ if ( ! function_exists( 'grohnpetrel_schema_sources' ) ) {
 	}
 }
 
+if ( ! function_exists( 'grohnpetrel_schema_glossary' ) ) {
+	/** Glossary terms: every H3 heading and the first paragraph after it, as name and description. */
+	function grohnpetrel_schema_glossary( $content ) {
+		$terms = array();
+		$parts = preg_split( '/<h3[^>]*>/i', $content );
+		array_shift( $parts );
+		foreach ( $parts as $part ) {
+			$end = stripos( $part, '</h3>' );
+			if ( false === $end || ! preg_match( '/<p[^>]*>(.*?)<\/p>/is', substr( $part, $end ), $m ) ) {
+				continue;
+			}
+			$name = trim( wp_strip_all_tags( substr( $part, 0, $end ) ) );
+			$desc = trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( $m[1] ) ) );
+			if ( '' !== $name && '' !== $desc ) {
+				$terms[] = array( 'name' => $name, 'description' => $desc );
+			}
+		}
+		return $terms;
+	}
+}
+
 add_action( 'wp_head', function () {
 	$home    = home_url( '/' );
 	$org_id  = $home . '#organization';
@@ -267,6 +288,17 @@ add_action( 'wp_head', function () {
 		$sources = grohnpetrel_schema_sources( $post->post_content );
 		if ( $sources ) {
 			$page['citation'] = $sources;
+		}
+	}
+	// Glossary pages: the terms as a DefinedTermSet.
+	if ( in_array( $slug, array( 'seabird-and-coast-glossary', 'glossar-seevoegel-und-kueste' ), true ) ) {
+		$set_id = $url . '#glossary';
+		$terms  = array();
+		foreach ( grohnpetrel_schema_glossary( $post->post_content ) as $t ) {
+			$terms[] = array( '@type' => 'DefinedTerm', 'name' => $t['name'], 'description' => $t['description'], 'inDefinedTermSet' => array( '@id' => $set_id ), 'inLanguage' => $in_lang );
+		}
+		if ( $terms ) {
+			$page['mainEntity'] = array( '@type' => 'DefinedTermSet', '@id' => $set_id, 'name' => $title, 'url' => $url, 'inLanguage' => $in_lang, 'hasDefinedTerm' => $terms );
 		}
 	}
 	// The seabird guide overview lists its six species pages.
