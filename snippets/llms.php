@@ -20,6 +20,8 @@ if ( ! function_exists( 'grohnpetrel_llms_txt' ) ) {
 
 - [What is Grohnpetrel?]({$u}what-is-grohnpetrel-2/): definition, name origin and who created it
 - [FAQ]({$u}grohnpetrel-faq/): short answers to common questions
+- [Meanings of Grohnpetrel]({$u}grohnpetrel-meanings/): why several student projects use the word, and which one this site is
+- [Seabird and coast glossary]({$u}seabird-and-coast-glossary/): short definitions of the terms used on the site
 - [The Grohnpetrel Mission]({$u}the-grohnpetrel-mission/): aims of the project
 - [About the Guillemots team]({$u}about/): who we are
 
@@ -28,6 +30,8 @@ if ( ! function_exists( 'grohnpetrel_llms_txt' ) ) {
 - [Seabirds of the North Sea]({$u}seabirds-of-the-north-sea/): sourced guide to six species
 - [Seabird conservation: threats and challenges]({$u}seabird-conservation-threats-and-challenges/)
 - [Take action: how to help protect seabirds]({$u}take-action-how-to-help-protect-seabirds/)
+- [How plastic pollution affects North Sea seabirds]({$u}how-plastic-pollution-affects-north-sea-seabirds/): sourced article
+- [Why the Wadden Sea matters for birds]({$u}why-the-wadden-sea-matters-for-birds/): sourced article
 
 ## Project
 
