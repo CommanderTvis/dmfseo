@@ -5,8 +5,8 @@
  * Runs on the site through the Code Snippets plugin; scripts/wp_sync.py publishes this file.
  * Edit here, not in WordPress: the next publish overwrites the snippet.
  *
- * - Small stylesheets that block the first paint (WordPress block styles, the cookie banner's
- *   CSS) are put into the page instead of being loaded as separate files.
+ * - Small stylesheets that block the first paint (WordPress block styles) are put into the page
+ *   instead of being loaded as separate files.
  * - The theme's main font is preloaded and shown with font-display: swap.
  * - WordPress's emoji script is left out (all current browsers draw emoji themselves).
  * - Images and fonts in the uploads folder get a one-year browser cache, through cache rules in
@@ -18,29 +18,6 @@
 add_filter( 'styles_inline_size_limit', function () {
 	return 60000;
 } );
-
-// The cookie banner's two stylesheets go into the page too.
-add_action( 'wp_enqueue_scripts', function () {
-	$styles = wp_styles();
-	foreach ( array( 'cmplz-general', 'cmplz-banner-1-optin' ) as $handle ) {
-		if ( ! wp_style_is( $handle, 'enqueued' ) || empty( $styles->registered[ $handle ]->src ) ) {
-			continue;
-		}
-		$src  = strtok( (string) $styles->registered[ $handle ]->src, '?' );
-		$path = str_replace( content_url(), WP_CONTENT_DIR, $src );
-		if ( $path === $src || ! is_readable( $path ) ) {
-			continue;
-		}
-		$css = file_get_contents( $path );
-		if ( false === $css || '' === $css ) {
-			continue;
-		}
-		wp_dequeue_style( $handle );
-		wp_register_style( $handle . '-inline', false, array(), null );
-		wp_enqueue_style( $handle . '-inline' );
-		wp_add_inline_style( $handle . '-inline', $css );
-	}
-}, PHP_INT_MAX );
 
 // Fonts from the theme: shown with the fallback font until loaded (swap) instead of staying
 // invisible for a moment, and the main font (Manrope) is requested right away.

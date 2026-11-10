@@ -1,7 +1,9 @@
 {
   "front_page_id": 78,
   "plugins": [
-    "code-snippets/code-snippets",
+    "code-snippets/code-snippets"
+  ],
+  "deactivate_plugins": [
     "complianz-gdpr/complianz-gpdr"
   ],
   "snippets": [

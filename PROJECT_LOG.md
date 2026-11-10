@@ -249,3 +249,11 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** The course snapshot of 9 Nov has us at organic #1 (and #4), but Google's AI Overview describes Grohnpetrel as a Bremen drinks brand. An AI answer to "what is Grohnpetrel" has to deal with several meanings; a neutral page that lists them and states ours clearly is the kind of source such answers can cite. The glossary adds short, quotable definitions with machine-readable markup that no rival site has.
 
 **Outcome:** Pending. Check whether the AI Overview or other AI answers mention the conservation meaning or cite the new pages.
+
+---
+
+**Action:** Removed Complianz: dropped the plugin from the site configuration, the cookie banner styles from the performance snippet, the Cookie Policy links from the footer menus, and the consent and Google Analytics wording from the Privacy Policy (English and German). The publish also deactivates the plugin and moves the Cookie Policy page to the trash.
+
+**Reason:** Analytics was never connected, so the banner had nothing to ask consent for; it only added requests and layout work to every page.
+
+**Outcome:** Pending.

@@ -4,7 +4,7 @@
 """Publish pages/ to WordPress. Usage: wp_sync.py push [--dry-run]
 
 pages/site.json holds the front page and navigation menus (by ID), the wordpress.org
-plugins to keep active, and our own PHP snippets (run by the Code Snippets plugin).
+plugins to keep active ("plugins") or switch off ("deactivate_plugins"), and our own PHP snippets (run by the Code Snippets plugin).
 pages/manifest.json maps each page to a file, title, slug and status, plus the
 optional "description" and "seo_title" that snippets/seo-head.php puts in the page head,
 and "lang" / "alternate" (slug of the same page in the other language) for hreflang.
@@ -214,6 +214,13 @@ def code(dry: bool) -> None:
             api("POST", f"plugins/{p}", {"status": "active"})
         else:
             api("POST", "plugins", {"slug": p.split("/")[0], "status": "active"})
+    for p in cfg.get("deactivate_plugins", []):
+        if have.get(p) != "active":
+            print(f"ok      plugin {p} not active")
+            continue
+        print(f"{'would deactivate' if dry else 'deactivate'} plugin {p}")
+        if not dry:
+            api("POST", f"plugins/{p}", {"status": "inactive"})
     ns = "code-snippets/v1"
     for s in cfg.get("snippets", []):
         src = open(os.path.join(PAGES, s["file"])).read().strip().removeprefix("<?php").strip()
