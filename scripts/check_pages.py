@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PAGES = ROOT / "pages"
 BASE = "https://business.constructor.university/guillemots/"
 # Pages WordPress or plugins create outside the manifest, and files our snippets serve.
-EXTERNAL_OK = {"cookie-policy-eu/", "wp-sitemap.xml", "llms.txt", "feed/"}
+EXTERNAL_OK = {"wp-sitemap.xml", "llms.txt", "feed/"}
 
 
 def url_of(m: dict) -> str:
