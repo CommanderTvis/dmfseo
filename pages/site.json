@@ -107,6 +107,30 @@
       "slug": "helgoland-lummenfelsen-lange-anna",
       "title": "Helgoland, view from the Lummenfelsen to the Lange Anna (Jörg Braukmann, CC BY-SA 4.0)",
       "alt": "Red sandstone cliffs and the Lange Anna sea stack on Helgoland above the North Sea"
+    },
+    {
+      "file": "grohnpetrel-explained-en.mp4",
+      "slug": "grohnpetrel-explained-en",
+      "title": "What is Grohnpetrel? 40-second explainer video (English)",
+      "alt": "What is Grohnpetrel? A 40-second explainer video"
+    },
+    {
+      "file": "grohnpetrel-explained-en-poster.webp",
+      "slug": "grohnpetrel-explained-en-poster",
+      "title": "What is Grohnpetrel? Video title frame",
+      "alt": "Grohnpetrel logo and the question What is Grohnpetrel? on a dark teal background"
+    },
+    {
+      "file": "grohnpetrel-explained-de.mp4",
+      "slug": "grohnpetrel-explained-de",
+      "title": "Was ist Grohnpetrel? Erklärvideo in 40 Sekunden (Deutsch)",
+      "alt": "Was ist Grohnpetrel? Ein Erklärvideo in 40 Sekunden"
+    },
+    {
+      "file": "grohnpetrel-explained-de-poster.webp",
+      "slug": "grohnpetrel-explained-de-poster",
+      "title": "Was ist Grohnpetrel? Titelbild des Videos",
+      "alt": "Grohnpetrel-Logo und die Frage Was ist Grohnpetrel? auf dunklem Petrol-Hintergrund"
     }
   ],
   "logo": "grohnpetrel-logo-webp"
