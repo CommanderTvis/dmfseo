@@ -104,6 +104,16 @@ figcaption,.wp-element-caption{color:var(--gp-muted);font-size:.875rem}
 .gp-transcript{background:#fff;border:1px solid var(--gp-line);border-radius:10px;padding:.75rem 1rem}
 .gp-transcript summary{cursor:pointer;font-weight:600;color:var(--gp-teal-dark)}
 .gp-transcript p{font-size:.95rem}
+/* About: project timeline; Knowledge Centre: topic cards */
+.gp-timeline{list-style:none;padding-left:0!important;border-left:3px solid var(--gp-line);margin-left:.4rem}
+.gp-timeline li{position:relative;padding:0 0 .9rem 1.4rem}
+.gp-timeline li::before{content:"";position:absolute;left:-.55rem;top:.45em;width:.8rem;height:.8rem;border-radius:50%;background:var(--gp-gold);border:2px solid var(--gp-ivory)}
+.gp-timeline li strong{color:var(--gp-teal-dark);display:inline-block;min-width:6.5rem}
+.gp-topics{margin-top:1.5rem!important;margin-bottom:2.25rem!important}
+.gp-topic-links{padding-left:1.1rem!important;margin:0}
+.gp-topic-links li{margin:.3rem 0}
+.gp-about-media{margin-bottom:.4rem!important}
+.gp-about-media .wp-block-media-text__content p{margin-top:0}
 @media (max-width:600px){.wp-block-table td,.wp-block-table th{padding:.45em .55em;font-size:.9rem}}
 @media (max-width:1000px){.gp-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:781px){
