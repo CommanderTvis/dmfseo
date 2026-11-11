@@ -98,6 +98,12 @@ figcaption,.wp-element-caption{color:var(--gp-muted);font-size:.875rem}
 .gp-social{gap:.6rem!important}
 .gp-social .wp-social-link a{padding:.35em .7em!important}
 :lang(zh) .gp-kicker{letter-spacing:.05em}
+.gp-video{max-width:380px;margin-left:auto!important;margin-right:auto!important}
+.gp-video video{width:100%;aspect-ratio:9/16;border-radius:14px;background:#103F46;display:block}
+.gp-video figcaption{text-align:center}
+.gp-transcript{background:#fff;border:1px solid var(--gp-line);border-radius:10px;padding:.75rem 1rem}
+.gp-transcript summary{cursor:pointer;font-weight:600;color:var(--gp-teal-dark)}
+.gp-transcript p{font-size:.95rem}
 @media (max-width:600px){.wp-block-table td,.wp-block-table th{padding:.45em .55em;font-size:.9rem}}
 @media (max-width:1000px){.gp-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:781px){
