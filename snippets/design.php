@@ -117,7 +117,7 @@ figcaption,.wp-element-caption{color:var(--gp-muted);font-size:.875rem}
 .gp-about-media+.gp-credit{max-width:var(--wp--style--global--content-size);padding:0}
 /* Video gallery and footer language row */
 .gp-video-grid .gp-video{max-width:100%}
-.gp-video-card h3{font-size:1.15rem!important}
+.gp-video-card h3{font-size:1.15rem!important;min-height:2.7em}
 .gp-video-card .gp-transcript{margin-top:.5rem}
 footer.wp-block-template-part .gp-footer-langs{margin-top:1.25rem;font-size:.9rem;line-height:1.9;opacity:.95}
 footer.wp-block-template-part .gp-footer-langs a{color:inherit;text-decoration:underline;text-underline-offset:.2em}
