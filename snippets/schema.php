@@ -28,7 +28,8 @@ if ( ! function_exists( 'grohnpetrel_schema_faq' ) ) {
 				continue;
 			}
 			$question = trim( preg_replace( '/^\s*\d+\.\s*/', '', wp_strip_all_tags( substr( $part, 0, $end ) ) ) );
-			preg_match_all( '/<p[^>]*>(.*?)<\/p>/is', substr( $part, $end ), $paras );
+			// Skip the small byline paragraph ("By the Guillemots team · Last updated …") after the last answer.
+			preg_match_all( '/<p(?![^>]*has-small-font-size)[^>]*>(.*?)<\/p>/is', substr( $part, $end ), $paras );
 			$answer = trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( implode( ' ', $paras[1] ) ) ) );
 			if ( '' !== $question && '' !== $answer && preg_match( '/[?？]$/u', $question ) ) {
 				$items[] = array(
