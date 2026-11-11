@@ -257,3 +257,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Analytics was never connected, so the banner had nothing to ask consent for; it only added requests and layout work to every page.
 
 **Outcome:** Pending.
+
+## 2026-11-11
+
+**Action:** A 40-second explainer video, "What is Grohnpetrel?", in English and German (vertical 1080×1920, original motion graphics: definition, name origin, a schematic map of Grohn on the Weser, what the site offers, who made it and the "fictional, no donations" note). Embedded on the front pages and the definition pages (EN/DE), with a written transcript on the definition pages. Structured data: pages with a video now carry a VideoObject (name, description, poster, file, upload date, duration, transcript). llms.txt mentions the video. The same files are ready for the team's YouTube Shorts, TikTok, Instagram Reels and LinkedIn.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Course results: on 10 Nov we fell from #1 to #3, on 11 Nov back to #2 (rank tracker 11 Nov: #2 in Google DE, where a rival's "about" page is #1; #7 in the US; still #1 for "grohnpetrel" in quotes in the US and for "what is grohnpetrel" in the US and UK). In the UK a YouTube Short is the top result for "grohnpetrel", and the AI Overview describes the word through other teams' social posts. Our social profiles are still empty. A video on the site can appear in Google's video results, and the same video gives the team its first social post.
+
+**Outcome:** Pending. Check whether Google lists the video (Search Console video indexing) and whether ranks for "grohnpetrel" change after the team posts it.
