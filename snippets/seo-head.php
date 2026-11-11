@@ -8,7 +8,7 @@
  * Runs on the site through the Code Snippets plugin. scripts/wp_sync.py publishes this file
  * and writes the page fields below from pages/manifest.json ("description", "seo_title",
  * "lang" and "alternate", the slugs of the same page in the other languages, comma-separated,
- * e.g. "de/was-ist-grohnpetrel,es/que-es-grohnpetrel"). Languages: en (default), de, es, zh.
+ * e.g. "de/was-ist-grohnpetrel,es/que-es-grohnpetrel"). Languages: en (default), de, es, fr, it, ru, zh.
  * Edit here, not in WordPress: the next publish overwrites the snippet.
  */
 
@@ -45,6 +45,9 @@ if ( ! function_exists( 'grohnpetrel_translations' ) ) {
 			'en' => array( 'html' => 'en-US', 'og' => 'en_US', 'name' => 'English' ),
 			'de' => array( 'html' => 'de-DE', 'og' => 'de_DE', 'name' => 'Deutsch' ),
 			'es' => array( 'html' => 'es-ES', 'og' => 'es_ES', 'name' => 'Español' ),
+			'fr' => array( 'html' => 'fr-FR', 'og' => 'fr_FR', 'name' => 'Français' ),
+			'it' => array( 'html' => 'it-IT', 'og' => 'it_IT', 'name' => 'Italiano' ),
+			'ru' => array( 'html' => 'ru-RU', 'og' => 'ru_RU', 'name' => 'Русский' ),
 			'zh' => array( 'html' => 'zh-CN', 'og' => 'zh_CN', 'name' => '中文' ),
 		);
 		return isset( $all[ $code ] ) ? $all[ $code ] : $all['en'];
@@ -128,7 +131,7 @@ if ( ! function_exists( 'grohnpetrel_reading_minutes' ) ) {
 			$chars = mb_strlen( (string) preg_replace( '/\s+/u', '', $text ) );
 			return max( 1, (int) ceil( $chars / 300 ) );
 		}
-		$speed = array( 'de' => 179, 'es' => 218 );
+		$speed = array( 'de' => 179, 'es' => 218, 'fr' => 195, 'it' => 188, 'ru' => 184 );
 		return max( 1, (int) ceil( $words / ( isset( $speed[ $lang ] ) ? $speed[ $lang ] : 238 ) ) );
 	}
 }
@@ -197,7 +200,7 @@ add_action( 'wp_head', function () {
 		$desc = (string) get_post_meta( $id, 'grohnpetrel_description', true );
 		$lang = (string) get_post_meta( $id, 'grohnpetrel_lang', true );
 		$de   = 'de' === $lang;
-		$home = is_front_page() || ( in_array( $post->post_name, array( 'de', 'es', 'zh' ), true ) && ! $post->post_parent );  // a language's front page
+		$home = is_front_page() || ( in_array( $post->post_name, array( 'de', 'es', 'fr', 'it', 'ru', 'zh' ), true ) && ! $post->post_parent );  // a language's front page
 		$tag( 'name', 'description', $desc );
 		$out[] = sprintf( '<link rel="canonical" href="%s" />', esc_url( $canonical ) );
 		$tag( 'property', 'og:locale', '' !== $lang ? grohnpetrel_language_info( $lang )['og'] : get_locale() );
@@ -229,7 +232,7 @@ add_action( 'wp_head', function () {
 		$labels = array();
 		if ( 'post' === $post->post_type ) {
 			$tag( 'name', 'author', 'Team Guillemots' );
-			$by       = array( 'de' => 'Verfasst von', 'es' => 'Escrito por', 'zh' => '作者' );
+			$by       = array( 'de' => 'Verfasst von', 'es' => 'Escrito por', 'fr' => 'Écrit par', 'it' => 'Scritto da', 'ru' => 'Автор', 'zh' => '作者' );
 			$labels[] = array( isset( $by[ $lang ] ) ? $by[ $lang ] : 'Written by', 'Team Guillemots' );
 		}
 		$tag( 'name', 'twitter:card', 'summary_large_image' );
@@ -239,6 +242,12 @@ add_action( 'wp_head', function () {
 				$labels[] = array( 'Geschätzte Lesezeit', 1 === $min ? '1 Minute' : $min . ' Minuten' );
 			} elseif ( 'es' === $lang ) {
 				$labels[] = array( 'Tiempo de lectura', 1 === $min ? '1 minuto' : $min . ' minutos' );
+			} elseif ( 'fr' === $lang ) {
+				$labels[] = array( 'Temps de lecture', $min . ' min' );
+			} elseif ( 'it' === $lang ) {
+				$labels[] = array( 'Tempo di lettura', 1 === $min ? '1 minuto' : $min . ' minuti' );
+			} elseif ( 'ru' === $lang ) {
+				$labels[] = array( 'Время чтения', $min . ' мин.' );
 			} elseif ( 'zh' === $lang ) {
 				$labels[] = array( '预计阅读时间', $min . ' 分钟' );
 			} else {
@@ -317,7 +326,7 @@ add_action( 'template_redirect', function () {
 // Translated pages declare their own language in <html lang="...">.
 add_filter( 'language_attributes', function ( $output ) {
 	$lang = is_singular() ? (string) get_post_meta( get_queried_object_id(), 'grohnpetrel_lang', true ) : '';
-	if ( in_array( $lang, array( 'de', 'es', 'zh' ), true ) ) {
+	if ( in_array( $lang, array( 'de', 'es', 'fr', 'it', 'ru', 'zh' ), true ) ) {
 		$output = preg_replace( '/lang="[^"]*"/', 'lang="' . grohnpetrel_language_info( $lang )['html'] . '"', $output );
 	}
 	return $output;
@@ -335,7 +344,7 @@ add_filter( 'the_content', function ( $content ) {
 		return $content;
 	}
 	$links = array();
-	foreach ( array( 'en', 'de', 'es', 'zh' ) as $code ) {
+	foreach ( array( 'en', 'de', 'es', 'fr', 'it', 'ru', 'zh' ) as $code ) {
 		if ( isset( $langs[ $code ] ) && (int) $langs[ $code ]->ID !== (int) $id ) {
 			$links[] = sprintf( '<a href="%s" hreflang="%s" lang="%s">%s</a>', esc_url( get_permalink( $langs[ $code ] ) ), $code, $code, esc_html( grohnpetrel_language_info( $code )['name'] ) );
 		}
@@ -345,11 +354,14 @@ add_filter( 'the_content', function ( $content ) {
 
 // Translated pages show their language's menus: the navigation block's English menu (post ID) is
 // swapped for the menu with the slug below (pages/navigation-*.html, created by wp_sync.py).
-// Spanish and Chinese have their own main menu; their footers stay in English.
+// Spanish, French, Italian, Russian and Chinese have their own main menu; their footer menus stay in English.
 add_filter( 'render_block_data', function ( $block ) {
 	static $menus = array(
 		'de' => array( 4 => 'navigation-de-main', 38 => 'navigation-de-lernen', 39 => 'navigation-de-transparenz' ),
 		'es' => array( 4 => 'navigation-es-main' ),
+		'fr' => array( 4 => 'navigation-fr-main' ),
+		'it' => array( 4 => 'navigation-it-main' ),
+		'ru' => array( 4 => 'navigation-ru-main' ),
 		'zh' => array( 4 => 'navigation-zh-main' ),
 	);
 	if ( 'core/navigation' !== $block['blockName'] || empty( $block['attrs']['ref'] ) || ! is_singular() ) {
@@ -380,3 +392,59 @@ add_action( 'template_redirect', function () {
 		exit;
 	}
 }, 1 );
+
+// Footer: the project description and the copyright line in the page's language, German column
+// headings on German pages (their menus are German), and a row of links to every language's front page.
+add_filter( 'render_block', function ( $html, $block ) {
+	$name = isset( $block['blockName'] ) ? $block['blockName'] : '';
+	if ( 'core/paragraph' !== $name && 'core/heading' !== $name ) {
+		return $html;
+	}
+	$blurb = false !== strpos( $html, 'A proposed coastal conservation and education initiative' );
+	$copy  = false !== strpos( $html, '© 2026 Grohnpetrel' );
+	$head  = 'core/heading' === $name && preg_match( '/>\s*(Learn|Transparency)\s*</', $html, $hm );
+	if ( ! $blurb && ! $copy && ! $head ) {
+		return $html;
+	}
+	$lang = is_singular() ? (string) get_post_meta( get_queried_object_id(), 'grohnpetrel_lang', true ) : '';
+	$lang = '' !== $lang ? $lang : 'en';
+	if ( $head ) {
+		$de = array( 'Learn' => 'Lernen', 'Transparency' => 'Transparenz' );
+		return 'de' === $lang ? str_replace( '>' . $hm[1] . '<', '>' . $de[ $hm[1] ] . '<', $html ) : $html;
+	}
+	$text = array(
+		'blurb' => array(
+			'de' => 'Eine vorgeschlagene Initiative für Küstenschutz und Bildung, entwickelt als akademisches Konzept vom Studierendenteam Guillemots an der Constructor University, Bremen. Keine eingetragene Organisation, keine Spenden, keine Arbeit im Feld und keine behauptete Wirkung.',
+			'es' => 'Una iniciativa propuesta de conservación costera y educación, creada como concepto académico por el equipo de estudiantes Guillemots de la Constructor University, Bremen. No es una organización benéfica registrada, no acepta donaciones, no hace trabajo de campo ni afirma tener impacto.',
+			'fr' => 'Une initiative proposée de conservation côtière et d’éducation, conçue comme projet académique par l’équipe d’étudiants Guillemots de la Constructor University, à Brême. Ce n’est pas une association enregistrée : pas de dons, pas d’actions sur le terrain, aucun impact revendiqué.',
+			'it' => 'Un’iniziativa proposta di tutela delle coste ed educazione, ideata come progetto accademico dal team di studenti Guillemots della Constructor University di Brema. Non è un ente registrato: niente donazioni, nessuna attività sul campo, nessun impatto dichiarato.',
+			'ru' => 'Предлагаемая инициатива по охране побережья и просвещению, созданная как учебный проект студенческой командой Guillemots в Constructor University (Бремен). Это не зарегистрированная организация: без пожертвований, без полевой работы и без заявленных результатов.',
+			'zh' => '一个关于海岸保护与教育的设想项目，由不来梅 Constructor University 的学生团队 Guillemots 作为学术概念创建。并非注册慈善机构，不接受捐款，不开展实地工作，也不宣称任何成果。',
+		),
+		'copy'  => array(
+			'de' => '© 2026 Grohnpetrel · Team Guillemots · Akademisches Konzept für einen Kurs an der Constructor University (Digital Marketing Fundamentals and Search Engine Optimisation). Grohnpetrel ist fiktiv und keine echte Vogelart.',
+			'es' => '© 2026 Grohnpetrel · Equipo Guillemots · Concepto académico para una asignatura de la Constructor University (Digital Marketing Fundamentals and Search Engine Optimisation). Grohnpetrel es ficticio y no es una especie de ave real.',
+			'fr' => '© 2026 Grohnpetrel · Équipe Guillemots · Concept académique pour un cours de la Constructor University (Digital Marketing Fundamentals and Search Engine Optimisation). Grohnpetrel est fictif et n’est pas une véritable espèce d’oiseau.',
+			'it' => '© 2026 Grohnpetrel · Team Guillemots · Concetto accademico per un corso della Constructor University (Digital Marketing Fundamentals and Search Engine Optimisation). Grohnpetrel è fittizio e non è una vera specie di uccello.',
+			'ru' => '© 2026 Grohnpetrel · Команда Guillemots · Учебный концепт для курса Constructor University (Digital Marketing Fundamentals and Search Engine Optimisation). Grohnpetrel — вымышленный проект, а не реальный вид птиц.',
+			'zh' => '© 2026 Grohnpetrel · Guillemots 团队 · Constructor University 课程（Digital Marketing Fundamentals and Search Engine Optimisation）的学术概念。Grohnpetrel 是虚构的，并非真实鸟类。',
+		),
+	);
+	$key = $blurb ? 'blurb' : 'copy';
+	if ( isset( $text[ $key ][ $lang ] ) ) {
+		$html = preg_replace( '/(<p\b[^>]*>).*?(<\/p>)/s', '$1' . str_replace( array( '\\', '$' ), array( '\\\\', '\$' ), esc_html( $text[ $key ][ $lang ] ) ) . '$2', $html, 1 );
+	}
+	if ( ! $blurb ) {
+		return $html;
+	}
+	$label = array( 'en' => 'Languages:', 'de' => 'Sprachen:', 'es' => 'Idiomas:', 'fr' => 'Langues :', 'it' => 'Lingue:', 'ru' => 'Языки:', 'zh' => '语言：' );
+	$links = array();
+	foreach ( array( 'en', 'de', 'es', 'fr', 'it', 'ru', 'zh' ) as $code ) {
+		$info = grohnpetrel_language_info( $code );
+		$url  = home_url( 'en' === $code ? '/' : '/' . $code . '/' );
+		$links[] = $code === $lang
+			? sprintf( '<span aria-current="true" lang="%s">%s</span>', $code, esc_html( $info['name'] ) )
+			: sprintf( '<a href="%s" hreflang="%s" lang="%s">%s</a>', esc_url( $url ), $code, $code, esc_html( $info['name'] ) );
+	}
+	return $html . '<p class="gp-footer-langs"><span class="gp-footer-langs__label">' . esc_html( isset( $label[ $lang ] ) ? $label[ $lang ] : $label['en'] ) . '</span> ' . implode( ' · ', $links ) . '</p>';
+}, 10, 2 );
