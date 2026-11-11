@@ -318,6 +318,45 @@ add_action( 'wp_head', function () {
 			$page['mainEntity'] = array( '@type' => 'ItemList', 'numberOfItems' => count( $items ), 'itemListElement' => $items );
 		}
 	}
+	// A page with a video block gets a VideoObject: name from the heading above the video, description
+	// from its caption, transcript from the "gp-transcript" details block, duration from the upload.
+	if ( preg_match( '/<video\b([^>]*)>/i', $post->post_content, $vm, PREG_OFFSET_CAPTURE ) && preg_match( '/\bsrc="([^"]+)"/', $vm[1][0], $vsrc ) ) {
+		$before = substr( $post->post_content, 0, $vm[0][1] );
+		$after  = substr( $post->post_content, $vm[0][1] );
+		preg_match_all( '/<h[23][^>]*>(.*?)<\/h[23]>/is', $before, $vh );
+		$vcap  = preg_match( '/<figcaption[^>]*>(.*?)<\/figcaption>/is', $after, $vc ) ? trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( $vc[1] ) ) ) : '';
+		$video = array(
+			'@type'            => 'VideoObject',
+			'@id'              => $url . '#video',
+			'name'             => $vh[1] ? trim( wp_strip_all_tags( end( $vh[1] ) ) ) : $title,
+			'description'      => '' !== $vcap ? $vcap : $title,
+			'contentUrl'       => $vsrc[1],
+			'inLanguage'       => $in_lang,
+			'isFamilyFriendly' => true,
+			'publisher'        => array( '@id' => $org_id ),
+			'uploadDate'       => $page['datePublished'],
+		);
+		if ( preg_match( '/\bposter="([^"]+)"/', $vm[1][0], $vposter ) ) {
+			$video['thumbnailUrl'] = $vposter[1];
+		}
+		$vatt = attachment_url_to_postid( $vsrc[1] );
+		if ( $vatt ) {
+			$video['uploadDate'] = get_post_time( 'c', true, $vatt );
+			$vmeta               = wp_get_attachment_metadata( $vatt );
+			if ( ! empty( $vmeta['length'] ) ) {
+				$video['duration'] = 'PT' . (int) $vmeta['length'] . 'S';
+			}
+			if ( ! empty( $vmeta['width'] ) && ! empty( $vmeta['height'] ) ) {
+				$video['width']  = (int) $vmeta['width'];
+				$video['height'] = (int) $vmeta['height'];
+			}
+		}
+		if ( preg_match( '/<details[^>]*gp-transcript[^>]*>(.*?)<\/details>/is', $after, $vt ) ) {
+			$video['transcript'] = trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( preg_replace( '/<summary.*?<\/summary>|<\/p>/is', ' ', $vt[1] ) ) ) );
+		}
+		$graph[]      = $video;
+		$page['video'] = array( '@id' => $url . '#video' );
+	}
 	$graph[] = $page;
 
 	if ( $img ) {
