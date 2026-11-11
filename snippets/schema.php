@@ -89,7 +89,7 @@ add_action( 'wp_head', function () {
 	$lang    = is_singular() ? (string) get_post_meta( get_queried_object_id(), 'grohnpetrel_lang', true ) : '';
 	$lang    = '' !== $lang ? $lang : 'en';
 	$de      = 'de' === $lang;
-	$codes   = array( 'de' => 'de-DE', 'es' => 'es-ES', 'zh' => 'zh-CN' );
+	$codes   = array( 'de' => 'de-DE', 'es' => 'es-ES', 'fr' => 'fr-FR', 'it' => 'it-IT', 'ru' => 'ru-RU', 'zh' => 'zh-CN' );
 	$in_lang = isset( $codes[ $lang ] ) ? $codes[ $lang ] : str_replace( '_', '-', get_locale() );
 	$site    = get_bloginfo( 'name' );
 
@@ -121,6 +121,21 @@ add_action( 'wp_head', function () {
 		$org['disambiguatingDescription'] = 'Una propuesta académica ficticia creada en otoño de 2026 por los Guillemots, un equipo de cuatro estudiantes de la Constructor University de Bremen (Alemania), para la asignatura Digital Marketing Fundamentals and Search Engine Optimisation. No es una organización registrada, no es una especie de ave y no acepta donaciones.';
 		$org['foundingLocation']['name']  = 'Bremen-Grohn, Alemania';
 		$org['knowsAbout']                = array( 'Conservación de aves marinas', 'Ecosistemas costeros', 'Mar del Norte', 'Mar de Frisia' );
+	} elseif ( 'fr' === $lang ) {
+		$org['description']               = 'Grohnpetrel est une initiative proposée de conservation côtière et d’éducation sur les oiseaux marins.';
+		$org['disambiguatingDescription'] = 'Un projet académique fictif créé à l’automne 2026 par les Guillemots, une équipe de quatre étudiants de la Constructor University à Brême (Allemagne), pour le cours Digital Marketing Fundamentals and Search Engine Optimisation. Ce n’est pas une organisation enregistrée ni une espèce d’oiseau, et il n’accepte pas de dons.';
+		$org['foundingLocation']['name']  = 'Brême-Grohn, Allemagne';
+		$org['knowsAbout']                = array( 'Protection des oiseaux marins', 'Écosystèmes côtiers', 'Mer du Nord', 'Mer des Wadden' );
+	} elseif ( 'it' === $lang ) {
+		$org['description']               = 'Grohnpetrel è un’iniziativa proposta di tutela delle coste ed educazione sugli uccelli marini.';
+		$org['disambiguatingDescription'] = 'Un progetto accademico fittizio creato nell’autunno 2026 dai Guillemots, un team di quattro studenti della Constructor University di Brema (Germania), per il corso Digital Marketing Fundamentals and Search Engine Optimisation. Non è un’organizzazione registrata né una specie di uccello e non accetta donazioni.';
+		$org['foundingLocation']['name']  = 'Brema-Grohn, Germania';
+		$org['knowsAbout']                = array( 'Tutela degli uccelli marini', 'Ecosistemi costieri', 'Mare del Nord', 'Mare dei Wadden' );
+	} elseif ( 'ru' === $lang ) {
+		$org['description']               = 'Grohnpetrel — предлагаемая инициатива по охране побережья и просвещению о морских птицах.';
+		$org['disambiguatingDescription'] = 'Вымышленный учебный проект, созданный осенью 2026 года командой Guillemots — четырьмя студентами Constructor University в Бремене (Германия) — для курса Digital Marketing Fundamentals and Search Engine Optimisation. Это не зарегистрированная организация и не вид птиц; пожертвования не принимаются.';
+		$org['foundingLocation']['name']  = 'Бремен-Грон, Германия';
+		$org['knowsAbout']                = array( 'Охрана морских птиц', 'Прибрежные экосистемы', 'Северное море', 'Ваттовое море' );
 	} elseif ( 'zh' === $lang ) {
 		$org['description']               = 'Grohnpetrel 是一个构想中的海岸保护与海鸟教育项目。';
 		$org['disambiguatingDescription'] = '这是一个虚构的学术项目，由德国不来梅康斯特大学（Constructor University）的四名学生组成的 Guillemots 团队于 2026 年秋季为“数字营销基础与搜索引擎优化”课程创建。它不是注册组织，不是一种鸟类，也不接受捐款。';
@@ -319,16 +334,24 @@ add_action( 'wp_head', function () {
 			$page['mainEntity'] = array( '@type' => 'ItemList', 'numberOfItems' => count( $items ), 'itemListElement' => $items );
 		}
 	}
-	// A page with a video block gets a VideoObject: name from the heading above the video, description
-	// from its caption, transcript from the "gp-transcript" details block, duration from the upload.
-	if ( preg_match( '/<video\b([^>]*)>/i', $post->post_content, $vm, PREG_OFFSET_CAPTURE ) && preg_match( '/\bsrc="([^"]+)"/', $vm[1][0], $vsrc ) ) {
+	// Every video block gets a VideoObject: name from the heading above it, description from its caption,
+	// transcript from the "gp-transcript" details block that follows it, duration and size from the upload.
+	// The first video keeps the id "#video"; further ones are "#video-2", "#video-3", ...
+	preg_match_all( '/<video\b([^>]*)>/i', $post->post_content, $vms, PREG_OFFSET_CAPTURE | PREG_SET_ORDER );
+	$vrefs = array();
+	foreach ( $vms as $vi => $vm ) {
+		if ( ! preg_match( '/\bsrc="([^"]+)"/', $vm[1][0], $vsrc ) ) {
+			continue;
+		}
+		$vid    = $url . ( 0 === $vi ? '#video' : '#video-' . ( $vi + 1 ) );
 		$before = substr( $post->post_content, 0, $vm[0][1] );
-		$after  = substr( $post->post_content, $vm[0][1] );
+		$next   = isset( $vms[ $vi + 1 ] ) ? $vms[ $vi + 1 ][0][1] : strlen( $post->post_content );
+		$after  = substr( $post->post_content, $vm[0][1], $next - $vm[0][1] );
 		preg_match_all( '/<h[23][^>]*>(.*?)<\/h[23]>/is', $before, $vh );
 		$vcap  = preg_match( '/<figcaption[^>]*>(.*?)<\/figcaption>/is', $after, $vc ) ? trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( $vc[1] ) ) ) : '';
 		$video = array(
 			'@type'            => 'VideoObject',
-			'@id'              => $url . '#video',
+			'@id'              => $vid,
 			'name'             => $vh[1] ? trim( wp_strip_all_tags( end( $vh[1] ) ) ) : $title,
 			'description'      => '' !== $vcap ? $vcap : $title,
 			'contentUrl'       => $vsrc[1],
@@ -355,8 +378,11 @@ add_action( 'wp_head', function () {
 		if ( preg_match( '/<details[^>]*gp-transcript[^>]*>(.*?)<\/details>/is', $after, $vt ) ) {
 			$video['transcript'] = trim( preg_replace( '/\s+/', ' ', wp_strip_all_tags( preg_replace( '/<summary.*?<\/summary>|<\/p>/is', ' ', $vt[1] ) ) ) );
 		}
-		$graph[]      = $video;
-		$page['video'] = array( '@id' => $url . '#video' );
+		$graph[] = $video;
+		$vrefs[] = array( '@id' => $vid );
+	}
+	if ( $vrefs ) {
+		$page['video'] = 1 === count( $vrefs ) ? $vrefs[0] : $vrefs;
 	}
 	$graph[] = $page;
 
@@ -375,7 +401,7 @@ add_action( 'wp_head', function () {
 
 	// Breadcrumb as Yoast builds it (the current page last, without a link); German, Spanish and
 	// Chinese pages start at their language's front page (/de/, /es/, /zh/), the parent of all of them.
-	$home_names = array( 'de' => 'Startseite', 'es' => 'Inicio', 'zh' => '首页' );
+	$home_names = array( 'de' => 'Startseite', 'es' => 'Inicio', 'fr' => 'Accueil', 'it' => 'Pagina iniziale', 'ru' => 'Главная', 'zh' => '首页' );
 	$de_home    = isset( $home_names[ $lang ] ) ? get_page_by_path( $lang ) : null;
 	$is_home    = is_front_page() || ( $de_home && $de_home->ID === $id );
 	$crumbs     = array( array( '@type' => 'ListItem', 'position' => 1, 'name' => $de_home ? $home_names[ $lang ] : 'Home' ) );
@@ -393,7 +419,7 @@ add_action( 'wp_head', function () {
 	}
 	$graph[] = array( '@type' => 'BreadcrumbList', '@id' => $url . '#breadcrumb', 'itemListElement' => $crumbs );
 
-	if ( in_array( $slug, array( 'what-is-grohnpetrel-2', 'was-ist-grohnpetrel', 'que-es-grohnpetrel', 'grohnpetrel-shi-shenme' ), true ) ) {
+	if ( in_array( $slug, array( 'what-is-grohnpetrel-2', 'was-ist-grohnpetrel', 'que-es-grohnpetrel', 'qu-est-ce-que-grohnpetrel', 'che-cos-e-grohnpetrel', 'chto-takoe-grohnpetrel', 'grohnpetrel-shi-shenme' ), true ) ) {
 		$graph[] = array(
 			'@type'       => 'DefinedTerm',
 			'@id'         => $home . '#term',

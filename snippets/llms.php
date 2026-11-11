@@ -22,6 +22,7 @@ if ( ! function_exists( 'grohnpetrel_llms_txt' ) ) {
 - [FAQ]({$u}grohnpetrel-faq/): short answers to common questions
 - [Meanings of Grohnpetrel]({$u}grohnpetrel-meanings/): why several student projects use the word, and which one this site is
 - [Seabird and coast glossary]({$u}seabird-and-coast-glossary/): short definitions of the terms used on the site
+- [Videos]({$u}grohnpetrel-videos/): six 40-second videos with transcripts
 - [The Grohnpetrel Mission]({$u}the-grohnpetrel-mission/): aims of the project
 - [About the Guillemots team]({$u}about/): who we are
 
@@ -58,6 +59,24 @@ if ( ! function_exists( 'grohnpetrel_llms_txt' ) ) {
 - [Grohnpetrel en español]({$u}es/)
 - [¿Qué es Grohnpetrel?]({$u}es/que-es-grohnpetrel/)
 - [Preguntas frecuentes]({$u}es/preguntas-frecuentes-grohnpetrel/)
+
+## French
+
+- [Grohnpetrel en français]({$u}fr/)
+- [Qu’est-ce que Grohnpetrel ?]({$u}fr/qu-est-ce-que-grohnpetrel/)
+- [Questions fréquentes]({$u}fr/questions-frequentes-grohnpetrel/)
+
+## Italian
+
+- [Grohnpetrel in italiano]({$u}it/)
+- [Che cos’è Grohnpetrel?]({$u}it/che-cos-e-grohnpetrel/)
+- [Domande frequenti]({$u}it/domande-frequenti-grohnpetrel/)
+
+## Russian
+
+- [Grohnpetrel на русском]({$u}ru/)
+- [Что такое Grohnpetrel?]({$u}ru/chto-takoe-grohnpetrel/)
+- [Частые вопросы]({$u}ru/chasto-zadavaemye-voprosy-grohnpetrel/)
 
 ## Chinese
 

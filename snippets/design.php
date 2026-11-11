@@ -115,6 +115,15 @@ figcaption,.wp-element-caption{color:var(--gp-muted);font-size:.875rem}
 .gp-about-media{margin-bottom:.4rem!important}
 .gp-about-media .wp-block-media-text__content p{margin-top:0}
 .gp-about-media+.gp-credit{max-width:var(--wp--style--global--content-size);padding:0}
+/* Video gallery and footer language row */
+.gp-video-grid .gp-video{max-width:100%}
+.gp-video-card h3{font-size:1.15rem!important}
+.gp-video-card .gp-transcript{margin-top:.5rem}
+footer.wp-block-template-part .gp-footer-langs{margin-top:1.25rem;font-size:.9rem;line-height:1.9;opacity:.95}
+footer.wp-block-template-part .gp-footer-langs a{color:inherit;text-decoration:underline;text-underline-offset:.2em}
+footer.wp-block-template-part .gp-footer-langs [aria-current]{font-weight:700}
+.gp-footer-langs__label{display:block;font-family:var(--gp-serif);font-weight:600;margin-bottom:.15rem}
+footer.wp-block-template-part .wp-block-navigation__container{gap:.45rem!important}
 @media (max-width:600px){.wp-block-table td,.wp-block-table th{padding:.45em .55em;font-size:.9rem}}
 @media (max-width:1000px){.gp-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:781px){
