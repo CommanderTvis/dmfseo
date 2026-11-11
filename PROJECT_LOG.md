@@ -277,3 +277,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Course snapshot of 11 Nov: #2. The audit found no technical fault, so the work targets content gaps (seabird searches, missing FAQ answers), original citable data and a reusable resource, and makes existing content easier to find. A mobile PageSpeed test (97/100/100/100) showed no performance problem, so performance was left unchanged.
 
 **Outcome:** Pending. Check on 14 Nov whether the Lab report, guide or seabird answer gain impressions in Search Console, and record ranks with the same tracker settings.
+
+---
+
+**Action:** Third round of the day. (1) Five more 30–42-second vertical videos in English and German (six North Sea seabirds; is there a bird called Grohnpetrel?; plastic and North Sea seabirds in four numbers; the Wadden Sea in numbers; four ways to help seabirds), made from our own graphics and the sourced facts on the site; the first video re-rendered so its last frame no longer fades out. Each video is on its topic page (EN/DE) with a transcript, and all six are on a new Videos page (EN `/grohnpetrel-videos/`, DE `/de/videos/`). Structured data: every video on a page now gets its own VideoObject. (2) French, Italian and Russian versions of the front page, What is Grohnpetrel? and the FAQ (10 questions), with their own main menus, language codes, hreflang to all seven languages and translated project descriptions in the structured data. (3) Cleaner footer: shorter "Learn" and "Transparency" menus (no language links, no external source link), German column headings on German pages, the project description and copyright line in the page's language, and a row of links to all seven language front pages.
+
+**Who:** Diego Aguilar.
+
+**Reason:** The team asked for more videos to post on Instagram, TikTok and YouTube, and for the same videos on the site; the footer had become crowded (17 links in one column, English headings on German pages); new languages extend the approach that worked for Spanish and Chinese (one clear definition and FAQ per language). The French, Italian and Russian texts were translated with AI help and say so; a native speaker should review them.
+
+**Outcome:** Pending. Check video indexing in Search Console and whether the new language pages are indexed.
