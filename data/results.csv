@@ -371,3 +371,27 @@ date,time_utc,engine,country,query,our_rank,our_url,top_url,rival_ranks,n_result
 2026-11-10,14:01,brave,gb,"""grohnpetrel""",,,https://zenodo.org/records/23926768,,9
 2026-11-10,14:01,brave,gb,what is grohnpetrel,,,https://zenodo.org/records/23926843,,10
 2026-11-10,14:01,brave,gb,grohnpetrel seabird,,,https://zenodo.org/records/23926843,,10
+2026-11-11,13:19,google,de,grohnpetrel,2,https://business.constructor.university/guillemots/de/was-ist-grohnpetrel/,https://business.constructor.university/skuas/about-grohnpetrel/,skuas:1;fulmars:5;fulmars:8,9
+2026-11-11,13:19,google,de,"""grohnpetrel""",2,https://business.constructor.university/guillemots/de/,https://business.constructor.university/fulmars/de/,fulmars:1;skuas:5,9
+2026-11-11,13:19,google,de,what is grohnpetrel,3,https://business.constructor.university/guillemots/was-ist-grohnpetrel/,https://business.constructor.university/skuas/grohnpetrel-faq/,skuas:1;skuas:2;fulmars:5,10
+2026-11-11,13:19,google,de,grohnpetrel seabird,,,https://www.birdlife.org/news/2025/07/03/everything-you-need-to-know-about-seabirds/,,9
+2026-11-11,13:19,google,us,grohnpetrel,7,https://business.constructor.university/guillemots/grohnpetrel-faq/,https://business.constructor.university/fulmars/,fulmars:1;fulmars:2;terns:4;puffins:6,10
+2026-11-11,13:19,google,us,"""grohnpetrel""",1,https://business.constructor.university/guillemots/,https://business.constructor.university/guillemots/,terns:2;fulmars:3;fulmars:5;terns:6;puffins:10,10
+2026-11-11,13:19,google,us,what is grohnpetrel,1,https://business.constructor.university/guillemots/grohnpetrel-faq/,https://business.constructor.university/guillemots/grohnpetrel-faq/,fulmars:2;puffins:3,10
+2026-11-11,13:19,google,us,grohnpetrel seabird,,,https://www.birdlife.org/news/2025/07/03/everything-you-need-to-know-about-seabirds/,,9
+2026-11-11,13:19,google,gb,grohnpetrel,,,https://www.youtube.com/shorts/qpP4HIiqe18,,9
+2026-11-11,13:19,google,gb,"""grohnpetrel""",4,https://business.constructor.university/guillemots/what-is-grohnpetrel-2/,https://business.constructor.university/fulmars/,fulmars:1;terns:2;fulmars:6,9
+2026-11-11,13:19,google,gb,what is grohnpetrel,1,https://business.constructor.university/guillemots/grohnpetrel-faq/,https://business.constructor.university/guillemots/grohnpetrel-faq/,fulmars:2;fulmars:4,10
+2026-11-11,13:19,google,gb,grohnpetrel seabird,,,https://www.seabirdtracking.org/species/large-petrels-and-shearwaters/,,9
+2026-11-11,13:19,brave,de,grohnpetrel,,,https://github.com/doganjicuros0-ship-it/grohnpetrel/releases/tag/v1.0,,10
+2026-11-11,13:19,brave,de,"""grohnpetrel""",,,https://github.com/doganjicuros0-ship-it/grohnpetrel/releases/tag/v1.0,,9
+2026-11-11,13:19,brave,de,what is grohnpetrel,,,https://zenodo.org/records/23926843,,10
+2026-11-11,13:19,brave,de,grohnpetrel seabird,,,https://zenodo.org/records/23926843,,10
+2026-11-11,13:19,brave,us,grohnpetrel,,,https://github.com/doganjicuros0-ship-it/grohnpetrel/releases/tag/v1.0,,10
+2026-11-11,13:19,brave,us,"""grohnpetrel""",,,https://github.com/doganjicuros0-ship-it/grohnpetrel/releases/tag/v1.0,,9
+2026-11-11,13:19,brave,us,what is grohnpetrel,,,https://zenodo.org/records/23926843,,10
+2026-11-11,13:19,brave,us,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Grey_petrel,,10
+2026-11-11,13:19,brave,gb,grohnpetrel,,,https://github.com/doganjicuros0-ship-it/grohnpetrel/releases/tag/v1.0,,10
+2026-11-11,13:19,brave,gb,"""grohnpetrel""",,,https://github.com/doganjicuros0-ship-it/grohnpetrel/releases/tag/v1.0,,9
+2026-11-11,13:19,brave,gb,what is grohnpetrel,,,https://zenodo.org/records/23926843,,10
+2026-11-11,13:19,brave,gb,grohnpetrel seabird,,,https://en.wikipedia.org/wiki/Grey_petrel,,10
