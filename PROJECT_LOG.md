@@ -267,3 +267,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Course results: on 10 Nov we fell from #1 to #3, on 11 Nov back to #2 (rank tracker 11 Nov: #2 in Google DE, where a rival's "about" page is #1; #7 in the US; still #1 for "grohnpetrel" in quotes in the US and for "what is grohnpetrel" in the US and UK). In the UK a YouTube Short is the top result for "grohnpetrel", and the AI Overview describes the word through other teams' social posts. Our social profiles are still empty. A video on the site can appear in Google's video results, and the same video gives the team its first social post.
 
 **Outcome:** Pending. Check whether Google lists the video (Search Console video indexing) and whether ranks for "grohnpetrel" change after the team posts it.
+
+---
+
+**Action:** SEO/GEO sprint and Phase 2 refinement (second round of the day). (1) Technical audit of all core, stale and archive URLs: no live defect; the old addresses that still collect Search Console impressions redirect to the correct pages or return 404. (2) FAQ structured data: the last answer no longer includes the page byline. (3) Seabird guide (EN/DE): a short answer to "Is there a seabird called Grohnpetrel?". (4) FAQ (EN/DE): questions on threats to seabirds and how to help. (5) SEO / GEO Lab (EN/DE): a data report with chart and daily table for 31 Oct–11 Nov, made reproducible with `scripts/rank_report.py`. (6) A four-page PDF learning guide, "Six North Sea Seabirds", linked from the Knowledge Centre and the seabird guide. (7) Knowledge Centre (EN/DE): topic cards. (8) About (EN/DE): photo beside the project story, a dated project timeline and a link to the merchandise plan. README lists the new resources; four reports in `reports/`.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Course snapshot of 11 Nov: #2. The audit found no technical fault, so the work targets content gaps (seabird searches, missing FAQ answers), original citable data and a reusable resource, and makes existing content easier to find. A mobile PageSpeed test (97/100/100/100) showed no performance problem, so performance was left unchanged.
+
+**Outcome:** Pending. Check on 14 Nov whether the Lab report, guide or seabird answer gain impressions in Search Console, and record ranks with the same tracker settings.
