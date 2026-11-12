@@ -448,3 +448,54 @@ add_filter( 'render_block', function ( $html, $block ) {
 	}
 	return $html . '<p class="gp-footer-langs"><span class="gp-footer-langs__label">' . esc_html( isset( $label[ $lang ] ) ? $label[ $lang ] : $label['en'] ) . '</span> ' . implode( ' · ', $links ) . '</p>';
 }, 10, 2 );
+
+// "About this page" box at the end of every content page and post (E-E-A-T): who wrote and reviewed it,
+// where the facts come from, when it was published and last changed, and how to report an error.
+// Not on language front pages or legal pages. Dates come from WordPress, so they are always current.
+add_filter( 'the_content', function ( $content ) {
+	if ( ! is_singular( array( 'page', 'post' ) ) || ! in_the_loop() || ! is_main_query() ) {
+		return $content;
+	}
+	$post = get_post();
+	$skip = array( 'grohnpetrel', 'de', 'es', 'fr', 'it', 'ru', 'zh', 'contact', 'kontakt', 'imprint', 'impressum', 'privacy-policy', 'datenschutz' );
+	if ( ! $post || is_front_page() || in_array( $post->post_name, $skip, true ) ) {
+		return $content;
+	}
+	$lang = (string) get_post_meta( $post->ID, 'grohnpetrel_lang', true );
+	$lang = '' !== $lang ? $lang : 'en';
+	$t    = array(
+		'en' => array( 'About this page', 'Written and reviewed by %s, with AI assistance. The facts come from the sources named on this page.', 'Published', 'Last changed', 'Found a mistake? %s', 'Tell us', 'Editorial policy and corrections', 'j M Y' ),
+		'de' => array( 'Über diese Seite', 'Geschrieben und geprüft von %s, mit KI-Unterstützung. Die Fakten stammen aus den auf dieser Seite genannten Quellen.', 'Veröffentlicht', 'Zuletzt geändert', 'Einen Fehler gefunden? %s', 'Schreiben Sie uns', 'Redaktionsrichtlinien und Korrekturen', 'd.m.Y' ),
+		'es' => array( 'Sobre esta página', 'Escrita y revisada por %s, con ayuda de IA. Los datos proceden de las fuentes citadas en esta página.', 'Publicada', 'Último cambio', '¿Has encontrado un error? %s', 'Avísanos', 'Política editorial y correcciones (en inglés)', 'd/m/Y' ),
+		'fr' => array( 'À propos de cette page', 'Rédigée et relue par %s, avec l’aide de l’IA. Les faits proviennent des sources citées sur cette page.', 'Publiée le', 'Dernière modification', 'Vous avez trouvé une erreur ? %s', 'Écrivez-nous', 'Politique éditoriale et corrections (en anglais)', 'd/m/Y' ),
+		'it' => array( 'Informazioni su questa pagina', 'Scritta e controllata da %s, con l’aiuto dell’IA. I fatti provengono dalle fonti citate in questa pagina.', 'Pubblicata il', 'Ultima modifica', 'Hai trovato un errore? %s', 'Scrivici', 'Linee editoriali e correzioni (in inglese)', 'd/m/Y' ),
+		'ru' => array( 'Об этой странице', 'Написано и проверено командой %s с помощью ИИ. Факты взяты из источников, указанных на этой странице.', 'Опубликовано', 'Последнее изменение', 'Нашли ошибку? %s', 'Напишите нам', 'Редакционная политика и исправления (на английском)', 'd.m.Y' ),
+		'zh' => array( '关于本页', '由 %s 撰写并审核，借助了人工智能。本页事实来自页面中列出的来源。', '发布日期', '最后修改', '发现错误？%s', '告诉我们', '编辑方针与更正（英文）', 'Y-m-d' ),
+	);
+	$s       = isset( $t[ $lang ] ) ? $t[ $lang ] : $t['en'];
+	$de      = 'de' === $lang;
+	$about   = get_page_by_path( $de ? 'de/ueber-uns' : 'about' );
+	$contact = get_page_by_path( $de ? 'de/kontakt' : 'contact' );
+	$policy  = get_page_by_path( $de ? 'de/redaktionsrichtlinien' : 'editorial-policy' );
+	$team    = $about ? sprintf( '<a href="%s">Team Guillemots</a>', esc_url( get_permalink( $about ) ) ) : 'Team Guillemots';
+	$box     = '<aside class="gp-page-info" aria-label="' . esc_attr( $s[0] ) . '"><p class="gp-page-info__title">' . esc_html( $s[0] ) . '</p>';
+	// The sentence about sources only where the page has a sources section.
+	$line = $s[1];
+	if ( ! preg_match( '/<h[23][^>]*>\s*(Sources|Quellen|Fuentes|Sources and further reading)/i', $post->post_content ) ) {
+		$cut  = preg_split( '/(?<=[.。])\s*/u', $line, 2 );
+		$line = $cut[0];
+	}
+	$box    .= '<p>' . sprintf( esc_html( $line ), $team ) . '</p>';
+	$box    .= '<p>' . esc_html( $s[2] ) . ': ' . esc_html( get_the_date( $s[7], $post ) ) . ' · ' . esc_html( $s[3] ) . ': ' . esc_html( get_the_modified_date( $s[7], $post ) ) . '</p>';
+	$links   = array();
+	if ( $contact ) {
+		$links[] = sprintf( esc_html( $s[4] ), sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $contact ) ), esc_html( $s[5] ) ) );
+	}
+	if ( $policy ) {
+		$links[] = sprintf( '<a href="%s">%s</a>', esc_url( get_permalink( $policy ) ), esc_html( $s[6] ) );
+	}
+	if ( $links ) {
+		$box .= '<p>' . implode( ' · ', $links ) . '</p>';
+	}
+	return $content . $box . '</aside>';
+}, 20 );

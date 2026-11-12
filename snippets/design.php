@@ -115,6 +115,10 @@ figcaption,.wp-element-caption{color:var(--gp-muted);font-size:.875rem}
 .gp-about-media{margin-bottom:.4rem!important}
 .gp-about-media .wp-block-media-text__content p{margin-top:0}
 .gp-about-media+.gp-credit{max-width:var(--wp--style--global--content-size);padding:0}
+/* About this page box */
+.gp-page-info{max-width:var(--wp--style--global--content-size);margin:2.5rem auto 0;padding:1rem 1.25rem;border:1px solid var(--gp-line);border-left:4px solid var(--gp-teal);border-radius:0 10px 10px 0;background:#fff;font-size:.9rem;color:var(--gp-muted)}
+.gp-page-info p{margin:.2rem 0!important;line-height:1.55}
+.gp-page-info .gp-page-info__title{font-family:var(--gp-serif);font-weight:600;color:var(--gp-teal-dark);font-size:1rem}
 /* Video gallery and footer language row */
 .gp-video-grid .gp-video{max-width:100%}
 .gp-video-card h3{font-size:1.15rem!important;min-height:2.7em}
