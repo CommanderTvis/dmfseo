@@ -3,12 +3,20 @@ theme: default
 title: "Grohnpetrel: How a student team competed for an invented word"
 info: |
   Team Guillemots · DMFSEO Fall 2026 · Constructor University.
-  30-minute presentation + Q&A. Run with `npx @slidev/cli slides.md`.
+  30-minute presentation + Q&A. Web version: https://commandertvis.github.io/dmfseo/slides/
 author: Team Guillemots
 colorSchema: light
 aspectRatio: 16/9
 canvasWidth: 980
 transition: fade
+routerMode: hash
+download: true
+exportFilename: grohnpetrel-slides
+fonts:
+  sans: Inter
+  serif: Lora
+drawings:
+  persist: false
 layout: cover
 class: cover
 ---
@@ -223,11 +231,15 @@ layout: default
 
 # Objectives and strategy
 
+<v-clicks>
+
 1. **Be crawlable first:** whoever is indexed first and cleanly wins an empty keyword
 2. **Be the clearest definition:** one sentence, repeated everywhere, in every language
 3. **Be distinctive and citable:** real seabird facts with sources, not a made-up product
 4. **Be machine-readable:** structured data, `llms.txt`, transcripts, archive with DOI
 5. **Measure daily, change one thing at a time, log everything**
+
+</v-clicks>
 
 <div class="note">Why not a brand or a product? A brand has nothing to cite. Seabirds and the North Sea give us sources (UNESCO, German Environment Agency, IUCN), which builds trust for both Google and AI answers.</div>
 
@@ -247,16 +259,13 @@ layout: two-cols
 
 ::right::
 
-```text
- edit pages/*.html
-        │
-  pull request ──► site-checks, php-lint
-        │
-  rebase & merge
-        │
-  wp-publish Action ──► WordPress (live)
-        │
-  sitemap resubmitted to Search Console
+```mermaid {scale: 0.85}
+flowchart TD
+  A[Edit a page in Git] --> B[Pull request<br/>automatic checks]
+  B --> C[Rebase and merge]
+  C --> D[wp-publish Action]
+  D --> E[WordPress live in about 1 min<br/>sitemap resubmitted]
+  F[daily-check Action] --> G[Rank dashboard + CSV]
 ```
 
 <!--
@@ -375,21 +384,29 @@ layout: two-cols
 
 # What worked, and why
 
+<v-clicks>
+
 - **Checking the HTTP headers** → found the hidden noindex; indexed within days
 - **A second language** → German site, #1 in Google DE the next day
 - **Daily measurement** → we can show trends, not single screenshots
 - **Citable, archived source** → Brave shows our Zenodo record first
 - **GitHub workflow** → every change reviewed and dated
 
+</v-clicks>
+
 ::right::
 
 # What did not, and why
+
+<v-clicks>
 
 - **More words on 4 Nov** did not help: Google already understood the page
 - **The meanings page** named other teams' concepts and was linked from every page; it may have tied our site to their meaning. Fixed 12 Nov.
 - **Three German pages** compete for the same query (cannibalisation)
 - **No social posts** while rivals filled half the top 10 with them
 - **Too many changes** in some days → hard to say what caused what
+
+</v-clicks>
 
 <!--
 Mario: this is the core of the reflection. Each point has evidence in the log.
@@ -401,11 +418,15 @@ layout: default
 
 # Unexpected outcomes
 
+<v-clicks>
+
 - A **YouTube Short** is #1 in Google UK for “grohnpetrel” (12 Nov): the SERP is not only websites
 - Google's **AI Overview** relied on social posts more than on websites to define the word
 - On Brave, a **GitHub release** and our **Zenodo record** rank above team websites: developer and archive platforms carry authority
 - Explaining that other meanings exist **may have helped rivals more than us**
 - The rival that passed us in Germany has **10 languages and a German front page**; page length was not the difference
+
+</v-clicks>
 
 ---
 layout: default
