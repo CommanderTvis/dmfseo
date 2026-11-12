@@ -1,5 +1,6 @@
 name: slides
-# Builds the Slidev presentation as a PDF and attaches it to the run (Actions → slides → Artifacts).
+# Builds the Slidev presentation, attaches the PDF to the run (Actions → slides → Artifacts)
+# and publishes the web version to GitHub Pages at /dmfseo/slides/ (gh-pages branch, folder slides/).
 # Runs only on main and on demand, so it never blocks a pull request or touches WordPress.
 on:
   push:
@@ -7,22 +8,48 @@ on:
     paths: ["presentation/**", ".github/workflows/slides.yml"]
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
+concurrency:
+  group: slides
+  cancel-in-progress: true
 jobs:
-  export:
+  build:
     runs-on: ubuntu-24.04
-    defaults:
-      run:
-        working-directory: presentation
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install --no-audit --no-fund
-      - run: npx playwright install --with-deps chromium
-      - run: npm run export
+      - name: Install
+        working-directory: presentation
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Export PDF
+        working-directory: presentation
+        run: npm run export
       - uses: actions/upload-artifact@v4
         with:
           name: grohnpetrel-slides
           path: presentation/grohnpetrel-slides.pdf
+      - name: Build web version
+        working-directory: presentation
+        run: npm run build
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: site
+      - name: Publish to gh-pages/slides
+        # The daily tracker also pushes to gh-pages, so rebase and retry instead of overwriting.
+        run: |
+          rm -rf site/slides
+          cp -r presentation/dist site/slides
+          cp presentation/grohnpetrel-slides.pdf site/slides/
+          cd site
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -m "slides $(date -u +%F)"
+          for i in 1 2 3; do git push && exit 0; git pull --rebase; done
+          exit 1
