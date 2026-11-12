@@ -307,3 +307,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Google.de #1 for "grohnpetrel" went from us (8 and 9 Nov) to another team's drinks site (10 and 11 Nov), the day after we published the page. Our page, linked from every footer, named beer as a meaning of the word and may have tied our site to the drinks meaning, which that site answers better. This is a hypothesis, not proven: the page itself never appeared in the recorded top 10, and the other site's pages did not change.
 
 **Outcome:** Pending. Compare Google.de ranks for 7 days after publishing; also check which of our German pages ranks (we have 2 to 3 for the same query).
+
+---
+
+**Action:** Follow-up to the meanings-page fix, after team review. (1) The "Meanings of Grohnpetrel" page (EN/DE) no longer names or describes any other team's concept: the intro says only that the word means different things on different websites, the table keeps only how to recognise this project, and the search descriptions no longer list product categories. (2) The front pages in all seven languages and the Spanish and Chinese FAQs no longer give "for example drinks or clothing" as other uses of the word. (3) The SEO / GEO Lab (EN/DE) describes the 11 Nov AI Overview as naming "another team's consumer-brand concept" instead of naming its products. (4) The meanings page is no longer in the footer of every page; it stays linked from What is Grohnpetrel? and the FAQ.
+
+**Who:** Diego Aguilar, after feedback from Iaroslav Postovalov.
+
+**Reason:** Even without the word beer, our pages still put the words drinks and clothing next to "Grohnpetrel" on every front page and, through the footer, on every page. That can tie our site to meanings that other teams' sites answer better. Tracker, 12 Nov: Google.de #2 behind another team's German front page; Google.co.uk shows a YouTube Short at #1 for "grohnpetrel". Cannibalisation (front page, What is Grohnpetrel? and FAQ all ranking for "grohnpetrel" in German): we keep the three pages because they answer different intents (project, definition, questions) and deliberately do not change titles or slugs now, to avoid more churn; we review after 7 days of stable pages.
+
+**Outcome:** Pending. Compare Google.de, US and UK ranks on 19 Nov with the same tracker settings, and note which German page ranks.
