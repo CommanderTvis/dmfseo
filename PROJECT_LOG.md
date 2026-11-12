@@ -297,3 +297,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Activity 2 asked for two improvements per E-E-A-T dimension. Grohnpetrel is fictional, so trust has to come from transparency and checkable work. Of our eight proposals, these two (Trustworthiness 1 and 2, plus Expertise 1) can be done in code; the others need the team (a field visit with own photos, an expert review with permission, approved mentions, active social profiles).
 
 **Outcome:** Pending.
+
+---
+
+**Action:** Removed the words beer, Bier, cider and Apfelschorle from the "Meanings of Grohnpetrel" page (EN/DE) and from its search descriptions; the separate craft-beer row in the table is gone and drinks are now one row.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Google.de #1 for "grohnpetrel" went from us (8 and 9 Nov) to another team's drinks site (10 and 11 Nov), the day after we published the page. Our page, linked from every footer, named beer as a meaning of the word and may have tied our site to the drinks meaning, which that site answers better. This is a hypothesis, not proven: the page itself never appeared in the recorded top 10, and the other site's pages did not change.
+
+**Outcome:** Pending. Compare Google.de ranks for 7 days after publishing; also check which of our German pages ranks (we have 2 to 3 for the same query).
