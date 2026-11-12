@@ -317,3 +317,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Even without the word beer, our pages still put the words drinks and clothing next to "Grohnpetrel" on every front page and, through the footer, on every page. That can tie our site to meanings that other teams' sites answer better. Tracker, 12 Nov: Google.de #2 behind another team's German front page; Google.co.uk shows a YouTube Short at #1 for "grohnpetrel". Cannibalisation (front page, What is Grohnpetrel? and FAQ all ranking for "grohnpetrel" in German): we keep the three pages because they answer different intents (project, definition, questions) and deliberately do not change titles or slugs now, to avoid more churn; we review after 7 days of stable pages.
 
 **Outcome:** Pending. Compare Google.de, US and UK ranks on 19 Nov with the same tracker settings, and note which German page ranks.
+
+---
+
+**Action:** Started the final presentation as a Slidev deck in `presentation/` (29 slides with speaker notes, for 30 minutes plus questions): results and analysis (rank chart and daily table from the tracker, Search Console, AI visibility, anonymised competitor comparison), strategy and implementation, critical reflection, the merchandise marketing plan for the CEO, and the project log. Added a draft of the final reflection (`presentation/final-reflection-draft.md`, about 700 words) and a `slides` GitHub Action that exports the deck to PDF. Also prepared a social media pack (texts for Instagram, TikTok, YouTube Shorts, Facebook and LinkedIn in English and German for the 12 videos), kept outside the repo.
+
+**Who:** Diego Aguilar.
+
+**Reason:** The presentation is 80% of the grade and covers results, strategy, reflection, communication and the CEO marketing plan; starting it now lets the team rehearse and fill in the last numbers. The tracker shows a YouTube Short at #1 on Google UK on 12 Nov, so the team starts posting the videos from 13 Nov. Other teams are not named in the public deck; we name them orally.
+
+**Outcome:** Pending. The team reviews the deck and the reflection draft; numbers are updated on the morning of the presentation.
