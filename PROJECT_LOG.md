@@ -327,3 +327,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** The presentation is 80% of the grade and covers results, strategy, reflection, communication and the CEO marketing plan; starting it now lets the team rehearse and fill in the last numbers. The tracker shows a YouTube Short at #1 on Google UK on 12 Nov, so the team starts posting the videos from 13 Nov. Other teams are not named in the public deck; we name them orally.
 
 **Outcome:** Pending. The team reviews the deck and the reflection draft; numbers are updated on the morning of the presentation.
+
+---
+
+**Action:** Presentation deck now uses more of Slidev and is published as a web page: points appear one by one (`v-clicks`) on the objectives and reflection slides, the publishing pipeline is a Mermaid diagram, page numbers on every slide (`global-bottom.vue`), Inter and Lora fonts as on the website, and hash routing for GitHub Pages. The `slides` Action now also builds the web version and publishes it with the PDF to https://commandertvis.github.io/dmfseo/slides/ (presenter mode with notes and timer at `#/presenter/1`). The deck is `noindex`, and the Pages `robots.txt` already blocks crawling.
+
+**Who:** Diego Aguilar.
+
+**Reason:** The team chose Slidev (Iaroslav: Markdown suits both the team and AI tools) and wants one link to present and proofread from, with no local install. The deck must not rank for "grohnpetrel" and split our position, which is the cannibalisation lesson from 12 Nov.
+
+**Outcome:** Pending. Check that the slides URL and the PDF load after the Action runs, and that Iaroslav's proofreading lands as a pull request.
