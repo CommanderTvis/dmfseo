@@ -1,0 +1,28 @@
+name: slides
+# Builds the Slidev presentation as a PDF and attaches it to the run (Actions → slides → Artifacts).
+# Runs only on main and on demand, so it never blocks a pull request or touches WordPress.
+on:
+  push:
+    branches: [main]
+    paths: ["presentation/**", ".github/workflows/slides.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: presentation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - run: npm run export
+      - uses: actions/upload-artifact@v4
+        with:
+          name: grohnpetrel-slides
+          path: presentation/grohnpetrel-slides.pdf
