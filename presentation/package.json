@@ -1,0 +1,15 @@
+{
+  "name": "grohnpetrel-presentation",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "slidev slides.md --open",
+    "build": "slidev build slides.md --base /dmfseo/slides/",
+    "export": "slidev export slides.md --output grohnpetrel-slides.pdf --timeout 60000"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^0.50.0",
+    "@slidev/theme-default": "^0.25.0",
+    "playwright-chromium": "^1.48.0"
+  }
+}
