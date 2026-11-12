@@ -287,3 +287,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** The team asked for more videos to post on Instagram, TikTok and YouTube, and for the same videos on the site; the footer had become crowded (17 links in one column, English headings on German pages); new languages extend the approach that worked for Spanish and Chinese (one clear definition and FAQ per language). The French, Italian and Russian texts were translated with AI help and say so; a native speaker should review them.
 
 **Outcome:** Pending. Check video indexing in Search Console and whether the new language pages are indexed.
+
+## 2026-11-12
+
+**Action:** E-E-A-T improvements from the in-class Activity 2. (1) New page "Editorial Policy and Corrections" (EN) / "Redaktionsrichtlinien und Korrekturen" (DE): who writes the site, how we choose and check sources, how we use AI, what we never claim, how to report an error, and a dated corrections log with the five corrections we can document from the project log and Git history. Linked from the footer ("Transparency") and the About pages; the structured data names it as the project's `publishingPrinciples`. (2) An "About this page" box at the end of every content page and post in all seven languages: written and reviewed by Team Guillemots with AI assistance, where the facts come from (only on pages with a sources section), published and last-changed dates from WordPress, and links to report an error and to the editorial policy. Not shown on front pages or legal pages.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Activity 2 asked for two improvements per E-E-A-T dimension. Grohnpetrel is fictional, so trust has to come from transparency and checkable work. Of our eight proposals, these two (Trustworthiness 1 and 2, plus Expertise 1) can be done in code; the others need the team (a field visit with own photos, an expert review with permission, approved mentions, active social profiles).
+
+**Outcome:** Pending.
