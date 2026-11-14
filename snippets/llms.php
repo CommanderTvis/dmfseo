@@ -33,6 +33,7 @@ if ( ! function_exists( 'grohnpetrel_llms_txt' ) ) {
 - [Take action: how to help protect seabirds]({$u}take-action-how-to-help-protect-seabirds/)
 - [How plastic pollution affects North Sea seabirds]({$u}how-plastic-pollution-affects-north-sea-seabirds/): sourced article
 - [Why the Wadden Sea matters for birds]({$u}why-the-wadden-sea-matters-for-birds/): sourced article
+- [Coastal habitat protection]({$u}coastal-habitat-protection/): dunes, salt marshes, beach-nesting birds and how to visit the coast responsibly, with sources
 
 ## Project
 
@@ -46,7 +47,6 @@ if ( ! function_exists( 'grohnpetrel_llms_txt' ) ) {
 - [YouTube](https://www.youtube.com/@grohnpetrelguillemots2026)
 - [TikTok](https://www.tiktok.com/@grohnpetrel.guill)
 - [Facebook](https://www.facebook.com/profile.php?id=61596490404549)
-- [LinkedIn](https://www.linkedin.com/in/grohnpetrel-guillemots-115ab9449/)
 
 ## German
 
