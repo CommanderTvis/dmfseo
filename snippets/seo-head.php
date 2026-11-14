@@ -446,7 +446,21 @@ add_filter( 'render_block', function ( $html, $block ) {
 			? sprintf( '<span aria-current="true" lang="%s">%s</span>', $code, esc_html( $info['name'] ) )
 			: sprintf( '<a href="%s" hreflang="%s" lang="%s">%s</a>', esc_url( $url ), $code, $code, esc_html( $info['name'] ) );
 	}
-	return $html . '<p class="gp-footer-langs"><span class="gp-footer-langs__label">' . esc_html( isset( $label[ $lang ] ) ? $label[ $lang ] : $label['en'] ) . '</span> ' . implode( ' · ', $links ) . '</p>';
+	$langs_row = '<p class="gp-footer-langs"><span class="gp-footer-langs__label">' . esc_html( isset( $label[ $lang ] ) ? $label[ $lang ] : $label['en'] ) . '</span> ' . implode( ' · ', $links ) . '</p>';
+	// Verified team profiles (checked 14 Nov 2026). Text links: light, accessible, no third-party scripts.
+	$follow  = array( 'en' => array( 'Follow the project:', 'opens in a new tab' ), 'de' => array( 'Folgen Sie dem Projekt:', 'öffnet in neuem Tab' ), 'es' => array( 'Sigue el proyecto:', 'se abre en una pestaña nueva' ), 'fr' => array( 'Suivre le projet :', 's’ouvre dans un nouvel onglet' ), 'it' => array( 'Segui il progetto:', 'si apre in una nuova scheda' ), 'ru' => array( 'Следите за проектом:', 'откроется в новой вкладке' ), 'zh' => array( '关注项目：', '在新标签页中打开' ) );
+	$f       = isset( $follow[ $lang ] ) ? $follow[ $lang ] : $follow['en'];
+	$profile = array(
+		'Instagram' => 'https://www.instagram.com/grohnpetrel.guillemots2026/',
+		'YouTube'   => 'https://www.youtube.com/@grohnpetrelguillemots2026',
+		'TikTok'    => 'https://www.tiktok.com/@grohnpetrel.guill',
+		'Facebook'  => 'https://www.facebook.com/profile.php?id=61596490404549',
+	);
+	$social = array();
+	foreach ( $profile as $name => $url ) {
+		$social[] = sprintf( '<a href="%s" target="_blank" rel="me noopener" aria-label="%s">%s</a>', esc_url( $url ), esc_attr( 'Grohnpetrel ' . $name . ' (' . $f[1] . ')' ), esc_html( $name ) );
+	}
+	return $html . $langs_row . '<p class="gp-footer-social"><span class="gp-footer-langs__label">' . esc_html( $f[0] ) . '</span> ' . implode( ' · ', $social ) . '</p>';
 }, 10, 2 );
 
 // "About this page" box at the end of every content page and post (E-E-A-T): who wrote and reviewed it,
