@@ -367,3 +367,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Team brief for Phase 4. A separate "North Sea Seabirds: Species, Threats & Conservation" page was not created because the seabird guide already covers the same intent and a second page would compete with it in search (the cannibalisation problem we saw on 12 Nov); the guide keeps its URL and title and gains the requested profiles. The same rule applied to the homepage section, the glossary and Take Action: existing sections were improved, not duplicated.
 
 **Outcome:** Pending. Check on 21 Nov in Search Console whether the guide and species pages gain impressions for species and seabird queries, and whether image search sends visits.
+
+---
+
+**Action:** CSS fixes after the live check of Phase 4: text in the species cards and in the "5 Ways" steps now uses balanced sizes (the theme had made the intro text much larger than the facts, and the step titles smaller than their text); the glossary jump box lines up with the text column.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Found on the live desktop check on 14 Nov.
+
+**Outcome:** Pending live check.
