@@ -136,6 +136,41 @@ footer.wp-block-template-part .gp-footer-langs a{color:inherit;text-decoration:u
 footer.wp-block-template-part .gp-footer-langs [aria-current]{font-weight:700}
 .gp-footer-langs__label{display:block;font-family:var(--gp-serif);font-weight:600;margin-bottom:.15rem}
 footer.wp-block-template-part .wp-block-navigation__container{gap:.45rem!important}
+/* Phase 4: icons on front-page cards, species cards, numbered steps, glossary jump links, Continue exploring */
+.gp-ico::before{content:"";display:block;width:2.6rem;height:2.6rem;margin-bottom:.7rem;border-radius:12px;background:var(--gp-foam) center/62% no-repeat}
+.gp-ico{position:relative}
+.gp-ico::after{content:"";position:absolute;left:.5rem;top:.5rem;width:1.6rem;height:1.6rem;background:var(--gp-teal);-webkit-mask:var(--gp-i) center/contain no-repeat;mask:var(--gp-i) center/contain no-repeat}
+.gp-ico-bird{--gp-i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 10c3.5 0 6.5 1.6 10 5.5 3.5-3.9 6.5-5.5 10-5.5'/%3E%3Cpath d='M12 15.5V19'/%3E%3Ccircle cx='12' cy='7' r='1.6'/%3E%3C/svg%3E")}
+.gp-ico-alert{--gp-i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3 22 20H2z'/%3E%3Cpath d='M12 10v4.5'/%3E%3Cpath d='M12 17.5h.01'/%3E%3C/svg%3E")}
+.gp-ico-shield{--gp-i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3 20 6v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z'/%3E%3Cpath d='m8.5 12.5 2.5 2.5 4.5-5'/%3E%3C/svg%3E")}
+.gp-ico-compass{--gp-i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='m15.5 8.5-2 5-5 2 2-5z'/%3E%3C/svg%3E")}
+.gp-ico-cap{--gp-i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 9l10-5 10 5-10 5z'/%3E%3Cpath d='M6 11v5c3.5 2.5 8.5 2.5 12 0v-5'/%3E%3C/svg%3E")}
+.gp-ico-book{--gp-i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1z'/%3E%3Cpath d='M12 6v14'/%3E%3C/svg%3E")}
+.gp-ico-question{--gp-i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='M9.5 9.5a2.5 2.5 0 1 1 3.4 2.3c-.6.3-.9.8-.9 1.5v.7'/%3E%3Cpath d='M12 17h.01'/%3E%3C/svg%3E")}
+.gp-ico-people{--gp-i:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='8' r='3'/%3E%3Cpath d='M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5'/%3E%3Cpath d='M16 5.2a3 3 0 0 1 0 5.6'/%3E%3Cpath d='M18.5 14.8c1.6.8 2.5 2.4 2.5 4.2'/%3E%3C/svg%3E")}
+.gp-species{padding:0!important;overflow:hidden}
+.gp-species>*{padding-left:1.25rem;padding-right:1.25rem}
+.gp-species>.wp-block-image{padding:0;margin:0!important}
+.gp-species .wp-block-image img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block;border-radius:0}
+.gp-species .wp-block-image figcaption{font-size:.68rem;line-height:1.35;color:var(--gp-muted);margin:.35rem 1.25rem 0;text-align:left}
+.gp-species h3{font-size:1.2rem!important;margin-top:.9rem!important}
+.gp-species h3 a{text-decoration:none;color:var(--gp-teal-dark)}
+.gp-species__latin{font-size:.85rem;color:var(--gp-muted);margin-top:.15rem!important}
+.gp-species__facts{list-style:none;padding-left:1.25rem!important;font-size:.92rem}
+.gp-species__facts li{margin:.35rem 0}
+.gp-species__links{font-size:.88rem;margin-top:auto!important;padding-top:.6rem;padding-bottom:1.3rem}
+.gp-steps{list-style:none;padding-left:0!important;counter-reset:gp-step}
+.gp-steps li{counter-increment:gp-step;position:relative;background:#fff;border:1px solid var(--gp-line);border-radius:14px;padding:1rem 1.1rem 1rem 4.1rem;margin-bottom:.8rem;box-shadow:0 1px 2px rgba(16,63,70,.06)}
+.gp-steps li::before{content:counter(gp-step);position:absolute;left:1rem;top:1rem;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--gp-teal);color:#fff;font-family:var(--gp-serif);font-weight:700;display:flex;align-items:center;justify-content:center}
+.gp-steps li strong{display:block;color:var(--gp-teal-dark);font-size:1.08rem;margin-bottom:.2rem}
+.gp-jump{background:#fff;border:1px solid var(--gp-line);border-radius:10px;padding:.65rem 1rem;font-size:.92rem;line-height:1.8}
+.gp-continue{max-width:var(--wp--style--global--content-size);margin:2.5rem auto 0;padding:1rem 1.25rem;border-radius:12px;background:var(--gp-foam)}
+.gp-continue__title{font-family:var(--gp-serif);font-weight:700;color:var(--gp-teal-dark);font-size:1.1rem;margin:0 0 .5rem!important}
+.gp-continue ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.6rem}
+.gp-continue li a{display:block;height:100%;box-sizing:border-box;background:#fff;border:1px solid var(--gp-line);border-radius:10px;padding:.7rem .9rem;text-decoration:none;color:var(--gp-teal-dark);font-weight:600;line-height:1.4}
+.gp-continue li a::after{content:" \2192";color:var(--gp-gold)}
+.gp-continue li a:hover,.gp-continue li a:focus-visible{border-color:var(--gp-teal)}
+@media (max-width:600px){.gp-steps li{padding-left:3.5rem}.gp-steps li::before{left:.8rem;width:2rem;height:2rem}}
 @media (max-width:600px){.wp-block-table td,.wp-block-table th{padding:.45em .55em;font-size:.9rem}}
 @media (max-width:1000px){.gp-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 @media (max-width:781px){
