@@ -156,14 +156,16 @@ footer.wp-block-template-part .wp-block-navigation__container{gap:.45rem!importa
 .gp-species h3{font-size:1.2rem!important;margin-top:.9rem!important}
 .gp-species h3 a{text-decoration:none;color:var(--gp-teal-dark)}
 .gp-species__latin{font-size:.85rem;color:var(--gp-muted);margin-top:.15rem!important}
-.gp-species__facts{list-style:none;padding-left:1.25rem!important;font-size:.92rem}
+.gp-species p{font-size:.95rem!important;line-height:1.55}
+.gp-species__facts{list-style:none;padding-left:1.25rem!important;font-size:.9rem!important;line-height:1.5}
 .gp-species__facts li{margin:.35rem 0}
 .gp-species__links{font-size:.88rem;margin-top:auto!important;padding-top:.6rem;padding-bottom:1.3rem}
 .gp-steps{list-style:none;padding-left:0!important;counter-reset:gp-step}
 .gp-steps li{counter-increment:gp-step;position:relative;background:#fff;border:1px solid var(--gp-line);border-radius:14px;padding:1rem 1.1rem 1rem 4.1rem;margin-bottom:.8rem;box-shadow:0 1px 2px rgba(16,63,70,.06)}
 .gp-steps li::before{content:counter(gp-step);position:absolute;left:1rem;top:1rem;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--gp-teal);color:#fff;font-family:var(--gp-serif);font-weight:700;display:flex;align-items:center;justify-content:center}
-.gp-steps li strong{display:block;color:var(--gp-teal-dark);font-size:1.08rem;margin-bottom:.2rem}
-.gp-jump{background:#fff;border:1px solid var(--gp-line);border-radius:10px;padding:.65rem 1rem;font-size:.92rem;line-height:1.8}
+.gp-steps li{font-size:1.05rem;line-height:1.6}
+.gp-steps li strong{display:block;color:var(--gp-teal-dark);font-family:var(--gp-serif);font-size:1.15em;margin-bottom:.25rem}
+.gp-jump{box-sizing:border-box;background:#fff;border:1px solid var(--gp-line);border-radius:10px;padding:.65rem 1rem;font-size:.92rem;line-height:1.8}
 .gp-continue{max-width:var(--wp--style--global--content-size);margin:2.5rem auto 0;padding:1rem 1.25rem;border-radius:12px;background:var(--gp-foam)}
 .gp-continue__title{font-family:var(--gp-serif);font-weight:700;color:var(--gp-teal-dark);font-size:1.1rem;margin:0 0 .5rem!important}
 .gp-continue ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.6rem}
