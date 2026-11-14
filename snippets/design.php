@@ -88,7 +88,7 @@ figcaption,.wp-element-caption{color:var(--gp-muted);font-size:.875rem}
 .gp-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:1.5rem!important}
 .gp-grid-4{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:1.25rem!important;margin-top:1.5rem!important;margin-bottom:1.25rem!important}
 .gp-grid-4 .gp-card{padding:1.3rem 1.25rem 1.4rem!important}
-.gp-measure{max-width:46rem}
+.gp-section>.gp-measure{max-width:46rem;margin-left:max(0px,calc((100% - 1180px)/2))!important;margin-right:auto!important}
 .gp-video-split{gap:clamp(1.5rem,5vw,4rem)!important}
 .gp-video-split .gp-video{max-width:340px;margin-right:0!important}
 .gp-connect .gp-social{margin-top:1rem!important;margin-bottom:1rem!important}
