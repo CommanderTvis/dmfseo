@@ -347,3 +347,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** The team's Phase 3 brief: make coastal education easier to find, use screen space better and make verified social channels easy to find, without rebuilding the site. Titles, meta descriptions, slugs and H1s of existing pages are unchanged. This breaks the "no edits until 19 Nov" plan of 12 Nov, so ranking changes after 14 Nov cannot be attributed to the 12 Nov meanings fix alone.
 
 **Outcome:** Pending. Team: send the correct LinkedIn URL if the profile exists; rename the YouTube Shorts (currently "grohnpetrel explained en/de"). Check on 21 Nov whether the new page is indexed and whether the front-page links are used (Search Console).
+
+---
+
+**Action:** Layout fixes after checking Phase 3 live: the three habitat cards on the new coastal habitats page (EN/DE) now use the wide layout (they were 237 px wide and very tall in the narrow text column), and the intro sentence of "Protect Our Coasts" on the front pages now lines up with its heading.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Found in the live desktop check on 14 Nov. Mobile check (390 px): no horizontal scrolling, cards stack in one column, buttons at least 41 px high.
+
+**Outcome:** Pending live check after publishing.
