@@ -463,6 +463,63 @@ add_filter( 'render_block', function ( $html, $block ) {
 	return $html . $langs_row . '<p class="gp-footer-social"><span class="gp-footer-langs__label">' . esc_html( $f[0] ) . '</span> ' . implode( ' · ', $social ) . '</p>';
 }, 10, 2 );
 
+// "Continue exploring": two or three related guides at the end of each educational page (EN/DE),
+// before the "About this page" box. One map for all pages keeps the links consistent; pages not
+// in the map get no box.
+add_filter( 'the_content', function ( $content ) {
+	if ( ! is_singular( array( 'page', 'post' ) ) || ! in_the_loop() || ! is_main_query() ) {
+		return $content;
+	}
+	$post = get_post();
+	if ( ! $post ) {
+		return $content;
+	}
+	$lang = (string) get_post_meta( $post->ID, 'grohnpetrel_lang', true );
+	$de   = 'de' === $lang;
+	$map  = $de ? array(
+		'seevoegel-der-nordsee' => array( array( 'de/gefaehrdung-der-seevoegel/', 'Die sechs größten Gefahren für Seevögel' ), array( 'de/kuestenlebensraeume-schuetzen/', 'Dünen, Salzwiesen und Strandbrüter schützen' ), array( 'de/glossar-seevoegel-und-kueste/', 'Glossar: Seevögel und Küste' ) ),
+		'basstoelpel' => array( array( 'de/papageitaucher/', 'Nächste Art: Papageitaucher' ), array( 'wie-plastikmuell-seevoegeln-der-nordsee-schadet/', 'Wie Plastikmüll den Seevögeln der Nordsee schadet' ), array( 'de/seevoegel-der-nordsee/#arten-portraets', 'Alle sechs Artenporträts' ) ),
+		'papageitaucher' => array( array( 'de/dreizehenmoewe/', 'Nächste Art: Dreizehenmöwe' ), array( 'de/gefaehrdung-der-seevoegel/', 'Die sechs größten Gefahren für Seevögel' ), array( 'de/seevoegel-der-nordsee/#arten-portraets', 'Alle sechs Artenporträts' ) ),
+		'dreizehenmoewe' => array( array( 'de/flussseeschwalbe/', 'Nächste Art: Flussseeschwalbe' ), array( 'de/gefaehrdung-der-seevoegel/', 'Die sechs größten Gefahren für Seevögel' ), array( 'de/seevoegel-der-nordsee/#arten-portraets', 'Alle sechs Artenporträts' ) ),
+		'flussseeschwalbe' => array( array( 'de/austernfischer/', 'Nächste Art: Austernfischer' ), array( 'de/kuestenlebensraeume-schuetzen/', 'So schützt man Strandbrüter' ), array( 'de/seevoegel-der-nordsee/#arten-portraets', 'Alle sechs Artenporträts' ) ),
+		'austernfischer' => array( array( 'de/sturmschwalbe/', 'Nächste Art: Sturmschwalbe' ), array( 'warum-das-wattenmeer-fuer-voegel-wichtig-ist/', 'Warum das Wattenmeer für Vögel wichtig ist' ), array( 'de/kuestenlebensraeume-schuetzen/', 'Dünen, Salzwiesen und Strände schützen' ) ),
+		'sturmschwalbe' => array( array( 'de/basstoelpel/', 'Nächste Art: Basstölpel' ), array( 'de/was-ist-grohnpetrel/', 'Was ist Grohnpetrel? Woher der Name kommt' ), array( 'de/seevoegel-der-nordsee/#arten-portraets', 'Alle sechs Artenporträts' ) ),
+		'gefaehrdung-der-seevoegel' => array( array( 'de/seevoegel-der-nordsee/#arten-portraets', 'Sechs Seevögel der Nordsee kennenlernen' ), array( 'wie-plastikmuell-seevoegeln-der-nordsee-schadet/', 'Plastik und Seevögel der Nordsee: die Belege' ), array( 'de/aktiv-werden-seevoegel-schuetzen/#fuenf-wege', '5 Wege, Seevögel und Küstenlebensräume zu schützen' ) ),
+		'aktiv-werden-seevoegel-schuetzen' => array( array( 'de/kuestenlebensraeume-schuetzen/#verantwortungsvoll-besuchen', 'Checkliste: die Küste verantwortungsvoll besuchen' ), array( 'de/seevoegel-der-nordsee/#arten-portraets', 'Sechs Seevögel der Nordsee kennenlernen' ), array( 'de/gefaehrdung-der-seevoegel/', 'Die sechs größten Gefahren für Seevögel' ) ),
+		'wie-plastikmuell-seevoegeln-der-nordsee-schadet' => array( array( 'de/aktiv-werden-seevoegel-schuetzen/#fuenf-wege', '5 Wege, Seevögel und Küstenlebensräume zu schützen' ), array( 'de/basstoelpel/', 'Basstölpel: Nester aus Fischernetzen' ), array( 'de/gefaehrdung-der-seevoegel/', 'Die sechs größten Gefahren für Seevögel' ) ),
+		'warum-das-wattenmeer-fuer-voegel-wichtig-ist' => array( array( 'de/kuestenlebensraeume-schuetzen/', 'Dünen, Salzwiesen und Strandbrüter schützen' ), array( 'de/austernfischer/', 'Austernfischer, ein Wattvogel im Rückgang' ), array( 'de/glossar-seevoegel-und-kueste/', 'Glossar: Seevögel und Küste' ) ),
+		'kuestenlebensraeume-schuetzen' => array( array( 'de/aktiv-werden-seevoegel-schuetzen/#fuenf-wege', '5 Wege, Seevögel und Küstenlebensräume zu schützen' ), array( 'warum-das-wattenmeer-fuer-voegel-wichtig-ist/', 'Warum das Wattenmeer für Vögel wichtig ist' ), array( 'de/seevoegel-der-nordsee/#arten-portraets', 'Sechs Seevögel der Nordsee kennenlernen' ) ),
+		'glossar-seevoegel-und-kueste' => array( array( 'de/seevoegel-der-nordsee/#arten-portraets', 'Sechs Seevögel der Nordsee kennenlernen' ), array( 'de/kuestenlebensraeume-schuetzen/', 'Küstenlebensräume schützen' ), array( 'de/wissenszentrum/', 'Alle Ratgeber im Wissenszentrum' ) ),
+		'unsere-mission' => array( array( 'de/programme/', 'Unsere geplanten Bildungsprogramme' ), array( 'de/aktiv-werden-seevoegel-schuetzen/#fuenf-wege', '5 Wege, Seevögel und Küstenlebensräume zu schützen' ), array( 'de/seevoegel-der-nordsee/', 'Der Seevogel-Ratgeber' ) ),
+		'programme' => array( array( 'de/unsere-mission/', 'Unsere Mission' ), array( 'de/wissenszentrum/', 'Ratgeber im Wissenszentrum' ), array( 'de/aktiv-werden-seevoegel-schuetzen/#fuenf-wege', '5 Wege, Seevögel und Küstenlebensräume zu schützen' ) ),
+	) : array(
+		'seabirds-of-the-north-sea' => array( array( 'seabird-conservation-threats-and-challenges/', 'The six main threats to seabirds' ), array( 'coastal-habitat-protection/', 'Protecting dunes, salt marshes and beach-nesting birds' ), array( 'seabird-and-coast-glossary/', 'Seabird and coast glossary' ) ),
+		'northern-gannet' => array( array( 'atlantic-puffin/', 'Next species: Atlantic puffin' ), array( 'how-plastic-pollution-affects-north-sea-seabirds/', 'How plastic pollution affects North Sea seabirds' ), array( 'seabirds-of-the-north-sea/#species-profiles', 'All six seabird profiles' ) ),
+		'atlantic-puffin' => array( array( 'black-legged-kittiwake/', 'Next species: black-legged kittiwake' ), array( 'seabird-conservation-threats-and-challenges/', 'The six main threats to seabirds' ), array( 'seabirds-of-the-north-sea/#species-profiles', 'All six seabird profiles' ) ),
+		'black-legged-kittiwake' => array( array( 'common-tern/', 'Next species: common tern' ), array( 'seabird-conservation-threats-and-challenges/', 'The six main threats to seabirds' ), array( 'seabirds-of-the-north-sea/#species-profiles', 'All six seabird profiles' ) ),
+		'common-tern' => array( array( 'eurasian-oystercatcher/', 'Next species: Eurasian oystercatcher' ), array( 'coastal-habitat-protection/', 'How to protect beach-nesting birds' ), array( 'seabirds-of-the-north-sea/#species-profiles', 'All six seabird profiles' ) ),
+		'eurasian-oystercatcher' => array( array( 'european-storm-petrel/', 'Next species: European storm petrel' ), array( 'why-the-wadden-sea-matters-for-birds/', 'Why the Wadden Sea matters for birds' ), array( 'coastal-habitat-protection/', 'Protecting dunes, salt marshes and beaches' ) ),
+		'european-storm-petrel' => array( array( 'northern-gannet/', 'Next species: northern gannet' ), array( 'what-is-grohnpetrel-2/', 'What is Grohnpetrel? Where the name comes from' ), array( 'seabirds-of-the-north-sea/#species-profiles', 'All six seabird profiles' ) ),
+		'seabird-conservation-threats-and-challenges' => array( array( 'seabirds-of-the-north-sea/#species-profiles', 'Meet six North Sea seabirds' ), array( 'how-plastic-pollution-affects-north-sea-seabirds/', 'Plastic and North Sea seabirds: the evidence' ), array( 'take-action-how-to-help-protect-seabirds/#five-ways', '5 ways to protect seabirds and coastal habitats' ) ),
+		'take-action-how-to-help-protect-seabirds' => array( array( 'coastal-habitat-protection/#visit-responsibly', 'Checklist: how to visit the coast responsibly' ), array( 'seabirds-of-the-north-sea/#species-profiles', 'Meet six North Sea seabirds' ), array( 'seabird-conservation-threats-and-challenges/', 'The six main threats to seabirds' ) ),
+		'how-plastic-pollution-affects-north-sea-seabirds' => array( array( 'take-action-how-to-help-protect-seabirds/#five-ways', '5 ways to protect seabirds and coastal habitats' ), array( 'northern-gannet/', 'Northern gannet: nests made of fishing nets' ), array( 'seabird-conservation-threats-and-challenges/', 'The six main threats to seabirds' ) ),
+		'why-the-wadden-sea-matters-for-birds' => array( array( 'coastal-habitat-protection/', 'Protecting dunes, salt marshes and beach-nesting birds' ), array( 'eurasian-oystercatcher/', 'Eurasian oystercatcher, a Wadden Sea bird in decline' ), array( 'seabird-and-coast-glossary/', 'Seabird and coast glossary' ) ),
+		'coastal-habitat-protection' => array( array( 'take-action-how-to-help-protect-seabirds/#five-ways', '5 ways to protect seabirds and coastal habitats' ), array( 'why-the-wadden-sea-matters-for-birds/', 'Why the Wadden Sea matters for birds' ), array( 'seabirds-of-the-north-sea/#species-profiles', 'Meet six North Sea seabirds' ) ),
+		'seabird-and-coast-glossary' => array( array( 'seabirds-of-the-north-sea/#species-profiles', 'Meet six North Sea seabirds' ), array( 'coastal-habitat-protection/', 'Coastal habitat protection' ), array( 'grohnpetrel-knowledge-centre/', 'All guides in the Knowledge Centre' ) ),
+		'the-grohnpetrel-mission' => array( array( 'grohnpetrel-programmes/', 'Our proposed education programmes' ), array( 'take-action-how-to-help-protect-seabirds/#five-ways', '5 ways to protect seabirds and coastal habitats' ), array( 'seabirds-of-the-north-sea/', 'The North Sea seabird guide' ) ),
+		'grohnpetrel-programmes' => array( array( 'the-grohnpetrel-mission/', 'The Grohnpetrel mission' ), array( 'grohnpetrel-knowledge-centre/', 'Guides in the Knowledge Centre' ), array( 'take-action-how-to-help-protect-seabirds/#five-ways', '5 ways to protect seabirds and coastal habitats' ) ),
+	);
+	if ( empty( $map[ $post->post_name ] ) ) {
+		return $content;
+	}
+	$title = $de ? 'Weiterlesen' : 'Continue exploring';
+	$items = '';
+	foreach ( $map[ $post->post_name ] as $link ) {
+		$items .= sprintf( '<li><a href="%s">%s</a></li>', esc_url( home_url( '/' . $link[0] ) ), esc_html( $link[1] ) );
+	}
+	return $content . '<nav class="gp-continue" aria-label="' . esc_attr( $title ) . '"><p class="gp-continue__title">' . esc_html( $title ) . '</p><ul>' . $items . '</ul></nav>';
+}, 15 );
+
 // "About this page" box at the end of every content page and post (E-E-A-T): who wrote and reviewed it,
 // where the facts come from, when it was published and last changed, and how to report an error.
 // Not on language front pages or legal pages. Dates come from WordPress, so they are always current.
