@@ -377,3 +377,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Found on the live desktop check on 14 Nov.
 
 **Outcome (15 Nov):** The live CSS check is complete: the species-card and “5 Ways” typography was corrected and the glossary jump box aligns with the text column. The analytics portal has no CSS or layout metric.
+
+## 2026-11-15
+
+**Action:** Phase 5: "Coastal Guardian Challenge", a five-question learning game on a new page, `/coastal-guardian-challenge/` (English). Each question gives a coastal situation with three answers; after "Check Answer" the visitor sees whether the answer was right, an explanation, the correct answer if needed and a link to the page that covers the topic. One point per correct answer; six result messages for 0–5 points; "Try Again" resets everything. The page contains all questions, answers, explanations and the score table as normal HTML, so it works without JavaScript and can be read by search engines; a separate snippet (`snippets/challenge.php`) turns it into the game on that page only. No plugin, no external requests, no cookies or stored scores. Entry points: a small "Become a Coastal Guardian" section on the English front page after "Protect Our Coasts", a link in the Knowledge Centre topic list and one under "5 Ways" on Take Action, and a "Continue exploring" box on the challenge page.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Team brief for Phase 5: an interactive, educational feature that keeps visitors on the site and links them to the existing guides. No similar page existed (`/coastal-guardian-challenge/` returned 404 on 15 Nov). Question 3 (injured bird) links to NABU's official guidance because our site has no rescue advice and must not invent rescue contacts.
+
+**Outcome:** Before publishing, an automated browser test played all six possible scores at desktop and phone width, a mixed run, a keyboard-only answer and a run without JavaScript: all correct. Live check pending after publishing.
