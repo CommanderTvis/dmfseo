@@ -49,6 +49,7 @@ add_action( 'wp_footer', function () {
 .gp-cgc__feedback.is-right{border-left-color:#2F7A55;background:#EAF5EE}
 .gp-cgc__feedback.is-wrong{border-left-color:#B5523A;background:#FBEFEA}
 .gp-cgc__feedback p{margin:.35rem 0}
+.gp-cgc__feedback:focus{outline:none}
 .gp-cgc__status{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:1.05rem}
 .gp-cgc__status svg{width:1.3rem;height:1.3rem;flex:0 0 auto}
 .gp-cgc__hint{color:#8E3B27;font-weight:600;min-height:1.4em;margin:.2rem 0 .6rem}
@@ -184,10 +185,11 @@ add_action( 'wp_footer', function () {
 		fb.className = 'gp-cgc__feedback ' + (right ? 'is-right' : 'is-wrong');
 		fb.setAttribute('tabindex', '-1');
 		var correctText = q.options.filter(function (o) { return o.key === q.correct; })[0].text;
-		fb.innerHTML = '<p class="gp-cgc__status">' + (right ? ICON.ok + 'Correct' : ICON.no + 'Not quite') + '</p>' +
-			'<p>' + esc(right ? q.ok : q.no) + '</p>' +
+		var msg = right ? q.ok : q.no, cut = msg.search(/[!.]\s/) + 1; // "Correct!" / "Not quite." becomes the status line
+		fb.innerHTML = '<p class="gp-cgc__status">' + (right ? ICON.ok : ICON.no) + '<span>' + esc(msg.slice(0, cut)) + '</span></p>' +
+			'<p>' + esc(msg.slice(cut).trim()) + '</p>' +
 			(right ? '' : '<p><strong>Correct answer ' + q.correct + ':</strong> ' + esc(correctText) + '</p>') +
-			'<p>Learn more: ' + q.more + '</p>';
+			'<p>' + q.more + '</p>';
 		app.querySelector('.gp-cgc__feedback-slot').appendChild(fb);
 		var bar = app.querySelector('.gp-cgc__bar');
 		bar.setAttribute('aria-valuenow', state.index + 1);
