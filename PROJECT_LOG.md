@@ -84,7 +84,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** The home page linked to a missing About page, and a site in Germany needs contact and privacy information. Clear authorship also helps search engines and AI assistants describe us.
 
-**Outcome:** Pending. FAQ, Knowledge Centre and Cookie Policy show in the footer; the rest appear once published.
+**Outcome (15 Nov):** The analytics portal has no page-level result attributable to this footer change; Search Console data currently ends on 10 Nov. The affected pages are live, but the result is not measurable from the available portal data.
 
 ---
 
@@ -94,7 +94,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** No page had structured data and titles were only the page name plus "– Grohnpetrel". This helps search engines and AI assistants identify what Grohnpetrel is and who made it, and lets German pages match searches like "Was ist Grohnpetrel".
 
-**Outcome:** Pending (check structured data with Google's Rich Results Test).
+**Outcome (15 Nov):** The analytics portal records no Rich Results Test result. Search Console and rank data show the site continuing to appear, but do not isolate an effect from structured data.
 
 ---
 
@@ -104,7 +104,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** We had 8 pages. Sourced pages and dated articles show real, ongoing work and give search engines, AI assistants and visitors more to rely on. The Lab page was an empty draft and is our main evidence page; the merch page shows the public side of the course's marketing plan.
 
-**Outcome:** Pending.
+**Outcome (15 Nov):** Search Console data through 10 Nov shows impressions for the seabird guide and Atlantic puffin page (the guide reached positions 2–10 for North Sea bird queries; the puffin page reached position 1–2 for several puffin queries). The portal does not isolate the effect of the new articles or every page in this batch.
 
 ---
 
@@ -130,7 +130,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** Backlink building: GitHub and Zenodo are crawled often and trusted by search engines, Google Scholar and AI assistants, and they confirm our site as the source.
 
-**Outcome:** Published 3 Nov; pickup by search engines and AI assistants pending.
+**Outcome (15 Nov):** Google rank tracking shows the site still in the top 10 for monitored queries through 14 Nov, and Brave returns the Zenodo record for several queries. The portal has no AI-assistant citation metric, so pickup by AI assistants is unconfirmed.
 
 ---
 
@@ -152,7 +152,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** Search engines read these signals the same way on every WordPress site; matching the common defaults closes the gaps without a plugin we could not manage from GitHub.
 
-**Outcome:** Pending.
+**Outcome (15 Nov):** Search Console and rank tracking show the site continuing to appear, but the analytics portal has no Rich Results Test or structured-data validation result and cannot isolate a ranking effect from this change.
 
 ---
 
@@ -160,7 +160,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** PageSpeed Insights (5 Nov, mobile): 3.0 s until the main content showed.
 
-**Outcome:** Pending.
+**Outcome (15 Nov):** The analytics portal has no Core Web Vitals or speed metric. Rank tracking still shows the site in Google's top 10 on several monitored queries through 14 Nov, but cannot attribute that visibility to the speed change.
 
 ---
 
@@ -170,7 +170,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** Our 5 Nov audit found no indexing problems, but broken links to the unpublished Imprint, links through redirects, a narrow text column and a plain front page. Another team's site took positions 1, 2 and 4 for "grohnpetrel" in Germany that day with long pages.
 
-**Outcome:** Pending.
+**Outcome (15 Nov):** Google rank tracking shows the site at #2 in Germany for “grohnpetrel” on 14 Nov, #5 in the US and UK, and #4 in Germany for “what is grohnpetrel”. The portal cannot separate the redesign effect from the other changes published around it.
 
 ---
 
@@ -180,7 +180,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** We are not cited in Google's AI Overview for "grohnpetrel"; no AI provider has confirmed it reads `llms.txt`, so we test it at near-zero cost.
 
-**Outcome:** Pending.
+**Outcome (15 Nov):** No direct AI-crawler or citation metric is available in the portal. The site still appears in Google's tracked results through 14 Nov, but the effect of `llms.txt` is unmeasured.
 
 ---
 
@@ -190,7 +190,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** No rival site offers Spanish or Chinese, so these searches and AI answers in those languages have no competing Grohnpetrel page. Rival sites rank with many pages that each say "Grohnpetrel" clearly; six new pages in two more languages add that, with hreflang so search engines show each visitor the right language instead of treating them as duplicates. Note: Google is blocked in mainland China, so the Chinese pages mainly reach Google users in Hong Kong, Taiwan, Singapore and elsewhere, and AI assistants.
 
-**Outcome:** Pending. Check that Google indexes /es/ and /zh/ (site: search, Search Console) and whether "grohnpetrel" queries in Spanish or Chinese show our pages.
+**Outcome (15 Nov):** The portal has no Search Console rows for the Spanish or Chinese pages through 10 Nov and no corresponding multilingual rank checks. Their indexing and ranking outcome is therefore not yet evidenced.
 
 ---
 
@@ -208,7 +208,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** Search Console showed /category/uncategorized/ getting impressions for "grohnpetrel" (2 Nov), competing with our real pages while only repeating the Journal. The AI Overview attributes Grohnpetrel to brands; a self-contained first sentence with our team's name is easier to quote. The Lab page had not been updated since 2 Nov.
 
-**Outcome:** Pending. Check that /category/uncategorized/ shows `noindex` and is gone from wp-sitemap.xml, and whether the AI Overview or the course snapshot changes in the next week.
+**Outcome (15 Nov):** The portal sitemap report was processed on 14 Nov with 0 errors and 0 warnings; it reports 79 submitted and 0 indexed URLs, but does not expose the category URL's `noindex` state. The portal has no AI Overview measurement.
 
 ---
 
@@ -218,7 +218,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** The 7 Nov audit found that about half of Google's top 10 for "grohnpetrel" are other teams' Instagram and YouTube posts, and the gap is mainly off-site. Linking site and profiles both ways (site → profiles here, profiles → site in their bios) tells search engines and AI assistants that they belong to the same project, so future posts strengthen the site rather than compete with it.
 
-**Outcome:** Pending. Next: add the website link to every profile bio, then publish the first video and posts (team).
+**Outcome (15 Nov):** The portal has no social-profile or referral analytics. Google tracking shows YouTube/rival social results in the monitored top 10, but does not show whether the team's profiles link back or whether this change helped.
 
 ## 2026-11-08
 
@@ -228,7 +228,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** The rank tracker showed our German definition page at #1 for "grohnpetrel" in Germany on 8 Nov, but rival sites hold several positions with long, specific pages, and our conservation content had no in-depth, sourced article yet. A useful article with verifiable numbers strengthens the site's topic and gives AI assistants citable facts next to our definition.
 
-**Outcome:** Pending. Check indexing of the two new posts and whether they appear for seabird and plastic searches.
+**Outcome (15 Nov):** Search Console through 10 Nov shows the site's seabird content receiving impressions, including the guide for “north sea bird” (position 8) and “northern seabirds” (position 2); it contains no plastic-article query rows. The two new posts' indexing and effect are not separately established.
 
 ---
 
@@ -238,7 +238,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** Rival sites added pages this week (a social media hub, "about" and collection pages) and rank with several long pages each; one rival marks up its product overview as an ItemList. Two well-sourced articles give the site more depth on its own topic, and machine-readable citations and lists make the facts easier for search engines and AI assistants to check and quote.
 
-**Outcome:** Pending. Validate with Google's Rich Results Test / Schema Markup Validator; check indexing of the four new posts.
+**Outcome (15 Nov):** The analytics portal contains no Rich Results Test or Schema Validator result. Search Console through 10 Nov shows the Wadden Sea article only once (“vögel im wattenmeer”, position 39), while the portal does not establish indexing of all four posts.
 
 ## 2026-11-09
 
@@ -248,7 +248,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** The course snapshot of 9 Nov has us at organic #1 (and #4), but Google's AI Overview describes Grohnpetrel as a Bremen drinks brand. An AI answer to "what is Grohnpetrel" has to deal with several meanings; a neutral page that lists them and states ours clearly is the kind of source such answers can cite. The glossary adds short, quotable definitions with machine-readable markup that no rival site has.
 
-**Outcome:** Pending. Check whether the AI Overview or other AI answers mention the conservation meaning or cite the new pages.
+**Outcome (15 Nov):** The portal has no AI-answer or citation metric. Google rank tracking through 14 Nov continues to show the site for the monitored queries, but cannot measure whether the meanings page or glossary changed AI answers.
 
 ---
 
@@ -256,124 +256,124 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** Analytics was never connected, so the banner had nothing to ask consent for; it only added requests and layout work to every page.
 
-**Outcome:** Pending.
+**Outcome (15 Nov):** Search Console data contains no analytics rows after the removal and no consent/traffic data; the portal therefore records no measurable outcome for removing Complianz.
 
 ## 2026-11-11
 
-**Action:** A 40-second explainer video, "What is Grohnpetrel?", in English and German (vertical 1080×1920, original motion graphics: definition, name origin, a schematic map of Grohn on the Weser, what the site offers, who made it and the "fictional, no donations" note). Embedded on the front pages and the definition pages (EN/DE), with a written transcript on the definition pages. Structured data: pages with a video now carry a VideoObject (name, description, poster, file, upload date, duration, transcript). llms.txt mentions the video. The same files are ready for the team's YouTube Shorts, TikTok, Instagram Reels and LinkedIn.
+**Action:** Published an English and German explainer video, “What is Grohnpetrel?”, on the website with transcripts and prepared versions for social media.
 
 **Who:** Diego Aguilar.
 
 **Reason:** Course results: on 10 Nov we fell from #1 to #3, on 11 Nov back to #2 (rank tracker 11 Nov: #2 in Google DE, where a rival's "about" page is #1; #7 in the US; still #1 for "grohnpetrel" in quotes in the US and for "what is grohnpetrel" in the US and UK). In the UK a YouTube Short is the top result for "grohnpetrel", and the AI Overview describes the word through other teams' social posts. Our social profiles are still empty. A video on the site can appear in Google's video results, and the same video gives the team its first social post.
 
-**Outcome:** Pending. Check whether Google lists the video (Search Console video indexing) and whether ranks for "grohnpetrel" change after the team posts it.
+**Outcome (15 Nov):** The portal has no video-indexing report. Rank tracking after publication shows “grohnpetrel” on 14 Nov at #2 in Germany, #5 in the US and UK; the tracker cannot determine whether the video caused those positions.
 
 ---
 
-**Action:** SEO/GEO sprint and Phase 2 refinement (second round of the day). (1) Technical audit of all core, stale and archive URLs: no live defect; the old addresses that still collect Search Console impressions redirect to the correct pages or return 404. (2) FAQ structured data: the last answer no longer includes the page byline. (3) Seabird guide (EN/DE): a short answer to "Is there a seabird called Grohnpetrel?". (4) FAQ (EN/DE): questions on threats to seabirds and how to help. (5) SEO / GEO Lab (EN/DE): a data report with chart and daily table for 31 Oct–11 Nov, made reproducible with `scripts/rank_report.py`. (6) A four-page PDF learning guide, "Six North Sea Seabirds", linked from the Knowledge Centre and the seabird guide. (7) Knowledge Centre (EN/DE): topic cards. (8) About (EN/DE): photo beside the project story, a dated project timeline and a link to the merchandise plan. README lists the new resources; four reports in `reports/`.
+**Action:** SEO/GEO sprint and Phase 2 refinement: audited technical SEO, improved FAQ and seabird content, updated the SEO / GEO Lab with reproducible results, added a six-seabird learning guide, and improved the Knowledge Centre and About pages in English and German.
 
 **Who:** Diego Aguilar.
 
 **Reason:** Course snapshot of 11 Nov: #2. The audit found no technical fault, so the work targets content gaps (seabird searches, missing FAQ answers), original citable data and a reusable resource, and makes existing content easier to find. A mobile PageSpeed test (97/100/100/100) showed no performance problem, so performance was left unchanged.
 
-**Outcome:** Pending. Check on 14 Nov whether the Lab report, guide or seabird answer gain impressions in Search Console, and record ranks with the same tracker settings.
+**Outcome (15 Nov):** Search Console through 10 Nov shows the seabird guide gaining impressions for North Sea queries, including position 2 for “northern seabird” and position 4 for “northern sea birds”. The portal has no separate row for the Lab report or the new Grohnpetrel answer.
 
 ---
 
-**Action:** Third round of the day. (1) Five more 30–42-second vertical videos in English and German (six North Sea seabirds; is there a bird called Grohnpetrel?; plastic and North Sea seabirds in four numbers; the Wadden Sea in numbers; four ways to help seabirds), made from our own graphics and the sourced facts on the site; the first video re-rendered so its last frame no longer fades out. Each video is on its topic page (EN/DE) with a transcript, and all six are on a new Videos page (EN `/grohnpetrel-videos/`, DE `/de/videos/`). Structured data: every video on a page now gets its own VideoObject. (2) French, Italian and Russian versions of the front page, What is Grohnpetrel? and the FAQ (10 questions), with their own main menus, language codes, hreflang to all seven languages and translated project descriptions in the structured data. (3) Cleaner footer: shorter "Learn" and "Transparency" menus (no language links, no external source link), German column headings on German pages, the project description and copyright line in the page's language, and a row of links to all seven language front pages.
+**Action:** Added five educational videos in English and German, published them on the relevant pages, and launched French, Italian and Russian versions of the main pages with a simplified multilingual footer.
 
 **Who:** Diego Aguilar.
 
 **Reason:** The team asked for more videos to post on Instagram, TikTok and YouTube, and for the same videos on the site; the footer had become crowded (17 links in one column, English headings on German pages); new languages extend the approach that worked for Spanish and Chinese (one clear definition and FAQ per language). The French, Italian and Russian texts were translated with AI help and say so; a native speaker should review them.
 
-**Outcome:** Pending. Check video indexing in Search Console and whether the new language pages are indexed.
+**Outcome (15 Nov):** The portal has no video-indexing report and no Search Console rows for the French, Italian or Russian pages through 10 Nov. Google rank tracking shows no multilingual queries, so indexing is unconfirmed.
 
 ## 2026-11-12
 
-**Action:** E-E-A-T improvements from the in-class Activity 2. (1) New page "Editorial Policy and Corrections" (EN) / "Redaktionsrichtlinien und Korrekturen" (DE): who writes the site, how we choose and check sources, how we use AI, what we never claim, how to report an error, and a dated corrections log with the five corrections we can document from the project log and Git history. Linked from the footer ("Transparency") and the About pages; the structured data names it as the project's `publishingPrinciples`. (2) An "About this page" box at the end of every content page and post in all seven languages: written and reviewed by Team Guillemots with AI assistance, where the facts come from (only on pages with a sources section), published and last-changed dates from WordPress, and links to report an error and to the editorial policy. Not shown on front pages or legal pages.
+**Action:** Added an Editorial Policy and Corrections page in English and German, plus an “About this page” transparency box across the educational content in all seven languages.
 
 **Who:** Diego Aguilar.
 
 **Reason:** Activity 2 asked for two improvements per E-E-A-T dimension. Grohnpetrel is fictional, so trust has to come from transparency and checkable work. Of our eight proposals, these two (Trustworthiness 1 and 2, plus Expertise 1) can be done in code; the others need the team (a field visit with own photos, an expert review with permission, approved mentions, active social profiles).
 
-**Outcome:** Pending.
+**Outcome (15 Nov):** Search Console data through 10 Nov contains no rows for the editorial-policy pages or the “About this page” boxes. The analytics portal therefore provides no measurable search outcome yet.
 
 ---
 
-**Action:** Removed the words beer, Bier, cider and Apfelschorle from the "Meanings of Grohnpetrel" page (EN/DE) and from its search descriptions; the separate craft-beer row in the table is gone and drinks are now one row.
+**Action:** Simplified the English and German “Meanings of Grohnpetrel” pages by removing unnecessary product references that could associate our site with another team’s concept.
 
 **Who:** Diego Aguilar.
 
 **Reason:** Google.de #1 for "grohnpetrel" went from us (8 and 9 Nov) to another team's drinks site (10 and 11 Nov), the day after we published the page. Our page, linked from every footer, named beer as a meaning of the word and may have tied our site to the drinks meaning, which that site answers better. This is a hypothesis, not proven: the page itself never appeared in the recorded top 10, and the other site's pages did not change.
 
-**Outcome:** Pending. Compare Google.de ranks for 7 days after publishing; also check which of our German pages ranks (we have 2 to 3 for the same query).
+**Outcome (15 Nov):** After the fix, Google.de “grohnpetrel” was #2 on 12–14 Nov; the 14 Nov result was the German FAQ. The portal shows recovery from the 10 Nov drop to #2, but cannot attribute it solely to this wording change.
 
 ---
 
-**Action:** Follow-up to the meanings-page fix, after team review. (1) The "Meanings of Grohnpetrel" page (EN/DE) no longer names or describes any other team's concept: the intro says only that the word means different things on different websites, the table keeps only how to recognise this project, and the search descriptions no longer list product categories. (2) The front pages in all seven languages and the Spanish and Chinese FAQs no longer give "for example drinks or clothing" as other uses of the word. (3) The SEO / GEO Lab (EN/DE) describes the 11 Nov AI Overview as naming "another team's consumer-brand concept" instead of naming its products. (4) The meanings page is no longer in the footer of every page; it stays linked from What is Grohnpetrel? and the FAQ.
+**Action:** After team review, removed references to other teams’ concepts from the meanings page, front pages and FAQs, and reduced its site-wide prominence to avoid search cannibalisation.
 
 **Who:** Diego Aguilar, after feedback from Iaroslav Postovalov.
 
 **Reason:** Even without the word beer, our pages still put the words drinks and clothing next to "Grohnpetrel" on every front page and, through the footer, on every page. That can tie our site to meanings that other teams' sites answer better. Tracker, 12 Nov: Google.de #2 behind another team's German front page; Google.co.uk shows a YouTube Short at #1 for "grohnpetrel". Cannibalisation (front page, What is Grohnpetrel? and FAQ all ranking for "grohnpetrel" in German): we keep the three pages because they answer different intents (project, definition, questions) and deliberately do not change titles or slugs now, to avoid more churn; we review after 7 days of stable pages.
 
-**Outcome:** Pending. Compare Google.de, US and UK ranks on 19 Nov with the same tracker settings, and note which German page ranks.
+**Outcome (15 Nov):** The latest comparable check (14 Nov) puts “grohnpetrel” at #2 in Germany, #5 in the US and #5 in the UK; the German FAQ ranked in Germany. The requested 19 Nov comparison is outside the portal's current data.
 
 ---
 
-**Action:** Started the final presentation as a Slidev deck in `presentation/` (29 slides with speaker notes, for 30 minutes plus questions): results and analysis (rank chart and daily table from the tracker, Search Console, AI visibility, anonymised competitor comparison), strategy and implementation, critical reflection, the merchandise marketing plan for the CEO, and the project log. Added a draft of the final reflection (`presentation/final-reflection-draft.md`, about 700 words) and a `slides` GitHub Action that exports the deck to PDF. Also prepared a social media pack (texts for Instagram, TikTok, YouTube Shorts, Facebook and LinkedIn in English and German for the 12 videos), kept outside the repo.
+**Action:** Started the final presentation with results, strategy, reflection, the CEO merchandise plan and the project log; added a draft final reflection and prepared social-media copy.
 
 **Who:** Diego Aguilar.
 
 **Reason:** The presentation is 80% of the grade and covers results, strategy, reflection, communication and the CEO marketing plan; starting it now lets the team rehearse and fill in the last numbers. The tracker shows a YouTube Short at #1 on Google UK on 12 Nov, so the team starts posting the videos from 13 Nov. Other teams are not named in the public deck; we name them orally.
 
-**Outcome:** Pending. The team reviews the deck and the reflection draft; numbers are updated on the morning of the presentation.
+**Outcome (15 Nov):** The public analytics dashboard is available and the tracker data through 14 Nov is reflected in the deck materials. The portal has no data about team review or proofreading; the presentation PDF URL checked here returned 404.
 
 ---
 
-**Action:** Presentation deck now uses more of Slidev and is published as a web page: points appear one by one (`v-clicks`) on the objectives and reflection slides, the publishing pipeline is a Mermaid diagram, page numbers on every slide (`global-bottom.vue`), Inter and Lora fonts as on the website, and hash routing for GitHub Pages. The `slides` Action now also builds the web version and publishes it with the PDF to https://commandertvis.github.io/dmfseo/slides/ (presenter mode with notes and timer at `#/presenter/1`). The deck is `noindex`, and the Pages `robots.txt` already blocks crawling.
+**Action:** Improved the presentation deck and published a web version with the PDF, speaker notes and presenter mode on GitHub Pages; blocked it from search indexing.
 
 **Who:** Diego Aguilar.
 
 **Reason:** The team chose Slidev (Iaroslav: Markdown suits both the team and AI tools) and wants one link to present and proofread from, with no local install. The deck must not rank for "grohnpetrel" and split our position, which is the cannibalisation lesson from 12 Nov.
 
-**Outcome:** Pending. Check that the slides URL and the PDF load after the Action runs, and that Iaroslav's proofreading lands as a pull request.
+**Outcome (15 Nov):** The slides page is reachable, but the checked PDF path returned 404. The analytics portal has no evidence about proofreading or pull requests.
 
 ## 2026-11-14
 
-**Action:** Phase 3: coastal care, layout and social media. (1) New sourced page "Coastal Habitat Protection: Dunes, Salt Marshes and Beach-Nesting Birds" (EN `/coastal-habitat-protection/`, DE `/de/kuestenlebensraeume-schuetzen/`): why the habitats matter, what disturbance does to beach-nesting birds (with a published study on dogs), the zones of the Lower Saxony Wadden Sea National Park, a nine-point checklist for responsible coastal visits and how to join an established clean-up. Sources: national park fact sheets, a peer-reviewed study (Ibis 2020), NABU. It fills a real gap: no page covered dunes, salt marshes or beach-nesting birds; marine pollution was already covered by the plastic article, so no new pollution page. (2) Front page (EN/DE): a "Protect Our Coasts" section with four cards linking to the new page, the plastic article, the responsible-visits checklist and Take Action; the video section now shows text and video side by side instead of one narrow centred column; the social profiles moved from the team section into their own "Connect With Grohnpetrel" section. (3) Every page in all seven languages: a compact "Follow the project" row of text links in the footer. (4) Links to the new page from the Conservation menu, the Knowledge Centre, Take Action, Seabird Conservation (EN/DE) and llms.txt. (5) The LinkedIn link was removed everywhere (front pages EN/DE/ES/ZH, About, Contact, structured data, llms.txt): on 14 Nov the profile URL returned "This page doesn't exist". Instagram, YouTube, TikTok and Facebook were opened and checked the same day.
+**Action:** Phase 3: added a sourced coastal-habitat page in English and German, improved the front-page layout and conservation navigation, and made verified social links easier to find across the site.
 
 **Who:** Diego Aguilar.
 
 **Reason:** The team's Phase 3 brief: make coastal education easier to find, use screen space better and make verified social channels easy to find, without rebuilding the site. Titles, meta descriptions, slugs and H1s of existing pages are unchanged. This breaks the "no edits until 19 Nov" plan of 12 Nov, so ranking changes after 14 Nov cannot be attributed to the 12 Nov meanings fix alone.
 
-**Outcome:** Pending. Team: send the correct LinkedIn URL if the profile exists; rename the YouTube Shorts (currently "grohnpetrel explained en/de"). Check on 21 Nov whether the new page is indexed and whether the front-page links are used (Search Console).
+**Outcome (15 Nov):** The portal has no Search Console data after 10 Nov and no social referral data, so it cannot yet show indexing or link usage for the new page. The 21 Nov check remains outside the available data.
 
 ---
 
-**Action:** Layout fixes after checking Phase 3 live: the three habitat cards on the new coastal habitats page (EN/DE) now use the wide layout (they were 237 px wide and very tall in the narrow text column), and the intro sentence of "Protect Our Coasts" on the front pages now lines up with its heading.
+**Action:** Fixed the coastal-habitat cards and front-page alignment after the Phase 3 live check.
 
 **Who:** Diego Aguilar.
 
 **Reason:** Found in the live desktop check on 14 Nov. Mobile check (390 px): no horizontal scrolling, cards stack in one column, buttons at least 41 px high.
 
-**Outcome:** Pending live check after publishing.
+**Outcome (15 Nov):** The live layout check reported no horizontal scrolling at 390 px and correctly stacked cards; the portal has no layout or usability metric to add.
 
 ---
 
-**Action:** Phase 4: concrete content and navigation improvements, reusing existing pages instead of creating duplicates. (1) Seabird guide (EN/DE, existing URL `/seabirds-of-the-north-sea/`): a new "Species profiles" section with six cards, each with photo, common and scientific name, IUCN status, short introduction, habitat, threats, how to help, and links to our full profile and the BirdLife International factsheet. Four new openly licensed photos (kittiwake, common tern, oystercatcher, storm petrel; CC BY-SA, Wikimedia Commons, credited on the page) also appear on their species pages. A new `fetch-media` Action downloads such images from Commons into `media/` as WebP on the feature branch, so the file in Git stays the source of truth. (2) Front page (EN/DE): the existing "Explore Grohnpetrel" section became "Discover the World of Grohnpetrel" with icons and four new lead cards (Meet North Sea Seabirds, Explore Coastal Threats, Protect Our Coasts, Discover Our Mission) followed by the existing Programmes, Knowledge Centre, FAQ and About cards. (3) Glossary in the Knowledge Centre (EN/DE): jump links to each section and a new section "Conservation and protection" with 11 terms (biodiversity, habitat, protected area, Natura 2000, quiet zone, breeding season, beach-nesting birds, disturbance, dune, invasive species, indicator species), each linked to the page that explains more. (4) Take Action (EN/DE): the four plain sub-sections became "5 Ways to Protect Seabirds and Coastal Habitats", a numbered list with evidence and links; the new fifth point is keeping dogs on a lead and staying on paths. (5) A "Continue exploring" box with three related links at the end of 15 educational pages per language (guide, six species, threats, Take Action, the two articles, coastal habitats, glossary, mission, programmes); it replaces the hand-made "Related pages" lists on the coastal habitats pages.
+**Action:** Phase 4: expanded the English and German seabird guide with species profiles, improved the homepage and Knowledge Centre, strengthened the conservation glossary and Take Action page, and added links between related educational content without creating duplicate pages.
 
 **Who:** Diego Aguilar.
 
 **Reason:** Team brief for Phase 4. A separate "North Sea Seabirds: Species, Threats & Conservation" page was not created because the seabird guide already covers the same intent and a second page would compete with it in search (the cannibalisation problem we saw on 12 Nov); the guide keeps its URL and title and gains the requested profiles. The same rule applied to the homepage section, the glossary and Take Action: existing sections were improved, not duplicated.
 
-**Outcome:** Pending. Check on 21 Nov in Search Console whether the guide and species pages gain impressions for species and seabird queries, and whether image search sends visits.
+**Outcome (15 Nov):** Search Console through 10 Nov already shows impressions for the existing guide and species content (the Atlantic puffin page reached position 1–2 for several queries), but contains no post-14 Nov data for this update and no image-search breakdown. The 21 Nov check remains outstanding.
 
 ---
 
-**Action:** CSS fixes after the live check of Phase 4: text in the species cards and in the "5 Ways" steps now uses balanced sizes (the theme had made the intro text much larger than the facts, and the step titles smaller than their text); the glossary jump box lines up with the text column.
+**Action:** Balanced typography on the species cards and Take Action steps, and aligned the glossary navigation after the Phase 4 live check.
 
 **Who:** Diego Aguilar.
 
 **Reason:** Found on the live desktop check on 14 Nov.
 
-**Outcome:** Pending live check.
+**Outcome (15 Nov):** The live CSS check is complete: the species-card and “5 Ways” typography was corrected and the glossary jump box aligns with the text column. The analytics portal has no CSS or layout metric.
