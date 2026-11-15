@@ -30,6 +30,10 @@
     {
       "name": "Grohnpetrel llms.txt",
       "file": "../snippets/llms.php"
+    },
+    {
+      "name": "Grohnpetrel Coastal Guardian Challenge",
+      "file": "../snippets/challenge.php"
     }
   ],
   "navigation": [
