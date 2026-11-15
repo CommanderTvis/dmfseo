@@ -436,5 +436,42 @@ add_action( 'wp_head', function () {
 		);
 	}
 
+	// Licence and credit for the openly licensed photos on this page, so Google Images can show who
+	// made them and under which licence (ImageObject: license, acquireLicensePage, creditText, creator).
+	$credits = array(
+		'north-sea-gannet-in-flight-helgoland' => array( 'Carsten Steger', '4.0', 'Northern_gannet_in_flight,_Lummenfelsen,_Heligoland,_Germany.jpg' ),
+		'atlantic-puffin-with-sand-eels' => array( 'Charles J. Sharp', '4.0', 'Puffin_(Fratercula_arctica)_with_lesser_sand_eels_(Ammodytes_tobianus).jpg' ),
+		'wadden-sea-near-bensersiel' => array( 'Dietmar Rabich', '4.0', 'Esens,_Wattenmeer_östlich_von_Bensersiel_--_2021_--_6290.jpg' ),
+		'helgoland-lummenfelsen-lange-anna' => array( 'Jörg Braukmann', '4.0', 'Helgoland_-_Blick_vom_Lummenfelsen_zur_Langen_Anna.jpg' ),
+		'black-legged-kittiwake-vardo' => array( 'Yathin S Krishnappa', '3.0', 'Rissa_tridactyla_(Vardø,_2012).jpg' ),
+		'common-tern-killingworth' => array( 'MPF', '4.0', '2014-05-18_Sterna_hirundo,_Killingworth_Lake,_Northumberland_04.jpg' ),
+		'eurasian-oystercatcher-haematopus-ostralegus' => array( 'Andreas Trepte', '2.5', 'Haematopus_ostralegus_He.jpg' ),
+		'european-storm-petrel-sagres' => array( 'Charles J. Sharp', '4.0', 'European_storm_petrel_(Hydrobates_pelagicus)_Sagres.jpg' ),
+	);
+	if ( preg_match_all( '#https?://[^"\'\s)]+/wp-content/uploads/[^"\'\s)]+\.(?:webp|jpe?g|png)#i', $post->post_content, $found ) ) {
+		$seen = array();
+		foreach ( array_unique( $found[0] ) as $src ) {
+			if ( preg_match( '/-\d+x\d+\.\w+$/', $src ) ) {
+				continue; // resized copies are covered by the original
+			}
+			foreach ( $credits as $key => $c ) {
+				if ( false === strpos( basename( $src ), $key ) || isset( $seen[ $key ] ) ) {
+					continue;
+				}
+				$seen[ $key ] = true;
+				$graph[]      = array(
+					'@type'              => 'ImageObject',
+					'@id'                => $url . '#image-' . $key,
+					'contentUrl'         => $src,
+					'license'            => 'https://creativecommons.org/licenses/by-sa/' . $c[1] . '/',
+					'acquireLicensePage' => 'https://commons.wikimedia.org/wiki/File:' . $c[2],
+					'creditText'         => $c[0] . ' / Wikimedia Commons',
+					'creator'            => array( '@type' => 'Person', 'name' => $c[0] ),
+					'copyrightNotice'    => $c[0] . ', CC BY-SA ' . $c[1],
+				);
+			}
+		}
+	}
+
 	echo '<script type="application/ld+json">' . wp_json_encode( array( '@context' => 'https://schema.org', '@graph' => $graph ), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
 }, 5 );
