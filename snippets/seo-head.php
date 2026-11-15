@@ -553,11 +553,20 @@ add_filter( 'the_content', function ( $content ) {
 	$box     = '<aside class="gp-page-info" aria-label="' . esc_attr( $s[0] ) . '"><p class="gp-page-info__title">' . esc_html( $s[0] ) . '</p>';
 	// The sentence about sources only where the page has a sources section.
 	$line = $s[1];
+	$jump = '';
 	if ( ! preg_match( '/<h[23][^>]*>\s*(Sources|Quellen|Fuentes|Sources and further reading)/i', $post->post_content ) ) {
 		$cut  = preg_split( '/(?<=[.。])\s*/u', $line, 2 );
 		$line = $cut[0];
+	} else {
+		// Give the first sources heading an anchor (unless it has one) and link to it from the box.
+		$content = preg_replace_callback( '/<(h[23])([^>]*)>(\s*(?:Sources|Quellen|Fuentes|Sources and further reading))/i', function ( $m ) {
+			return false !== strpos( $m[2], ' id=' ) ? $m[0] : '<' . $m[1] . $m[2] . ' id="sources">' . $m[3];
+		}, $content, 1 );
+		preg_match( '/<h[23][^>]*\sid="([^"]+)"[^>]*>\s*(?:Sources|Quellen|Fuentes|Sources and further reading)/i', $content, $sid );
+		$see  = array( 'en' => 'See the sources', 'de' => 'Zu den Quellen', 'es' => 'Ver las fuentes', 'fr' => 'Voir les sources', 'it' => 'Vedi le fonti', 'ru' => 'Источники', 'zh' => '查看来源' );
+		$jump = ' <a href="#' . esc_attr( $sid ? $sid[1] : 'sources' ) . '">' . esc_html( isset( $see[ $lang ] ) ? $see[ $lang ] : $see['en'] ) . '</a>';
 	}
-	$box    .= '<p>' . sprintf( esc_html( $line ), $team ) . '</p>';
+	$box    .= '<p>' . sprintf( esc_html( $line ), $team ) . $jump . '</p>';
 	$box    .= '<p>' . esc_html( $s[2] ) . ': ' . esc_html( get_the_date( $s[7], $post ) ) . ' · ' . esc_html( $s[3] ) . ': ' . esc_html( get_the_modified_date( $s[7], $post ) ) . '</p>';
 	$links   = array();
 	if ( $contact ) {
