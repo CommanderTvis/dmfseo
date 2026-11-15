@@ -397,3 +397,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Found while playing the published game on 15 Nov.
 
 **Outcome:** Automated test of all six scores, keyboard and no-JavaScript fallback passed again before publishing; live check after publishing.
+
+---
+
+**Action:** Phase 6: multimedia SEO and content credibility. (1) Images: the eight openly licensed photos now carry licence details in the structured data (licence, creator, credit line and the Wikimedia Commons page where the licence can be checked), so Google Images can show "Licensable" details; the six photo captions in the seabird guide (English and German) now say what the photo shows before the credit. No files were renamed; alt texts, sizes and formats were already good and stay unchanged. (2) Video: the team's "Our Story" video is not published yet (the YouTube channel has only the two short explainer videos), so no video section was added. (3) Credibility: "Sources" lists on Take Action, the seabird guide and the glossary (English and German) and on the Coastal Guardian Challenge, using only sources already cited elsewhere on the site; the About timeline (English and German) now lists the 12, 14 and 15 Nov steps from this log; the "About this page" box links to the page's sources when a page has them.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Team brief for Phase 6. These pages stated facts without a sources list on the page itself, and the timeline stopped at 11 Nov. Licence data and descriptive captions give image search more context about each photo. Checked on 15 Nov: no `X-Robots-Tag` header on any checked page and the pages send `index, follow`, so the day-1 `noindex` problem stays fixed.
+
+**Outcome:** Offline page check and PHP syntax check passed before publishing; live check after publishing.
