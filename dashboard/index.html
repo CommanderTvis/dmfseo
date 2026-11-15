@@ -18,6 +18,8 @@
   .gridwrap { overflow-x:auto; }
   table.rank { width:auto; font-variant-numeric:tabular-nums; }
   table.rank th, table.rank td { padding:4px 6px; border-bottom:1px solid #eee; white-space:nowrap; vertical-align:middle; }
+  table.rank .query { position:sticky; left:0; background:#fff; z-index:2; box-shadow:2px 0 3px -2px #999; }
+  table.rank th.query { z-index:3; }
   table.rank td.r { text-align:center; min-width:34px; border:2px solid #fff; border-radius:4px; }
   table.rank tr.q td { border-top:1px solid #ccc; }
   table { width:100%; border-collapse:collapse; font-size:.85rem; }
@@ -115,12 +117,12 @@ async function sitemapUrls(){
     const rows=g.filter(r=>r.engine==eng), t=document.getElementById('rank-'+eng);
     if(!rows.length){t.innerHTML='<tr><td class="note">No checks yet.</td></tr>';continue}
     if(!rows.some(r=>r.our_rank)){t.innerHTML=`<tr><td class="note">Not in the top 10 for any check since ${esc(dates[0])}.</td></tr>`;continue}
-    let h='<tr><th>Query</th><th>Country</th>'+dates.map(d=>`<th>${esc(d.slice(5))}</th>`).join('')+(dates.length>1?'<th>Change</th>':'')+'</tr>';
+    let h='<tr><th class="query">Query</th><th>Country</th>'+dates.map(d=>`<th>${esc(d.slice(5))}</th>`).join('')+(dates.length>1?'<th>Change</th>':'')+'</tr>';
     for(const q of queries){
       const cs=countries.filter(c=>rows.some(r=>r.country==c&&r.query==q));
       cs.forEach((c,i)=>{
         const v=dates.map(d=>{const x=rows.filter(r=>r.date==d&&r.country==c&&r.query==q).pop();return x&&x.our_rank?+x.our_rank:null});
-        h+=`<tr${i?'':' class="q"'}>`+(i?'':`<td rowspan="${cs.length}">${esc(q)}</td>`)+`<td>${esc(c.toUpperCase())}</td>`+v.map(cell).join('')+
+        h+=`<tr${i?'':' class="q"'}>`+(i?'':`<td class="query" rowspan="${cs.length}">${esc(q)}</td>`)+`<td>${esc(c.toUpperCase())}</td>`+v.map(cell).join('')+
           (dates.length>1?`<td>${change(v[v.length-2],v[v.length-1])}</td>`:'')+'</tr>';
       });
     }
