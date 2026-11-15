@@ -387,3 +387,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Team brief for Phase 5: an interactive, educational feature that keeps visitors on the site and links them to the existing guides. No similar page existed (`/coastal-guardian-challenge/` returned 404 on 15 Nov). Question 3 (injured bird) links to NABU's official guidance because our site has no rescue advice and must not invent rescue contacts.
 
 **Outcome:** Before publishing, an automated browser test played all six possible scores at desktop and phone width, a mixed run, a keyboard-only answer and a run without JavaScript: all correct. Live check pending after publishing.
+
+---
+
+**Action:** Coastal Guardian Challenge, first live check: the feedback repeated "Not quite" / "Correct" (status line and message) and "Learn more:" twice. The status line now shows the icon with the first words of the message, and the link line appears once.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Found while playing the published game on 15 Nov.
+
+**Outcome:** Automated test of all six scores, keyboard and no-JavaScript fallback passed again before publishing; live check after publishing.
