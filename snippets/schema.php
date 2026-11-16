@@ -432,7 +432,7 @@ add_action( 'wp_head', function () {
 	}
 	$graph[] = array( '@type' => 'BreadcrumbList', '@id' => $url . '#breadcrumb', 'itemListElement' => $crumbs );
 
-	if ( in_array( $slug, array( 'what-is-grohnpetrel-2', 'was-ist-grohnpetrel', 'que-es-grohnpetrel', 'qu-est-ce-que-grohnpetrel', 'che-cos-e-grohnpetrel', 'chto-takoe-grohnpetrel', 'grohnpetrel-shi-shenme' ), true ) ) {
+	if ( in_array( $slug, array( 'about-grohnpetrel', 'was-ist-grohnpetrel', 'que-es-grohnpetrel', 'qu-est-ce-que-grohnpetrel', 'che-cos-e-grohnpetrel', 'chto-takoe-grohnpetrel', 'grohnpetrel-shi-shenme' ), true ) ) {
 		$graph[] = array(
 			'@type'       => 'DefinedTerm',
 			'@id'         => $home . '#term',

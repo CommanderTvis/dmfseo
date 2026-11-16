@@ -18,9 +18,8 @@ if ( ! function_exists( 'grohnpetrel_llms_txt' ) ) {
 
 ## Start here
 
-- [What is Grohnpetrel?]({$u}what-is-grohnpetrel-2/): definition, name origin and who created it, with a 40-second explainer video and its transcript
+- [What is Grohnpetrel?]({$u}about-grohnpetrel/): definition, name origin and who created it, with a 40-second explainer video and its transcript
 - [FAQ]({$u}grohnpetrel-faq/): short answers to common questions
-- [Meanings of Grohnpetrel]({$u}grohnpetrel-meanings/): why several student projects use the word, and which one this site is
 - [Seabird and coast glossary]({$u}seabird-and-coast-glossary/): short definitions of the terms used on the site
 - [Videos]({$u}grohnpetrel-videos/): six 40-second videos with transcripts
 - [The Grohnpetrel Mission]({$u}the-grohnpetrel-mission/): aims of the project
