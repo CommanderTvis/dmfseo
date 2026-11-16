@@ -447,6 +447,9 @@ add_action( 'wp_head', function () {
 		'common-tern-killingworth' => array( 'MPF', '4.0', '2014-05-18_Sterna_hirundo,_Killingworth_Lake,_Northumberland_04.jpg' ),
 		'eurasian-oystercatcher-haematopus-ostralegus' => array( 'Andreas Trepte', '2.5', 'Haematopus_ostralegus_He.jpg' ),
 		'european-storm-petrel-sagres' => array( 'Charles J. Sharp', '4.0', 'European_storm_petrel_(Hydrobates_pelagicus)_Sagres.jpg' ),
+		'neuwerk-wadden-sea-tidal-flats-aerial' => array( 'Ralf Roletschek', '3.0', '13-09-29-nordfriesisches-wattenmeer-RalfR-15.jpg' ),
+		'black-tailed-godwit-salt-marsh-spiekeroog' => array( 'Ssprmannheim', '4.0', 'Uferschnepfe_in_der_Salzwiese_auf_Spiekeroog_-_Nationalpark_niedersächsisches_Wattenmeer.jpg' ),
+		'juist-dune-boardwalk' => array( 'Dietmar Rabich', '4.0', 'Juist,_Düne_--_2014_--_3606.jpg' ),
 	);
 	if ( preg_match_all( '#https?://[^"\'\s)]+/wp-content/uploads/[^"\'\s)]+\.(?:webp|jpe?g|png)#i', $post->post_content, $found ) ) {
 		$seen = array();
