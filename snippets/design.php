@@ -182,7 +182,7 @@ footer.wp-block-template-part .wp-block-navigation__container{gap:.45rem!importa
 .gp-flow__step{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gp-muted)}
 .gp-flow strong{display:block;font-family:var(--gp-serif);color:var(--gp-teal-dark);font-size:1.05rem;line-height:1.3;margin:.15rem 0 .35rem}
 .gp-flow__caption{font-size:.82rem!important;color:var(--gp-muted);margin-top:.7rem!important}
-.gp-factpanel{background:#fff;border:1px solid var(--gp-line);border-top:5px solid var(--gp-teal);border-radius:14px;padding:1.3rem 1.5rem 1.2rem!important;margin:1.5rem 0 2rem!important;box-shadow:0 1px 2px rgba(16,63,70,.06)}
+.gp-factpanel{background:#fff;border:1px solid var(--gp-line);border-top:5px solid var(--gp-teal);border-radius:14px;padding:1.3rem 1.5rem 1.2rem!important;margin-top:1.5rem!important;margin-bottom:2rem!important;box-shadow:0 1px 2px rgba(16,63,70,.06)}
 .gp-factpanel h3{margin:0 0 .9rem!important}
 .gp-facts{list-style:none;padding:0!important;margin:0!important;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.6rem}
 .gp-facts li{font-size:.95rem;line-height:1.55;margin:0;padding-left:.8rem;border-left:3px solid var(--gp-gold)}
