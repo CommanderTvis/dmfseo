@@ -1,15 +1,15 @@
 {
  "path": "https://business.constructor.university/guillemots/wp-sitemap.xml",
- "lastSubmitted": "2026-11-14T11:34:45.844Z",
+ "lastSubmitted": "2026-11-15T21:22:03.719Z",
  "isPending": false,
  "isSitemapsIndex": true,
- "lastDownloaded": "2026-11-14T11:34:46.560Z",
+ "lastDownloaded": "2026-11-15T21:22:06.581Z",
  "warnings": "0",
  "errors": "0",
  "contents": [
   {
    "type": "web",
-   "submitted": "79",
+   "submitted": "81",
    "indexed": "0"
   }
  ]
