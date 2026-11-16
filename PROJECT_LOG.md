@@ -407,3 +407,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Team brief for Phase 6. These pages stated facts without a sources list on the page itself, and the timeline stopped at 11 Nov. Licence data and descriptive captions give image search more context about each photo. Checked on 15 Nov: no `X-Robots-Tag` header on any checked page and the pages send `index, follow`, so the day-1 `noindex` problem stays fixed.
 
 **Outcome:** Offline page check and PHP syntax check passed before publishing; live check after publishing.
+
+## 2026-11-16
+
+**Action:** Phase 7: Wadden Sea spotlight. Instead of a new page, we extended the existing article "Why the Wadden Sea Matters for Birds" (English and German, same URLs, titles and descriptions): three habitat cards (tidal mudflats, salt marshes, dunes and beaches) with openly licensed photos, an original four-step illustration "How coastal habitats support wildlife", a sourced fact panel "Why this ecosystem matters", a "Learn more" block linking Seabird Conservation, the seabird guide, Coastal Care, Take Action and the Knowledge Centre, two more sources and an "updated 16 November" note. A sentence now states that Grohnpetrel only uses the Wadden Sea as an educational example and does no conservation work there. New front-page section "From Bremen to the North Sea" / "Von Bremen an die Nordsee" after the seabird guide section, with an aerial photo of Neuwerk and a button to the article. Contextual links from the seabird guide and Seabird Conservation (threat 5) in both languages. The article's "Continue exploring" box now suggests other pages, so it does not repeat the new links. Three photos fetched from Wikimedia Commons (Ralf Roletschek, CC BY-SA 3.0; Ssprmannheim and Dietmar Rabich, CC BY-SA 4.0) with credits and licence data.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Team brief for Phase 7. A separate "wadden-sea-conservation" page would have competed with the existing Wadden Sea article (published 8 Nov), so the team chose to improve that article and keep its title. Facts come from UNESCO (property 1314) and the Common Wadden Sea Secretariat; the International Wadden Sea School website returned a database error on 16 Nov, so it is not cited.
+
+**Outcome:** Offline page check (82 entries, 0 errors), PHP syntax check and a local layout preview at 1280 px and 390 px passed before publishing; live check after publishing.
