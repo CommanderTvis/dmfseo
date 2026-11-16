@@ -538,3 +538,11 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Outcome:** 23 Nov, bare "grohnpetrel": #1 in Germany (/de/was-ist-grohnpetrel/) and #1 in the UK (/about-grohnpetrel/); in the US no team site in the top 10, the first eight results are YouTube Shorts and Instagram posts. Whole period: #1 on 13 of 72 country-days, top 10 on 42, the most of any team. Brave, the same day as the release: release v2.0 is the #1 result for the bare word in the UK and for "what is grohnpetrel" in all three countries, and our DOI record is #1 for the bare word in the US.
 
+
+---
+
+**Action:** Added a "Sources behind our seabird and coast content" section (UNESCO, BirdLife, NABU, OSPAR, Wadden Sea bodies) to the "What is Grohnpetrel?" page, EN and DE.
+
+**Reason:** The page the bare term ranks on had no citations; rivals have none either. Visible links to recognised organisations, plus the editorial policy, make the page look checkable and trustworthy. The page still says we are not an NGO and take no donations.
+
+**Outcome:** Pending; check bare "grohnpetrel" from 19 Nov.
