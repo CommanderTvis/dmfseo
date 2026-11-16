@@ -437,3 +437,10 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Outcome:** Pending; check from 19 Nov. Stacked on the 14 Nov updates, so effects can't be separated.
 
 ---
+---
+
+**Action:** Added a "Sources behind our seabird and coast content" section (UNESCO, BirdLife, NABU, OSPAR, Wadden Sea bodies) to the "What is Grohnpetrel?" page, EN and DE.
+
+**Reason:** The page the bare term ranks on had no citations; rivals have none either. Visible links to recognised organisations, plus the editorial policy, make the page look checkable and trustworthy. The page still says we are not an NGO and take no donations.
+
+**Outcome:** Pending; check bare "grohnpetrel" from 19 Nov.
