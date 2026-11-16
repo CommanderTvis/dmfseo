@@ -121,6 +121,78 @@ if ( ! function_exists( 'grohnpetrel_current_url' ) ) {
 	}
 }
 
+if ( ! function_exists( 'grohnpetrel_trail' ) ) {
+	/**
+	 * Breadcrumb trail for educational pages, following the main menu (the site's real structure):
+	 * Resources → Knowledge Centre (guide, glossary, videos, challenge, journal), the species pages
+	 * inside the seabird guide, Conservation (Take Action, Coastal Habitats) and journal posts.
+	 * Returns array( array( name, url|null ), … ) with Home first and the current page last (no URL),
+	 * or null for pages without a trail (front pages, About, FAQ, What is Grohnpetrel? …).
+	 * The visible trail and the BreadcrumbList in schema.php both use this, so they always match.
+	 */
+	function grohnpetrel_trail( $post = null ) {
+		$post = $post ? $post : get_queried_object();
+		if ( ! $post instanceof WP_Post ) {
+			return null;
+		}
+		$de   = 'de' === (string) get_post_meta( $post->ID, 'grohnpetrel_lang', true );
+		$kc   = $de ? array( 'de/wissenszentrum', 'Wissenszentrum' ) : array( 'grohnpetrel-knowledge-centre', 'Knowledge Centre' );
+		$gd   = $de ? array( 'de/seevoegel-der-nordsee', 'Seevogelratgeber' ) : array( 'seabirds-of-the-north-sea', 'Seabird Guide' );
+		$cons = $de ? array( 'de/gefaehrdung-der-seevoegel', 'Seevogelschutz' ) : array( 'seabird-conservation-threats-and-challenges', 'Conservation' );
+		$jn   = $de ? array( 'de/projekt-journal', 'Journal' ) : array( 'journal', 'Journal' );
+		$map  = array(
+			'northern-gannet' => array( $kc, $gd ), 'atlantic-puffin' => array( $kc, $gd ), 'black-legged-kittiwake' => array( $kc, $gd ),
+			'common-tern' => array( $kc, $gd ), 'eurasian-oystercatcher' => array( $kc, $gd ), 'european-storm-petrel' => array( $kc, $gd ),
+			'basstoelpel' => array( $kc, $gd ), 'papageitaucher' => array( $kc, $gd ), 'dreizehenmoewe' => array( $kc, $gd ),
+			'flussseeschwalbe' => array( $kc, $gd ), 'austernfischer' => array( $kc, $gd ), 'sturmschwalbe' => array( $kc, $gd ),
+			'seabirds-of-the-north-sea' => array( $kc ), 'seevoegel-der-nordsee' => array( $kc ),
+			'seabird-and-coast-glossary' => array( $kc ), 'glossar-seevoegel-und-kueste' => array( $kc ),
+			'grohnpetrel-videos' => array( $kc ), 'videos' => array( $kc ),
+			'coastal-guardian-challenge' => array( $kc ),
+			'journal' => array( $kc ), 'projekt-journal' => array( $kc ),
+			'take-action-how-to-help-protect-seabirds' => array( $cons ), 'aktiv-werden-seevoegel-schuetzen' => array( $cons ),
+			'coastal-habitat-protection' => array( $cons ), 'kuestenlebensraeume-schuetzen' => array( $cons ),
+		);
+		if ( 'post' === $post->post_type ) {
+			$parents = array( $kc, $jn );
+		} elseif ( 'page' === $post->post_type && isset( $map[ $post->post_name ] ) ) {
+			$parents = $map[ $post->post_name ];
+		} else {
+			return null;
+		}
+		$home  = $de ? get_page_by_path( 'de' ) : null;
+		$trail = array( array( $de ? 'Startseite' : 'Home', $home ? get_permalink( $home ) : home_url( '/' ) ) );
+		foreach ( $parents as $p ) {
+			$page = get_page_by_path( $p[0] );
+			if ( ! $page ) {
+				return null; // never show a trail with a missing step
+			}
+			$trail[] = array( $p[1], get_permalink( $page ) );
+		}
+		$trail[] = array( wp_strip_all_tags( get_the_title( $post ) ), null );
+		return $trail;
+	}
+}
+
+// Visible breadcrumb above the page title (H1) on the pages that have a trail.
+add_filter( 'render_block', function ( $html, $block ) {
+	static $done = false;
+	if ( $done || ! isset( $block['blockName'] ) || 'core/post-title' !== $block['blockName'] || ! is_singular() || false === strpos( $html, '<h1' ) ) {
+		return $html;
+	}
+	$trail = grohnpetrel_trail();
+	if ( ! $trail ) {
+		return $html;
+	}
+	$done  = true;
+	$de    = 'de' === (string) get_post_meta( get_queried_object_id(), 'grohnpetrel_lang', true );
+	$items = '';
+	foreach ( $trail as $c ) {
+		$items .= $c[1] ? '<li><a href="' . esc_url( $c[1] ) . '">' . esc_html( $c[0] ) . '</a></li>' : '<li aria-current="page">' . esc_html( $c[0] ) . '</li>';
+	}
+	return '<nav class="gp-breadcrumbs" aria-label="' . ( $de ? 'Brotkrümelnavigation' : 'Breadcrumb' ) . '"><ol>' . $items . '</ol></nav>' . $html;
+}, 10, 2 );
+
 if ( ! function_exists( 'grohnpetrel_reading_minutes' ) ) {
 	/** Estimated reading time in minutes, like Yoast: words divided by the language's reading speed. */
 	function grohnpetrel_reading_minutes( $post, $lang ) {

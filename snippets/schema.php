@@ -411,7 +411,14 @@ add_action( 'wp_head', function () {
 	$de_home    = isset( $home_names[ $lang ] ) ? get_page_by_path( $lang ) : null;
 	$is_home    = is_front_page() || ( $de_home && $de_home->ID === $id );
 	$crumbs     = array( array( '@type' => 'ListItem', 'position' => 1, 'name' => $de_home ? $home_names[ $lang ] : 'Home' ) );
-	if ( ! $is_home ) {
+	$trail      = ( ! $is_home && function_exists( 'grohnpetrel_trail' ) ) ? grohnpetrel_trail( $post ) : null;
+	if ( $trail ) {
+		// Same trail as the visible breadcrumb above the title (seo-head.php).
+		$crumbs = array();
+		foreach ( $trail as $i => $c ) {
+			$crumbs[] = array_filter( array( '@type' => 'ListItem', 'position' => $i + 1, 'name' => $c[0], 'item' => $c[1] ) );
+		}
+	} elseif ( ! $is_home ) {
 		$crumbs[0]['item'] = $de_home ? get_permalink( $de_home ) : $home;
 		if ( 'post' === $post->post_type ) {
 			$journal = get_page_by_path( $de ? 'de/projekt-journal' : 'journal' );
