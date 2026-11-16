@@ -417,3 +417,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Team brief for Phase 7. A separate "wadden-sea-conservation" page would have competed with the existing Wadden Sea article (published 8 Nov), so the team chose to improve that article and keep its title. Facts come from UNESCO (property 1314) and the Common Wadden Sea Secretariat; the International Wadden Sea School website returned a database error on 16 Nov, so it is not cited.
 
 **Outcome:** Offline page check (82 entries, 0 errors), PHP syntax check and a local layout preview at 1280 px and 390 px passed before publishing; live check after publishing.
+
+---
+
+**Action:** Phase 7 live check: the "Why this ecosystem matters" panel on the Wadden Sea article was shifted to the left of the text column. The panel's CSS no longer overrides the theme's automatic centring.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Found in the desktop screenshot of the published article on 16 Nov.
+
+**Outcome:** One-line CSS change; live check after publishing.
