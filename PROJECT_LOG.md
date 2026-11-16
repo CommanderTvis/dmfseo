@@ -420,10 +420,10 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 ---
 
-**Action:** Phase 7 live check: the "Why this ecosystem matters" panel on the Wadden Sea article was shifted to the left of the text column. The panel's CSS no longer overrides the theme's automatic centring.
+**Action:** Phase 8: technical SEO check of the whole site and three small fixes. (1) Visible breadcrumbs above the page title on educational pages, following the main menu: Knowledge Centre → seabird guide, glossary, videos, Coastal Guardian Challenge and journal; the six species pages inside the seabird guide; Conservation → Take Action and Coastal Habitats; journal posts under Knowledge Centre → Journal (English and German). The BreadcrumbList structured data on these pages now uses the same trail. Front pages, About, Mission, FAQ and "What is Grohnpetrel?" are unchanged. (2) Long words such as e-mail addresses now wrap (the Contact page scrolled sideways by 4 px at 390 px width). (3) German table headings may hyphenate on phones, and the mobile menu button has a 44 px tap area instead of 24 px.
 
 **Who:** Diego Aguilar.
 
-**Reason:** Found in the desktop screenshot of the published article on 16 Nov.
+**Reason:** Team brief for Phase 8. Checked on 16 Nov before changing anything: all 82 sitemap URLs return 200, are "index, follow", have a self-canonical, one H1, no image without alt text or size, and no X-Robots-Tag header; old URLs redirect or return 404; archives stay noindex. PageSpeed Insights (lab data; no field data yet) gave 99–100 for performance, accessibility, best practices and SEO on the front page, the Wadden Sea article, the challenge and the seabird guide, mobile and desktop; the remaining hints (cache lifetimes, server response time) are server settings of the university. Google's Rich Results Test found only valid items on the front page, the Wadden Sea article and the gannet page. business.constructor.university/ returns 500 and has no robots.txt or favicon.ico; these are university-level and were not touched.
 
-**Outcome:** One-line CSS change; live check after publishing.
+**Outcome:** PHP syntax check and an offline test of the breadcrumb function passed; live check after publishing.
