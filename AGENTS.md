@@ -14,6 +14,10 @@ The site is a fictional coastal-conservation / seabird-education project. It is 
 - `scripts/wp_sync.py` and `.github/workflows/wp-publish.yml`: push `pages/` to WordPress by page ID or slug (a manifest entry without an ID creates the page if it does not exist). A push to `main` that touches `pages/` publishes live, then `scripts/gsc_sitemap.py` resubmits the sitemap to Search Console.
 - `scripts/collect.py`, `scripts/gsc.py`, `.github/workflows/daily-check.yml`, `dashboard/`: daily rank tracker. Results and the dashboard live on the `gh-pages` branch (https://commandertvis.github.io/dmfseo/).
 
+## Main metric
+
+Our main metric is our Google rank for the bare query `grohnpetrel` (no quotes, no extra words) in DE, US and GB, as tracked daily in `gh-pages` `data/results.csv`. `"grohnpetrel"`, `what is grohnpetrel` and `grohnpetrel seabird` are secondary. Judge every change by what it does to the bare query: keep one page per search intent (our own pages must not compete for it) and do not add pages that dilute it. The analytics dashboard highlights this metric. Never describe or mention other teams' meanings of the word in site content (no beer, ciders or drinks wording).
+
 ## Rules
 
 - Writing to the site or sending anything to external services only when the user asks.

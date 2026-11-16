@@ -427,3 +427,14 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Team brief for Phase 8. Checked on 16 Nov before changing anything: all 82 sitemap URLs return 200, are "index, follow", have a self-canonical, one H1, no image without alt text or size, and no X-Robots-Tag header; old URLs redirect or return 404; archives stay noindex. PageSpeed Insights (lab data; no field data yet) gave 99–100 for performance, accessibility, best practices and SEO on the front page, the Wadden Sea article, the challenge and the seabird guide, mobile and desktop; the remaining hints (cache lifetimes, server response time) are server settings of the university. Google's Rich Results Test found only valid items on the front page, the Wadden Sea article and the gannet page. business.constructor.university/ returns 500 and has no robots.txt or favicon.ico; these are university-level and were not touched.
 
 **Outcome:** PHP syntax check and an offline test of the breadcrumb function passed; live check after publishing.
+## 2026-11-16
+
+**Action:** Made the bare query "grohnpetrel" our main metric (AGENTS.md, dashboard). Merged the two "meanings" pages (EN/DE) into one canonical page and renamed "What is Grohnpetrel?" to "About Grohnpetrel" (/about-grohnpetrel/), with 301 redirects from the old addresses.
+
+**Who:** Iaroslav Postovalov.
+
+**Reason:** Bare "grohnpetrel" fell from #2 (GB, 8 Nov) to outside the top 10 in most checks, and the page Google picked for it kept changing (what-is, front page, FAQ, meanings, knowledge centre), a sign our own pages compete after the 14 Nov expansion. Puffins and skuas rank with dedicated /about-grohnpetrel/ pages, so we use the same URL on our single canonical page. The page names no other team's concept and has no drinks wording.
+
+**Outcome:** Pending; check bare "grohnpetrel" in DE/US/GB from 19 Nov. A second change on top of the 14 Nov updates, so any change in rank cannot be attributed to one of them alone.
+
+---

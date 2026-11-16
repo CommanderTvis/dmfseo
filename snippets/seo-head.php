@@ -450,13 +450,13 @@ add_filter( 'render_block_data', function ( $block ) {
 	return $block;
 } );
 
-// Old addresses of the two German pages from before they moved under /de/ (WordPress does not
+// Old addresses of pages that moved or were merged into another (the two German pages that moved under /de/, the English "What is Grohnpetrel?" renamed to /about-grohnpetrel/, the meanings pages merged into it) (WordPress does not
 // keep old slugs of pages, so without this they would return 404).
 add_action( 'template_redirect', function () {
 	if ( ! is_404() ) {
 		return;
 	}
-	$moved = array( 'was-ist-grohnpetrel' => 'de/was-ist-grohnpetrel', 'grohnpetrel-faq-de' => 'de/haeufige-fragen' );
+	$moved = array( 'was-ist-grohnpetrel' => 'de/was-ist-grohnpetrel', 'grohnpetrel-faq-de' => 'de/haeufige-fragen', 'what-is-grohnpetrel-2' => 'about-grohnpetrel', 'grohnpetrel-meanings' => 'about-grohnpetrel', 'grohnpetrel-bedeutungen' => 'de/was-ist-grohnpetrel' );
 	$slug  = basename( (string) wp_parse_url( $_SERVER['REQUEST_URI'], PHP_URL_PATH ) );
 	$page  = isset( $moved[ $slug ] ) ? get_page_by_path( $moved[ $slug ] ) : null;
 	if ( $page ) {
@@ -571,7 +571,7 @@ add_filter( 'the_content', function ( $content ) {
 		'black-legged-kittiwake' => array( array( 'common-tern/', 'Next species: common tern' ), array( 'seabird-conservation-threats-and-challenges/', 'The six main threats to seabirds' ), array( 'seabirds-of-the-north-sea/#species-profiles', 'All six seabird profiles' ) ),
 		'common-tern' => array( array( 'eurasian-oystercatcher/', 'Next species: Eurasian oystercatcher' ), array( 'coastal-habitat-protection/', 'How to protect beach-nesting birds' ), array( 'seabirds-of-the-north-sea/#species-profiles', 'All six seabird profiles' ) ),
 		'eurasian-oystercatcher' => array( array( 'european-storm-petrel/', 'Next species: European storm petrel' ), array( 'why-the-wadden-sea-matters-for-birds/', 'Why the Wadden Sea matters for birds' ), array( 'coastal-habitat-protection/', 'Protecting dunes, salt marshes and beaches' ) ),
-		'european-storm-petrel' => array( array( 'northern-gannet/', 'Next species: northern gannet' ), array( 'what-is-grohnpetrel-2/', 'What is Grohnpetrel? Where the name comes from' ), array( 'seabirds-of-the-north-sea/#species-profiles', 'All six seabird profiles' ) ),
+		'european-storm-petrel' => array( array( 'northern-gannet/', 'Next species: northern gannet' ), array( 'about-grohnpetrel/', 'What is Grohnpetrel? Where the name comes from' ), array( 'seabirds-of-the-north-sea/#species-profiles', 'All six seabird profiles' ) ),
 		'seabird-conservation-threats-and-challenges' => array( array( 'seabirds-of-the-north-sea/#species-profiles', 'Meet six North Sea seabirds' ), array( 'how-plastic-pollution-affects-north-sea-seabirds/', 'Plastic and North Sea seabirds: the evidence' ), array( 'take-action-how-to-help-protect-seabirds/#five-ways', '5 ways to protect seabirds and coastal habitats' ) ),
 		'take-action-how-to-help-protect-seabirds' => array( array( 'coastal-habitat-protection/#visit-responsibly', 'Checklist: how to visit the coast responsibly' ), array( 'seabirds-of-the-north-sea/#species-profiles', 'Meet six North Sea seabirds' ), array( 'seabird-conservation-threats-and-challenges/', 'The six main threats to seabirds' ) ),
 		'how-plastic-pollution-affects-north-sea-seabirds' => array( array( 'take-action-how-to-help-protect-seabirds/#five-ways', '5 ways to protect seabirds and coastal habitats' ), array( 'northern-gannet/', 'Northern gannet: nests made of fishing nets' ), array( 'seabird-conservation-threats-and-challenges/', 'The six main threats to seabirds' ) ),
