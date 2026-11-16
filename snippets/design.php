@@ -172,6 +172,29 @@ footer.wp-block-template-part .wp-block-navigation__container{gap:.45rem!importa
 .gp-continue li a{display:block;height:100%;box-sizing:border-box;background:#fff;border:1px solid var(--gp-line);border-radius:10px;padding:.7rem .9rem;text-decoration:none;color:var(--gp-teal-dark);font-weight:600;line-height:1.4}
 .gp-continue li a::after{content:" \2192";color:var(--gp-gold)}
 .gp-continue li a:hover,.gp-continue li a:focus-visible{border-color:var(--gp-teal)}
+/* Phase 7: Wadden Sea feature (habitat cards reuse .gp-species; infographic, fact panel, learn-more links) */
+.gp-habitats{margin-top:1.5rem!important;margin-bottom:2rem!important}
+.gp-flow-wrap{margin-top:1.25rem!important;margin-bottom:2rem!important}
+.gp-flow{list-style:none;padding:0!important;margin:0!important;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.6rem}
+.gp-flow li{position:relative;background:#fff;border:1px solid var(--gp-line);border-radius:14px;padding:1.1rem 1rem 1.2rem;box-shadow:0 1px 2px rgba(16,63,70,.06);font-size:.93rem;line-height:1.55;margin:0}
+.gp-flow li:not(:last-child)::after{content:"\2192";position:absolute;right:-1.3rem;top:1.7rem;color:var(--gp-gold);font-size:1.3rem;font-weight:700;line-height:1}
+.gp-flow svg{width:2.6rem;height:2.6rem;display:block;margin-bottom:.6rem;padding:.45rem;border-radius:12px;background:var(--gp-foam);color:var(--gp-teal);box-sizing:border-box}
+.gp-flow__step{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gp-muted)}
+.gp-flow strong{display:block;font-family:var(--gp-serif);color:var(--gp-teal-dark);font-size:1.05rem;line-height:1.3;margin:.15rem 0 .35rem}
+.gp-flow__caption{font-size:.82rem!important;color:var(--gp-muted);margin-top:.7rem!important}
+.gp-factpanel{background:#fff;border:1px solid var(--gp-line);border-top:5px solid var(--gp-teal);border-radius:14px;padding:1.3rem 1.5rem 1.2rem!important;margin:1.5rem 0 2rem!important;box-shadow:0 1px 2px rgba(16,63,70,.06)}
+.gp-factpanel h3{margin:0 0 .9rem!important}
+.gp-facts{list-style:none;padding:0!important;margin:0!important;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem 1.6rem}
+.gp-facts li{font-size:.95rem;line-height:1.55;margin:0;padding-left:.8rem;border-left:3px solid var(--gp-gold)}
+.gp-facts strong{display:block;font-family:var(--gp-serif);color:var(--gp-teal);font-size:1.35rem;line-height:1.2;margin-bottom:.15rem}
+.gp-factpanel__source{font-size:.82rem!important;color:var(--gp-muted);margin-top:1rem!important;margin-bottom:0!important}
+.gp-learn{list-style:none;padding:0!important;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.7rem}
+.gp-learn li{margin:0}
+.gp-learn a{display:block;height:100%;box-sizing:border-box;background:#fff;border:1px solid var(--gp-line);border-left:4px solid var(--gp-gold);border-radius:10px;padding:.75rem .95rem;text-decoration:none;color:var(--gp-text);line-height:1.45;font-size:.92rem}
+.gp-learn a strong{display:block;color:var(--gp-teal-dark);font-size:1rem}
+.gp-learn a:hover,.gp-learn a:focus-visible{border-color:var(--gp-teal)}
+@media (max-width:1000px){.gp-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.gp-flow li::after{display:none}}
+@media (max-width:600px){.gp-flow{grid-template-columns:1fr;gap:1.3rem}.gp-flow li:not(:last-child)::after{display:block;content:"\2193";right:auto;left:50%;top:auto;bottom:-1.25rem;transform:translateX(-50%)}.gp-facts{grid-template-columns:1fr}}
 @media (max-width:600px){.gp-steps li{padding-left:3.5rem}.gp-steps li::before{left:.8rem;width:2rem;height:2rem}}
 @media (max-width:600px){.wp-block-table td,.wp-block-table th{padding:.45em .55em;font-size:.9rem}}
 @media (max-width:1000px){.gp-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
