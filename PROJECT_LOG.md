@@ -543,6 +543,6 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Action:** Added a "Sources behind our seabird and coast content" section (UNESCO, BirdLife, NABU, OSPAR, Wadden Sea bodies) to the "What is Grohnpetrel?" page, EN and DE.
 
-**Reason:** The page the bare term ranks on had no citations; rivals have none either. Visible links to recognised organisations, plus the editorial policy, make the page look checkable and trustworthy. Also linked the page to Constructor University (constructor.university), which the site never linked to. The page still says we are not an NGO and take no donations.
+**Reason:** The page the bare term ranks on had no citations; rivals have none either. Visible links to recognised organisations, plus the editorial policy, make the page look checkable and trustworthy. Also linked the page to Constructor University (constructor.university), which the site never linked to, and to Wikipedia for Weser, Wadden Sea, Bremen and petrels. The page still says we are not an NGO and take no donations.
 
 **Outcome:** Pending; check bare "grohnpetrel" from 19 Nov.
