@@ -429,9 +429,7 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Outcome:** PHP syntax check and an offline test of the breadcrumb function passed; live check after publishing.
 ## 2026-11-16
 
-**Action:** Made the bare query "grohnpetrel" our main metric (AGENTS.md, dashboard). Merged the two "meanings" pages (EN/DE) into one canonical page and renamed "What is Grohnpetrel?" to "About Grohnpetrel" (/about-grohnpetrel/), with 301 redirects from the old addresses.
-
-**Who:** Iaroslav Postovalov.
+**Action:** Made the bare query "grohnpetrel" our main metric (highlighted on the dashboard). Merged the two "meanings" pages (EN/DE) into one canonical page and renamed "What is Grohnpetrel?" to "About Grohnpetrel" (/about-grohnpetrel/), with 301 redirects from the old addresses.
 
 **Reason:** Bare "grohnpetrel" fell from #2 (GB, 8 Nov) to outside the top 10 in most checks, and the page Google picked for it kept changing (what-is, front page, FAQ, meanings, knowledge centre), a sign our own pages compete after the 14 Nov expansion. Puffins and skuas rank with dedicated /about-grohnpetrel/ pages, so we use the same URL on our single canonical page. The page names no other team's concept and has no drinks wording.
 
