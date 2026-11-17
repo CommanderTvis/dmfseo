@@ -26,6 +26,11 @@
   th,td { text-align:left; padding:6px 8px; border-bottom:1px solid #ccc; vertical-align:top; }
   .scroll { overflow-x:auto; width:min(1200px,calc(100vw - 40px)); position:relative; left:50%; transform:translateX(-50%); }
   .none { color:#a00; } .note { color:#555; font-size:.85rem; }
+  .main-metric { background:#fff6d6 !important; }
+  table.rank td.query.main-metric { border-left:4px solid #d8794b; font-weight:700; }
+  table.rank tr.main-row td:not(.r) { background:#fff6d6; }
+  tr.main-row td { background:#fff6d6; font-weight:600; }
+  .tag { font-size:.7rem; font-weight:700; background:#d8794b; color:#fff; border-radius:3px; padding:1px 5px; margin-left:6px; }
 </style>
 </head>
 <body>
@@ -98,8 +103,9 @@ async function sitemapUrls(){
   const latest=Object.values(Object.fromEntries(res.filter(r=>r.date==last).map(r=>[r.engine+'|'+r.country+'|'+r.query,r])));  // last run of the day per check
   const lg=latest.filter(r=>r.engine=='google'&&r.query=='grohnpetrel');
   const ranks=lg.map(r=>+r.our_rank).filter(Boolean);
-  card(ranks.length?Math.min(...ranks):'not in top 10','best Google rank, "grohnpetrel" ('+last+')');
-  card(lg.filter(r=>r.our_rank).length+'/'+lg.length,'countries where we rank');
+  card(ranks.length?Math.min(...ranks):'not in top 10','best Google rank, bare "grohnpetrel" (main metric, '+last+')<span class="tag">MAIN METRIC</span>');
+  card(lg.filter(r=>r.our_rank).length+'/'+lg.length,'countries where we rank for bare "grohnpetrel"');
+  cards.firstElementChild.classList.add('main-metric');
   const rv=new Set(lg.flatMap(r=>r.rival_ranks?r.rival_ranks.split(';').map(x=>x.split(':')[0]):[]));
   card(rv.size,'rival team sites in the top 10');
   const c28=gsc.reduce((a,r)=>[a[0]+ +r.clicks,a[1]+ +r.impressions],[0,0]);
@@ -122,7 +128,7 @@ async function sitemapUrls(){
       const cs=countries.filter(c=>rows.some(r=>r.country==c&&r.query==q));
       cs.forEach((c,i)=>{
         const v=dates.map(d=>{const x=rows.filter(r=>r.date==d&&r.country==c&&r.query==q).pop();return x&&x.our_rank?+x.our_rank:null});
-        h+=`<tr${i?'':' class="q"'}>`+(i?'':`<td class="query" rowspan="${cs.length}">${esc(q)}</td>`)+`<td>${esc(c.toUpperCase())}</td>`+v.map(cell).join('')+
+        h+=`<tr class="${i?'':'q '}${q=='grohnpetrel'?'main-row':''}">`+(i?'':`<td class="query${q=='grohnpetrel'?' main-metric':''}" rowspan="${cs.length}">${esc(q)}${q=='grohnpetrel'?'<span class="tag">MAIN</span>':''}</td>`)+`<td>${esc(c.toUpperCase())}</td>`+v.map(cell).join('')+
           (dates.length>1?`<td>${change(v[v.length-2],v[v.length-1])}</td>`:'')+'</tr>';
       });
     }
@@ -155,7 +161,7 @@ async function sitemapUrls(){
     for(const r of rows){
       if(gk&&r[gk]!==prev){prev=r[gk];const n=rows.filter(x=>x[gk]===prev), rs=n.map(rk).filter(v=>v<99);
         h+=`<tr><td colspan="7"><b>${esc(gk)}: ${esc(prev)}</b> <span class="note">· ${n.length} checks · ranked in ${rs.length}${rs.length?' · best '+Math.min(...rs):''}</span></td></tr>`}
-      h+=`<tr><td>${esc(r.date)}</td><td>${esc(r.engine)}</td><td>${esc(r.country)}</td><td>${esc(r.query)}</td><td class="${r.our_rank?'':'none'}">${r.our_rank||'not in top 10'}</td><td>${esc(r.rival_ranks.split(';').join(', '))}</td><td><a href="${esc(r.top_url)}">${esc(short(r.top_url))}</a></td></tr>`}
+      h+=`<tr${r.query=='grohnpetrel'?' class="main-row"':''}><td>${esc(r.date)}</td><td>${esc(r.engine)}</td><td>${esc(r.country)}</td><td>${esc(r.query)}</td><td class="${r.our_rank?'':'none'}">${r.our_rank||'not in top 10'}</td><td>${esc(r.rival_ranks.split(';').join(', '))}</td><td><a href="${esc(r.top_url)}">${esc(short(r.top_url))}</a></td></tr>`}
     t.innerHTML=h||'<tr><td>No rows</td></tr>';
   }
   t.onclick=e=>{const k=e.target.dataset&&e.target.dataset.s;if(!k)return;st.dir=st.sort==k?-st.dir:1;st.sort=k;draw()};
