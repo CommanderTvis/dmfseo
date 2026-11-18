@@ -437,3 +437,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Outcome:** Pending; check from 19 Nov. Stacked on the 14 Nov updates, so effects can't be separated.
 
 ---
+
+## 2026-11-18
+
+**Action:** Daily check with the bare query "grohnpetrel" as the main metric, competitor comparison and Search Console review; updated the final presentation (main metric, results to 18 Nov, competitor scoreboard, phases 3–8, the one-canonical-page decision, AI Overview evidence, marketing plan with customer segments and the 4 Ps, speaker timings) and the final-reflection draft.
+
+**Who:** Diego Aguilar.
+
+**Reason:** Measure the first days after the 16 Nov consolidation and prepare the 26 Nov presentation against the course criteria (results and analysis, strategy and implementation, critical reflection, communication, marketing plan).
+
+**Outcome:** Bare "grohnpetrel" on 18 Nov: #1 in Google US, #7 UK, not in the top 10 in DE; Google still showed the redirected old addresses. All internal links already pointed to /about-grohnpetrel/. No website change, so the consolidation can be judged from 19 Nov. Google's AI Overview for "what is grohnpetrel" listed our meaning first and cited our repository (signed-in browser, 18 Nov).
