@@ -187,7 +187,7 @@ IAROSLAV · 6:00–7:30 · Name the teams orally if asked. Google mostly shows o
 layout: two-cols
 ---
 
-# Search Console: what Google shows us for
+# Search Console evidence
 
 - **2,156 impressions, 43 clicks** in 28 days (to 16 Nov)
 - *grohnpetrel*: 1,286 impressions, **42 clicks**
@@ -334,12 +334,11 @@ layout: two-cols
 
 # Technical SEO
 
-- Day 1: found a **hidden `X-Robots-Tag: noindex` header**; the WordPress setting looked fine
-- Sitemap resent on every publish; canonicals; archives `noindex, follow`
-- **hreflang** across 7 languages; 301 redirects for every moved page
-- Audit 16 Nov: **all 82** sitemap pages return 200, indexable, one H1, no image without alt text (80 after the 16 Nov merge)
-- PageSpeed (lab): **99–100** for performance, accessibility, best practices and SEO, mobile and desktop
-- Rich Results Test: all items valid; breadcrumbs that match the menu
+- Day 1: found a **hidden `noindex` header**; WordPress settings looked fine
+- Sitemap resent on every publish; hreflang in 7 languages; 301 redirects
+- Audit 16 Nov: **all 82 pages** indexable, one H1, alt text everywhere
+- PageSpeed (lab): **99–100** in all four scores, mobile and desktop
+- Rich Results Test: all items valid; breadcrumbs match the menu
 
 ::right::
 
