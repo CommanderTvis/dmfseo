@@ -34,6 +34,14 @@
     {
       "name": "Grohnpetrel Coastal Guardian Challenge",
       "file": "../snippets/challenge.php"
+    },
+    {
+      "name": "Grohnpetrel seabird clue game",
+      "file": "../snippets/seabird-game.php"
+    },
+    {
+      "name": "Grohnpetrel learning games",
+      "file": "../snippets/games.php"
     }
   ],
   "navigation": [
@@ -336,6 +344,42 @@
       "slug": "juist-dune-boardwalk",
       "title": "Juist, dune and promenade (Dietmar Rabich, CC BY-SA 4.0)",
       "alt": "Wooden boardwalk leading through grassy dunes on the island of Juist, with the beach and houses in the distance"
+    },
+    {
+      "file": "grohnpetrel-quiz-en.mp4",
+      "slug": "grohnpetrel-quiz-en",
+      "title": "Which seabird am I? Play along (video, English)",
+      "alt": "Which seabird am I? Play along"
+    },
+    {
+      "file": "grohnpetrel-quiz-en-poster.webp",
+      "slug": "grohnpetrel-quiz-en-poster",
+      "title": "Which seabird am I? Play along: title frame",
+      "alt": "Grohnpetrel logo and the title “Which seabird am I?” on a dark teal background"
+    },
+    {
+      "file": "grohnpetrel-beach-walk-card-en.pdf",
+      "slug": "grohnpetrel-beach-walk-card-en",
+      "title": "North Sea beach walk card (PDF)",
+      "alt": "North Sea beach walk card"
+    },
+    {
+      "file": "grohnpetrel-quiz-de.mp4",
+      "slug": "grohnpetrel-quiz-de",
+      "title": "Welcher Seevogel bin ich? Spiel mit (video, German)",
+      "alt": "Welcher Seevogel bin ich? Spiel mit"
+    },
+    {
+      "file": "grohnpetrel-quiz-de-poster.webp",
+      "slug": "grohnpetrel-quiz-de-poster",
+      "title": "Welcher Seevogel bin ich? Spiel mit: title frame",
+      "alt": "Grohnpetrel-Logo und der Titel „Welcher Seevogel bin ich?“ auf dunkelpetrolfarbenem Hintergrund"
+    },
+    {
+      "file": "grohnpetrel-beach-walk-card-de.pdf",
+      "slug": "grohnpetrel-beach-walk-card-de",
+      "title": "Nordsee-Strandkarte (PDF)",
+      "alt": "Nordsee-Strandkarte"
     }
   ],
   "logo": "grohnpetrel-logo-webp"
