@@ -447,3 +447,23 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Measure the first days after the 16 Nov consolidation and prepare the 26 Nov presentation against the course criteria (results and analysis, strategy and implementation, critical reflection, communication, marketing plan).
 
 **Outcome:** Bare "grohnpetrel" on 18 Nov: #1 in Google US, #7 UK, not in the top 10 in DE; Google still showed the redirected old addresses. All internal links already pointed to /about-grohnpetrel/. No website change, so the consolidation can be judged from 19 Nov. Google's AI Overview for "what is grohnpetrel" listed our meaning first and cited our repository (signed-in browser, 18 Nov).
+
+## 2026-11-19
+
+**Action:** Visual redesign of the whole site through `snippets/design.php` (and the quiz styles in `snippets/challenge.php`). No page text, links, images, structured data or scripts changed. Direction: a North Sea field guide. Colours come from the mascot (deep teal, seafoam) with its beak terracotta as the only accent, replacing the gold; headings use Platypi and text uses Manrope at a readable weight, both served by the theme from our own server (no third-party font requests). Boxed cards with shadows became ruled entries, data tables are set as reference tables, the hero, sections and footer share one 1180 px grid, and focus rings, mobile menu and touch targets were reworked.
+
+**Who:** Julissa (working in a private copy of the repository at the team’s request), with AI assistance; imported into this repository by Diego Aguilar.
+
+**Reason:** Sections used four background colours and up to four different left edges, cards repeated full-width dark buttons, body text used a thin 300 weight, and the footer did not line up with the page.
+
+**Outcome:** Checked before publishing on a local preview of the live pages: all 82 published pages show the same visible words in the same order as before; no horizontal scrolling at 320, 390, 768, 1024 or 1440 px; text contrast meets WCAG AA; quiz, menus and keyboard focus work. PHP syntax check and `scripts/check_pages.py` pass. Live check after publishing.
+
+## 2026-11-20
+
+**Action:** Second design phase, "North Sea field guide", still only in `snippets/design.php` (styles, plus a small script in the page footer) and the quiz styles in `snippets/challenge.php`; documented in the new `DESIGN.md`. Three directions were compared (editorial magazine, immersive "living coast", naturalist's field guide); the field guide was chosen, with cover typography for the hero and closing banner and one moving motif, the tide line. New: art-directed gannet hero (bird clear of the text on desktop, above it on phones), contour linework on dark bands, a reading-progress line on articles, numbered specimen tables, length-range scales drawn from the existing "87–100 cm" values, conservation-status marks, numbered species plates, a sticky species index on the seabird guide, labelled table stacks on phones, a tablet menu, and the accent colour on primary actions. An independent design review was run on the first pass and its main points fixed.
+
+**Who:** Julissa (working in a private copy of the repository at the team’s request), with AI assistance; imported into this repository by Diego Aguilar.
+
+**Reason:** Make the site's design and creativity competitive while keeping every word, link, image, translation and SEO element as it was.
+
+**Outcome:** Checked before publishing on a local preview of the live pages: 80 of 82 published pages show exactly the same visible words; the two seabird-guide pages (English, German) only add the species index, built from their own plate headings. Title, description, canonical, hreflang, JSON-LD, robots, headings, image alt text and links are identical on all 82 pages. No horizontal scrolling at 320, 390, 768, 1024 or 1440 px (410 checks), no script errors, motion off under reduced-motion settings. PHP syntax check and `scripts/check_pages.py` pass. Live check after publishing.
