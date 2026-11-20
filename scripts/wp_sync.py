@@ -143,6 +143,9 @@ def main(dry: bool) -> None:
     images = media(dry)
     for m in manifest:
         page = find(m)
+        if page is None and m["status"] == "trash":  # already in the WordPress trash (find skips trashed pages)
+            print(f"ok      {m.get('slug', m.get('id'))} not published (trash)")
+            continue
         if page is None:  # no WordPress page with this ID or slug yet: create it once
             want = {"title": m["title"], "slug": m["slug"], "status": m["status"],
                     "content": content(m, images), "meta": meta(m)}
