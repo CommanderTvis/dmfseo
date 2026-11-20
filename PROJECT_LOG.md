@@ -467,3 +467,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Make the site's design and creativity competitive while keeping every word, link, image, translation and SEO element as it was.
 
 **Outcome:** Checked before publishing on a local preview of the live pages: 80 of 82 published pages show exactly the same visible words; the two seabird-guide pages (English, German) only add the species index, built from their own plate headings. Title, description, canonical, hreflang, JSON-LD, robots, headings, image alt text and links are identical on all 82 pages. No horizontal scrolling at 320, 390, 768, 1024 or 1440 px (410 checks), no script errors, motion off under reduced-motion settings. PHP syntax check and `scripts/check_pages.py` pass. Live check after publishing.
+
+## 2026-11-20
+
+**Action:** Imported Julissa's field-guide redesign from the team's private copy of the repository into this one (PR #43: `snippets/design.php`, quiz styles in `snippets/challenge.php`, `DESIGN.md`, her two log entries above). Fixed the publish script so manifest entries that are already in the WordPress trash are skipped instead of crashing it.
+
+**Who:** Diego Aguilar.
+
+**Reason:** The team agreed to let Julissa work in parallel and bring her changes in at once. Before merging we checked that her copy (made on 15 Nov) still fits the current site: her styles already cover the components added later (Wadden Sea panels, breadcrumbs, the merged About page), no page text, link, title, description, canonical or structured data changes, and her script and styles injected into the live pages showed no horizontal scrolling and no script errors on 12 pages at phone and desktop width; the Coastal Guardian Challenge still worked. The publish run for PR #43 updated both snippets but then stopped at the two "meanings" pages trashed on 16 Nov (they have no file and are no longer found by slug), so the pages after them and the sitemap notice were not processed.
+
+**Outcome:** The redesign is live since 20 Nov. PageSpeed (mobile, front page) before the merge: 100 / 100 / 100 / 100, LCP 1.7 s, CLS 0.007; check again after publishing. Ranking effect not expected from a style-only change; measure from 22 Nov.
