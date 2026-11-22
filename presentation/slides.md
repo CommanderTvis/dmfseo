@@ -28,6 +28,7 @@ Running order: Diego (opening) → Iaroslav (results, 8.5 min) → Diego (strate
 
 ---
 layout: full
+title: 'The task, and our answer in one sentence'
 ---
 
 <img src="/deck/slide-02.jpg" class="deck" alt="Slide 2: The task, and our answer in one sentence" />
@@ -42,6 +43,7 @@ Our answer is this one sentence. We repeat it on every page, in seven languages,
 
 ---
 layout: full
+title: 'Before we start: play along'
 ---
 
 <img src="/deck/slide-03.jpg" class="deck" alt="Slide 3: Before we start: play along" />
@@ -58,6 +60,7 @@ Why we show this: every answer in the game comes from sourced facts on the same 
 
 ---
 layout: full
+title: 'What we show, in the order of your criteria'
 ---
 
 <img src="/deck/slide-04.jpg" class="deck" alt="Slide 4: What we show, in the order of your criteria" />
@@ -70,6 +73,7 @@ We follow your criteria in this order. Everything we show is in our public repos
 
 ---
 layout: full
+title: '1 · Results and analysis'
 ---
 
 <img src="/deck/slide-05.jpg" class="deck" alt="Slide 5: 1 · Results and analysis" />
@@ -82,6 +86,7 @@ Transition only.
 
 ---
 layout: full
+title: 'Our main metric, and how we measure it'
 ---
 
 <img src="/deck/slide-06.jpg" class="deck" alt="Slide 6: Our main metric, and how we measure it" />
@@ -94,6 +99,7 @@ Our main metric is our Google rank for the bare word in three countries. A GitHu
 
 ---
 layout: full
+title: 'Headline results, 31 October – 21 November'
 ---
 
 <img src="/deck/slide-07.jpg" class="deck" alt="Slide 7: Headline results, 31 October – 21 November" />
@@ -110,6 +116,7 @@ Be honest: number one is reached on some days, not every day. REFRESH THESE NUMB
 
 ---
 layout: full
+title: 'Rankings over time: four phases'
 ---
 
 <img src="/deck/slide-08.jpg" class="deck" alt="Slide 8: Rankings over time: four phases" />
@@ -124,6 +131,7 @@ The days are still volatile: on 20 November our tracker saw no team site at all 
 
 ---
 layout: full
+title: 'Competitors: same presence as the leader, fewer first places'
 ---
 
 <img src="/deck/slide-09.jpg" class="deck" alt="Slide 9: Competitors: same presence as the leader, fewer first places" />
@@ -136,6 +144,7 @@ Over 66 country-days we share the best top-ten presence with Rival A, but they t
 
 ---
 layout: full
+title: 'Search Console: brand clicks, seabird reach'
 ---
 
 <img src="/deck/slide-10.jpg" class="deck" alt="Slide 10: Search Console: brand clicks, seabird reach" />
@@ -150,6 +159,7 @@ We did not install Google Analytics: we removed the cookie banner and keep the s
 
 ---
 layout: full
+title: 'AI visibility: from ignored to first meaning'
 ---
 
 <img src="/deck/slide-11.jpg" class="deck" alt="Slide 11: AI visibility: from ignored to first meaning" />
@@ -164,6 +174,7 @@ Lesson: AI engines cite sources they can find and trust. Caveat: this is a signe
 
 ---
 layout: full
+title: 'What moved the ranking, and how sure we are'
 ---
 
 <img src="/deck/slide-12.jpg" class="deck" alt="Slide 12: What moved the ranking, and how sure we are" />
@@ -176,6 +187,7 @@ Here is each change and what happened next, with how sure we are. High confidenc
 
 ---
 layout: full
+title: '2 · Strategy and implementation'
 ---
 
 <img src="/deck/slide-13.jpg" class="deck" alt="Slide 13: 2 · Strategy and implementation" />
@@ -188,6 +200,7 @@ Transition only.
 
 ---
 layout: full
+title: 'Six objectives, each tied to a technique'
 ---
 
 <img src="/deck/slide-14.jpg" class="deck" alt="Slide 14: Six objectives, each tied to a technique" />
@@ -200,6 +213,7 @@ Our strategy had six objectives, and each one maps to concrete techniques. The s
 
 ---
 layout: full
+title: 'How we built it: eight phases, each answering the data'
 ---
 
 <img src="/deck/slide-15.jpg" class="deck" alt="Slide 15: How we built it: eight phases, each answering the data" />
@@ -212,6 +226,7 @@ We built in phases, and each phase answered something in the data. In the first 
 
 ---
 layout: full
+title: 'Pipeline and technical SEO'
 ---
 
 <img src="/deck/slide-16.jpg" class="deck" alt="Slide 16: Pipeline and technical SEO" />
@@ -226,6 +241,7 @@ Technically: on day one we found a hidden noindex header that the WordPress sett
 
 ---
 layout: full
+title: 'Content strategy: real facts, made easy to use'
 ---
 
 <img src="/deck/slide-17.jpg" class="deck" alt="Slide 17: Content strategy: real facts, made easy to use" />
@@ -238,6 +254,7 @@ Our content strategy: put the invented word inside a real topic. One page per in
 
 ---
 layout: full
+title: 'Structured data and generative engine optimisation'
 ---
 
 <img src="/deck/slide-18.jpg" class="deck" alt="Slide 18: Structured data and generative engine optimisation" />
@@ -250,6 +267,7 @@ Structured data tells search engines who we are, what the word means, which ques
 
 ---
 layout: full
+title: 'Three key decisions, and why'
 ---
 
 <img src="/deck/slide-19.jpg" class="deck" alt="Slide 19: Three key decisions, and why" />
@@ -264,6 +282,7 @@ Second: a redesign touches every page, so we built and tested it in a copy of th
 
 ---
 layout: full
+title: 'Links and off-site signals: our honest gap'
 ---
 
 <img src="/deck/slide-20.jpg" class="deck" alt="Slide 20: Links and off-site signals: our honest gap" />
@@ -276,6 +295,7 @@ Our honest gap: we did no link outreach and posted on social media late. The com
 
 ---
 layout: full
+title: '3 · Critical reflection'
 ---
 
 <img src="/deck/slide-21.jpg" class="deck" alt="Slide 21: 3 · Critical reflection" />
@@ -288,6 +308,7 @@ Transition only.
 
 ---
 layout: full
+title: 'What worked, what did not, and why'
 ---
 
 <img src="/deck/slide-22.jpg" class="deck" alt="Slide 22: What worked, what did not, and why" />
@@ -302,6 +323,7 @@ What did not: longer texts did not help; too many pages competed for one word; d
 
 ---
 layout: full
+title: 'Unexpected outcomes'
 ---
 
 <img src="/deck/slide-23.jpg" class="deck" alt="Slide 23: Unexpected outcomes" />
@@ -314,6 +336,7 @@ The most interesting surprise: SEO and GEO can pull in different directions. The
 
 ---
 layout: full
+title: 'What we learned, and what we would change'
 ---
 
 <img src="/deck/slide-24.jpg" class="deck" alt="Slide 24: What we learned, and what we would change" />
@@ -328,6 +351,7 @@ Next time: one canonical page on day one, the first video on day three, three to
 
 ---
 layout: full
+title: '4 · Marketing plan for the CEO'
 ---
 
 <img src="/deck/slide-25.jpg" class="deck" alt="Slide 25: 4 · Marketing plan for the CEO" />
@@ -340,6 +364,7 @@ Transition only.
 
 ---
 layout: full
+title: 'The decision we ask for'
 ---
 
 <img src="/deck/slide-26.jpg" class="deck" alt="Slide 26: The decision we ask for" />
@@ -352,6 +377,7 @@ Dear CEO, we start with the decision. We ask you to approve Phase 0 now, an inte
 
 ---
 layout: full
+title: 'Customers: needs, wants and demands'
 ---
 
 <img src="/deck/slide-27.jpg" class="deck" alt="Slide 27: Customers: needs, wants and demands" />
@@ -364,6 +390,7 @@ Three segments, and for each we separate need, want and demand, as in the course
 
 ---
 layout: full
+title: 'Prototype: merchandise that teaches'
 ---
 
 <img src="/deck/slide-28.jpg" class="deck" alt="Slide 28: Prototype: merchandise that teaches" />
@@ -376,6 +403,7 @@ This is what you would approve. Three products, each with a job: the sticker she
 
 ---
 layout: full
+title: 'Value proposition and marketing mix'
 ---
 
 <img src="/deck/slide-29.jpg" class="deck" alt="Slide 29: Value proposition and marketing mix" />
@@ -388,6 +416,7 @@ The four Ps. Product: three items with clear jobs. Price: three, nine and fourte
 
 ---
 layout: full
+title: 'Roadmap, budget, KPIs and safeguards'
 ---
 
 <img src="/deck/slide-30.jpg" class="deck" alt="Slide 30: Roadmap, budget, KPIs and safeguards" />
@@ -402,6 +431,7 @@ Safeguards: no green claims we cannot source; always our full name and mascot, b
 
 ---
 layout: full
+title: 'How we worked: a log written as we went'
 ---
 
 <img src="/deck/slide-31.jpg" class="deck" alt="Slide 31: How we worked: a log written as we went" />
@@ -414,6 +444,7 @@ We documented as we went: 52 dated entries, 47 reviewed pull requests, daily dat
 
 ---
 layout: full
+title: 'In short'
 ---
 
 <img src="/deck/slide-32.jpg" class="deck" alt="Slide 32: In short" />
@@ -430,6 +461,7 @@ Question owners: Iaroslav (data, tracker, technical), Diego (content, structured
 
 ---
 layout: full
+title: 'Backup: daily ranks, bare word “grohnpetrel”'
 ---
 
 <img src="/deck/slide-33.jpg" class="deck" alt="Slide 33: Backup: daily ranks, bare word “grohnpetrel”" />
@@ -442,6 +474,7 @@ Use only if asked for the daily data.
 
 ---
 layout: full
+title: 'Backup: method and limits'
 ---
 
 <img src="/deck/slide-34.jpg" class="deck" alt="Slide 34: Backup: method and limits" />
@@ -454,6 +487,7 @@ Use only if asked about method.
 
 ---
 layout: full
+title: 'Backup: likely questions and who answers'
 ---
 
 <img src="/deck/slide-35.jpg" class="deck" alt="Slide 35: Backup: likely questions and who answers" />
