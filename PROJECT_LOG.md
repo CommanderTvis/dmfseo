@@ -507,3 +507,5 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Keep the main metric and the presentation numbers current, and check whether the 16 Nov consolidation is working before the 26 Nov presentation.
 
 **Outcome:** On 21 Nov we were #1 in Google for the bare query in the US and the UK and #2 in Germany, and Google ranked /about-grohnpetrel/ itself for the first time (US, UK) instead of the redirected addresses. On 20 Nov Google showed no team site in the top 10 in any country. Whole period (22 days, 66 country-days): top 10 on 39, #1 on 10, tied first with one rival for top-10 presence. Search Console to 19 Nov: 2,334 impressions, 46 clicks. Google's AI Overview (22 Nov) still lists our meaning first; Brave shows our DOI record first. No SEO content change: measurement freeze until the presentation.
+
+**Note (22 Nov):** the web version of the presentation now gives every slide a title, so the slide overview and presenter navigation show names instead of "undefined".
