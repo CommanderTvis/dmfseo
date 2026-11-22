@@ -487,3 +487,23 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** Give visitors more to do on the site and more reasons to click through to the species pages and articles, while keeping one page per search intent: each game sits on the page whose topic it practises and repeats only facts that page already states with sources. Like the Coastal Guardian Challenge, every game is plain HTML first (questions, answers, explanations and score bands are readable by search engines and without JavaScript) and the snippets turn it into the game; nothing is stored or sent, and nothing loads from other servers. Photos in the memory game and the video are the openly licensed Wikimedia Commons photos already on the site, credited next to the game and on screen.
 
 **Outcome:** Tested before publishing by injecting each game into the live pages: all seven play through to the end in English and German at phone width (390 px) and on desktop, with no script errors and no horizontal scrolling. `scripts/check_pages.py` and the PHP syntax check pass. Titles, descriptions, canonicals and structured data of the pages are unchanged; the new video gets a VideoObject automatically. Live check after publishing.
+
+## 2026-11-20
+
+**Action:** Final presentation for 26 Nov rebuilt as a PowerPoint deck (35 slides: 32 main, 3 backup, speaker, time and script in the notes of every slide), and the web version replaced by the same slides with the same notes. New: results to 20 Nov counted per country-day, new charts (daily rank per country, competitors, Search Console), the 20 Nov AI Overview, three key decisions, a live QR game for the audience, and prototype mockups of the three planned merchandise items for the CEO part.
+
+**Who:** Diego Aguilar, with AI assistance.
+
+**Reason:** Check the deck against every point of the course rubric (results 30, strategy 20, reflection 15, communication 15, marketing plan, log), bring the numbers up to date, add visual evidence and audience engagement, and have a file that runs without Wi-Fi.
+
+**Outcome:** Timing adds up to 30:00 (Diego 2:30 + 7:00 + 1:00, Iaroslav 8:30, Mario 5:00 + 0:30, Ayoyemi 5:30). Numbers to be refreshed on 25 Nov.
+
+## 2026-11-22
+
+**Action:** Daily check with the bare query "grohnpetrel" as the main metric, competitor comparison, Search Console and AI answers; refreshed the presentation to the 21 Nov data; made the "Pair found" message in the memory game green instead of the error colour (`snippets/games.php`).
+
+**Who:** Diego Aguilar, with AI assistance.
+
+**Reason:** Keep the main metric and the presentation numbers current, and check whether the 16 Nov consolidation is working before the 26 Nov presentation.
+
+**Outcome:** On 21 Nov we were #1 in Google for the bare query in the US and the UK and #2 in Germany, and Google ranked /about-grohnpetrel/ itself for the first time (US, UK) instead of the redirected addresses. On 20 Nov Google showed no team site in the top 10 in any country. Whole period (22 days, 66 country-days): top 10 on 39, #1 on 10, tied first with one rival for top-10 presence. Search Console to 19 Nov: 2,334 impressions, 46 clicks. Google's AI Overview (22 Nov) still lists our meaning first; Brave shows our DOI record first. No SEO content change: measurement freeze until the presentation.
