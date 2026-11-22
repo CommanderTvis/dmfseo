@@ -53,6 +53,7 @@ add_action( 'wp_footer', function () {
 .gp-game__feedback:focus{outline:none}
 .gp-game__status{font-weight:700;font-size:1.05rem}
 .gp-game__hint{min-height:1.4em;margin:.2rem 0 .7rem;color:#8E3B27;font-weight:600}
+.gp-game__hint.is-good{color:#1F5C3E}
 .gp-game__actions{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center}
 .gp-game__actions .wp-block-button__link{border:0;cursor:pointer;font:inherit;font-size:.9375rem;font-weight:600;min-height:44px}
 .gp-game__actions .is-outline{background:transparent!important;color:var(--gp-teal-dark)!important;border:2px solid var(--gp-teal)!important}
@@ -272,7 +273,7 @@ add_action( 'wp_footer', function () {
 					[a, b].forEach(function (x) { x.classList.remove('is-open'); x.classList.add('is-done'); x.disabled = true; });
 					st.open = []; st.found += 1;
 					g.app.querySelector('.gp-game__pairs').textContent = fill(ui.pairs, { p: st.found, n: pairs.length });
-					g.app.querySelector('.gp-game__hint').textContent = fill(ui.match, { name: c.p.name });
+					var hint = g.app.querySelector('.gp-game__hint'); hint.classList.add('is-good'); hint.textContent = fill(ui.match, { name: c.p.name });
 					g.say(fill(ui.match, { name: c.p.name }));
 					if (st.found === pairs.length) { setTimeout(end, 700); }
 				} else {
