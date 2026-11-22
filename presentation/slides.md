@@ -3,7 +3,7 @@ theme: default
 title: "Grohnpetrel: How a student team competed for an invented word"
 info: |
   Team Guillemots · DMFSEO Fall 2026 · Constructor University.
-  30-minute presentation + Q&A, 26 Nov 2026. Web version: https://commandertvis.github.io/dmfseo/slides/
+  30-minute presentation + Q&A, 26 Nov 2026. Web version of the PowerPoint deck (same slides and speaker notes).
 author: Team Guillemots
 colorSchema: light
 aspectRatio: 16/9
@@ -12,736 +12,455 @@ transition: fade
 routerMode: hash
 download: true
 exportFilename: grohnpetrel-slides
-fonts:
-  sans: Inter
-  serif: Lora
 drawings:
   persist: false
-layout: cover
-class: cover
+layout: full
 ---
-
-<img src="/logo.webp" class="cover-logo" alt="Grohnpetrel mascot" />
-
-# Grohnpetrel
-
-## How we competed for an invented word in Google and AI answers
-
-Team Guillemots · Ayoyemi Adeboyeyo · Diego Aguilar · Mario Iraheta · Iaroslav Postovalov
-
-Digital Marketing Fundamentals & SEO · Constructor University · 26 November 2026
+<img src="/deck/slide-01.jpg" class="deck" alt="Slide 1: Grohnpetrel" />
 
 <!--
-DIEGO · 0:00–0:30 · Each of us says our name and part in one sentence.
-Running order: Diego (intro, strategy) → Iaroslav (results) → Diego (strategy) → Mario (reflection, log) → Ayoyemi (CEO plan) → Diego (summary). Total 30:00, then questions.
+DIEGO · 0:00–0:30
+
+Good morning. We are Team Guillemots: Ayoyemi, Mario, Iaroslav and I, Diego. In the next 30 minutes we show what we achieved for the word Grohnpetrel, how we got there, what it means, and a merchandise plan for our CEO.
+
+Running order: Diego (opening) → Iaroslav (results, 8.5 min) → Diego (strategy, 7 min) → Mario (reflection, 5 min) → Ayoyemi (CEO plan, 5.5 min) → Mario (log) → Diego (summary). Total 30:00, then questions.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# The task and our answer
-
-<div class="grid2">
-<div>
-
-### The assignment
-
-- Compete for the best Google visibility for **“Grohnpetrel”**, a word with no meaning
-- Apply SEO **and GEO**, experiment, document every step
-- Plan Grohnpetrel merchandise and convince a CEO
-
-</div>
-<div>
-
-### Our answer in one sentence
-
-> **Grohnpetrel is a fictional coastal-conservation and seabird-education project from Bremen-Grohn, Germany, created in 2026 by the Guillemots student team at Constructor University.**
-
-*Grohn* = the university's district · *petrel* = a family of seabirds
-
-</div>
-</div>
-
-<div class="note">Why this meaning: the word already contains a real place and a real bird family. That gave us a topic with real facts and sources, which search engines and AI answers trust. A made-up product has nothing to cite.</div>
+<img src="/deck/slide-02.jpg" class="deck" alt="Slide 2: The task, and our answer in one sentence" />
 
 <!--
-DIEGO · 0:30–1:30 · Same sentence on every page, in 7 languages, in structured data, llms.txt and the DOI archive.
+DIEGO · 0:30–1:15
+
+Our task had two parts: win visibility for a word that did not exist, using SEO and GEO, and plan merchandise for a CEO.
+
+Our answer is this one sentence. We repeat it on every page, in seven languages, in the structured data, in llms.txt and in an archive with a DOI. We chose it because Grohn is a real place and petrels are real seabirds: that gave us a topic with real facts and sources, which is exactly what search engines and AI answers trust.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# Agenda
-
-| Part | What we show | Speaker | Time |
-|---|---|---|---|
-| 1 · Results and analysis | Main metric, trends, competitors, Search Console, AI visibility | Iaroslav | 9 min |
-| 2 · Strategy and implementation | Objectives, phases, technical SEO, content, structured data, GEO, key decisions | Diego | 7 min |
-| 3 · Critical reflection | What worked, what did not, surprises, lessons | Mario | 5 min |
-| 4 · Marketing plan for the CEO | Customers, value, 4 Ps, budget, KPIs, the decision we ask for | Ayoyemi | 5.5 min |
-| 5 · Process and summary | Project log, take-aways, questions | Mario · Diego | 1.5 min |
-
-All numbers come from our daily tracker, Search Console or recorded screenshots. Plans and estimates are labelled as such.
+<img src="/deck/slide-03.jpg" class="deck" alt="Slide 3: Before we start: play along" />
 
 <!--
-DIEGO · 1:30–2:00 · "Everything we show is in our public repository and our project log." Hand over to Iaroslav.
+DIEGO · 1:15–2:00
+
+Before we start, please take out your phones and scan this code. It opens one of the seven learning games on our site: a bird describes itself in three clues and you guess which of six North Sea seabirds it is. Fewer clues, more points. It takes about two minutes, works in English and German, and nothing is saved.
+
+Why we show this: every answer in the game comes from sourced facts on the same page. That is our whole strategy in one minute: real facts, made easy to use.
+
+(Leave the slide up for about 30 seconds while people scan. If the room has no signal, skip; the game is also shown on the content slide.)
 -->
 
 ---
-layout: section
+layout: full
 ---
 
-# 1 · Results and analysis
-
-<span class="time">Iaroslav · 9 min</span>
-
----
-layout: two-cols
----
-
-# Our main metric and how we measure it
-
-- **Main metric:** our Google rank for the **bare query** *grohnpetrel* in **Germany, the US and the UK**
-- Secondary: *"grohnpetrel"* (exact), *what is grohnpetrel*, *grohnpetrel seabird*
-- **Tracker:** a GitHub Action queries Google (Serper API, top 10, English interface) and Brave every day; last check of the day counts
-- Same settings since 31 Oct → trends are comparable
-- Public dashboard + raw CSV; Search Console for impressions and clicks
-
-::right::
-
-<img src="/tracker-dashboard.jpg" class="shot" alt="Screenshot of the Grohnpetrel SEO tracker dashboard with the main metric highlighted" />
+<img src="/deck/slide-04.jpg" class="deck" alt="Slide 4: What we show, in the order of your criteria" />
 
 <!--
-IAROSLAV · 2:00–3:00 · Why the bare query: it is what the course measures and what a normal user types. Why three countries: results differ by country. The lecturer's snapshots are taken from another place and browser, so small differences are normal.
+DIEGO · 2:00–2:30
+
+We follow your criteria in this order. Everything we show is in our public repository and project log, so every number can be checked. Iaroslav, the results.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# Headline results (31 Oct – 18 Nov)
-
-<div class="kpis">
-<div><b>#1</b><span>Google for bare “grohnpetrel”: 8 times (DE ×3, US ×3, UK ×2), latest US on 18 Nov</span></div>
-<div><b>15 / 19</b><span>days in Google DE top 10 for the bare query</span></div>
-<div><b>19 / 19</b><span>days in Google UK top 10 for “grohnpetrel” (exact), #1 on 11 days</span></div>
-<div><b>2,156</b><span>Search Console impressions, 43 clicks (28 days to 16 Nov)</span></div>
-</div>
-
-- Lecturer's course snapshot: **#1 on 9 Nov**, #2–#3 on 10–12 Nov
-- **Google AI Overview** (18 Nov) explains the word with **our meaning first** and cites our GitHub repository
-- **Brave**: our DOI archive (Zenodo) is the #1 result for *what is grohnpetrel* in DE, US and UK
-- 80 indexable pages · 7 languages · 12 short videos · 1 learning game · 1 public data report
+<img src="/deck/slide-05.jpg" class="deck" alt="Slide 5: 1 · Results and analysis" />
 
 <!--
-IAROSLAV · 3:00–4:30 · REFRESH THESE NUMBERS ON 25 NOV (scripts/rank_report.py and the dashboard).
-Say clearly: #1 is reached on some days, not every day; the bare query is volatile because many teams and social posts compete for it.
+IAROSLAV · 2:30
+
+Transition only.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# Rankings over time
-
-<img src="/rank-chart.png" class="full" alt="Daily Google rank for grohnpetrel and quoted grohnpetrel in DE, US and GB, 31 Oct to 18 Nov 2026" />
-
-<p class="caption">Our best organic position per day (last check of the day); bottom = not in the top 10. Source: our tracker, <code>scripts/rank_report.py</code>.</p>
+<img src="/deck/slide-06.jpg" class="deck" alt="Slide 6: Our main metric, and how we measure it" />
 
 <!--
-IAROSLAV · 4:30–6:00 · Read left to right:
-1) 31 Oct: first publish, #2–#4 at once (few teams indexed).
-2) 3–5 Nov: German site → #1 in DE on 4 Nov; longer texts on 4 Nov → out of the top 10 on 5 Nov.
-3) 8–9 Nov: #1 in DE again; exact query #1 in US and UK on most days.
-4) 10–15 Nov: stable #2 in DE behind another team's German front page.
-5) 14–17 Nov: Google switches between several of our pages → unstable; 16 Nov consolidation; 18 Nov #1 in the US.
-Exact query = stable; bare query = volatile.
+IAROSLAV · 2:30–3:15
+
+Our main metric is our Google rank for the bare word in three countries. A GitHub Action checks Google and Brave every day with the same settings since 31 October and publishes this dashboard and the raw data. So we can show trends over three weeks, not one lucky screenshot. Results differ by country and browser, so the lecturer’s own snapshot can differ slightly from ours.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# Competitor comparison (bare query, Google)
-
-| Team | #1 results | Top 3 | Top 10 | Where they lead | What they do |
-|---|---|---|---|---|---|
-| Rival A | **18** | 31 | 34 | Germany | 10 languages, brand-first titles, fresh journal |
-| Rival B | 12 | 19 | 24 | UK | Very short front page, /about-grohnpetrel/ page, videos |
-| **Guillemots (us)** | 8 | 20 | **34** | US (18 Nov) | Largest sourced site, 7 languages, DOI archive |
-| Rival C | 5 | 7 | 12 | – | Long FAQ, early start |
-| Rival D | 0 | 1 | 6 | – | Identification guide |
-
-<p class="caption">57 checks: 19 days × DE, US, UK, 31 Oct–18 Nov. Rivals are other student teams; we name them orally, not in public files.</p>
-
-- We share the **best top-10 presence** with Rival A; they convert it into #1 more often
-- The difference is **not page quality** (ours: PageSpeed 99–100, valid structured data): it is **focus on one page** and **presence off the website** (videos, posts)
+<img src="/deck/slide-07.jpg" class="deck" alt="Slide 7: Headline results, 31 October – 21 November" />
 
 <!--
-IAROSLAV · 6:00–7:30 · Name the teams orally if asked. Google mostly shows one or two pages of the leaders; it switched between nine of ours. That insight drove our 16 Nov decision (Diego shows it in part 2).
+IAROSLAV · 3:15–4:30
+
+The headline: we reached number one for the bare word in all three countries, on ten country-days, most recently in the US and the UK on 21 November, with our new About page. Across three weeks we were in the top ten on 39 of 66 country-days, tied with the best team for presence.
+
+For the exact query we are the most stable site: top ten in the UK on every single day. Search Console shows 2,334 impressions and 46 clicks. And in AI answers, Google’s AI Overview lists our meaning first.
+
+Be honest: number one is reached on some days, not every day. REFRESH THESE NUMBERS ON 25 NOV.
 -->
 
 ---
-layout: two-cols
+layout: full
 ---
 
-# Search Console evidence
-
-- **2,156 impressions, 43 clicks** in 28 days (to 16 Nov)
-- *grohnpetrel*: 1,286 impressions, **42 clicks**
-- The rest comes from **real seabird searches**: *atlantic puffin* 193, *austernfischer* 64, *storm petrel* 53, *common tern* 49
-- Since 10 Nov the **German front page** has most impressions for *grohnpetrel* (192, average position 3.7)
-- Old addresses still collect impressions after the 16 Nov redirects → Google is still switching over
-
-::right::
-
-### Interpretation
-
-The invented word brings almost all **clicks**, the seabird guide brings **topic reach**: Google sees us as a seabird-education site, which is exactly the meaning we chose.
-
-<div class="note">Caveat: Search Console lags 2–3 days; the sitemap report's “indexed: 0” is a field Google no longer fills.</div>
+<img src="/deck/slide-08.jpg" class="deck" alt="Slide 8: Rankings over time: four phases" />
 
 <!--
-IAROSLAV · 7:30–8:30 · Update the 28-day numbers on 25 Nov.
+IAROSLAV · 4:30–6:00
+
+Read the chart left to right. Phase 1: first publish, already top four in all countries. Phase 2: the German site gave us number one in Germany the next day; when we made texts much longer on 4 November we dropped out the next day. Phase 3: a stable second place in Germany behind one rival. Phase 4: Google kept switching between nine of our pages, we consolidated on 16 November, and two days later we were number one in the US. On 21 November the new About page itself was number one in the US and the UK, and number two in Germany.
+
+The days are still volatile: on 20 November our tracker saw no team site at all in the top ten in any country, because Google changed the results page for everyone that day. We show it rather than hide it.
 -->
 
 ---
-layout: two-cols
+layout: full
 ---
 
-# AI visibility (GEO)
-
-| Date | Engine | Result | Cited us? |
-|---|---|---|---|
-| 28 Oct | AI assistants | word unknown | – |
-| 11 Nov | Google AI Overview | other teams' meaning, social posts | No |
-| 11–18 Nov | Brave | our **Zenodo DOI** #1 for *what is grohnpetrel* | Yes |
-| 18 Nov | Google AI Overview | **our meaning listed first**, cites our GitHub repo and pages | **Yes** |
-
-::right::
-
-<img src="/ai-overview-18nov.jpg" class="shot" alt="Google AI Overview for what is grohnpetrel on 18 Nov 2026, describing the Guillemots' coastal-conservation meaning first" />
-
-<p class="caption">Google, “what is grohnpetrel”, 18 Nov 2026 (cropped; signed-in browser in Bremen).</p>
+<img src="/deck/slide-09.jpg" class="deck" alt="Slide 9: Competitors: same presence as the leader, fewer first places" />
 
 <!--
-IAROSLAV · 8:30–10:00 · GEO worked best where we gave engines a citable source: the public repository, the DOI archive and one quotable sentence. Honest caveat: AI answers vary by user and day; we show only what we recorded.
+IAROSLAV · 6:00–7:15
+
+Over 66 country-days we share the best top-ten presence with Rival A, but they turn it into number one more often. The difference is not quality: our technical scores are at the top. It is focus on one page and presence outside the website, videos and posts. That insight led to our key decision, which Diego will show. We name the teams orally if you ask; we do not describe other teams in our public files.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# What moved the ranking (interpretation)
-
-| Change | Date | Effect seen | Confidence |
-|---|---|---|---|
-| Found and removed a hidden `noindex` header | 31 Oct | #2–#4 from day one | High |
-| German version of the site | 3 Nov | #1 in Google DE on 4 Nov | Medium |
-| Longer definition, FAQ and front page | 4 Nov | Out of the top 10 on 5 Nov | Low (others changed too) |
-| Other teams' social videos and posts | from 7 Nov | Half of the top 10 became social results | High |
-| Big content expansion (Phases 3–4) | 14 Nov | Google switches between many of our pages | Medium |
-| One canonical page, 301 redirects | 16 Nov | **#1 in the US on 18 Nov** | Early (2 days) |
+<img src="/deck/slide-10.jpg" class="deck" alt="Slide 10: Search Console: brand clicks, seabird reach" />
 
 <!--
-IAROSLAV · 10:00–11:00 · Correlation, not proof: several teams changed things at the same time. Hand over to Diego.
+IAROSLAV · 7:15–8:15
+
+Search Console is our pre-click evidence. The brand word brings almost all clicks, while real seabird searches like Atlantic puffin bring 941 impressions: Google sees us as a seabird-education site, which is exactly the meaning we chose.
+
+We did not install Google Analytics: we removed the cookie banner and keep the site cookie-free, so we measure before the click, not after. That is a deliberate trade-off. UPDATE THE NUMBERS ON 25 NOV.
 -->
 
 ---
-layout: section
+layout: full
 ---
 
-# 2 · Strategy and implementation
-
-<span class="time">Diego · 7 min</span>
-
----
-layout: default
----
-
-# Objectives and strategy
-
-<v-clicks>
-
-1. **Be crawlable first:** whoever is indexed first and cleanly wins an empty keyword
-2. **Be the clearest definition:** one sentence, repeated everywhere, in every language
-3. **Be distinctive and citable:** real seabird facts with sources (UNESCO, IUCN, BirdLife, German Environment Agency)
-4. **Be machine-readable:** structured data, `llms.txt`, transcripts, DOI archive
-5. **Measure daily, change one thing at a time, log everything**
-6. **One page per search intent** for the main metric (added 16 Nov)
-
-</v-clicks>
+<img src="/deck/slide-11.jpg" class="deck" alt="Slide 11: AI visibility: from ignored to first meaning" />
 
 <!--
-DIEGO · 11:00–11:45 · Point 6 is the lesson we learned during the project; we show it on the decision slide.
+IAROSLAV · 8:15–9:45
+
+On 11 November Google’s AI Overview ignored us and quoted social posts. Since then, Brave has shown our archived record with a DOI as the top answer every day, and Google’s AI Overview now lists our meaning first and links our About page and our repository, recorded on 18, 20 and 22 November.
+
+Lesson: AI engines cite sources they can find and trust. Caveat: this is a signed-in browser, so it can vary by person and day; we only show what we recorded.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# How we built it: phases
-
-| Dates | Phase | What we added |
-|---|---|---|
-| 31 Oct – 2 Nov | Launch | Indexing fix, sitemap, structured data, seabird guide, journal |
-| 3 – 6 Nov | Reach | German site, DOI archive, Yoast-level SEO in code, redesign, `llms.txt`, Spanish and Chinese |
-| 7 – 12 Nov | Trust and media | Rival audit, 2 sourced articles, 12 videos, PDF guide, French/Italian/Russian, editorial policy |
-| 14 Nov | Coastal care | Habitat page, species profiles with photos, glossary, “5 ways to help” |
-| 15 Nov | Engagement | Coastal Guardian Challenge (learning game), image licence data, sources on every page |
-| 16 Nov | Region and quality | Wadden Sea spotlight, full technical audit, breadcrumbs, **one canonical About page** |
-
-<p class="caption">45 dated entries in the project log; 38 pull requests, each checked automatically before publishing.</p>
+<img src="/deck/slide-12.jpg" class="deck" alt="Slide 12: What moved the ranking, and how sure we are" />
 
 <!--
-DIEGO · 11:45–12:45 · Each phase answered something we saw in the data: e.g. trust signals after the AI Overview cited social posts, the canonical page after Google kept switching pages.
+IAROSLAV · 9:45–11:00
+
+Here is each change and what happened next, with how sure we are. High confidence for the indexing fix and for the effect of social video. Medium for the German site. Low for longer texts, because other teams changed things the same day. The consolidation now has five days of evidence: on 21 November the new page was number one in the US and the UK. And on 20 November Google changed the page for every team, which no one controls. Diego, over to you.
 -->
 
 ---
-layout: two-cols
+layout: full
 ---
 
-# Our pipeline: GitHub → WordPress
-
-- Every page is a file in a public GitHub repository
-- A GitHub Action publishes to WordPress in about a minute and resubmits the sitemap
-- Automatic checks on every pull request
-- A second Action tracks rankings daily and builds the dashboard
-- `PROJECT_LOG.md`: one entry per change (action, who, why, outcome)
-
-**Why:** reviewable, dated changes, fast rollback, evidence for every claim.
-
-::right::
-
-```mermaid {scale: 0.85}
-flowchart TD
-  A[Edit a page in Git] --> B[Pull request<br/>automatic checks]
-  B --> C[Rebase and merge]
-  C --> D[wp-publish Action]
-  D --> E[WordPress live in about 1 min<br/>sitemap resubmitted]
-  F[daily-check Action] --> G[Rank dashboard + CSV]
-```
+<img src="/deck/slide-13.jpg" class="deck" alt="Slide 13: 2 · Strategy and implementation" />
 
 <!--
-DIEGO · 12:45–13:30
+DIEGO · 11:00
+
+Transition only.
 -->
 
 ---
-layout: two-cols
+layout: full
 ---
 
-# Technical SEO
-
-- Day 1: found a **hidden `noindex` header**; WordPress settings looked fine
-- Sitemap resent on every publish; hreflang in 7 languages; 301 redirects
-- Audit 16 Nov: **all 82 pages** indexable, one H1, alt text everywhere
-- PageSpeed (lab): **99–100** in all four scores, mobile and desktop
-- Rich Results Test: all items valid; breadcrumbs match the menu
-
-::right::
-
-<img src="/psi-gannet.jpg" class="shot" alt="PageSpeed Insights mobile result 100/100/100/100 for a Grohnpetrel species page" />
+<img src="/deck/slide-14.jpg" class="deck" alt="Slide 14: Six objectives, each tied to a technique" />
 
 <!--
-DIEGO · 13:30–14:30 · Limits we documented, not "fixed": the university host root returns 500 and has no favicon or robots.txt, so Google shows "Constructor University" as site name for every team.
+DIEGO · 11:00–11:45
+
+Our strategy had six objectives, and each one maps to concrete techniques. The sixth, one page per search intent, is the one we learned during the project from our own data; I will show that decision in a moment.
 -->
 
 ---
-layout: two-cols
+layout: full
 ---
 
-# Content strategy
-
-- **One definition page** (/about-grohnpetrel/) + **FAQ** + **front page**: three intents
-- **Seabird guide**: six real North Sea species, photos with licences, every fact sourced
-- **Coastal care**: dunes, salt marshes, beaches; “5 ways to help”
-- **Wadden Sea spotlight**: habitats, migratory birds, an original illustration
-- **Coastal Guardian Challenge**: a 5-question learning game
-- Glossary, 2 articles, 12 videos with transcripts, PDF learning guide
-
-::right::
-
-<img src="/site-wadden.jpg" class="shot" alt="Screenshot of the Wadden Sea habitat cards on the Grohnpetrel site" />
+<img src="/deck/slide-15.jpg" class="deck" alt="Slide 15: How we built it: eight phases, each answering the data" />
 
 <!--
-DIEGO · 14:30–15:30 · Topical authority: the invented word sits inside a real topic. Search Console proves it: real seabird searches bring impressions.
+DIEGO · 11:45–12:45
+
+We built in phases, and each phase answered something in the data. In the first week reach: German, an archive, technical SEO in our own code. Then trust and media. Then coastal care and engagement. On 16 November quality and focus. In the last days a redesign that we tested in a copy of the site first, and more learning games, placed on existing pages so we did not add competing URLs. 52 dated log entries, 47 reviewed pull requests.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# Structured data and GEO
-
-<div class="grid2">
-<div>
-
-### Structured data (JSON-LD)
-
-- Project (organisation) with `sameAs`: GitHub, Zenodo, social profiles
-- `DefinedTerm` on the definition pages, glossary as `DefinedTermSet`
-- `FAQPage`, `Article` with `citation`, `VideoObject` per video
-- `ImageObject` with **licence and creator** for every photo
-- `BreadcrumbList` matching the visible breadcrumbs
-
-</div>
-<div>
-
-### Generative engine optimisation
-
-- One quotable definition sentence everywhere
-- `llms.txt`: a short guide to the site for language models
-- Zenodo archive with a **DOI**: stable and citable
-- Public data report (SEO / GEO Lab)
-- E-E-A-T: named team, editorial policy, sources, “About this page” box, AI use disclosed
-
-</div>
-</div>
+<img src="/deck/slide-16.jpg" class="deck" alt="Slide 16: Pipeline and technical SEO" />
 
 <!--
-DIEGO · 15:30–16:30 · Evidence for GEO is on Iaroslav's AI slide: Brave and Google's AI Overview cite our repository, archive and pages.
+DIEGO · 12:45–14:00
+
+Every page lives as a file in a public GitHub repository. A pull request is checked automatically and published to WordPress in about three minutes; a second action tracks rankings daily.
+
+Technically: on day one we found a hidden noindex header that the WordPress settings did not show. Our audit: all 80 pages indexable, PageSpeed 99 to 100, all structured data valid. One limit we documented instead of hiding: the university host controls the site name and icon Google shows for every team.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# Key decision: one page per search intent
-
-<div class="grid2">
-<div>
-
-### What we saw (14–16 Nov)
-
-- Google showed **nine different pages** of ours for the bare query over the period (tracker)
-- Leading teams rank with **one** dedicated page
-- More pages ≠ more ranking for a brand-type query
-
-</div>
-<div>
-
-### What we did (16 Nov)
-
-- Merged “What is Grohnpetrel?” and the “meanings” pages into **/about-grohnpetrel/**
-- 301 redirects, all internal links updated, sitemap cleaned
-- Made the bare query our **main metric** on the dashboard
-- **No other change for 48 h** so the effect can be measured
-
-</div>
-</div>
-
-<div class="note">First signal: #1 in Google US on 18 Nov. Google still shows the old address, so the switch is not finished; we report it as early evidence, not proof.</div>
+<img src="/deck/slide-17.jpg" class="deck" alt="Slide 17: Content strategy: real facts, made easy to use" />
 
 <!--
-DIEGO · 16:30–17:30 · Iaroslav made this call; justification = our own data + competitor comparison.
+DIEGO · 14:00–15:15
+
+Our content strategy: put the invented word inside a real topic. One page per intent for the brand, and around it a sourced seabird guide, coastal care, a Wadden Sea feature and a glossary. In the last phase we added seven learning games and a play-along video, the game you may be playing now. Important for SEO: each game sits on an existing page and uses only the facts that page already cites, so we added engagement without adding pages that compete for the main word. PageSpeed on the guide with two games: 100 in all four scores.
 -->
 
 ---
-layout: two-cols
+layout: full
 ---
 
-# Links and off-site signals
-
-- Public GitHub repository linking every key page (cited by Google's AI Overview)
-- Zenodo archive with DOI → our definition
-- Social profiles on Instagram, YouTube, TikTok and Facebook, linked in the site and structured data
-- Short videos with transcripts on the site
-
-**Honest gap:** no outreach for backlinks and late social posting. The competitor data shows this is where the leaders beat us.
-
-::right::
-
-<img src="/site-videos.jpg" class="shot" alt="Screenshot of the Grohnpetrel videos page" />
+<img src="/deck/slide-18.jpg" class="deck" alt="Slide 18: Structured data and generative engine optimisation" />
 
 <!--
-DIEGO · 17:30–18:00 · Hand over to Mario.
+DIEGO · 15:15–16:15
+
+Structured data tells search engines who we are, what the word means, which questions we answer, and even who took each photo under which licence. For GEO we made ourselves the easiest source to cite: one sentence, llms.txt, a DOI archive and a public repository. The evidence is on Iaroslav’s AI slide: Brave and Google’s AI Overview cite exactly these sources.
 -->
 
 ---
-layout: section
+layout: full
 ---
 
-# 3 · Critical reflection
-
-<span class="time">Mario · 5 min</span>
-
----
-layout: two-cols
----
-
-# What worked, and why
-
-<v-clicks>
-
-- **Checking HTTP headers** → found the hidden noindex; indexed within days
-- **A second language** → #1 in Google DE the next day
-- **Citable sources** (repository, DOI) → cited by Brave and Google's AI Overview
-- **Daily measurement** → we show trends, not one screenshot
-- **One canonical page** → first #1 in the US two days later (early)
-
-</v-clicks>
-
-::right::
-
-# What did not, and why
-
-<v-clicks>
-
-- **Longer texts (4 Nov)**: Google already understood the page
-- **Many pages for one query (14 Nov)**: they competed with each other
-- **Describing other teams' meanings**: may have tied our site to their topics
-- **Late social posting**: rivals filled half the top 10 with videos
-- **Too many changes at once**: hard to know what caused what
-
-</v-clicks>
+<img src="/deck/slide-19.jpg" class="deck" alt="Slide 19: Three key decisions, and why" />
 
 <!--
-MARIO · 18:00–20:00 · Every point has a dated entry in the log.
+DIEGO · 16:15–17:30
+
+Three decisions, each justified by our own data. First and most important: Google showed nine different pages of ours for the bare word, while the leaders ranked with one. On 16 November we merged them into one About page with redirects and froze other changes so we could measure it. Two days later we were number one in the US, and on 21 November the new page itself was number one in the US and the UK: five days of evidence, still not proof.
+
+Second: a redesign touches every page, so we built and tested it in a copy of the repository and only then merged it. Third: we wanted engagement without new competing URLs, so the games live on existing pages.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# Unexpected outcomes
-
-<v-clicks>
-
-- The “meanings” page we removed for **SEO** is the page Google's **AI Overview** used to explain the word: **SEO and GEO can pull in different directions**
-- A **YouTube Short** reached #1 in Google UK: the results page is not only websites
-- On Brave, **developer and archive platforms** (GitHub, Zenodo) rank above team websites
-- Our seabird guide gets more **non-brand** impressions than expected (e.g. *atlantic puffin*)
-- Google shows the **university's name and icon** for every team site: some search appearance is controlled by the domain owner
-
-</v-clicks>
+<img src="/deck/slide-20.jpg" class="deck" alt="Slide 20: Links and off-site signals: our honest gap" />
 
 <!--
-MARIO · 20:00–21:30
+DIEGO · 17:30–18:00
+
+Our honest gap: we did no link outreach and posted on social media late. The competitor data shows this is exactly where the leaders beat us. Mario.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# Lessons and what we would do differently
-
-<div class="grid2">
-<div>
-
-### Lessons about SEO and GEO
-
-- Indexing beats content in week one
-- For a new word, the results page is shared with social video
-- Say what you are, never what others are
-- One page per intent, stable titles
-- AI answers cite **sources they can find**: repository, archive, clear sentence
-
-</div>
-<div>
-
-### Next time we would
-
-- Post the first video on day 3, not day 12
-- Choose one canonical page on day 1
-- Change one thing at a time, wait 48 hours
-- Get 3–5 real links (university, course pages, partners)
-- Plan the content calendar before building pages
-
-</div>
-</div>
+<img src="/deck/slide-21.jpg" class="deck" alt="Slide 21: 3 · Critical reflection" />
 
 <!--
-MARIO · 21:30–23:00 · Hand over to Ayoyemi.
+MARIO · 18:00
+
+Transition only.
 -->
 
 ---
-layout: section
+layout: full
 ---
 
-# 4 · Marketing plan for the CEO
-
-<span class="time">Ayoyemi · 5.5 min</span>
-
----
-layout: default
----
-
-# The decision we ask for
-
-> **Approve Phase 0 now (interest list, no sales) and a pilot budget of at most €600, released only after Grohnpetrel is registered and supplier quotes are in.**
-
-| Why now | Why it is low risk |
-|---|---|
-| We already reach people: #1 positions, 2,156 impressions in 28 days, cited by AI answers | No money is taken before registration |
-| 7 languages, 12 videos and a learning game are ready-made promotion | Small runs, capped budget, clear go / no-go rule |
-| Merchandise can **fund education** and spread the message offline | Every printed fact is already sourced on our site |
+<img src="/deck/slide-22.jpg" class="deck" alt="Slide 22: What worked, what did not, and why" />
 
 <!--
-AYOYEMI · 23:00–23:45 · The CEO wants: what, for whom, why, how much, how we know it works. Start with the decision.
+MARIO · 18:00–19:45
+
+What worked: checking the HTTP headers, a second language, citable sources for AI, daily measurement, and the canonical page.
+
+What did not: longer texts did not help; too many pages competed for one word; describing other teams’ meanings may have helped them more than us; we posted on social media too late; and on some days we changed too much at once, so we could not tell what caused what. Every point has a dated entry in our log.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# Customers: needs, wants and demands
-
-| Segment | Persona | Need | Want | Demand |
-|---|---|---|---|---|
-| Coastal families | Anna, 38, Bremen, weekend trips to the North Sea | Knowledge for the children | A mascot item that tells a story | Sticker sheet for €3 at the coast or online |
-| Teachers | Mr. Okafor, biology teacher in Lower Saxony | Ready teaching material | A bilingual classroom poster | A3 poster for €9, school packs |
-| Students | Lea, 21, campus, sustainability-minded | Belonging, self-expression | A tote that shows her values | Organic tote for €14 at a campus pop-up |
-
-<p class="caption">Personas are planning tools, not research results. Needs → wants → demands as in Armstrong, Kotler & Opresnik (course week 6).</p>
+<img src="/deck/slide-23.jpg" class="deck" alt="Slide 23: Unexpected outcomes" />
 
 <!--
-AYOYEMI · 23:45–25:00 · Buyer's market: plenty of merchandise exists, so we compete on value and trust, not on price or volume (course week 2).
+MARIO · 19:45–21:00
+
+The most interesting surprise: SEO and GEO can pull in different directions. The page that explained the word’s other meanings hurt our ranking, but that is exactly the kind of content Google’s AI Overview uses to answer “what is grohnpetrel”. Also: the results page is shared with social video, platforms like GitHub and Zenodo win on Brave, our seabird guide found a real audience, and some things, like the site name, no team controls.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# Value proposition and marketing mix (4 Ps)
-
-**Positioning:** *merchandise that teaches* · every item carries a QR “learning link” to a sourced page
-
-| P | Our choice | Why |
-|---|---|---|
-| **Product** | Sticker sheet · A3 poster (EN/DE) · organic cotton tote | Entry item, teaching item, signature item |
-| **Price** | €3 · €9 · €14 (value-based) | Margins 57–73 % on estimated unit costs; affordable for families and students |
-| **Place** | Campus pop-up · school packs · coastal visitor centres · later print-on-demand on our site | Where our segments already are |
-| **Promotion** | Our search rankings and site · short videos · QR codes · free PDF guide for schools | Reuses the audience and content we built |
+<img src="/deck/slide-24.jpg" class="deck" alt="Slide 24: What we learned, and what we would change" />
 
 <!--
-AYOYEMI · 25:00–26:15 · This is also social marketing (course week 5): the product carries a behaviour change ("give nesting birds space").
+MARIO · 21:00–23:00
+
+What we learned: an invented keyword belongs to whoever defines it first and most clearly. In week one, indexing matters more than content length. One page per intent. Say what you are, never what others are. And the SEO–GEO lesson: search engines rank pages, AI answers quote sources, so you need both a strong page and a citable source.
+
+Next time: one canonical page on day one, the first video on day three, three to five real links in week one, one change at a time, and big changes tested in a copy first. Ayoyemi.
 -->
 
 ---
-layout: two-cols
+layout: full
 ---
 
-# Roadmap, budget and KPIs
-
-| Phase | When | What |
-|---|---|---|
-| 0 | now – Jan | Interest list, content, **no sales** |
-| 1 | after registration | Pilot: 100 sticker sheets, 50 posters, 50 totes |
-| 2 | if KPIs are met | School packs, visitor centres, print-on-demand |
-
-**Pilot budget (estimate):** stickers €80 · posters €150 · totes €300 · QR cards and reserve €70 = **€600 cap**. Revenue if sold out: **€1,450**.
-
-::right::
-
-### KPIs and go / no-go
-
-- Interest-list sign-ups before the pilot: **≥ 150**
-- QR scans per item sold: **≥ 0.5**
-- Pre-order conversion from the list: **≥ 10 %**
-- **No-go** if the pilot sells < 40 % in 8 weeks
-
-### Marketing process
-
-Understand needs → choose segments and positioning → 4 Ps → relationships (list, schools) → capture value (income funds education)
+<img src="/deck/slide-25.jpg" class="deck" alt="Slide 25: 4 · Marketing plan for the CEO" />
 
 <!--
-AYOYEMI · 26:15–27:30 · These are targets and estimates, not results.
+AYOYEMI · 23:00
+
+Transition only.
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# Risks and safeguards
-
-| Risk | Safeguard |
-|---|---|
-| **Misleading “green” claims** (the course's “marketing villains”) | Every printed fact is on our site with its source; organic cotton only if certified |
-| **Brand confusion**: several student projects use “Grohnpetrel” | Always “Grohnpetrel · Seabird Education” with our mascot and QR link |
-| Selling before the organisation exists | No sales, pre-orders or donations before registration |
-| Unsold stock | Small pilot runs, print-on-demand in Phase 2, no-go rule |
+<img src="/deck/slide-26.jpg" class="deck" alt="Slide 26: The decision we ask for" />
 
 <!--
-AYOYEMI · 27:30–28:30 · Close: "Approve Phase 0 and a €600 pilot cap." Hand over to Mario.
+AYOYEMI · 23:00–23:45
+
+Dear CEO, we start with the decision. We ask you to approve Phase 0 now, an interest list with no sales, and a pilot budget of at most 600 euros, released only after Grohnpetrel is registered and we have supplier quotes. Why now: we already reach people. Why low risk: no money before registration, a cap and a stop rule.
 -->
 
 ---
-layout: section
+layout: full
 ---
 
-# 5 · Process and summary
+<img src="/deck/slide-27.jpg" class="deck" alt="Slide 27: Customers: needs, wants and demands" />
 
-<span class="time">1.5 min</span>
+<!--
+AYOYEMI · 23:45–24:45
+
+Three segments, and for each we separate need, want and demand, as in the course. A teacher needs teaching material, wants a bilingual poster, and the demand is a nine-euro A3 poster or a school pack. Merchandise is a buyer’s market, so we compete on value and trust, not price. And it is social marketing: every item carries a behaviour.
+-->
 
 ---
-layout: default
+layout: full
 ---
 
-# How we worked: the project log
+<img src="/deck/slide-28.jpg" class="deck" alt="Slide 28: Prototype: merchandise that teaches" />
 
-- **45 dated entries** in `PROJECT_LOG.md` (28 Oct – 16 Nov) plus daily checks in our Teams channel: action, who, why, outcome
-- **38 pull requests**, each checked automatically and published by the pipeline
-- Daily rank data (CSV), public dashboard, reports on indexing, competitors and data
-- AI use disclosed on the site and in the log; every text reviewed by the team
+<!--
+AYOYEMI · 24:45–25:45
 
-<div class="note">The log was written as we went: outcomes were filled in when we had data and marked “pending” when we did not.</div>
+This is what you would approve. Three products, each with a job: the sticker sheet is the entry item, the poster the teaching item, the tote the signature item. Our positioning is merchandise that teaches: every product has a QR code. The poster code opens the seabird guide and the same game you played at the start. So the merchandise reuses everything we built for search, instead of starting from zero. These are prototypes, not products for sale.
+-->
+
+---
+layout: full
+---
+
+<img src="/deck/slide-29.jpg" class="deck" alt="Slide 29: Value proposition and marketing mix" />
+
+<!--
+AYOYEMI · 25:45–26:45
+
+The four Ps. Product: three items with clear jobs. Price: three, nine and fourteen euros, value-based, with margins between 57 and 73 percent on estimated costs, to be confirmed with supplier quotes. Place: a campus pop-up, school packs and coastal visitor centres. Promotion: the rankings, videos, games and PDFs we already have.
+-->
+
+---
+layout: full
+---
+
+<img src="/deck/slide-30.jpg" class="deck" alt="Slide 30: Roadmap, budget, KPIs and safeguards" />
+
+<!--
+AYOYEMI · 26:45–28:30
+
+Three phases: an interest list now, a small pilot after registration, and scale only if the KPIs are met: at least 150 sign-ups, half a QR scan per item, ten percent pre-order conversion. If the pilot sells less than 40 percent in eight weeks, we stop. The budget is capped at 600 euros, with 1,450 euros revenue if everything sells.
+
+Safeguards: no green claims we cannot source; always our full name and mascot, because several projects use the word; and no money before registration. So our ask again: Phase 0 now and a 600-euro cap. Mario.
+-->
+
+---
+layout: full
+---
+
+<img src="/deck/slide-31.jpg" class="deck" alt="Slide 31: How we worked: a log written as we went" />
 
 <!--
 MARIO · 28:30–29:00
+
+We documented as we went: 52 dated entries, 47 reviewed pull requests, daily data and a public dashboard, and the entries in our Teams channel. Outcomes were written when we had data, and marked pending when we did not. AI use is disclosed, and every text was reviewed by us. Diego.
 -->
 
 ---
-layout: center
-class: text-center
+layout: full
 ---
 
-# Summary
-
-**A fictional project built on real facts reached #1 in Google in all three countries and is the meaning Google's AI Overview lists first.**
-
-What made the difference: indexing early, a second language, a clear and citable definition, and daily measurement.
-
-What we would change: one canonical page and social video from day 3.
-
-### Thank you · Questions?
-
-business.constructor.university/guillemots · github.com/CommanderTvis/dmfseo
+<img src="/deck/slide-32.jpg" class="deck" alt="Slide 32: In short" />
 
 <!--
-DIEGO · 29:00–30:00 · Questions: Iaroslav (data, tracker, technical), Diego (content, structured data, GEO), Mario (reflection, log), Ayoyemi (marketing plan).
+DIEGO · 29:00–30:00
+
+In short: a fictional project built on real facts reached number one in Google in all three countries and is the meaning Google’s AI Overview lists first. What made the difference: early indexing, a second language, one citable definition and daily measurement. What we would change: one canonical page and video from day three.
+
+Quick show of hands: who scored 15 or more in the seabird game? (React to the answer.) Thank you, we are happy to take your questions.
+
+Question owners: Iaroslav (data, tracker, technical), Diego (content, structured data, GEO, games), Mario (reflection, log), Ayoyemi (marketing plan).
 -->
 
 ---
-layout: default
+layout: full
 ---
 
-# Backup: daily ranks (tracker)
+<img src="/deck/slide-33.jpg" class="deck" alt="Slide 33: Backup: daily ranks, bare word “grohnpetrel”" />
 
-| Date | DE | US | GB | "DE" | "US" | "GB" |
-|---|---|---|---|---|---|---|
-| 31 Oct | 4 | 2 | 4 | 3 | 2 | 4 |
-| 1 Nov | 2 | 1 | 1 | 2 | 1 | 1 |
-| 4 Nov | 1 | – | – | 2 | 2 | 1 |
-| 8 Nov | 1 | – | 2 | 1 | 1 | 1 |
-| 9 Nov | 1 | – | – | 1 | 1 | 1 |
-| 12 Nov | 2 | 4 | – | 5 | 5 | 1 |
-| 14 Nov | 2 | 5 | 5 | 2 | 3 | 3 |
-| 16 Nov | – | – | 2 | – | 3 | 3 |
-| 17 Nov | 9 | 7 | 7 | – | 1 | 4 |
-| 18 Nov | – | **1** | 7 | 3 | 1 | 4 |
+<!--
+BACKUP · 
 
-<p class="caption">Columns in quotes = exact-match query. – = not in the top 10. Full table: <code>public/rank-daily.csv</code>.</p>
+Use only if asked for the daily data.
+-->
 
 ---
-layout: default
+layout: full
 ---
 
-# Backup: method and limits
+<img src="/deck/slide-34.jpg" class="deck" alt="Slide 34: Backup: method and limits" />
 
-- **Tracker:** Serper API (Google), English interface, gl = DE / US / GB, top 10; Brave API; one or two checks a day, last check counts
-- **Personalisation:** API results are not personalised; screenshots from our own browser (AI Overview) are, and are labelled
-- **Search Console:** 2–3 days delay; the property owner (Iaroslav) can run URL Inspection
-- **Attribution:** several teams changed their sites at the same time, so effects are correlations; confidence is shown on each slide
-- **Not measured:** backlinks (no tool access), real-user Core Web Vitals (no field data yet)
+<!--
+BACKUP · 
+
+Use only if asked about method.
+-->
+
+---
+layout: full
+---
+
+<img src="/deck/slide-35.jpg" class="deck" alt="Slide 35: Backup: likely questions and who answers" />
+
+<!--
+BACKUP · 
+
+Question owners.
+-->
+
