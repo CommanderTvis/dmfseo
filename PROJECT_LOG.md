@@ -509,3 +509,13 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Outcome:** On 21 Nov we were #1 in Google for the bare query in the US and the UK and #2 in Germany, and Google ranked /about-grohnpetrel/ itself for the first time (US, UK) instead of the redirected addresses. On 20 Nov Google showed no team site in the top 10 in any country. Whole period (22 days, 66 country-days): top 10 on 39, #1 on 10, tied first with one rival for top-10 presence. Search Console to 19 Nov: 2,334 impressions, 46 clicks. Google's AI Overview (22 Nov) still lists our meaning first; Brave shows our DOI record first. No SEO content change: measurement freeze until the presentation.
 
 **Note (22 Nov):** the web version of the presentation now gives every slide a title, so the slide overview and presenter navigation show names instead of "undefined".
+
+## 2026-11-23
+
+**Action:** Three new short videos in English and German, each on the page it belongs to and on the videos pages, with transcripts: "The gannet: the North Sea's plunge diver" (gannet pages), "The Atlantic puffin in 40 seconds" (puffin pages) and "Dunes, salt marshes, beaches: three coastal habitats in 35 seconds" (coastal-habitats pages). Two new activities in English and German with the same game engine: "Which threat is it?" (eight situations, six threats) on the threats page and "Dune, salt marsh or beach?" on the coastal-habitats page. The Knowledge Centre now lists nine games; the front pages link to "all our seabird games".
+
+**Who:** Diego Aguilar, with AI assistance.
+
+**Reason:** More to watch and do on the pages people already reach (species, threats, habitats), using only facts those pages already state with sources, without adding URLs that compete for the main query.
+
+**Outcome:** Both activities played through to the end at phone width in English and German before publishing, with no script errors and no horizontal scrolling; `scripts/check_pages.py` passes. The videos use our own graphics plus the openly licensed gannet and puffin photos already on the site, credited on screen. Live check after publishing.
