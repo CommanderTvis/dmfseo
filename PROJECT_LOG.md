@@ -526,6 +526,15 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** In our tracker the site has never appeared in Brave (0 of 312 checks) or DuckDuckGo, which use their own or Bing's index and feed AI assistants. In Brave our GitHub repository fills most of the top 10 for "grohnpetrel" (release v1.0, pull requests) and our Zenodo record is #1 for "what is grohnpetrel", so those pages are where people and AI tools meet us first. They should link to the canonical page and to the current content. No new site page: nothing competes with /about-grohnpetrel/ for the main query.
 
-**Outcome:** To be checked: the IndexNow response in the `wp-publish` log, and whether Bing and DuckDuckGo list the site before 26 Nov (not guaranteed in three days).
+**Outcome:** First IndexNow submission in `wp-publish` run 56: 80 URLs, response 202 (received, key check pending). The live llms.txt lists the ten videos and nine games; the key file answers with 200. Release v2.0 published on GitHub on 23 Nov. Still open: whether Bing and DuckDuckGo list the site before 26 Nov (not guaranteed in three days).
 
 **Note (23 Nov):** before release v2.0, `.zenodo.json` (the metadata Zenodo copies into each new version) now points to /about-grohnpetrel/ instead of the old redirected address and lists the videos and Knowledge Centre pages.
+
+**Action (23 Nov, third change):** Final presentation updated for 26 Nov: four speakers with 7.5 minutes each (Diego: opening and strategy; Iaroslav: results; Mario: content, off-site and reflection; Ayoyemi: CEO plan, launch campaign, log and summary); numbers and charts to 23 Nov; a new slide "Launch campaign: Scan. Play. Give seabirds space." (six weeks of Phase 0, 150 interest-list sign-ups as go / no-go, no media budget); a backup slide "Who did what"; the web version shows the same 37 slides and notes. The scheduled daily check did not start today, so we started it by hand.
+
+**Who:** Diego Aguilar, with AI assistance.
+
+**Reason:** Equal speaking time and clear ownership, so each of us presents and answers for our own part; the CEO plan needed a concrete launch campaign; the numbers had to include the latest days.
+
+**Outcome:** 23 Nov, bare "grohnpetrel": #1 in Germany (/de/was-ist-grohnpetrel/) and #1 in the UK (/about-grohnpetrel/); in the US no team site in the top 10, the first eight results are YouTube Shorts and Instagram posts. Whole period: #1 on 13 of 72 country-days, top 10 on 42, the most of any team. Brave, the same day as the release: release v2.0 is the #1 result for the bare word in the UK and for "what is grohnpetrel" in all three countries, and our DOI record is #1 for the bare word in the US.
+
