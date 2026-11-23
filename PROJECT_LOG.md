@@ -518,4 +518,12 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 
 **Reason:** More to watch and do on the pages people already reach (species, threats, habitats), using only facts those pages already state with sources, without adding URLs that compete for the main query.
 
-**Outcome:** Both activities played through to the end at phone width in English and German before publishing, with no script errors and no horizontal scrolling; `scripts/check_pages.py` passes. The videos use our own graphics plus the openly licensed gannet and puffin photos already on the site, credited on screen. Live check after publishing.
+**Outcome:** Both activities played through to the end at phone width in English and German before publishing, with no script errors and no horizontal scrolling; `scripts/check_pages.py` passes. The videos use our own graphics plus the openly licensed gannet and puffin photos already on the site, credited on screen. Live after publishing (PR #49): all six videos load and both activities run on the live pages.
+
+**Action (23 Nov, second change):** Exposure outside Google. (1) IndexNow: `scripts/indexnow.py` sends the sitemap URLs to Bing, Yandex, Seznam and Naver after every publish (new step in `wp-publish`); the key file is served by `snippets/llms.php` under /guillemots/, because IndexNow only accepts URLs below the key file's folder. (2) llms.txt updated: canonical About page, ten videos, nine games, the species pages, the SEO lab, the repository and the Zenodo DOI. (3) README: links point to the canonical /about-grohnpetrel/ instead of the old redirected address, plus videos, games and German pages. (4) Video counts corrected ("six" to "ten") in the videos pages' meta descriptions and on the English front page. (5) GitHub release v2.0, which Zenodo archives as a new version of our record.
+
+**Who:** Diego Aguilar, with AI assistance.
+
+**Reason:** In our tracker the site has never appeared in Brave (0 of 312 checks) or DuckDuckGo, which use their own or Bing's index and feed AI assistants. In Brave our GitHub repository fills most of the top 10 for "grohnpetrel" (release v1.0, pull requests) and our Zenodo record is #1 for "what is grohnpetrel", so those pages are where people and AI tools meet us first. They should link to the canonical page and to the current content. No new site page: nothing competes with /about-grohnpetrel/ for the main query.
+
+**Outcome:** To be checked: the IndexNow response in the `wp-publish` log, and whether Bing and DuckDuckGo list the site before 26 Nov (not guaranteed in three days).
