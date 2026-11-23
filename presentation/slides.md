@@ -146,10 +146,10 @@ Transition only.
 ---
 layout: default
 level: 2
-title: 'Our edge: the whole site is files, published by GitHub Actions'
+title: 'How we work: the site is files, published by GitHub Actions'
 ---
 
-# Our edge: the whole site is files, published by GitHub Actions
+# How we work: the site is files, published by GitHub Actions
 
 <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.4rem">
 <div class="flow">
@@ -330,10 +330,10 @@ The site is a course project, not a real service: we compete for Google’s atte
 ---
 layout: default
 level: 2
-title: 'AI visibility: from ignored to first meaning'
+title: 'AI answers: where we are cited'
 ---
 
-# AI visibility: from ignored to first meaning
+# AI answers: where we are cited
 
 <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.2rem">
 <div class="ai">
