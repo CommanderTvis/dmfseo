@@ -248,10 +248,10 @@ Be honest: number one is reached on some days, not every day. (Final refresh of 
 ---
 layout: default
 level: 2
-title: 'Rankings over time: four phases'
+title: 'Rankings over time: early #1, a dip, #1 again'
 ---
 
-# Rankings over time: four phases
+# Rankings over time: early #1, a dip, #1 again
 
 <div class="grid" style="grid-template-columns: 1fr 14rem; gap: 1rem">
 <RankChart />
