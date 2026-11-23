@@ -546,3 +546,11 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** The page the bare term ranks on had no citations; rivals have none either. Visible links to recognised organisations, plus the editorial policy, make the page look checkable and trustworthy. Also linked the page to Constructor University (constructor.university), which the site never linked to, and to Wikipedia for Weser, Wadden Sea, Bremen and petrels. The same links (Constructor University, Weser, Wadden Sea; first mention only) were added to the other pages in all seven languages. The page still says we are not an NGO and take no donations.
 
 **Outcome:** Pending; check bare "grohnpetrel" from 19 Nov.
+
+**Action (23 Nov, fourth change):** Web version of the final presentation rebuilt as native Slidev slides in the look of the PowerPoint: text, tables and the three charts (rankings over time, competitors, Search Console) are now vector, drawn from the tracker and Search Console data; each slide has its own title for navigation; the cover shows a fresh screenshot of the site. The cover and agenda now lead with Team Guillemots instead of the shared task and the marks; results slides are shortened to one point each; a new opening slide for the results part explains our approach (the site as files, published and measured by GitHub Actions, SEO in our own PHP, AI agents investigating outcomes); backup slides are hidden from the talk and a clickable contents slide follows the summary. The backup slide "likely questions and who answers" was removed.
+
+**Who:** Iaroslav Postovalov, with AI assistance.
+
+**Reason:** The web version showed the PowerPoint as images, which were blurry on a projector and gave every slide the same title; the question list was internal preparation, not for the audience.
+
+**Outcome:** Same 36 slides, numbers and speaker notes; the chart totals match the slides (42 / 72 top-10 country-days; 2,453 impressions, 50 clicks).

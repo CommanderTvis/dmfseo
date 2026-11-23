@@ -17,8 +17,8 @@ On every change to `presentation/` the `slides` GitHub Action exports the PDF (r
 
 The web version is `noindex` and `robots.txt` blocks the whole Pages site, so it never competes with our website in search.
 
-Slidev features used: `v-clicks` (points appear one by one), a Mermaid diagram, `global-bottom.vue` (page numbers), Google fonts (Inter, Lora), hash routing for GitHub Pages.
+Every slide is native Slidev (vector text and charts), in the look of the team's PowerPoint. Charts are Vue components in `components/`, drawn from `components/chart-data.json` (built from `data/results.csv` and `data/gsc.csv` on the gh-pages branch). Screenshots and mockups are in `public/img/`. Also used: `global-bottom.vue` (footer and page number), Google fonts (Lato, Source Serif 4), hash routing for GitHub Pages.
 
-Rules for this deck: no other team's name or concept in public files (say them orally); every number must come from the tracker (`public/rank-daily.csv`), Search Console or the course snapshots; update the Search Console numbers on the morning of the presentation.
+Rules for this deck: other teams appear by name only in the ranking comparison, never with their concepts; every number must come from the tracker (`public/rank-daily.csv`), Search Console or the course snapshots; update the Search Console numbers on the morning of the presentation.
 
 Suggested speakers: Iaroslav (results, technical), Diego (strategy, content, GEO), Mario (reflection), Ayoyemi (marketing plan, close).

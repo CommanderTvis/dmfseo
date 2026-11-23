@@ -1,35 +1,101 @@
-/* Grohnpetrel deck styles (loaded automatically by Slidev) */
-:root { --teal: #124e5a; --orange: #d8794b; --ivory: #f7f3ea; --ink: #1d2b2f; --light: #e8f1f3; }
-.slidev-layout { color: var(--ink); font-family: "Inter", "Helvetica Neue", Arial, sans-serif; font-size: 1.12rem; line-height: 1.45; }
-.slidev-layout h1 { color: var(--teal); font-family: "Lora", Georgia, serif; font-weight: 700; font-size: 2.1rem; margin-bottom: 0.6rem; }
-.slidev-layout h2 { color: var(--ink); font-size: 1.15rem; }
-.slidev-layout h3 { color: var(--teal); font-size: 1rem; margin: 0.2rem 0 0.4rem; }
-.slidev-layout table { font-size: 0.9rem; width: 100%; border-collapse: collapse; }
-.slidev-layout th { background: var(--teal); color: #fff; text-align: left; padding: 4px 8px; }
-.slidev-layout td { border-bottom: 1px solid #c9d8dc; padding: 4px 8px; }
-.slidev-layout tr:nth-child(even) td { background: var(--light); }
-.slidev-layout blockquote { border-left: 5px solid var(--orange); background: #f1f7f1; padding: 0.6rem 0.9rem; font-size: 1rem; }
-.slidev-layout li { margin: 0.15rem 0; }
-.slidev-layout.cover { background: linear-gradient(135deg, #0f3f49, #124e5a 60%, #1d6a77); color: #fff; }
-.slidev-layout.cover h1 { color: #fff; font-size: 3rem; margin-bottom: 0.2rem; }
-.slidev-layout.cover h2 { color: #f2c9a8; font-weight: 400; }
-.slidev-layout.cover p { color: #dfeaec; font-size: 0.85rem; }
-.cover-logo { width: 84px; border-radius: 14px; margin-bottom: 0.8rem; }
-.slidev-layout.section { background: var(--teal); color: #fff; }
-.slidev-layout.section h1 { color: #fff; font-size: 2.6rem; }
-.time { display: inline-block; background: var(--orange); color: #fff; border-radius: 99px; padding: 2px 12px; font-size: 0.8rem; }
-.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; }
-.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin: 0.6rem 0 1rem; }
-.kpis div { background: var(--light); border-top: 4px solid var(--orange); border-radius: 6px; padding: 0.6rem 0.7rem; }
-.kpis b { display: block; color: var(--teal); font-size: 1.9rem; font-family: "Lora", Georgia, serif; }
-.kpis span { font-size: 0.8rem; line-height: 1.25; display: block; }
-.note { background: #f1f7f1; border-left: 5px solid var(--orange); padding: 0.5rem 0.8rem; margin-top: 0.8rem; font-size: 0.95rem; }
-.caption { font-size: 0.7rem; color: #5b6b6f; margin-top: 0.3rem; }
-img.full { width: 100%; max-height: 78%; object-fit: contain; }
-img.shot { width: 100%; border: 1px solid #c9d8dc; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.12); margin-top: 2.6rem; }
-pre { font-size: 0.72rem !important; }
-.two-columns { column-gap: 2.2rem; }
+/* Grohnpetrel deck styles (loaded automatically by Slidev): the look of the team's PowerPoint, rebuilt as native vector slides */
+:root {
+  --teal: #143f48; --teal-2: #1c5562; --ink: #1d2b2f; --muted: #5b6b6f;
+  --card: #e9eff0; --pink: #f9ede6; --orange: #bf5f37; --gold: #d6a447; --line: #c9d8dc;
+  --serif: "Source Serif 4", Georgia, serif;
+}
+.slidev-layout { color: var(--ink); font-family: "Lato", "Helvetica Neue", Arial, sans-serif; font-size: 15px; line-height: 1.35; padding: 1.6rem 1.8rem 2.2rem; }
+.slidev-layout h1 { color: var(--teal); font-family: var(--serif); font-weight: 700; font-size: 31px; line-height: 1.15; margin: 0 0 1.1rem; letter-spacing: -0.01em; }
+.slidev-layout h3 { color: var(--teal); font-size: 15px; font-weight: 700; margin: 0 0 0.3rem; }
+.slidev-layout p { margin: 0 0 0.45rem; }
+.slidev-layout ul { margin: 0; padding-left: 1rem; list-style: disc; }
+.slidev-layout li { margin: 0 0 0.35rem; }
 
-/* Final deck (26 Nov): each slide is the rendered PowerPoint slide */
-.slidev-layout.full { padding: 0; }
-img.deck { width: 100%; height: 100%; object-fit: contain; display: block; }
+/* dark slides: cover, section dividers, closing */
+.slidev-layout.dark, .slidev-layout.section, .slidev-layout.cover { background: var(--teal); color: #fff; }
+.slidev-layout.dark h1, .slidev-layout.section h1, .slidev-layout.cover h1 { color: #fff; }
+.slidev-layout.section { display: flex; flex-direction: column; justify-content: center; padding-left: 4.6rem; }
+.slidev-layout.section h1 { font-size: 42px; margin-bottom: 0.6rem; }
+.slidev-layout.section p { color: #9fc4cc; font-size: 17px; }
+
+/* text helpers */
+.eyebrow { font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.55rem; }
+.dark .eyebrow, .panel .eyebrow { color: var(--gold); }
+.muted { color: var(--muted); }
+.small { font-size: 12.5px; }
+.tiny { font-size: 11px; }
+.caption { font-size: 10.5px; font-style: italic; color: var(--muted); margin-top: 0.5rem; }
+.serif { font-family: var(--serif); }
+.gold { color: var(--gold); }
+.orange { color: var(--orange); }
+
+/* boxes */
+.card { background: var(--card); border-radius: 7px; padding: 0.8rem 0.95rem; }
+.panel { background: var(--teal); color: #fff; border-radius: 7px; padding: 0.9rem 1rem; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.pinkbox { background: var(--pink); border-radius: 7px; padding: 0.8rem 0.95rem; }
+.panel h3 { color: #fff; }
+.card > :last-child, .panel > :last-child, .pinkbox > :last-child { margin-bottom: 0; }
+
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; }
+.g5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.6rem; }
+.gap-l { gap: 1.2rem; }
+
+/* big numbers */
+.kpi { background: var(--card); border-radius: 7px; padding: 0.8rem 0.9rem; }
+.kpi b { display: block; font-family: var(--serif); color: var(--teal); font-size: 30px; line-height: 1.1; margin-bottom: 0.5rem; }
+.kpi span { display: block; font-size: 12.5px; }
+.kpi.dark { background: var(--teal); color: #fff; }
+.kpi.dark b { color: var(--gold); }
+.stat b { display: block; font-family: var(--serif); color: var(--teal); font-size: 30px; line-height: 1.1; }
+.stat span { font-size: 12.5px; color: var(--muted); }
+
+/* numbered circle, date pill, badge */
+.num { width: 29px; height: 29px; border-radius: 50%; background: var(--teal); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex: none; }
+.pill { display: inline-block; border-radius: 99px; padding: 2px 12px; font-size: 10px; font-weight: 700; background: var(--teal); color: #fff; white-space: nowrap; }
+.pill.gold { background: var(--gold); color: var(--teal); }
+.pill.grey { background: #c4d2d4; color: var(--ink); }
+.row { display: flex; align-items: center; gap: 0.8rem; }
+
+/* tables */
+.slidev-layout table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.slidev-layout th { background: var(--teal); color: #fff; text-align: left; font-weight: 700; padding: 5px 7px; }
+.slidev-layout td { padding: 5px 7px; border-bottom: 1px solid #dfe8ea; vertical-align: middle; }
+.slidev-layout tbody tr:nth-child(odd) td { background: #f1f5f5; }
+
+/* images */
+img.shot { width: 100%; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 3px 10px rgba(0,0,0,.12); display: block; }
+
+/* pipeline arrows */
+.flow { display: flex; flex-direction: column; gap: 0.95rem; }
+.flow > div { position: relative; }
+.flow > div:not(:last-of-type)::after { content: ""; position: absolute; left: 50%; bottom: -0.85rem; transform: translateX(-50%); border: 0.42rem solid transparent; border-top: 0.55rem solid #9cc6cc; }
+
+/* timeline */
+.timeline { display: grid; grid-template-columns: repeat(8, 1fr); position: relative; text-align: center; }
+.timeline::before { content: ""; position: absolute; left: 2%; right: 2%; top: 43px; height: 2px; background: #a9cdd2; }
+.timeline .d { color: var(--orange); font-size: 11px; font-weight: 700; height: 34px; }
+.timeline .dot { width: 18px; height: 18px; border-radius: 50%; background: var(--teal); margin: 0 auto 10px; position: relative; }
+.timeline .dot.o { background: var(--orange); }
+.timeline .t { font-weight: 700; font-size: 13px; margin-bottom: 0.9rem; }
+.timeline .x { font-size: 11px; padding: 0 3px; }
+
+/* overrides of the default theme */
+.slidev-layout p, .slidev-layout li { line-height: 1.4; }
+.slidev-layout.section { align-items: flex-start !important; text-align: left !important; }
+.slidev-layout.section h1, .slidev-layout.section p { text-align: left !important; width: 100%; }
+.slidev-layout.section h1 { font-weight: 700; }
+.slidev-layout.dark footer, .slidev-layout.section footer { color: #fff; }
+
+/* Contents slide (Slidev <Toc>) */
+.toc { font-size: 11.5px; column-gap: 2rem; }
+.toc ol, .toc ul { list-style: none !important; padding-left: 0 !important; margin: 0 !important; }
+.toc ol ol, .toc ul ul { padding-left: 1rem !important; margin-bottom: 0.45rem !important; }
+.toc li { margin: 0 0 0.1rem !important; break-inside: avoid; }
+.toc a { border: none !important; text-decoration: none; font-weight: 700; color: var(--teal) !important; }
+.toc ol ol a, .toc ul ul a { font-weight: 400; color: var(--ink) !important; }
+.toc a:hover { color: var(--orange) !important; }
+
+/* Slidev 0.50 bug: the closed "Go to" dialog only moves up 5rem, so a long slide list stays on screen */
+.\-top-20 .autocomplete-list { display: none !important; }
