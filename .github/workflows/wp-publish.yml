@@ -31,3 +31,7 @@ jobs:
         run: uv run scripts/gsc_sitemap.py
         env:
           GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+      - name: Tell Bing and the other IndexNow engines about our URLs
+        if: ${{ !(github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
+        continue-on-error: true
+        run: uv run scripts/indexnow.py
