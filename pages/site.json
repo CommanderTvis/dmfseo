@@ -380,6 +380,78 @@
       "slug": "grohnpetrel-beach-walk-card-de",
       "title": "Nordsee-Strandkarte (PDF)",
       "alt": "Nordsee-Strandkarte"
+    },
+    {
+      "file": "grohnpetrel-gannet-en.mp4",
+      "slug": "grohnpetrel-gannet-en",
+      "title": "The gannet: the North Sea’s plunge diver (45 seconds) (video, English)",
+      "alt": "The gannet: the North Sea’s plunge diver (45 seconds)"
+    },
+    {
+      "file": "grohnpetrel-gannet-en-poster.webp",
+      "slug": "grohnpetrel-gannet-en-poster",
+      "title": "The gannet: the North Sea’s plunge diver (45 seconds): title frame",
+      "alt": "Grohnpetrel logo and the video title on a dark teal background"
+    },
+    {
+      "file": "grohnpetrel-gannet-de.mp4",
+      "slug": "grohnpetrel-gannet-de",
+      "title": "Der Basstölpel: Sturztaucher der Nordsee (45 Sekunden) (video, German)",
+      "alt": "Der Basstölpel: Sturztaucher der Nordsee (45 Sekunden)"
+    },
+    {
+      "file": "grohnpetrel-gannet-de-poster.webp",
+      "slug": "grohnpetrel-gannet-de-poster",
+      "title": "Der Basstölpel: Sturztaucher der Nordsee (45 Sekunden): title frame",
+      "alt": "Grohnpetrel-Logo und der Videotitel auf dunkelpetrolfarbenem Hintergrund"
+    },
+    {
+      "file": "grohnpetrel-puffin-en.mp4",
+      "slug": "grohnpetrel-puffin-en",
+      "title": "The Atlantic puffin in 40 seconds (video, English)",
+      "alt": "The Atlantic puffin in 40 seconds"
+    },
+    {
+      "file": "grohnpetrel-puffin-en-poster.webp",
+      "slug": "grohnpetrel-puffin-en-poster",
+      "title": "The Atlantic puffin in 40 seconds: title frame",
+      "alt": "Grohnpetrel logo and the video title on a dark teal background"
+    },
+    {
+      "file": "grohnpetrel-puffin-de.mp4",
+      "slug": "grohnpetrel-puffin-de",
+      "title": "Der Papageitaucher in 40 Sekunden (video, German)",
+      "alt": "Der Papageitaucher in 40 Sekunden"
+    },
+    {
+      "file": "grohnpetrel-puffin-de-poster.webp",
+      "slug": "grohnpetrel-puffin-de-poster",
+      "title": "Der Papageitaucher in 40 Sekunden: title frame",
+      "alt": "Grohnpetrel-Logo und der Videotitel auf dunkelpetrolfarbenem Hintergrund"
+    },
+    {
+      "file": "grohnpetrel-habitats-en.mp4",
+      "slug": "grohnpetrel-habitats-en",
+      "title": "Dunes, salt marshes, beaches: three coastal habitats in 35 seconds (video, English)",
+      "alt": "Dunes, salt marshes, beaches: three coastal habitats in 35 seconds"
+    },
+    {
+      "file": "grohnpetrel-habitats-en-poster.webp",
+      "slug": "grohnpetrel-habitats-en-poster",
+      "title": "Dunes, salt marshes, beaches: three coastal habitats in 35 seconds: title frame",
+      "alt": "Grohnpetrel logo and the video title on a dark teal background"
+    },
+    {
+      "file": "grohnpetrel-habitats-de.mp4",
+      "slug": "grohnpetrel-habitats-de",
+      "title": "Dünen, Salzwiesen, Strände: drei Küstenlebensräume in 35 Sekunden (video, German)",
+      "alt": "Dünen, Salzwiesen, Strände: drei Küstenlebensräume in 35 Sekunden"
+    },
+    {
+      "file": "grohnpetrel-habitats-de-poster.webp",
+      "slug": "grohnpetrel-habitats-de-poster",
+      "title": "Dünen, Salzwiesen, Strände: drei Küstenlebensräume in 35 Sekunden: title frame",
+      "alt": "Grohnpetrel-Logo und der Videotitel auf dunkelpetrolfarbenem Hintergrund"
     }
   ],
   "logo": "grohnpetrel-logo-webp"
