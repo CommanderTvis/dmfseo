@@ -527,3 +527,5 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** In our tracker the site has never appeared in Brave (0 of 312 checks) or DuckDuckGo, which use their own or Bing's index and feed AI assistants. In Brave our GitHub repository fills most of the top 10 for "grohnpetrel" (release v1.0, pull requests) and our Zenodo record is #1 for "what is grohnpetrel", so those pages are where people and AI tools meet us first. They should link to the canonical page and to the current content. No new site page: nothing competes with /about-grohnpetrel/ for the main query.
 
 **Outcome:** To be checked: the IndexNow response in the `wp-publish` log, and whether Bing and DuckDuckGo list the site before 26 Nov (not guaranteed in three days).
+
+**Note (23 Nov):** before release v2.0, `.zenodo.json` (the metadata Zenodo copies into each new version) now points to /about-grohnpetrel/ instead of the old redirected address and lists the videos and Knowledge Centre pages.
