@@ -231,7 +231,7 @@ IAROSLAV · 1:45–4:15
 - Right after the first publish we were in the top four everywhere, and the German site gave us number one in Germany the next day
 - Then a long, stable second place in Germany behind one rival, while in the US and the UK other teams’ videos and posts pushed most team sites out of the top ten
 - After we merged our pages into one on 16 November, number one came back: in the US on 18 November, and in all three countries between 21 and 23 November
-- The grey dots are not drops: on those days Google auto-corrected the word in our tracker, so we have no valid data
+- The grey dots are gaps in our own tracker: on those days the search API it uses auto-corrected the word to similar names, so those checks are invalid
 -->
 
 ---
