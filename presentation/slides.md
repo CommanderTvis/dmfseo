@@ -28,7 +28,7 @@ hideInToc: true
 <img src="/logo.webp" style="width: 52px; border-radius: 7px; margin-bottom: 1.6rem" alt="Grohnpetrel mascot" />
 <h1 style="font-size: 40px; margin-bottom: 0.9rem">Team Guillemots</h1>
 <p class="gold" style="font-weight: 700; font-size: 13px; margin-top: 0.4rem; margin-bottom: 1.6rem">Final presentation · Grohnpetrel</p>
-<p style="font-size: 12px">Ayoyemi Adeboyeyo · Diego Aguilar · Mario Iraheta · Iaroslav Postovalov</p>
+<p style="font-size: 12px">Ayoyemi Adeboyejo · Diego Aguilar · Mario Iraheta · Iaroslav Postovalov</p>
 <p class="mt-auto" style="font-size: 9px; color: #c7d9dc">Digital Marketing Fundamentals & SEO · Constructor University · 26 November 2026</p>
 </div>
 <img src="/img/site-hero.jpg" class="w-full h-full object-cover object-left-top" alt="Front page of the Grohnpetrel website" />
@@ -371,18 +371,20 @@ Transition only.
 ---
 layout: default
 level: 2
-title: 'Six objectives, each tied to a technique'
+title: '6 objectives, each tied to a technique'
 ---
 
-# Six objectives, each tied to a technique
+# 6 objectives
+
+<p class="serif" style="font-style: italic; font-size: 15px; margin-top: -0.6rem">Each tied to a technique</p>
 
 <div class="g3 obj">
-<div class="card"><b>01</b><h3>Crawlable first</h3><p>Whoever is indexed first and cleanly wins an empty keyword</p><i>HTTP header check, sitemap, hreflang</i></div>
-<div class="card"><b>02</b><h3>The clearest definition</h3><p>One sentence, repeated in every place and language</p><i>Definition page, FAQ, DefinedTerm</i></div>
-<div class="card"><b>03</b><h3>Distinctive and citable</h3><p>Real seabird facts with sources: UNESCO, IUCN, BirdLife, UBA</p><i>Seabird guide, articles, citations</i></div>
-<div class="card"><b>04</b><h3>Machine-readable</h3><p>Help search engines and AI read who we are</p><i>JSON-LD, llms.txt, transcripts, DOI</i></div>
-<div class="card"><b>05</b><h3>Measure daily</h3><p>Change one thing, wait, log the outcome</p><i>Tracker, Search Console, project log</i></div>
-<div class="panel"><b>06</b><h3>One page per intent</h3><p>Added on 16 Nov after our own data</p><i>Canonical About page, redirects</i></div>
+<div class="card"><b>#1</b><h3>Crawlable first</h3><p>Whoever is indexed first and cleanly wins an empty keyword</p><i>HTTP header check, sitemap, hreflang</i></div>
+<div class="card"><b>#2</b><h3>The clearest definition</h3><p>One sentence, repeated in every place and language</p><i>Definition page, FAQ, DefinedTerm</i></div>
+<div class="card"><b>#3</b><h3>Distinctive and citable</h3><p>Real seabird facts with sources: UNESCO, IUCN, BirdLife, UBA</p><i>Seabird guide, articles, citations</i></div>
+<div class="card"><b>#4</b><h3>Machine-readable</h3><p>Help search engines and AI read who we are</p><i>JSON-LD, llms.txt, transcripts, DOI</i></div>
+<div class="card"><b>#5</b><h3>Measure daily</h3><p>Change one thing, wait, log the outcome</p><i>Tracker, Search Console, project log</i></div>
+<div class="panel"><b>#6</b><h3>One page per intent</h3><p>Added on 16 Nov after our own data</p><i>Canonical About page, redirects</i></div>
 </div>
 
 <style>
@@ -403,10 +405,10 @@ Our strategy had six objectives, and each one maps to concrete techniques. The s
 ---
 layout: default
 level: 2
-title: 'How we built it: eight phases, each answering the data'
+title: 'How we built it: 8 phases answering the data'
 ---
 
-# How we built it: eight phases, each answering the data
+# How we built it: 8 phases answering the data
 
 <div class="timeline mt-6">
 <div><div class="d">31 Oct</div><div class="dot"></div><div class="t">Launch</div><div class="x">Indexing fix, sitemap, structured data</div></div>
@@ -419,7 +421,7 @@ title: 'How we built it: eight phases, each answering the data'
 <div><div class="d">20–23 Nov</div><div class="dot o"></div><div class="t">Play and learn</div><div class="x">8 more games, 8 more videos, beach card PDF</div></div>
 </div>
 
-<div class="card" style="margin-top: 3.2rem; font-size: 13px">Each phase answered something we saw: trust signals after AI answers quoted social posts; the canonical page after Google kept switching between our pages; games on existing pages to add engagement without adding URLs.</div>
+<div class="card" style="margin-top: 3.2rem; font-size: 13px">Each phase reflected something we experienced: signs of trust after the AI responded by citing social posts; the canonical page after Google kept switching between our pages; games on existing pages to add interaction without adding URLs.</div>
 
 <!--
 DIEGO · 10:45–11:45
@@ -440,10 +442,10 @@ title: 'Pipeline and technical SEO'
 <div class="flow">
 <div class="card"><b class="small">Edit a page file in GitHub</b></div>
 <div class="card"><b class="small">Pull request: automatic checks</b></div>
-<div class="panel" style="box-shadow: none; background: var(--teal-2)"><b class="small">Merge: WordPress live in ~3 min, sitemap resent</b></div>
+<div class="panel" style="box-shadow: none; background: var(--teal-2)"><b class="small">Merge: WordPress live in around 3 min, sitemap resent</b></div>
 <div class="panel" style="box-shadow: none"><b class="small">Daily tracker: dashboard and CSV</b></div>
 </div>
-<p class="caption">Why: every change is dated, reviewed and reversible. That is also our evidence.</p>
+<p class="caption">Why? Every change is dated, reviewed and reversible. That is also our evidence.</p>
 </div>
 <div>
 <div class="g3">
@@ -514,8 +516,8 @@ title: 'Three key decisions, and why'
 # Three key decisions, and why
 
 <div class="g3 dec">
-<div class="panel"><span class="pill gold">16 Nov</span><h3>One page per search intent</h3><i>Why</i><p>Google showed nine different pages of ours for the bare word; leaders rank with one.</p><i>What we did</i><p>Merged “What is” and “meanings” into /about-grohnpetrel/, 301 redirects, froze other changes for 48 h.</p><b>#1 US, UK 21 Nov; DE and UK 23 Nov</b></div>
-<div class="card"><span class="pill">19–20 Nov</span><h3>Experiment in a copy first</h3><i>Why</i><p>A redesign touches every page; a mistake would hit the daily measurement.</p><i>What we did</i><p>Built and tested it in a private copy of the repository, then merged it in one step.</p><b>Live with no text or SEO change; PageSpeed 99–100</b></div>
+<div class="panel"><span class="pill gold">16 Nov</span><h3>One page per search intent</h3><i>Why</i><p>Google showed nine different pages of ours for the bare word; leaders rank with one.</p><i>What we did</i><p>We merged “What is” and “meanings” into /about-grohnpetrel/, 301 redirects, froze other changes for 48 h.</p><b>#1 US, UK 21 Nov; DE and UK 23 Nov</b></div>
+<div class="card"><span class="pill">19–20 Nov</span><h3>Experiment in a copy first</h3><i>Why</i><p>We didn’t want to take the risk: a redesign touches every page; a mistake would hit the daily measurement.</p><i>What we did</i><p>Built and tested it in a private copy of the repository, then merged it in one step.</p><b>Live with no text or SEO change; PageSpeed 99–100</b></div>
 <div class="card"><span class="pill">20 Nov</span><h3>Games on existing pages</h3><i>Why</i><p>More pages had made our rank unstable; we still wanted engagement.</p><i>What we did</i><p>Six games placed on the pages whose facts they use; no new URLs.</p><b>More clicks into species pages, main page untouched</b></div>
 </div>
 
@@ -541,10 +543,10 @@ Second: a redesign touches every page, so we built and tested it in a copy of th
 ---
 layout: default
 level: 2
-title: 'Content strategy: real facts, made easy to use'
+title: 'Content strategy: Real facts'
 ---
 
-# Content strategy: real facts, made easy to use
+# Content strategy: Real facts
 
 <div class="grid" style="grid-template-columns: 1fr 1fr 0.56fr; gap: 0.8rem; align-items: start">
 <img src="/img/game-clue.jpg" class="shot" alt="Clue game on the seabird guide" />
@@ -574,10 +576,10 @@ Our content strategy: put the invented word inside a real topic. One page per in
 ---
 layout: default
 level: 2
-title: 'Off-site, social and links: late, then fixed where we could'
+title: 'Off-site, social and links: Late, then fixed where we could'
 ---
 
-# Off-site, social and links: late, then fixed where we could
+# Off-site, social and links: Late, then fixed where we could
 
 <div class="g2 gap-l" style="font-size: 12.5px">
 <div>
@@ -601,7 +603,7 @@ title: 'Off-site, social and links: late, then fixed where we could'
 
 <div class="grid mt-4" style="grid-template-columns: 1fr 2fr; gap: 0.6rem">
 <div class="kpi dark"><b style="font-size: 34px">0 / 324</b><span>Brave checks that showed our site; our repository and DOI lead instead</span></div>
-<div class="card flex items-center"><p style="font-style: italic; font-size: 12.5px">For a new word, the results page is shared with platforms and social video. The leaders beat us there, not on page quality. If we started again: first video on day 3, and 3–5 real links in week 1.</p></div>
+<div class="card flex items-center"><p style="font-style: italic; font-size: 12.5px">The results page is shared with platforms and social video. The leaders beat us there, not on page quality.<br>If we started again: first video on day 3, and 3–5 real links in week 1.</p></div>
 </div>
 
 <!--
@@ -681,7 +683,7 @@ title: 'Unexpected outcomes'
 <div class="card"><h3>Platforms beat websites on Brave</h3><p>GitHub and Zenodo rank above every team website there.</p></div>
 <div class="card"><h3>The guide found its own audience</h3><p>986 impressions from real seabird searches such as “atlantic puffin”.</p></div>
 <div class="card"><h3>Some appearance is not ours</h3><p>Google shows the university’s name and icon for every team site.</p></div>
-<div class="card"><h3>One day can reset everything</h3><p>Since 20 Nov Google often shows no team site at all in the US, only Shorts.</p></div>
+<div class="card"><h3>Some days belong to social video</h3><p>On 23 Nov the US top 10 was only YouTube Shorts and Instagram posts.</p></div>
 </div>
 
 <style>
@@ -694,7 +696,7 @@ MARIO · 19:15–20:45
 
 Some things surprised us. The biggest one: SEO and GEO can pull in different directions. The page that explained the word’s other meanings hurt our ranking, so we removed it for SEO; but that is exactly the kind of content Google’s AI Overview now uses to explain the word. So what helps a page rank is not always what helps an AI answer.
 
-Second, the results page is not only websites: a YouTube Short reached number one in the UK, and Instagram and YouTube often take half the top ten. Third, on Brave, platforms win: GitHub and Zenodo rank above every team website. Fourth, our seabird guide found its own audience, almost a thousand impressions from real searches like Atlantic puffin. And some things no team controls: the university decides the site name and icon Google shows, and on some days Google showed no team site at all.
+Second, the results page is not only websites: a YouTube Short reached number one in the UK, and Instagram and YouTube often take half the top ten. Third, on Brave, platforms win: GitHub and Zenodo rank above every team website. Fourth, our seabird guide found its own audience, almost a thousand impressions from real searches like Atlantic puffin. And some things no team controls: the university decides the site name and icon Google shows, and on 23 November the US top ten was only Shorts and Instagram posts, no team site at all.
 -->
 
 ---
@@ -707,7 +709,7 @@ title: 'What we learned, and what we would change'
 
 <div class="g2 gap-l">
 <div style="font-size: 13px">
-<div class="eyebrow" style="color: var(--teal)">Lessons</div>
+<div class="eyebrow" style="color: var(--teal)">We learned that:</div>
 
 - A keyword belongs to whoever defines it first and most clearly
 - Indexing beats content length in week one
@@ -718,7 +720,7 @@ title: 'What we learned, and what we would change'
 
 </div>
 <div class="panel nx" style="box-shadow: none">
-<div class="eyebrow">Next time we would</div>
+<div class="eyebrow">Next time we will</div>
 <div><span class="pill gold">Day 1</span>Choose one canonical page</div>
 <div><span class="pill gold">Day 3</span>Post the first short video</div>
 <div><span class="pill gold">Week 1</span>Ask for 3–5 real links</div>
