@@ -278,20 +278,21 @@ title: 'Where AI answers cite us'
 
 # Where AI answers cite us
 
-<div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.4rem; align-items: start">
+<div class="grid" style="grid-template-columns: 13rem 1fr; gap: 1.4rem; align-items: center">
 <div class="ai">
 <div><span class="orange">11 Nov</span><b>Google AI: not us</b></div>
 <div><span class="orange">18–22 Nov</span><b>Google AI: our meaning first</b></div>
+<div><span class="orange">why</span><b>Public repository, DOI archive, one sentence everywhere</b></div>
 </div>
 <div>
 <img src="/img/ai-overview.jpg" class="w-full" alt="Google AI Overview for “what is grohnpetrel”, 20 Nov" />
-<p class="caption" style="margin-top: 0.3rem">Google, “what is grohnpetrel”, 20 Nov 2026</p>
+<p class="caption" style="margin-top: 0.3rem; font-size: 13px">Google, “what is grohnpetrel”, 20 Nov 2026</p>
 </div>
 </div>
 
 <style>
-.ai > div { display: grid; grid-template-columns: 6.5rem 1fr; align-items: baseline; margin-bottom: 1.6rem; font-size: 19px; }
-.ai span { font-weight: 700; font-size: 12px; }
+.ai > div { display: flex; flex-direction: column; margin-bottom: 1.8rem; font-size: 21px; line-height: 1.25; }
+.ai span { font-weight: 700; font-size: 14px; margin-bottom: 0.3rem; }
 </style>
 
 <!--
