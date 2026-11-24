@@ -207,7 +207,7 @@ title: 'Analytics portal'
 <!--
 IAROSLAV · 1:00–1:45
 
-- To know whether anything works, we measure it every day. GitHub Actions checks our rank for the bare word in Germany, the US and the UK, in Google through the Serper API and in Brave through my Brave API key, with the same settings since 31 October, so we see trends, not one lucky screenshot
+- To know whether anything works, we measure it every day. GitHub Actions checks our rank for the bare word in Germany, the US and the UK, in Google through the Serper API, a paid service that runs a Google search for a program and returns the results as data, like a clean browser set to a chosen country, without anyone’s personal history. It uses the same settings since 31 October, so we see trends, not one lucky screenshot. Brave is not part of the assessment; I track it through my Brave API key out of curiosity and to gather more data
 - I also registered the site in Search Console and connected it through a Google Cloud service account, so the same robot reads its data and resubmits the sitemap after every publish
 - All of it is public on this dashboard and sits in the same repository as the pages, so the AI agent sees what we changed right next to what happened to our rank. Here is what it shows
 -->
@@ -281,7 +281,6 @@ title: 'Where AI answers cite us'
 <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.4rem; align-items: start">
 <div class="ai">
 <div><span class="orange">11 Nov</span><b>Google AI: not us</b></div>
-<div><span class="orange">from 10 Nov</span><b>Brave: our archive is #1</b></div>
 <div><span class="orange">18–22 Nov</span><b>Google AI: our meaning first</b></div>
 </div>
 <div>
@@ -299,7 +298,7 @@ title: 'Where AI answers cite us'
 IAROSLAV · 5:15–6:30
 
 - Ranking is half of the task; the other half is AI answers. On 11 November Google’s AI Overview did not mention us at all, only other teams’ meanings
-- From 10 November Brave already showed our archived record with a DOI as its top answer, and from 18 November Google’s AI Overview lists our meaning first and links our About page and our repository
+- From 18 November Google’s AI Overview lists our meaning first and links our About page and our repository
 - What made us citable is a public repository, a DOI archive and one sentence repeated everywhere. One caveat: this screenshot is from a signed-in browser, so it can vary by person and day
 -->
 
