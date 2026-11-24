@@ -562,3 +562,12 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** The audience should follow one line of thought per slide; details belong in the spoken part.
 
 **Outcome:** Pending (presentation on 26 Nov). Note: since 19 Nov several Google checks of the tracker were auto-corrected by Google into other words and count as "not in the top 10"; to be fixed in the tracker.
+
+**Action (24 Nov, second change):** The wording and visuals of the PowerPoint were made more natural (objectives numbered #1–#6, shorter titles for the phases, content and off-site slides, "we" in the key decisions, "We learned that" and "Next time we will" on the lessons slide, icons on several slides), and the two versions of the presentation were brought together: Iaroslav's rewritten results part is now also in the PowerPoint, and the new wording is now also in the web version. The competitor comparison and the table of what moved the ranking stay in the PowerPoint as hidden backup slides. Corrected on the slides: the claim that Google showed no team site on 20 and 22 Nov (those were invalid tracker checks; the slide now cites 23 Nov in the US, when the top 10 really was only Shorts and Instagram posts) and Ayoyemi's surname on the cover (Adeboyejo). Ayoyemi's wording pass on the CEO part is still to come.
+
+**Who:** Diego Aguilar, with AI assistance (results part by Iaroslav Postovalov).
+
+**Reason:** One presentation in two formats, each speaker in their own words, and no claim the data does not support.
+
+**Outcome:** PowerPoint with 32 slides plus 6 hidden backup slides; the web version has the same slides and speaker texts. Rehearsal with a timer on 25 Nov.
+
