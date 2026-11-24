@@ -16,11 +16,13 @@ Your part, slides 6–11, 7.5 minutes. The same text is in the speaker notes of 
 - I also registered the site in Search Console and connected it through a Google Cloud service account, so the same robot reads its data and resubmits the sitemap after every publish
 - All of it is public on this dashboard and sits in the same repository as the pages, so the AI agent sees what we changed right next to what happened to our rank. Here is what it shows
 
-## Results over three weeks (1:45–4:15)
+## Our Google rank over three weeks (1:45–4:15)
 
-- So, what did three weeks give us? We reached number one for the bare word in all three countries, on thirteen country-days, most recently in Germany and the UK on 23 November
-- Over the whole period we were in the top ten on 42 of 72 country-days, the most of any team; Search Console counted 2,482 impressions, and Google’s AI Overview lists our meaning first
-- To be honest, number one is reached on some days, not every day: on some days the top ten was only YouTube Shorts and Instagram
+- Here is our Google rank for the bare word, every day, in Germany, the US and the UK; orange dots are number one
+- Right after the first publish we were in the top four everywhere, and the German site gave us number one in Germany the next day
+- Then a long, stable second place in Germany behind one rival, while in the US and the UK other teams’ videos and posts pushed most team sites out of the top ten
+- After we merged our pages into one on 16 November, number one came back: in the US on 18 November, and in all three countries between 21 and 23 November
+- The grey dots are not drops: on those days Google auto-corrected the word in our tracker, so we have no valid data
 
 ## Search Console impressions (4:15–5:15)
 
