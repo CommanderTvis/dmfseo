@@ -172,7 +172,7 @@ title: 'Git repository and deploy to WordPress using GitHub Actions'
 <!--
 IAROSLAV · 0:00–1:00
 
-- Thank you, Diego. Now our site’s infrastructure: the setup that let AI do real work for us, while we saw exactly what it changed and gave it all the information it needed
+- Thank you, Diego. My role in the project was to build the setup around the AI: the repository, the automatic publishing and the daily measurement, so the agents could do most of the work and we could check every change. Now our site’s infrastructure: the setup that let AI do real work for us, while we saw exactly what it changed and gave it all the information it needed
 - First: apart from a couple of first drafts, we put every article into a Git repository on GitHub, which coding agents can work with directly. The alternatives were to spend time learning how WordPress works in detail, or to rely on browser agents, which cost far too many tokens and lead to very unpredictable outcomes
 - Second: I wrote a guide for the team on using the repository. Diego, who took the role of content creator, ended up sending even more pull requests than I did, although using Git was my idea
 - Third: GitHub Actions, a technology for automating deployment and code checks, was a perfect fit to apply every change to WordPress automatically through its API, and we use the same GitHub Actions to run our daily ranking checks
@@ -274,9 +274,9 @@ title: 'Where AI answers cite us'
 <div class="grid" style="grid-template-columns: 15rem 1fr; gap: 1.4rem; align-items: center">
 <div class="big">
 
-- At first, Google’s AI Overview showed only other teams’ meanings
-- Later we saw it list our meaning first and link our pages
-- We are citable thanks to a public repository, a DOI archive and one repeated sentence
+- At first: only other teams
+- Later: our meaning first
+- Why: public repository, DOI archive, one sentence
 
 </div>
 <div>
