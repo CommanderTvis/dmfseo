@@ -275,7 +275,7 @@ title: 'Where AI answers cite us'
 <div class="big">
 
 - At first, Google’s AI Overview showed only other teams’ meanings
-- Now it lists our meaning first and links our pages
+- Later we saw it list our meaning first and link our pages
 - We are citable thanks to a public repository, a DOI archive and one repeated sentence
 
 </div>
@@ -293,8 +293,8 @@ title: 'Where AI answers cite us'
 IAROSLAV · 5:15–6:30
 
 - Ranking is half of the task; the other half is AI answers. At first, Google’s AI Overview did not mention us at all, only other teams’ meanings
-- Now Google’s AI Overview lists our meaning first and links our About page and our repository
-- What made us citable is a public repository, a DOI archive and one sentence repeated everywhere. One caveat: this screenshot is from a signed-in browser, so it can vary by person and day
+- Later we saw Google’s AI Overview list our meaning first and link our About page and our repository, like in this screenshot
+- What made us citable is a public repository, a DOI archive and one sentence repeated everywhere. One caveat: AI answers are not deterministic, so the same question can get a different answer for another person or on another day
 -->
 
 ---
