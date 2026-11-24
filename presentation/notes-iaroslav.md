@@ -32,8 +32,8 @@ Your part, slides 6–11, 7.5 minutes. The same text is in the speaker notes of 
 ## Where AI answers cite us (5:15–6:30)
 
 - Ranking is half of the task; the other half is AI answers. At first, Google’s AI Overview did not mention us at all, only other teams’ meanings
-- Now Google’s AI Overview lists our meaning first and links our About page and our repository
-- What made us citable is a public repository, a DOI archive and one sentence repeated everywhere. One caveat: this screenshot is from a signed-in browser, so it can vary by person and day
+- Later we saw Google’s AI Overview list our meaning first and link our About page and our repository, like in this screenshot
+- What made us citable is a public repository, a DOI archive and one sentence repeated everywhere. One caveat: AI answers are not deterministic, so the same question can get a different answer for another person or on another day
 
 ## What I noticed and what we changed (6:30–7:30)
 
