@@ -305,15 +305,43 @@ title: 'What I noticed and what we changed'
 
 # What I noticed and what we changed
 
-<div class="big">
+<div class="nd">
+<div>
 
 - The leaders had a full German version, so we built ours and took #1 in Germany
+
+</div>
+
+```diff
+# 38d2984  German version of the whole site under /de/
++ pages/de/startseite.html
++ pages/de/unsere-mission.html
++ pages/de/seevoegel-der-nordsee.html
++ … 22 German pages, hreflang on every page
+```
+
+<div>
+
 - Our own pages mentioned beer and competed with each other; one clean page brought #1 back in all three countries
 
 </div>
 
+```diff
+# f8cc4c8  Meanings page: drop beer and cider wording
+- several student projects (drinks, beer, rain gear, conservation)
++ several student projects (drinks, rain gear, conservation)
+# ed12b24  one canonical About page
+- "title": "What is Grohnpetrel?", "slug": "what-is-grohnpetrel-2"
++ "title": "About Grohnpetrel",    "slug": "about-grohnpetrel"
+- {"file": "grohnpetrel-meanings.html", …}
+```
+
+</div>
+
 <style>
-.big li { font-size: 24px; line-height: 1.4; margin-bottom: 2rem; }
+.nd { display: grid; grid-template-columns: 1fr 1.35fr; gap: 1.2rem 1.6rem; align-items: center; margin-top: 0.6rem; }
+.nd li { font-size: 19px; line-height: 1.4; }
+.nd pre { font-size: 11.5px !important; margin: 0; }
 </style>
 
 <!--
