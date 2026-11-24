@@ -45,6 +45,6 @@ function segments(rs) {
       </template>
     </g>
     <text v-for="(d, i) in data.dates" v-show="i % 2 === 0" :key="d" :x="x(i)" :y="H + 6" style="font-size: 8px" fill="#5b6b6f" text-anchor="middle">{{ label(d) }}</text>
-    <text :x="W - R" :y="H + 16" style="font-size: 7.5px" fill="#5b6b6f" text-anchor="end">Pink band = not in the top 10 · grey = no data (Google auto-corrected the word) · orange = #1 · last valid check of each day · source: our tracker (Serper API, Google)</text>
+    <text :x="W - R" :y="H + 16" style="font-size: 7.5px" fill="#5b6b6f" text-anchor="end">Pink band = not in the top 10 · grey = invalid check (the search API auto-corrected the word) · orange = #1 · last valid check of each day · source: our tracker (Serper API, Google)</text>
   </svg>
 </template>
