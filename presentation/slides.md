@@ -215,30 +215,23 @@ IAROSLAV · 1:00–1:45
 ---
 layout: default
 level: 2
-title: 'Results over three weeks'
+title: 'Our Google rank over three weeks'
 ---
 
-# Results over three weeks
+# Our Google rank over three weeks
 
-<div class="g2 res" style="gap: 1rem; margin-top: 1.5rem">
-<div class="kpi"><b>#1</b><span>in all three countries</span></div>
-<div class="kpi"><b>42 / 72</b><span>top-10 days, best of all teams</span></div>
-<div class="kpi"><b>2,482</b><span>impressions in Search Console</span></div>
-<div class="kpi dark"><b>1st</b><span>meaning in Google’s AI Overview</span></div>
+<div style="width: 50rem; margin: 0 auto">
+<RankChart />
 </div>
-
-<style>
-.res .kpi { padding: 1.1rem 1.6rem; min-height: 11.5rem; display: flex; flex-direction: column; justify-content: center; }
-.res .kpi b { font-size: 56px; margin-bottom: 0.3rem; }
-.res .kpi span { font-size: 18px; }
-</style>
 
 <!--
 IAROSLAV · 1:45–4:15
 
-- So, what did three weeks give us? We reached number one for the bare word in all three countries, on thirteen country-days, most recently in Germany and the UK on 23 November
-- Over the whole period we were in the top ten on 42 of 72 country-days, the most of any team; Search Console counted 2,482 impressions, and Google’s AI Overview lists our meaning first
-- To be honest, number one is reached on some days, not every day: on some days the top ten was only YouTube Shorts and Instagram
+- Here is our Google rank for the bare word, every day, in Germany, the US and the UK; orange dots are number one
+- Right after the first publish we were in the top four everywhere, and the German site gave us number one in Germany the next day
+- Then a long, stable second place in Germany behind one rival, while in the US and the UK other teams’ videos and posts pushed most team sites out of the top ten
+- After we merged our pages into one on 16 November, number one came back: in the US on 18 November, and in all three countries between 21 and 23 November
+- The grey dots are not drops: on those days Google auto-corrected the word in our tracker, so we have no valid data
 -->
 
 ---
@@ -278,11 +271,13 @@ title: 'Where AI answers cite us'
 
 # Where AI answers cite us
 
-<div class="grid" style="grid-template-columns: 13rem 1fr; gap: 1.4rem; align-items: center">
-<div class="ai">
-<div><span class="orange">11 Nov</span><b>Google AI: not us</b></div>
-<div><span class="orange">18–22 Nov</span><b>Google AI: our meaning first</b></div>
-<div><span class="orange">why</span><b>Public repository, DOI archive, one sentence everywhere</b></div>
+<div class="grid" style="grid-template-columns: 15rem 1fr; gap: 1.4rem; align-items: center">
+<div class="big">
+
+- At first, Google’s AI Overview showed only other teams’ meanings
+- Now it lists our meaning first and links our pages
+- We are citable thanks to a public repository, a DOI archive and one repeated sentence
+
 </div>
 <div>
 <img src="/img/ai-overview.jpg" class="w-full" alt="Google AI Overview for “what is grohnpetrel”, 20 Nov" />
@@ -291,8 +286,7 @@ title: 'Where AI answers cite us'
 </div>
 
 <style>
-.ai > div { display: flex; flex-direction: column; margin-bottom: 1.8rem; font-size: 21px; line-height: 1.25; }
-.ai span { font-weight: 700; font-size: 14px; margin-bottom: 0.3rem; }
+.big li { font-size: 19px; line-height: 1.35; margin-bottom: 1.4rem; }
 </style>
 
 <!--
@@ -311,17 +305,15 @@ title: 'What I noticed and what we changed'
 
 # What I noticed and what we changed
 
-<div class="nc">
-<div><span>3 Nov</span><p><b>Out of the top 10</b> → full German version → <em>#1 in Germany</em></p></div>
-<div><span>12 Nov</span><p><b>Back at #2</b> → no beer, one canonical page → <em>#1 again in all three</em></p></div>
+<div class="big">
+
+- The leaders had a full German version, so we built ours and took #1 in Germany
+- Our own pages mentioned beer and competed with each other; one clean page brought #1 back in all three countries
+
 </div>
 
 <style>
-.nc { margin-top: 3rem; }
-.nc > div { display: grid; grid-template-columns: 6.5rem 1fr; align-items: baseline; margin-bottom: 2.6rem; }
-.nc span { color: var(--orange); font-weight: 700; font-size: 16px; }
-.nc p { margin: 0; font-size: 26px; line-height: 1.35; }
-.nc em { font-style: normal; font-weight: 700; color: #2f7d4f; }
+.big li { font-size: 24px; line-height: 1.4; margin-bottom: 2rem; }
 </style>
 
 <!--
