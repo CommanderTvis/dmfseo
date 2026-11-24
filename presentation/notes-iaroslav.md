@@ -33,8 +33,9 @@ Your part, slides 6–11, 7.5 minutes. The same text is in the speaker notes of 
 - From 10 November Brave already showed our archived record with a DOI as its top answer, and from 18 November Google’s AI Overview lists our meaning first and links our About page and our repository
 - What made us citable is a public repository, a DOI archive and one sentence repeated everywhere. One caveat: this screenshot is from a signed-in browser, so it can vary by person and day
 
-## Effective SEO interventions (6:30–7:30)
+## What I noticed and what we changed (6:30–7:30)
 
-- Finally, which of our changes actually moved the rank. On day one we found and removed a hidden noindex header, and we were in the top four from the first check; the German version then gave us number one in Germany the next day
-- Not everything helped: much longer texts pushed us out of the top ten, because Google already understood us. What brought number one back in all three countries was merging our pages into one canonical page
+- Finally, two moments when I noticed something in the data and we changed course
+- On 3 November we dropped out of the top ten in all three countries. I saw that the leading team’s German version was complete, so maybe Google thought theirs was the proper site to show in Germany. We built a full German localization, and on 4 November we were number one in Germany
+- On 12 November we were back at number two behind the drinks team. Our own Meanings page mentioned beer in its intro, table and description, which tied us to the drinks meaning, and our own pages were splitting the position between them. We removed the beer and merged everything into one canonical page on 16 November. Number one came back in the US on 18 November and in all three countries between 21 and 23 November
 - This is correlation, not proof, because other teams changed their sites at the same time. Diego, over to you

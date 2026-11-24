@@ -306,38 +306,30 @@ IAROSLAV · 5:15–6:30
 ---
 layout: default
 level: 2
-title: 'Effective SEO interventions'
+title: 'What I noticed and what we changed'
 ---
 
-# Effective SEO interventions
+# What I noticed and what we changed
 
-<div class="iv">
-<div class="line"></div>
-<div class="up"><span class="d">31 Oct</span><span class="dot"></span><b>Hidden noindex removed</b><i>▲ top 4 at once</i></div>
-<div class="up"><span class="d">3 Nov</span><span class="dot"></span><b>German version</b><i>▲ #1 in Germany</i></div>
-<div class="down"><span class="d">4 Nov</span><span class="dot"></span><b>Longer texts</b><i>▼ out of the top 10</i></div>
-<div class="up"><span class="d">16 Nov</span><span class="dot"></span><b>One canonical page</b><i>▲ #1 again in all three</i></div>
+<div class="nc">
+<div><span>3 Nov</span><p><b>Out of the top 10</b> → full German version → <em>#1 in Germany</em></p></div>
+<div><span>12 Nov</span><p><b>Back at #2</b> → no beer, one canonical page → <em>#1 again in all three</em></p></div>
 </div>
 
-<p class="caption" style="margin-top: 2.5rem">Correlation, not proof: other teams changed their sites too.</p>
-
 <style>
-.iv { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; text-align: center; margin-top: 3rem; }
-.iv .line { position: absolute; left: 4%; right: 4%; top: 46px; height: 3px; background: #a9cdd2; }
-.iv > div:not(.line) { display: flex; flex-direction: column; align-items: center; padding: 0 0.4rem; }
-.iv .d { color: var(--orange); font-weight: 700; font-size: 14px; height: 30px; }
-.iv .dot { width: 22px; height: 22px; border-radius: 50%; background: var(--teal); position: relative; margin-bottom: 1.2rem; }
-.iv .down .dot { background: var(--orange); }
-.iv b { font-size: 18px; color: var(--ink); margin-bottom: 0.8rem; }
-.iv i { font-style: normal; font-weight: 700; font-size: 17px; color: #2f7d4f; }
-.iv .down i { color: var(--orange); }
+.nc { margin-top: 3rem; }
+.nc > div { display: grid; grid-template-columns: 6.5rem 1fr; align-items: baseline; margin-bottom: 2.6rem; }
+.nc span { color: var(--orange); font-weight: 700; font-size: 16px; }
+.nc p { margin: 0; font-size: 26px; line-height: 1.35; }
+.nc em { font-style: normal; font-weight: 700; color: #2f7d4f; }
 </style>
 
 <!--
 IAROSLAV · 6:30–7:30
 
-- Finally, which of our changes actually moved the rank. On day one we found and removed a hidden noindex header, and we were in the top four from the first check; the German version then gave us number one in Germany the next day
-- Not everything helped: much longer texts pushed us out of the top ten, because Google already understood us. What brought number one back in all three countries was merging our pages into one canonical page
+- Finally, two moments when I noticed something in the data and we changed course
+- On 3 November we dropped out of the top ten in all three countries. I saw that the leading team’s German version was complete, so maybe Google thought theirs was the proper site to show in Germany. We built a full German localization, and on 4 November we were number one in Germany
+- On 12 November we were back at number two behind the drinks team. Our own Meanings page mentioned beer in its intro, table and description, which tied us to the drinks meaning, and our own pages were splitting the position between them. We removed the beer and merged everything into one canonical page on 16 November. Number one came back in the US on 18 November and in all three countries between 21 and 23 November
 - This is correlation, not proof, because other teams changed their sites at the same time. Diego, over to you
 -->
 
