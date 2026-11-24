@@ -554,3 +554,11 @@ Format: action, who (when not the whole team), reason, outcome. Newest last. Cop
 **Reason:** The web version showed the PowerPoint as images, which were blurry on a projector and gave every slide the same title; the question list was internal preparation, not for the audience.
 
 **Outcome:** Same 36 slides, numbers and speaker notes; the chart totals match the slides (42 / 72 top-10 country-days; 2,453 impressions, 50 clicks).
+
+**Action (24 Nov):** Results part of the presentation rewritten: shorter slides with a spoken story in the speaker notes (also in `presentation/notes-iaroslav.md`), a slide on the Git repository and GitHub Actions with a screenshot of the repository, the results as four numbers, Search Console numbers updated to 22 Nov, the SEO interventions as a timeline; the competitor slide and the rank chart removed; larger slide numbers.
+
+**Who:** Iaroslav Postovalov, with AI assistance.
+
+**Reason:** The audience should follow one line of thought per slide; details belong in the spoken part.
+
+**Outcome:** Pending (presentation on 26 Nov). Note: since 19 Nov several Google checks of the tracker were auto-corrected by Google into other words and count as "not in the top 10"; to be fixed in the tracker.

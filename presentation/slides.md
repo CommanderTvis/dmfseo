@@ -146,201 +146,143 @@ Transition only.
 ---
 layout: default
 level: 2
-title: 'How we work: the site is files, published by GitHub Actions'
+title: 'Git repository and deploy to WordPress using GitHub Actions'
 ---
 
-# How we work: the site is files, published by GitHub Actions
+# Git repository and deploy to WordPress using GitHub Actions
 
-<div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.4rem">
-<div class="flow">
-<div class="card"><b class="small">Claude Code or GitHub Copilot edits files in Git</b><p class="tiny muted" style="margin: 0.15rem 0 0">rarely, one of us by hand</p></div>
-<div class="card"><b class="small">Pull request: automatic checks</b></div>
-<div class="panel" style="box-shadow: none; background: var(--teal-2)"><b class="small">GitHub Actions publishes to WordPress</b></div>
-<div class="panel" style="box-shadow: none"><b class="small">GitHub Actions measures our rank daily</b></div>
-<p class="caption" style="margin-top: 0.2rem">Rejected: an AI agent clicking through the WordPress editor in Chrome. Irrational, buggy, unsafe and token-expensive compared with the WordPress API in GitHub Actions.</p>
+<div class="grid gap-l" style="grid-template-columns: 0.85fr 1.15fr; align-items: center">
+<div class="big">
+
+- All pages in a Git repository
+- One guide, the whole team on GitHub
+- GitHub Actions deploys to WordPress
+
 </div>
-<div style="font-size: 14px">
-<p><b>No WordPress skills needed.</b> The site is files; it can be deployed to any WordPress instance instantly.</p>
-<p><b>SEO in our own code.</b> AI-written PHP instead of a plugin like Yoast.</p>
-<p><b>Fast, safe experiments.</b> Every change dated and reversible; the log is kept in step.</p>
-<p><b>Evidence we own.</b> I registered Search Console and gave Actions access through a Google Cloud service account; Google is checked headlessly through the Serper API, Brave through my Brave API key.</p>
-<p><b>AI investigates outcomes.</b> Pages, rank data, Search Console and the log sit in one repository, so the agent sees what we published and what it did, and explains changes faster than we could by hand.</p>
+<div>
+<img src="/img/github-repo.jpg" class="shot" alt="Our GitHub repository" />
+<p class="caption" style="font-size: 14px">github.com/CommanderTvis/dmfseo</p>
 </div>
 </div>
+
+<style>
+.big li { font-size: 20px; margin-bottom: 1.3rem; }
+</style>
 
 <!--
-IAROSLAV · first minute of the results part
+IAROSLAV · 0:00–1:00
 
-Before the numbers, one decision that made them possible. We never edited the site by hand in WordPress. The whole site is files in a Git repository: every page, in seven languages, plus our own PHP for SEO. AI coding agents, Claude Code or GitHub Copilot, edit those files, and only rarely one of us by hand; a pull request runs automatic checks; when we merge, GitHub Actions publishes to WordPress in about three minutes and tells Search Console and Bing. Another Action measures our rank every day.
-
-We did consider the obvious alternative: letting an AI agent click through the WordPress editor in Chrome. We rejected it: it is irrational for a site that is really just content, it breaks easily, it is unsafe to give an agent a logged-in admin browser, and it burns far more tokens than one API call from GitHub Actions.
-
-Why this mattered: nobody on the team had to learn WordPress, and the site is portable: the same repository could publish to any WordPress. Instead of learning what the Yoast plugin allows, we wrote the SEO ourselves in small PHP snippets: titles, descriptions, canonicals, social tags, structured data. And because every change is a dated commit, we could experiment quickly and still know exactly what changed when. I registered the site in Google Search Console and issued a Google Cloud service account, so GitHub Actions can read Search Console data and resubmit the sitemap after every publish without anyone logging in. For rankings I chose the Serper API for Google and my Brave Search API key for Brave: both check headlessly, with the same settings every day, instead of us googling in personalised browsers. And because everything lives in one place, the published pages, the daily rank data, Search Console and the project log, the AI agent has the full context: when a rank moved, it could compare what changed and what the data said much faster and better than we could as student SEO specialists. That is context engineering, and it is what let a small team run so many experiments. Now: what did it achieve?
+- Thank you, Diego. Now our site’s infrastructure: the setup that let AI do real work for us, while we saw exactly what it changed and gave it all the information it needed
+- First: apart from a couple of first drafts, we put every article into a Git repository on GitHub, which coding agents can work with directly. The alternatives were to spend time learning how WordPress works in detail, or to rely on browser agents, which cost far too many tokens and lead to very unpredictable outcomes
+- Second: I wrote a guide for the team on using the repository. Diego, who took the role of content creator, ended up sending even more pull requests than I did, although using Git was my idea
+- Third: GitHub Actions, a technology for automating deployment and code checks, was a perfect fit to apply every change to WordPress automatically through its API, and we use the same GitHub Actions to run our daily ranking checks
+- Next, analytics
 -->
 
 ---
 layout: default
 level: 2
-title: 'Our main metric, and how we measure it'
+title: 'Analytics portal'
 ---
 
-# Our main metric, and how we measure it
+# Analytics portal
 
-<div class="grid gap-l" style="grid-template-columns: 1fr 1fr">
-<div style="font-size: 14px">
+<div class="grid gap-l" style="grid-template-columns: 0.8fr 1.2fr; align-items: center">
+<div class="big">
 
-**Main metric:** Google rank for “grohnpetrel” in Germany, the US and the UK
-
-**How:** a daily GitHub Action, same settings since 31 Oct
-
-**Evidence:** public dashboard, Search Console, dated AI screenshots
+- Rank in Google and Brave, checked daily
+- Search Console in the same place
 
 </div>
 <div>
 <img src="/img/tracker.jpg" class="shot" alt="Our public rank tracker" />
-<p class="caption">commandertvis.github.io/dmfseo</p>
+<p class="caption" style="font-size: 14px">commandertvis.github.io/dmfseo</p>
 </div>
 </div>
+
+<style>
+.big li { font-size: 22px; margin-bottom: 1.3rem; }
+</style>
 
 <!--
-IAROSLAV · 2:30–3:15
+IAROSLAV · 1:00–1:45
 
-Our main metric is our Google rank for the bare word in three countries. A GitHub Action checks Google and Brave every day with the same settings since 31 October and publishes this dashboard and the raw data. So we can show trends over three weeks, not one lucky screenshot. Results differ by country and browser, so the lecturer’s own snapshot can differ slightly from ours.
+- To know whether anything works, we measure it every day. GitHub Actions checks our rank for the bare word in Germany, the US and the UK, in Google through the Serper API and in Brave through my Brave API key, with the same settings since 31 October, so we see trends, not one lucky screenshot
+- I also registered the site in Search Console and connected it through a Google Cloud service account, so the same robot reads its data and resubmits the sitemap after every publish
+- All of it is public on this dashboard and sits in the same repository as the pages, so the AI agent sees what we changed right next to what happened to our rank. Here is what it shows
 -->
 
 ---
 layout: default
 level: 2
-title: 'Headline results, 31 October – 23 November'
+title: 'Results over three weeks'
 ---
 
-# Headline results, 31 October – 23 November
+# Results over three weeks
 
-<div class="g4">
-<div class="kpi"><b>#1</b><span>in Google in all three countries (13 country-days)</span></div>
-<div class="kpi"><b>42 / 72</b><span>country-days in the top 10: the most of any team</span></div>
-<div class="kpi"><b>2,453</b><span>Search Console impressions, 50 clicks</span></div>
+<div class="g2 res" style="gap: 1rem; margin-top: 1.5rem">
+<div class="kpi"><b>#1</b><span>in all three countries</span></div>
+<div class="kpi"><b>42 / 72</b><span>top-10 days, best of all teams</span></div>
+<div class="kpi"><b>2,482</b><span>impressions in Search Console</span></div>
 <div class="kpi dark"><b>1st</b><span>meaning in Google’s AI Overview</span></div>
 </div>
 
-<div class="facts">
-<b>Exact query “grohnpetrel”</b><span>top 10 every day in the UK</span>
-<b>Brave</b><span>our archive is the #1 answer to “what is grohnpetrel” since 10 Nov</span>
-</div>
-
-<p class="caption">Country-day = one country on one day, last check of the day.</p>
-
 <style>
-.facts { display: grid; grid-template-columns: 16rem 1fr; gap: 0.8rem 1rem; margin-top: 1.6rem; font-size: 14px; }
-.facts b { color: var(--teal); }
+.res .kpi { padding: 1.1rem 1.6rem; min-height: 11.5rem; display: flex; flex-direction: column; justify-content: center; }
+.res .kpi b { font-size: 56px; margin-bottom: 0.3rem; }
+.res .kpi span { font-size: 18px; }
 </style>
 
 <!--
-IAROSLAV · 3:15–4:15
+IAROSLAV · 1:45–4:15
 
-The headline: we reached number one for the bare word in all three countries, on thirteen country-days, most recently in Germany and the UK on 23 November, with our German and English About pages. Across three and a half weeks we were in the top ten on 42 of 72 country-days, the most of any team.
-
-For the exact query we are the most stable site: top ten in the UK on every single day. Search Console shows 2,453 impressions and 50 clicks. And in AI answers, Google’s AI Overview lists our meaning first.
-
-Be honest: number one is reached on some days, not every day. (Final refresh of these numbers on 25 Nov.)
+- So, what did three weeks give us? We reached number one for the bare word in all three countries, on thirteen country-days, most recently in Germany and the UK on 23 November
+- Over the whole period we were in the top ten on 42 of 72 country-days, the most of any team; Search Console counted 2,482 impressions, and Google’s AI Overview lists our meaning first
+- To be honest, number one is reached on some days, not every day: on some days the top ten was only YouTube Shorts and Instagram
 -->
 
 ---
 layout: default
 level: 2
-title: 'Rankings over time: early #1, a dip, #1 again'
+title: 'Search Console impressions'
 ---
 
-# Rankings over time: early #1, a dip, #1 again
+# Search Console impressions
 
-<div class="grid" style="grid-template-columns: 1fr 14rem; gap: 1rem">
-<RankChart />
-<div class="phases">
-<div class="card"><p class="orange">31 Oct – 2 Nov</p><p>First publish: top 4</p></div>
-<div class="card"><p class="orange">3 – 9 Nov</p><p>German site: #1 in DE</p></div>
-<div class="card"><p class="orange">10 – 15 Nov</p><p>Stable #2 in DE</p></div>
-<div class="card"><p class="orange">16 – 23 Nov</p><p>One canonical page: #1 again in all three</p></div>
-</div>
-</div>
-
-<style>
-.phases { display: flex; flex-direction: column; gap: 0.45rem; }
-.phases .card { padding: 0.55rem 0.8rem; flex: 1; font-size: 13px; }
-.phases .card p:first-child { font-weight: 700; font-size: 11px; margin-bottom: 0.25rem; }
-</style>
-
-<!--
-IAROSLAV · 4:15–5:30
-
-Read the chart left to right. Phase 1: first publish, already top four in all countries. Phase 2: the German site gave us number one in Germany the next day; when we made texts much longer on 4 November we dropped out the next day. Phase 3: a stable second place in Germany behind one rival. Phase 4: Google kept switching between nine of our pages, we consolidated on 16 November, and two days later we were number one in the US. On 21 November the new About page itself was number one in the US and the UK, and number two in Germany; on 22 and 23 November we were number one in Germany, and on 23 November in the UK again.
-
-The days are still volatile: on 20 November, and on 22 and 23 November in the US, our tracker saw no team site at all in the top ten: in the US on 23 November the first eight results were all YouTube Shorts and Instagram posts. We show it rather than hide it.
--->
-
----
-layout: default
-level: 2
-title: 'Competitors: the most top-10 days, fewer first places'
----
-
-# Competitors: the most top-10 days, fewer first places
-
-<div class="grid" style="grid-template-columns: 1fr 15rem; gap: 1.2rem; align-items: start">
-<CompetitorBars />
-<div class="panel" style="font-size: 14px">
-<div class="eyebrow">What the data says</div>
-<p><b>Most top-10 days</b> of any team</p>
-<p><b>Fulmars win #1 more often</b></p>
-<p><b>The gap is not page quality,</b> it is focus and social video</p>
-</div>
-</div>
-
-<!--
-IAROSLAV · 5:30–6:45
-
-Over 72 country-days we have the most top-ten days of any team, 42, one more than the Fulmars, but they turn it into number one more often: 18 times against our 13. The difference is not quality: our technical scores are at the top. It is focus on one page and presence outside the website, videos and posts. That insight led to our key decision, which Diego will show.
--->
-
----
-layout: default
-level: 2
-title: 'Search Console: brand clicks, seabird reach'
----
-
-# Search Console: brand clicks, seabird reach
-
-<div class="grid" style="grid-template-columns: 1fr 15rem; gap: 1.2rem">
+<div class="grid" style="grid-template-columns: 1fr 15rem; gap: 1.2rem; align-items: stretch">
 <GscBars />
-<div class="flex flex-col" style="gap: 0.6rem">
-<div class="kpi"><b>1,466</b><span>impressions for “grohnpetrel”: almost all clicks</span></div>
-<div class="kpi"><b>986</b><span>impressions from real seabird searches</span></div>
+<div class="flex flex-col gsc-side" style="gap: 0.8rem">
+<div class="kpi"><b>1,485</b><span>for “grohnpetrel”</span></div>
+<div class="kpi"><b>997</b><span>from seabird searches</span></div>
 </div>
 </div>
 
-<p class="mt-3" style="font-size: 14px">Google files us under seabird education: the meaning we chose.</p>
+<style>
+.gsc-side .kpi { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.gsc-side .kpi b { font-size: 40px; }
+.gsc-side .kpi span { font-size: 17px; }
+</style>
 
 <!--
-IAROSLAV · 6:45–7:45
+IAROSLAV · 4:15–5:15
 
-Search Console is our pre-click evidence. The brand word brings almost all clicks, while real seabird searches like Atlantic puffin bring 986 impressions: Google sees us as a seabird-education site, which is exactly the meaning we chose.
-
-The site is a course project, not a real service: we compete for Google’s attention, not for real visitors, so what matters is measured before the click. (Final refresh of these numbers on 25 Nov.)
+- Search Console shows how Google sees us before anyone clicks. Most impressions, 1,485, come from the word grohnpetrel itself, so the main goal works
+- Almost a thousand more come from real seabird searches like “atlantic puffin”, which means Google files us under seabird education, the meaning we chose. We compete for the search engine’s attention, not for real visitors, so this is the number that matters for us
 -->
 
 ---
 layout: default
 level: 2
-title: 'AI answers: where we are cited'
+title: 'Where AI answers cite us'
 ---
 
-# AI answers: where we are cited
+# Where AI answers cite us
 
-<div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.2rem">
+<div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.4rem; align-items: start">
 <div class="ai">
-<div><span class="orange">11 Nov</span><div><b>Google AI Overview</b><p>Other teams’ meanings</p></div><span class="pill grey">Not us</span></div>
-<div><span class="orange">10–23 Nov</span><div><b>Brave</b><p>Our archive is the #1 answer</p></div><span class="pill">Cited</span></div>
-<div><span class="orange">18–22 Nov</span><div><b>Google AI Overview</b><p>Our meaning first</p></div><span class="pill">Cited</span></div>
-<div class="card" style="display: block; margin-top: 1.6rem"><p style="font-weight: 700; color: var(--teal); font-size: 14px; margin: 0">What made us citable: a public repository, a DOI archive, and one sentence repeated everywhere.</p></div>
+<div><span class="orange">11 Nov</span><b>Google AI: not us</b></div>
+<div><span class="orange">from 10 Nov</span><b>Brave: our archive is #1</b></div>
+<div><span class="orange">18–22 Nov</span><b>Google AI: our meaning first</b></div>
 </div>
 <div>
 <img src="/img/ai-overview.jpg" class="w-full" alt="Google AI Overview for “what is grohnpetrel”, 20 Nov" />
@@ -349,47 +291,54 @@ title: 'AI answers: where we are cited'
 </div>
 
 <style>
-.ai > div:not(.card) { display: grid; grid-template-columns: 5.5rem 1fr 4.2rem; align-items: start; margin-bottom: 1.3rem; font-size: 14px; }
-.ai > div > span:first-child { font-weight: 700; font-size: 12px; }
-.ai p { color: var(--muted); font-size: 12.5px; margin: 0.15rem 0 0; }
-.ai .pill { text-align: center; }
+.ai > div { display: grid; grid-template-columns: 6.5rem 1fr; align-items: baseline; margin-bottom: 1.6rem; font-size: 19px; }
+.ai span { font-weight: 700; font-size: 12px; }
 </style>
 
 <!--
-IAROSLAV · 7:45–9:00
+IAROSLAV · 5:15–6:30
 
-On 11 November Google’s AI Overview ignored us and quoted social posts. Since then, Brave has shown our archived record with a DOI as the top answer every day, and Google’s AI Overview now lists our meaning first and links our About page and our repository, recorded on 18, 20 and 22 November.
-
-Lesson: AI engines cite sources they can find and trust. Caveat: this is a signed-in browser, so it can vary by person and day; we only show what we recorded.
+- Ranking is half of the task; the other half is AI answers. On 11 November Google’s AI Overview did not mention us at all, only other teams’ meanings
+- From 10 November Brave already showed our archived record with a DOI as its top answer, and from 18 November Google’s AI Overview lists our meaning first and links our About page and our repository
+- What made us citable is a public repository, a DOI archive and one sentence repeated everywhere. One caveat: this screenshot is from a signed-in browser, so it can vary by person and day
 -->
 
 ---
 layout: default
 level: 2
-title: 'What moved the ranking, and how sure we are'
+title: 'Effective SEO interventions'
 ---
 
-# What moved the ranking, and how sure we are
+# Effective SEO interventions
 
-| Change | Then | Confidence |
-|---|---|---|
-| Removed a hidden noindex header (31 Oct) | top 4 from the first check | <b>High</b> |
-| German version (3 Nov) | #1 in Germany next day | <b class="gold">Medium</b> |
-| Much longer texts (4 Nov) | out of the top 10 | <b class="orange">Low</b> |
-| Many pages for one word (14 Nov) | Google kept switching pages | <b class="gold">Medium</b> |
-| One canonical page (16 Nov) | #1 again in all three | <b class="gold">Medium</b> |
+<div class="iv">
+<div class="line"></div>
+<div class="up"><span class="d">31 Oct</span><span class="dot"></span><b>Hidden noindex removed</b><i>▲ top 4 at once</i></div>
+<div class="up"><span class="d">3 Nov</span><span class="dot"></span><b>German version</b><i>▲ #1 in Germany</i></div>
+<div class="down"><span class="d">4 Nov</span><span class="dot"></span><b>Longer texts</b><i>▼ out of the top 10</i></div>
+<div class="up"><span class="d">16 Nov</span><span class="dot"></span><b>One canonical page</b><i>▲ #1 again in all three</i></div>
+</div>
 
-<p class="caption">Correlation, not proof: other teams changed their sites at the same time.</p>
+<p class="caption" style="margin-top: 2.5rem">Correlation, not proof: other teams changed their sites too.</p>
 
 <style>
-.slidev-layout table { font-size: 14px; }
-.slidev-layout td, .slidev-layout th { padding: 9px 10px; }
+.iv { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; text-align: center; margin-top: 3rem; }
+.iv .line { position: absolute; left: 4%; right: 4%; top: 46px; height: 3px; background: #a9cdd2; }
+.iv > div:not(.line) { display: flex; flex-direction: column; align-items: center; padding: 0 0.4rem; }
+.iv .d { color: var(--orange); font-weight: 700; font-size: 14px; height: 30px; }
+.iv .dot { width: 22px; height: 22px; border-radius: 50%; background: var(--teal); position: relative; margin-bottom: 1.2rem; }
+.iv .down .dot { background: var(--orange); }
+.iv b { font-size: 18px; color: var(--ink); margin-bottom: 0.8rem; }
+.iv i { font-style: normal; font-weight: 700; font-size: 17px; color: #2f7d4f; }
+.iv .down i { color: var(--orange); }
 </style>
 
 <!--
-IAROSLAV · 9:00–10:00
+IAROSLAV · 6:30–7:30
 
-Here is each change and what happened next, with how sure we are. High confidence for the indexing fix and for the effect of social video. Medium for the German site. Low for longer texts, because other teams changed things the same day. The consolidation now has seven days of evidence: number one in the US and the UK on 21 November, in Germany on 22 and 23 November, and in the UK again on 23 November. In the US, Google now shows only YouTube Shorts and Instagram for the word, no team site at all, which no website controls. Diego, over to you.
+- Finally, which of our changes actually moved the rank. On day one we found and removed a hidden noindex header, and we were in the top four from the first check; the German version then gave us number one in Germany the next day
+- Not everything helped: much longer texts pushed us out of the top ten, because Google already understood us. What brought number one back in all three countries was merging our pages into one canonical page
+- This is correlation, not proof, because other teams changed their sites at the same time. Diego, over to you
 -->
 
 ---

@@ -1,0 +1,40 @@
+# Iaroslav: speaker notes
+
+Your part, slides 6–11, 7.5 minutes. The same text is in the speaker notes of `slides.md`.
+
+## Git repository and deploy to WordPress using GitHub Actions (0:00–1:00)
+
+- Thank you, Diego. Now our site’s infrastructure: the setup that let AI do real work for us, while we saw exactly what it changed and gave it all the information it needed
+- First: apart from a couple of first drafts, we put every article into a Git repository on GitHub, which coding agents can work with directly. The alternatives were to spend time learning how WordPress works in detail, or to rely on browser agents, which cost far too many tokens and lead to very unpredictable outcomes
+- Second: I wrote a guide for the team on using the repository. Diego, who took the role of content creator, ended up sending even more pull requests than I did, although using Git was my idea
+- Third: GitHub Actions, a technology for automating deployment and code checks, was a perfect fit to apply every change to WordPress automatically through its API, and we use the same GitHub Actions to run our daily ranking checks
+- Next, analytics
+
+## Analytics portal (1:00–1:45)
+
+- To know whether anything works, we measure it every day. GitHub Actions checks our rank for the bare word in Germany, the US and the UK, in Google through the Serper API and in Brave through my Brave API key, with the same settings since 31 October, so we see trends, not one lucky screenshot
+- I also registered the site in Search Console and connected it through a Google Cloud service account, so the same robot reads its data and resubmits the sitemap after every publish
+- All of it is public on this dashboard and sits in the same repository as the pages, so the AI agent sees what we changed right next to what happened to our rank. Here is what it shows
+
+## Results over three weeks (1:45–4:15)
+
+- So, what did three weeks give us? We reached number one for the bare word in all three countries, on thirteen country-days, most recently in Germany and the UK on 23 November
+- Over the whole period we were in the top ten on 42 of 72 country-days, the most of any team; Search Console counted 2,482 impressions, and Google’s AI Overview lists our meaning first
+- To be honest, number one is reached on some days, not every day: on some days the top ten was only YouTube Shorts and Instagram
+
+## Search Console impressions (4:15–5:15)
+
+- Search Console shows how Google sees us before anyone clicks. Most impressions, 1,485, come from the word grohnpetrel itself, so the main goal works
+- Almost a thousand more come from real seabird searches like “atlantic puffin”, which means Google files us under seabird education, the meaning we chose. We compete for the search engine’s attention, not for real visitors, so this is the number that matters for us
+
+## Where AI answers cite us (5:15–6:30)
+
+- Ranking is half of the task; the other half is AI answers. On 11 November Google’s AI Overview did not mention us at all, only other teams’ meanings
+- From 10 November Brave already showed our archived record with a DOI as its top answer, and from 18 November Google’s AI Overview lists our meaning first and links our About page and our repository
+- What made us citable is a public repository, a DOI archive and one sentence repeated everywhere. One caveat: this screenshot is from a signed-in browser, so it can vary by person and day
+
+## Effective SEO interventions (6:30–7:30)
+
+- Finally, which of our changes actually moved the rank. On day one we found and removed a hidden noindex header, and we were in the top four from the first check; the German version then gave us number one in Germany the next day
+- Not everything helped: much longer texts pushed us out of the top ten, because Google already understood us. What brought number one back in all three countries was merging our pages into one canonical page
+- This is correlation, not proof, because other teams changed their sites at the same time. Diego, over to you
