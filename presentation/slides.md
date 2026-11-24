@@ -322,7 +322,7 @@ title: 'What I noticed and what we changed'
 
 <div>
 
-- Our own pages mentioned beer and competed with each other; one clean page brought #1 back in all three countries
+- Our Meanings page mentioned beer, and several of our pages competed for the word; one clean page brought #1 back in all three countries
 
 </div>
 
