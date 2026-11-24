@@ -207,7 +207,7 @@ title: 'Analytics portal'
 <!--
 IAROSLAV · 1:00–1:45
 
-- To know whether anything works, we measure it every day. GitHub Actions checks our rank for the bare word in Germany, the US and the UK, in Google through the Serper API, a paid service that runs a Google search for a program and returns the results as data, like a clean browser set to a chosen country, without anyone’s personal history. It uses the same settings since 31 October, so we see trends, not one lucky screenshot. Brave is not part of the assessment; I track it through my Brave API key out of curiosity and to gather more data
+- To know whether anything works, we measure it every day. GitHub Actions checks our rank for the bare word in Germany, the US and the UK, in Google through the Serper API, a paid service that runs a Google search for a program and returns the results as data, like a clean browser set to a chosen country, without anyone’s personal history. It uses the same settings every day, so we see trends, not one lucky screenshot. Brave is not part of the assessment; I track it through my Brave API key out of curiosity and to gather more data
 - I also registered the site in Search Console and connected it through a Google Cloud service account, so the same robot reads its data and resubmits the sitemap after every publish
 - All of it is public on this dashboard and sits in the same repository as the pages, so the AI agent sees what we changed right next to what happened to our rank. Here is what it shows
 -->
@@ -230,7 +230,7 @@ IAROSLAV · 1:45–4:15
 - Here is our Google rank for the bare word, every day, in Germany, the US and the UK; orange dots are number one
 - Right after the first publish we were in the top four everywhere, and the German site gave us number one in Germany the next day
 - Then a long, stable second place in Germany behind one rival, while in the US and the UK other teams’ videos and posts pushed most team sites out of the top ten
-- After we merged our pages into one on 16 November, number one came back: in the US on 18 November, and in all three countries between 21 and 23 November
+- After we merged our pages into one, number one came back, first in the US and then in all three countries
 - The grey dots are gaps in our own tracker: on those days the search API it uses auto-corrected the word to similar names, so those checks are invalid
 -->
 
@@ -259,8 +259,8 @@ title: 'Search Console impressions'
 <!--
 IAROSLAV · 4:15–5:15
 
-- Search Console shows how Google sees us before anyone clicks. Most impressions, 1,485, come from the word grohnpetrel itself, so the main goal works
-- Almost a thousand more come from real seabird searches like “atlantic puffin”, which means Google files us under seabird education, the meaning we chose. We compete for the search engine’s attention, not for real visitors, so this is the number that matters for us
+- Search Console shows how Google sees us before anyone clicks. Most impressions come from the word grohnpetrel itself, so the main goal works
+- Many more come from real seabird searches like “atlantic puffin”, which means Google files us under seabird education, the meaning we chose. We compete for the search engine’s attention, not for real visitors, so impressions are what matter for us
 -->
 
 ---
@@ -292,8 +292,8 @@ title: 'Where AI answers cite us'
 <!--
 IAROSLAV · 5:15–6:30
 
-- Ranking is half of the task; the other half is AI answers. On 11 November Google’s AI Overview did not mention us at all, only other teams’ meanings
-- From 18 November Google’s AI Overview lists our meaning first and links our About page and our repository
+- Ranking is half of the task; the other half is AI answers. At first, Google’s AI Overview did not mention us at all, only other teams’ meanings
+- Now Google’s AI Overview lists our meaning first and links our About page and our repository
 - What made us citable is a public repository, a DOI archive and one sentence repeated everywhere. One caveat: this screenshot is from a signed-in browser, so it can vary by person and day
 -->
 
@@ -348,8 +348,8 @@ title: 'What I noticed and what we changed'
 IAROSLAV · 6:30–7:30
 
 - Finally, two moments when I noticed something in the data and we changed course
-- On 3 November we dropped out of the top ten in all three countries. I saw that the leading team’s German version was complete, so maybe Google thought theirs was the proper site to show in Germany. We built a full German localization, and on 4 November we were number one in Germany
-- On 12 November we were back at number two behind the drinks team. Our own Meanings page mentioned beer in its intro, table and description, which tied us to the drinks meaning, and our own pages were splitting the position between them. We removed the beer and merged everything into one canonical page on 16 November. Number one came back in the US on 18 November and in all three countries between 21 and 23 November
+- First, we dropped out of the top ten in all three countries. I saw that the leading team’s German version was complete, so maybe Google thought theirs was the proper site to show in Germany. We built a full German localization, and the next day we were number one in Germany
+- Later we were stuck at number two behind the drinks team. Our own Meanings page mentioned beer in its intro, table and description, which tied us to the drinks meaning, and our own pages were splitting the position between them. We removed the beer and merged everything into one canonical page. Number one came back, first in the US and then in all three countries
 - This is correlation, not proof, because other teams changed their sites at the same time. Diego, over to you
 -->
 
