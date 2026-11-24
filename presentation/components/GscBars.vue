@@ -2,7 +2,7 @@
 <script setup>
 import data from './chart-data.json'
 
-const W = 560, L = 34, R = 4, TOP = 22, PH = 170, MAX = 250
+const W = 560, L = 34, R = 4, TOP = 22, PH = 270, MAX = 250
 const n = data.gsc.length
 const bw = (W - L - R) / n
 const y = v => TOP + PH - (PH * v) / MAX
@@ -25,6 +25,6 @@ const label = d => `${+d.split('-')[1]} Nov`
     <text :x="W - 138" y="9" style="font-size: 8px" fill="#1d2b2f">Other searches (mostly seabird topics)</text>
     <rect :x="W - 150" y="13" width="8" height="8" fill="#143f48" />
     <text :x="W - 138" y="20" style="font-size: 8px" fill="#1d2b2f">“grohnpetrel”</text>
-    <text :x="W - R" :y="TOP + PH + 24" style="font-size: 7px" fill="#5b6b6f" text-anchor="end">Google Search Console, 02–21 Nov: 2,453 impressions, 50 clicks</text>
+    <text :x="W - R" :y="TOP + PH + 24" style="font-size: 7px" fill="#5b6b6f" text-anchor="end">Google Search Console, 02–22 Nov: 2,482 impressions</text>
   </svg>
 </template>
