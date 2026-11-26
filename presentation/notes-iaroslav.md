@@ -12,7 +12,7 @@ Your part, slides 6–11, 7.5 minutes. The same text is in the speaker notes of 
 
 ## Analytics portal (1:00–1:45)
 
-- To know whether anything works, we measure it every day. GitHub Actions checks our rank for the bare word in Germany, the US and the UK, in Google through the Serper API, a paid service that runs a Google search for a program and returns the results as data, like a clean browser set to a chosen country, without anyone’s personal history. It uses the same settings every day, so we see trends, not one lucky screenshot. Brave is not part of the assessment; I track it through my Brave API key out of curiosity and to gather more data
+- To know whether anything works, we measure it every day. GitHub Actions checks our rank for the bare word in Germany, the US and the UK, in Google through the Serper API, a service that runs a Google search for a program and returns the results as data, like a clean browser set to a chosen country, without anyone’s personal history; our daily checks fit in its free tier. It uses the same settings every day, so we see trends, not one lucky screenshot. Brave is not part of the assessment; I track it through my Brave API key out of curiosity and to gather more data
 - I also registered the site in Search Console and connected it through a Google Cloud service account, so the same robot reads its data and resubmits the sitemap after every publish
 - All of it is public on this dashboard and sits in the same repository as the pages, so the AI agent sees what we changed right next to what happened to our rank. Here is what it shows
 
@@ -33,7 +33,7 @@ Your part, slides 6–11, 7.5 minutes. The same text is in the speaker notes of 
 
 - Ranking is half of the task; the other half is AI answers. At first, Google’s AI Overview did not mention us at all, only other teams’ meanings
 - Later we saw Google’s AI Overview list our meaning first and link our About page and our repository, like in this screenshot
-- What made us citable is a public repository, a DOI archive and one sentence repeated everywhere. One caveat: AI answers are not deterministic, so the same question can get a different answer for another person or on another day
+- Why? We cannot prove it. One cheap experiment of mine was llms.txt: a short guide to our site written for language models, linked from every page. No AI provider confirms that it reads such files, so its effect is unmeasured, but it costs nothing
 
 ## What I noticed and what we changed (6:30–7:30)
 
