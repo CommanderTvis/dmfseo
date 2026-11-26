@@ -16,7 +16,7 @@ jobs:
         with:
           ref: gh-pages
           path: site
-      - uses: astral-sh/setup-uv@v10.3.3  # exact release: setup-uv has no floating major tags since v8
+      - uses: astral-sh/setup-uv@v10.4.0  # exact release: setup-uv has no floating major tags since v8
       - name: Search ranks
         # Manual runs reuse today's results instead of spending search API quota again.
         run: |
