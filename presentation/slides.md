@@ -96,39 +96,6 @@ Why we show this: every answer in the game comes from sourced facts on the same 
 -->
 
 ---
-layout: default
-title: 'Agenda'
----
-
-# Agenda
-
-<div class="agenda">
-<div><b>1</b><div><h3>Results and analysis</h3><span>Rankings · competitors · Search Console · AI answers · trends</span></div><i>Iaroslav</i><em>7.5 min</em></div>
-<div><b>2</b><div><h3>Strategy and implementation</h3><span>Objectives · technical SEO · GEO · decisions · content · off-site</span></div><i>Diego · Mario</i><em>5 + 2.5 min</em></div>
-<div><b>3</b><div><h3>Critical reflection</h3><span>What worked, what did not, surprises, lessons</span></div><i>Mario</i><em>5 min</em></div>
-<div><b>4</b><div><h3>Marketing plan for the CEO</h3><span>Decision · customers · prototype · 4 Ps · launch campaign · KPIs</span></div><i>Ayoyemi</i><em>6 min</em></div>
-<div><b>5</b><div><h3>Process and summary</h3><span>Project log · take-aways · your questions</span></div><i>Ayoyemi</i><em>1.5 min</em></div>
-</div>
-
-<p class="caption">Four speakers, 7.5 minutes each. Every number comes from our daily tracker, Google Search Console or a dated screenshot; plans and estimates are labelled.</p>
-
-<style>
-.agenda > div { display: grid; grid-template-columns: 2.2rem 1fr 8rem 5.5rem; align-items: center; padding: 0.42rem 0.8rem; border-radius: 7px; margin-bottom: 0.32rem; }
-.agenda > div:nth-child(odd) { background: var(--card); }
-.agenda b { font-family: var(--serif); color: var(--orange); font-size: 22px; }
-.agenda h3 { margin: 0; font-size: 14px; }
-.agenda div span { font-size: 11px; color: var(--muted); }
-.agenda i { font-style: normal; font-weight: 700; font-size: 12.5px; }
-.agenda em { font-style: normal; font-size: 12.5px; }
-</style>
-
-<!--
-DIEGO · 2:00–2:30
-
-We follow your criteria in this order. Everything we show is in our public repository and project log, so every number can be checked. Iaroslav, the results.
--->
-
----
 layout: section
 title: '1 · Results and analysis'
 ---
@@ -207,7 +174,7 @@ title: 'Analytics portal'
 <!--
 IAROSLAV · 1:00–1:45
 
-- To know whether anything works, we measure it every day. GitHub Actions checks our rank for the bare word in Germany, the US and the UK, in Google through the Serper API, a paid service that runs a Google search for a program and returns the results as data, like a clean browser set to a chosen country, without anyone’s personal history. It uses the same settings every day, so we see trends, not one lucky screenshot. Brave is not part of the assessment; I track it through my Brave API key out of curiosity and to gather more data
+- To know whether anything works, we measure it every day. GitHub Actions checks our rank for the bare word in Germany, the US and the UK, in Google through the Serper API, a service that runs a Google search for a program and returns the results as data, like a clean browser set to a chosen country, without anyone’s personal history; our daily checks fit in its free tier. It uses the same settings every day, so we see trends, not one lucky screenshot. Brave is not part of the assessment; I track it through my Brave API key out of curiosity and to gather more data
 - I also registered the site in Search Console and connected it through a Google Cloud service account, so the same robot reads its data and resubmits the sitemap after every publish
 - All of it is public on this dashboard and sits in the same repository as the pages, so the AI agent sees what we changed right next to what happened to our rank. Here is what it shows
 -->
@@ -276,7 +243,7 @@ title: 'Where AI answers cite us'
 
 - At first: only other teams
 - Later: our meaning first
-- Why: public repository, DOI archive, one sentence
+- Why: maybe llms.txt, a guide for AI
 
 </div>
 <div>
@@ -294,7 +261,7 @@ IAROSLAV · 5:15–6:30
 
 - Ranking is half of the task; the other half is AI answers. At first, Google’s AI Overview did not mention us at all, only other teams’ meanings
 - Later we saw Google’s AI Overview list our meaning first and link our About page and our repository, like in this screenshot
-- What made us citable is a public repository, a DOI archive and one sentence repeated everywhere. One caveat: AI answers are not deterministic, so the same question can get a different answer for another person or on another day
+- Why? We cannot prove it. One cheap experiment of mine was llms.txt: a short guide to our site written for language models, linked from every page. No AI provider confirms that it reads such files, so its effect is unmeasured, but it costs nothing
 -->
 
 ---
